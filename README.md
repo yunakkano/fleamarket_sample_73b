@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 
-ebata_test
+ebata_comment
