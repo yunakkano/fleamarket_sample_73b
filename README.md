@@ -26,3 +26,4 @@ Things you may want to cover:
 test comment nakano--
 test comment ebata
 test comment suzuki
+test comment ishiyama
