@@ -76,6 +76,11 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-# gem 'devise'
+# For User account management
+gem 'devise'
+# For front-end
 gem 'haml-rails'
 gem 'font-awesome-sass'
+# For image data handling
+gem 'carrierwave'
+gem 'mini_magick'
