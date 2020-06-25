@@ -10,11 +10,9 @@ CarrierWave.configure do |config|
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider: 'AWS',
-      # 以下rails 5.2系のencrypted credentials 利用時に有効にする
-      # aws_access_key_id: Rails.application.credentials.aws[:access_key_id],
-      # aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
-      aws_access_key_id: Rails.application.secrets.aws_access_key_id,
-      aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
+      # 以下rails 5.2系のencrypted credentials 利用
+      aws_access_key_id: Rails.application.credentials.aws[:access_key_id],
+      aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
       region: 'ap-northeast-1' # 東京はap-northeast-1
     }
     config.fog_directory  = 'fleamarket73b' #S3のバケット名
