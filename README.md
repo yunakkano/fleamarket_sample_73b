@@ -121,7 +121,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|brand|string|
+|brand|string|null: false|
 
 ### Association
 - has_many :items
