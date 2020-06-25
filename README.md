@@ -73,6 +73,7 @@
 |price|integer|null: false|
 |item_img|integer|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
+|brand|references|foreign_key: true|
 |item_condition|references|null: false, foreign_key: true|
 |postage_payer|references|null: false, foreign_key: true|
 |preparation_day|references|null: false, foreign_key: true|
@@ -80,6 +81,7 @@
 |prefecture_code|integer|null: false|
 |trading_status|enum|null: false|
 |seller|references|null: false, foreign_key: true|
+|buyer|references|foreign_key: true|
 
 ### Association
 - has_many :item_imgs, dependent: :destroy
