@@ -1,0 +1,2 @@
+class SendingDestination < ApplicationRecord
+end
