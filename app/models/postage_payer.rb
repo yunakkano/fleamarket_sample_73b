@@ -1,0 +1,2 @@
+class PostagePayer < ApplicationRecord
+end
