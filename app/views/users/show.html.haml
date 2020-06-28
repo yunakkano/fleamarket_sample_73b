@@ -1,0 +1,290 @@
+%main.l-container.clearfix
+  .l-content
+    %section.mypage-user-icon
+      %a{href: "https://www.mercari.com/jp/u/593500295/"}
+        %figure
+          %img{alt: "", height: "60", src: "//static.mercdn.net/thumb/members/593500295.jpg?1485573557", width: "60"}/
+        %h2.bold Tech1
+        .mypage-number
+          %div
+            評価
+            %span.bold 42
+          %div
+            出品数
+            %span.bold 37
+    %section.mypage-tab-container-notification-todo
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", href: "#mypage-tab-notification"}
+              お知らせ
+              %span.mypage-nav-number.hidden-large
+                99+
+        %li
+          %h3
+            %a{"data-toggle" => "tab", href: "#mypage-tab-todo"}
+              やることリスト
+              %span.mypage-nav-number.hidden-large
+                1
+      .tab-content
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+                %time
+                  %i.icon-time
+                  %span 0 秒前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", href: ""}
+              %figure
+                %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 《メルカリｘマイナポイントがお得》メルカリで買うと最大でP5,000+P1,000もらえる！事前準備はこちら
+                %time
+                  %i.icon-time
+                  %span 1 日前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", href: ""}
+              %figure
+                %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 《最大P1,000もらえる♪》dアカウント連携してGETしよう！ドコモ以外も全員対象！
+                %time
+                  %i.icon-time
+                  %span 5 日前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「商品削除のお知らせ」
+                %time
+                  %i.icon-time
+                  %span 6 日前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+                %time
+                  %i.icon-time
+                  %span 6 日前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a{href: "/jp/mypage/notification/"} 一覧を見る
+        %ul#mypage-tab-todo.mypage-item-list.tab-pane
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/mypage/email_password/"}
+              %figure
+                %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text メールが届いていない状態です。設定しているメールアドレスをご確認ください
+                %time
+                  %i.icon-time
+                  %span 48 日前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a{href: "/jp/mypage/todo/"} 一覧を見る
+    %aside.modal{"data-close" => "modal", "data-modal" => "banner"}
+      .modal-inner.modal-banner
+        .modal-banner-eye-catch
+          %img{alt: "", src: "//pcweb-assets.mercdn.net/assets/img/common/jp/top/main_content_pc.png?3708682721"}/
+          %img{alt: "", src: "//pcweb-assets.mercdn.net/assets/img/common/common/logo.svg?3708682721"}/
+        .modal-banner-body
+          %h2 今すぐ無料ダウンロード！
+          %p.bold 全ての機能を使えるスマホアプリはこちら！
+          .modal-banner-app.clearfix
+            %a.pull-left{href: "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "_blank"}
+              %img{alt: "", src: "//pcweb-assets.mercdn.net/assets/img/common/common/app-store.svg?3708682721"}/
+            %a.pull-left{href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", target: "_blank"}
+              %img{alt: "", src: "//pcweb-assets.mercdn.net/assets/img/common/common/google-play.svg?3708682721"}/
+          %a.modal-banner-app-open{"data-action" => "app/launch", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://", href: ""}
+            アプリで開く
+        %i.icon-close{"data-close" => "modal"}
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 購入した商品
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", href: "#mypage-tab-transaction-now"}
+              取引中
+        %li
+          %h3
+            %a{"data-toggle" => "tab", href: "#mypage-tab-transaction-old"}
+              過去の取引
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+        %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/transaction/order_status/m95269895967/"}
+              %figure
+                %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m95269895967_1.jpg?1579615319"}/
+              .mypage-item-body
+                .mypage-item-text
+                  「siroca 4L 電気圧力鍋　ホワイト SP-4D171 シロカ」 を購入しました。
+                  %span 取引が完了しました
+                .mypage-item-status.bold.done
+                  取引完了
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/transaction/order_status/m55596442625/"}
+              %figure
+                %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m55596442625_1.jpg?1574080785"}/
+              .mypage-item-body
+                .mypage-item-text
+                  「CFP 精選過去問題集 2018〜2019年  ライフプランニング」 を購入しました。
+                  %span 取引が完了しました
+                .mypage-item-status.bold.done
+                  取引完了
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/transaction/order_status/m46215870580/"}
+              %figure
+                %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m46215870580_1.jpg?1574080587"}/
+              .mypage-item-body
+                .mypage-item-text
+                  「CFP 精選過去問題集 2018〜2019年  リスクと保険」 を購入しました。
+                  %span 取引が完了しました
+                .mypage-item-status.bold.done
+                  取引完了
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/transaction/order_status/m24534089083/"}
+              %figure
+                %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m24534089083_1.jpg?1574080385"}/
+              .mypage-item-body
+                .mypage-item-text
+                  「CFP 精選過去問題集 2018〜2019年  不動産運用設計」 を購入しました。
+                  %span 取引が完了しました
+                .mypage-item-status.bold.done
+                  取引完了
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{href: "https://www.mercari.com/jp/transaction/order_status/m67053114610/"}
+              %figure
+                %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m67053114610_1.jpg?1574080256"}/
+              .mypage-item-body
+                .mypage-item-text
+                  「CFP 精選過去問題集 2018〜2019年 金融資産運用設計」 を購入しました。
+                  %span 取引が完了しました
+                .mypage-item-status.bold.done
+                  取引完了
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a{href: "/jp/mypage/purchased/"} 一覧を見る
+  .l-side
+    %nav.mypage-nav
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item.active{href: "/jp/mypage/"}
+            マイページ
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/notification/"}
+            お知らせ
+            %span.mypage-nav-number
+              99+
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/todo/"}
+            やることリスト
+            %span.mypage-nav-number
+              1
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/like/history/"}
+            いいね！一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/sell/"}
+            出品する
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/drafts/"}
+            下書き一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/listings/listing/"}
+            出品した商品 - 出品中
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/listings/in_progress/"}
+            出品した商品 - 取引中
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/listings/completed/"}
+            出品した商品 - 売却済み
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/purchase/"}
+            購入した商品 - 取引中
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/purchased/"}
+            購入した商品 - 過去の取引
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/news/"}
+            ニュース一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/review/history/"}
+            評価一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/help_center/"}
+            ガイド
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/support/"}
+            お問い合わせ
+            %i.icon-arrow-right
+      %h3.mypage-nav-head メルペイ
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/sales/"}
+            残高・振込申請
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/point/"}
+            ポイント
+            %i.icon-arrow-right
+      %h3.mypage-nav-head 設定
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/profile/"}
+            プロフィール
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/deliver_address/"}
+            発送元・お届け先住所変更
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/card/"}
+            支払い方法
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/email_password/"}
+            メール/パスワード
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/identification/"}
+            本人情報
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/mypage/sms_confirmation/"}
+            電話番号の確認
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{href: "/jp/logout/"}
+            ログアウト
+            %i.icon-arrow-right
