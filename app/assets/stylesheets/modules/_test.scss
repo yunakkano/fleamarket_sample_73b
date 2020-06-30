@@ -1,18 +1,33 @@
+.lazyload {
+	opacity: 0;
+}
+.lazyloading {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+	-webkit-transition: opacity .3s;
+	transition: opacity .3s;
+}
+
 .l-container {
 	margin: 40px auto 0;
 	width: 1020px;
-	display: flex;
 	.l-side {
-		width: 700px;
-		// float: left;
 		width: 280px;
+		float: left;
 		margin: 0 40px 0 0;
-		*+.l-visible-large {
-			margin: 40px 0 0;
-		}
+		padding: 0;
+		background-repeat: no-repeat;
+		border-style: solid;
+		border-width: 0;
 		.mypage-nav-list {
 			border-bottom: 1px solid #eee;
 			li {
+				display: list-item;
+				a {
+					text-decoration: none;
+				}
 				&:first-child {
 					border-top: 1px solid #eee;
 				}
@@ -24,7 +39,6 @@
 					background: #fff;
 					font-size: 14px;
 					color: #333;
-					//y
 					.icon-arrow-right {
 						position: absolute;
 						top: 50%;
@@ -50,11 +64,22 @@
 						transform: translate(0, -50%);
 					}
 				}
+				.mypage-nav-list-item.active {
+					background: #eee;
+					font-weight: 600;
+				}
 			}
 		}
 	}
 	.l-content {
-		width: 100%;
+		width: 700px;
+		float: right;
+		background-repeat: no-repeat;
+		margin: 0;
+		padding: 0;
+		border-style: solid;
+		border-width: 0;
+		display: block;
 		.mypage-user-icon {
 			position: relative;
 			height: 155px;
