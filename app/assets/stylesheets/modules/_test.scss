@@ -107,7 +107,7 @@
 				}
 				&:nth-child(2) {
 					>a {
-						background-image: url("icon_brand.svg");
+						background-image: url("icon_brand.png");
 					}
 				}
 			}
@@ -115,7 +115,7 @@
 				text-decoration: none;
 				padding: 0;
 				>a {
-					background-image: url("icon_category.svg");
+					background-image: url("icon_category.png");
 				}
 			}
 			.listsRight {
@@ -296,7 +296,7 @@
 			position: relative;
 			height: 155px;
 			padding: 20px;
-			background: url("/jp/assets/img/mypage/user-bg.jpg?24836661");
+			background: url("");
 			background-repeat: no-repeat;
 			background-size: cover;
 			text-align: center;
