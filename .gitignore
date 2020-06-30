@@ -27,3 +27,4 @@
 /config/master.key
 
 public/uploads/*
+app/assets/images/.DS_Store
