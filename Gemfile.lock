@@ -154,6 +154,7 @@ GEM
     ipaddress (0.8.3)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    jp_prefecture (0.10.0)
     kgio (2.11.3)
     libv8 (7.3.492.27.1)
     listen (3.1.5)
@@ -323,6 +324,7 @@ DEPENDENCIES
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
+  jp_prefecture
   listen (>= 3.0.5, < 3.2)
   mini_magick
   mini_racer
