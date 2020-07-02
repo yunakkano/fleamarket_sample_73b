@@ -48,9 +48,13 @@
       %br/
       = adr.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code,:name, include_blank: '都道府県'
     .field
-      = adr.label :house_number
+      = adr.label :city
       %br/
-      = adr.text_field :house_number
+      = adr.text_field :city
+    .field
+      = adr.label :street_number
+      %br/
+      = adr.text_field :street_number
     .field
       = adr.label :building_name
       %br/
