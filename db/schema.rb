@@ -150,5 +150,4 @@ ActiveRecord::Schema.define(version: 2020_06_29_130914) do
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "sending_destinations", "users"
-
 end
