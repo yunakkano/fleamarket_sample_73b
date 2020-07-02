@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   devise_scope :user do
-    get 'profiles', to: 'users/registrations#new_profile'
-    post 'profiles', to: 'users/registrations#create_profile'
+    get 'profiles', to: 'users/registrations#new_profile_address'
+    post 'profiles', to: 'users/registrations#create_profile_address'
   end
   root 'users#show'
 end
