@@ -38,10 +38,10 @@
 |dest_first_name_kana|string|null: false|
 |dest_family_name_kana|string|null: false|
 |building_name|string|
-|post_code|integer|null: false|
+|post_code|string|null: false|
 |prefecture_code|integer|null: false|
 |house_number|string|null: false|
-|phone_number|integer|unique: true|
+|phone_number|string|unique: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
