@@ -57,8 +57,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :dest_first_name,       :dest_family_name,
       :dest_first_name_kana,  :dest_family_name_kana,
       :building_name,         :post_code,
-      :prefecture_code,       :house_number,
-      :phone_number
+      :prefecture_code,       :city,
+      :street_number,         :phone_number
     )
   end
 
