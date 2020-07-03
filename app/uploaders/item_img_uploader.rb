@@ -1,11 +1,10 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class ItemImgUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  process resize_to_fit: [50, 50]
+  process resize_to_fit: [100, 100]
   # Choose what kind of storage to use for this uploader:
-  # 環境ごとに保存先変更/デフォルトではstorage :fileがコメントアウトで入っている
   if Rails.env.development? || Rails.env.test? 
     storage :file
   else
@@ -38,20 +37,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  process resize_to_fit: [200, 300]
-
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # アップロードできる拡張子を制限
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-
   def filename
     "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
   end
