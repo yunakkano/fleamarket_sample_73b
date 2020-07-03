@@ -9,16 +9,10 @@
     .main-box__form
       = form_for @profile , html:{ class: "form" } do |f|
         = render "devise/shared/error_messages", resource: @profile
-        .form-group
-          .form-group__name
-            .label-group
-              = f.label :first_name, class: "label-group__label"
-              .label-group__require
-                必須
-            .input
-              .input-half
-                = f.text_field :family_name,  class: "input-half__left"
-                = f.text_field :first_name,   class: "input-half__right"
+        .field
+          = f.label :first_name
+          %br/
+          = f.text_field :first_name
         .field
           = f.label :family_name
           %br/
