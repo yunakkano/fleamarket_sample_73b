@@ -36,12 +36,6 @@ ActiveRecord::Schema.define(version: 2020_06_29_130914) do
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
-  create_table "item_conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "item_condition", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "item_imgs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "url", null: false
     t.datetime "created_at", null: false
@@ -54,8 +48,11 @@ ActiveRecord::Schema.define(version: 2020_06_29_130914) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.integer "item_img", null: false
     t.bigint "category_id", null: false
+    t.integer "item_condition_id", null: false
+    t.integer "postage_payer_id", null: false
+    t.integer "preparation_day_id", null: false
+    t.integer "postage_type_id", null: false
     t.integer "prefecture_code", null: false
     t.integer "trading_status", limit: 1, null: false
     t.bigint "buyer_id"
@@ -63,36 +60,10 @@ ActiveRecord::Schema.define(version: 2020_06_29_130914) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
-    t.bigint "item_condition_id", null: false
-    t.bigint "postage_payer_id", null: false
-    t.bigint "preparation_day_id", null: false
-    t.bigint "postage_type_id", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
-    t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
-    t.index ["postage_type_id"], name: "index_items_on_postage_type_id"
-    t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
-  end
-
-  create_table "postage_payers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postage_payer", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "postage_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postage_type", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "preparation_days", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "preparation_day", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -142,10 +113,6 @@ ActiveRecord::Schema.define(version: 2020_06_29_130914) do
   add_foreign_key "item_imgs", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "item_conditions"
-  add_foreign_key "items", "postage_payers"
-  add_foreign_key "items", "postage_types"
-  add_foreign_key "items", "preparation_days"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
