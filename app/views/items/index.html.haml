@@ -5,7 +5,7 @@
         %a(href="/")
           = image_tag 'logo/logo.png', class: 'logo'
       .search
-        = render partial: 'form'
+        = render partial: 'searchbar'
     .nav
       %ul.nav__left
         %li.nav__left__item--first
@@ -13,10 +13,17 @@
         %li.nav__left__item
           %a#brandBtn(href="#")ブランド
       %ul.nav__right
-        %li.nav__right__item--login
-          %a(href="#")ログイン
-        %li.nav__right__item--regist
-          %a(href="#")新規会員登録
+        - if user_signed_in?
+          %li.nav__right__item--login
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+            -# %a(href="#")ログアウト
+        - else
+          %li.nav__right__item--login
+            -# %a(href="#")ログイン
+            = link_to "ログイン", new_user_session_path
+          %li.nav__right__item--regist
+            -# %a(href="#")新規会員登録
+            = link_to "新規会員登録", new_user_registration_path
 .main
   .visual
     .visualBox
@@ -266,7 +273,7 @@
       = image_tag 'logo/logo-white.png'
   %p
     © FURIMA
-%a.fixedBtn(href="#")
+-# = link_to '出品する', new_item_path, {class: "fixedBtn"}
+%a.fixedBtn(href="/items/new")
   .fixedBtn__text
-    = link_to '出品する', new_item_path
   = image_tag 'icon/icon_camera.png', class: 'fixedBtn__icon'
