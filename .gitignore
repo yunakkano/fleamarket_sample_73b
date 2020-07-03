@@ -29,3 +29,4 @@
 public/uploads/*
 db/.DS_Store
 db/migrate/.DS_Store
+.DS_Store
