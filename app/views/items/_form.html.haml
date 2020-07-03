@@ -33,7 +33,7 @@
               .field
                 = f.label :category
                 %br/
-                = f.collection_select :category_id, Category.all, :id, :category
+                = f.collection_select :category_id, Category.all, :id, :category, :class "category_select"
             .brand-all
               .brand
                 %label ブランド
