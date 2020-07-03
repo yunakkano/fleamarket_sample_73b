@@ -30,3 +30,5 @@ public/uploads/*
 app/assets/images/.DS_Store
 app/assets/stylesheets/modules/.DS_Store
 app/views/devise/registrations/.DS_Store
+db/.DS_Store
+db/migrate/.DS_Store
