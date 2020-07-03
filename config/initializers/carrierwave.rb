@@ -16,7 +16,7 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1' # 東京はap-northeast-1
     }
     config.fog_directory  = 'fleamarket73b' #S3のバケット名
-    config.asset_host = 'https://s3-your_region.amazonaws.com/fleamarket73b'
+    config.asset_host = 'https://s3-your_region.amazonaws.com' #カリキュラムではこの跡にバケット名が入っているが、それは間違い
   else
     config.storage :file # 開発環境:public/uploades下に保存
     config.enable_processing = false if Rails.env.test? #test:処理をスキップ
