@@ -1,5 +1,8 @@
 = link_to '出品', new_item_path
 %br/
 .contents
-  = @items.each do |item|
+  != @items.each do |item|
     = item.name
+    %br/
+    != item.item_imgs.each do |image|
+      = image_tag image.url.url
