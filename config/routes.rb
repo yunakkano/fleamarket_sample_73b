@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+  devise_scope :user do
+    get 'profiles', to: 'users/registrations#new_profile_address'
+    post 'profiles', to: 'users/registrations#create_profile_address'
+  end
+
   root 'items#index'
 
   resources :items, except: :show

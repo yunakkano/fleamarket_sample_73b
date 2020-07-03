@@ -22,9 +22,7 @@
 |family_name|string|null: false|
 |first_name_kana|string|null: false|
 |family_name_kana|string|null: false|
-|birth_year|date|null: false|
-|birth_month|date|null: false|
-|birth_day|date|null: false|
+|birthday|date|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -40,10 +38,11 @@
 |dest_first_name_kana|string|null: false|
 |dest_family_name_kana|string|null: false|
 |building_name|string|
-|post_code|integer|null: false|
+|post_code|string|null: false|
 |prefecture_code|integer|null: false|
-|house_number|string|null: false|
-|phone_number|integer|unique: true|
+|city|string|null: false|
+|street_number|string|null: false|
+|phone_number|string|unique: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
