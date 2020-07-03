@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     get 'profiles', to: 'users/registrations#new_profile_address'
     post 'profiles', to: 'users/registrations#create_profile_address'
   end
-  root 'users#show'
+
+  root 'items#index'
+
+  resources :items, except: :show
 end

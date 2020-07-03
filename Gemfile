@@ -87,4 +87,7 @@ gem 'mini_magick'
 gem 'fog-aws'
 
 # For creating sending_destination
+gem 'pry-rails'
+gem 'jquery-rails'
+gem 'active_hash'
 gem 'jp_prefecture'
