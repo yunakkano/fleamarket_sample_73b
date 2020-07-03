@@ -1,0 +1,456 @@
+@mixin backVisual($url, $position) {
+  background-image: url($url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: $position;
+}
+@mixin textShadow {
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+@mixin after {
+  content: '';
+  height: 4px;
+  width: 70px;
+  background-color: $blue;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin dlBtn {
+  margin-top: 30px;
+  display: flex;
+  img:hover {
+    opacity: 0.5;
+  }
+  .downloadBtn {
+    width: 180px;
+  }
+  .aBtn {
+    margin-right: 10px;
+  }
+}
+
+.header {
+  padding: 0 60px;
+  .headerBox {
+    height: 90px;
+    width: 100%;
+    max-width: 1040px;
+    padding: 15px 0 0;
+    margin: 0 auto;
+    .mainHeader {
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      .topLogo {
+        margin-right: 30px;
+        .logo {
+          width: 140px;
+        }
+      }
+      .search {
+        width: 100%;
+        margin-left: auto;
+        form {
+          height: 34px;
+          display: flex;
+          input {
+            width: calc(100% - 26px);
+            padding-left: 5px;
+          }
+          button {
+            width: 36px;
+            padding: 8px;
+            background-color: $blue;
+            border: none;
+            cursor: pointer;
+            .icon {
+              .icon-image {
+                height: 20px;
+                width: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .nav {
+      font-size: 14px;
+      display: flex;
+      a {
+        color: $black;
+        list-style: none;
+        text-decoration: none;
+      }
+      &__left {
+        display: flex;
+        &__item--first {
+          margin-right: 40px;
+        }
+        a:hover {
+          color: $orange;
+        }
+      }
+      &__right {
+        margin-left:  auto;
+        display: flex;
+        &__item--login {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+.main {
+  .visual {
+    height: 560px;
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    @include backVisual('pict/bg-mainVisual-pict_pc.jpg', top center);
+    .visualBox {
+      width: 100%;
+      max-width: 1280px;
+      padding-top: 110px;
+      margin: 0 auto;
+      color: $white;
+      @include textShadow;
+      &__title {
+        font-size: 60px;
+        line-height: 1.2;
+      }
+      &__text {
+        font-size: 18px;
+        padding-top: 25px;
+        line-height: 1.8;
+      }
+      &__btn {
+        @include dlBtn;
+      }
+    }
+  }
+  .intro {
+    padding: 60px 20px;
+    .subtitle {
+      padding-bottom: 15px;
+      margin-bottom: 45px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+    }
+    .subtitle::after {
+      @include after;
+    }
+    .introList {
+      width: 100%;
+      max-width: 1020px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      &__item {
+        width: 30%;
+        margin-right: 5%;
+        align-items: center;
+        text-align: center;
+        &--last {
+          margin: 0;
+        }
+        &__pict {
+          margin-bottom: 20px;
+          position: relative;
+          .number {
+            height: 55px;
+            width: 55px;
+            background-color: $blue;
+            color: $white;
+            font-size: 30px;
+            text-align: center;
+            line-height: 55px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border-radius: 4%;
+          }
+          .pict-reason {
+            width: 100%;
+          }
+        }
+        &__text {
+          font-size: 24px;
+          font-weight: bold;
+          span {
+            color: $blue;
+          }
+        }
+        &__description {
+          font-size: 18px;
+          margin: 24px 0 0;
+          display: inline-block;
+          text-align: left;
+        }
+      }
+    }
+  }
+  .topDl {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    @include backVisual('pict/bg-topMiddleDl-pict.jpg', bottom right);
+    .topDlBox {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      color: $white;
+      @include textShadow;
+      &__title {
+        font-size: 27px;
+        font-weight: bold;
+      }
+      &__text {
+        font-size: 18px;
+        margin: 20px 0 30px 0;
+        line-height: 1.4;
+
+      }
+      &__btn {
+        @include dlBtn;
+      }
+    }
+  }
+  .feature {
+    padding: 60px 100px;
+    background-color: $white;
+    .subtitle {
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+    }
+    .subtitle::after {
+      @include after;
+    }
+    .featureList {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      &__item {
+        width: 30%;
+        padding: 0 20px;
+        align-items: center;
+        text-align: center;
+        &__pict {
+          width: 70%;
+          margin: 0 auto;
+          .pict-reason {
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+        &__text {
+          margin: 35px 0 10px;
+          font-size: 19px;
+          font-weight: bold;
+        }
+        &__description {
+          margin: 0 0 35px;
+          font-size: 16px;
+          text-align: left;
+          display: inline-block;
+        }
+      }
+    }
+  }
+  .product {
+    padding: 80px 0 35px;
+    background-color: $lightgray;
+    .subtitle {
+      margin-bottom: 5px;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .productBox {
+      .productHead {
+        text-align: center;
+        margin-bottom: 15px;
+        a {
+          color: $blue;
+          font-size: 24px;
+          text-decoration: none;
+          title {
+            font-weight: bold;
+          }
+        }
+      }
+      .productLists {
+        width: 60%;
+        margin: 0px auto;
+        display:flex;
+        justify-content: space-around;
+        .productList {
+          margin-right: 10px;
+          a {
+            background-color: $white;
+            display: inline-block;
+            text-decoration: none;
+          }
+          &__img {
+            height: 150px;
+            width: 220px;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            z-index: auto;
+            img {
+              height: 150px;
+              width: 220px;
+              position: absolute;
+              top: 0px;
+              right: 0px;
+              bottom: 0px;
+              left: 0px;
+              object-fit: cover;
+            }
+          }
+          &__content {
+            padding: 15px;
+            background-color: $white;
+            color: $black;
+            .name {
+              font-size: 15px;
+              line-height: 1.8;
+              text-align: left;
+              overflow: hidden;
+            }
+            .details {
+              font-size: 15px;
+              ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                li {
+                  .likeIcon {
+                    font-size: 15px;
+                    display: inline-block;
+                  }
+                }
+              }
+              p {
+                font-size: 10px;
+                text-align: left;
+              }
+            }
+          }
+        }
+        .productList:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  #last-product {
+    padding-bottom: 80px;
+  }
+  .bottomDl {
+    padding: 100px 40px;
+    @include backVisual('pict/bg-appBanner-pict.jpg', center);
+    .bottomDlBox {
+      color: $white;
+      text-align: center;
+      &__title {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+        @include textShadow;
+      }
+      &__text {
+        font-size: 35px;
+        @include textShadow;
+      }
+      &__btn {
+        justify-content: center;
+        @include dlBtn;
+      }
+    }
+  }
+}
+
+.footer {
+  padding: 60px 0;
+  background-color: $black;
+  color: $white;
+  text-align: center;
+  .contents {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .content {
+      width: 33%;
+      margin-right: 3%;
+      &__head {
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      ul {
+        li {
+          a {
+            color: $white;
+            font-size: 12px;
+            line-height: 32px;
+            text-decoration: none;
+          }
+          a:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  &__logo {
+    width: 100%;
+    max-width: 160px;
+    margin: 0 auto;
+    a {
+      img {
+        width: 160px;
+        vertical-align: bottom;
+      }
+    }
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.fixedBtn {
+  width: 120px;
+  padding: 12px 0;
+  background-color: $blue;
+  text-align: center;
+  border-radius: 5%;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  text-decoration: none;
+  &__text {
+    margin-bottom: 5px;
+    color: $white;
+    font-size: 18px;
+    display: block;
+  }
+  &__icon {
+    height: 54px;
+    width: 54px;
+  }
+}
+.fixedBtn:hover {
+  opacity: 0.9;
+}
+
