@@ -21,6 +21,8 @@ gem 'mini_racer'
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -85,3 +87,6 @@ gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+
+#For Payment system
+gem 'payjp'

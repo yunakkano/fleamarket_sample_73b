@@ -151,8 +151,6 @@
     width: 100vw;
     
     &__top-content{
-      display: flex;
-      justify-content: space-around;
       padding: 30px 250px 0;
       font-size: 14px;
       &__object-1{
@@ -162,10 +160,12 @@
       &__object-2{
         text-decoration: none;
         color: black;
+        margin-left: 30px;
       }
       &__object-3{
         text-decoration: none;
         color: black;
+        margin-left: 30px;
       }
     }
     &__logo{
