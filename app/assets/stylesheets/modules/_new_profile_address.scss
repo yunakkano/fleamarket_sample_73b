@@ -1,0 +1,91 @@
+// .header {
+//     height: 128px;
+//     width: 100vw;
+//     background-color: red;
+//   }
+  
+//   .main{
+//     height: 532px;
+//     width: 100vw;
+//     background-color: blue;
+//     &-box {
+//       background-color: green;
+//       width: 700px;
+//       margin: 0 auto 40px ;
+//       &__header {
+//         height: 97px;
+//         background-color: yellow;
+//         &__info {
+//           margin: 0 auto 40px 40px;
+//           background-color: white;
+//           width: 636px;
+//           text-align: center;
+//           padding-top: 40px;
+//         }
+//       }
+//       &__border {
+//         height: 1px;
+//         background-color: white;
+//       }
+//       &__form {
+//         height: 394px;
+//         margin: 40px 40px 0 40px;
+//         background-color: violet;
+//       }
+//     }
+//   }
+  
+//   .form {
+//     width: 343px;
+//     background-color: white;
+//     margin: 0 auto ;
+//     &-group {
+//       width: 343px;
+//       margin: 0 auto;
+//       text-align: center;
+//       border: none;
+//       height: 50px;
+//       margin-top: 15px;
+//       background-color: blue;
+//       .contents__btn {
+//         text-decoration: none;
+//         font-size: 14px;
+//         line-height: 50px;
+//         border-radius: 10px;
+//         display: block;
+//       }
+//       .contents__btn__google {
+//         text-decoration: none;
+//         font-size: 14px;
+//         line-height: 50px;
+//         display: block;
+//       }
+//       .contents__btn__facebook {
+//         text-decoration: none;
+//         font-size: 14px;
+//         line-height: 50px;
+//         display: block;
+//       }
+//       .contents__btn__apple {
+//         text-decoration: none;
+//         font-size: 14px;
+//         line-height: 50px;
+//         display: block;
+  
+//       }
+//       }
+//     }
+  
+//   .footer {
+//     width: 100vw;
+//     height: 220px;
+//     background-color: pink;
+//     &-box {
+//       margin: 0 auto;
+//       height: 200px;
+//       width: 456px;
+//       text-align: center;
+//       padding-top: 40px;
+//     }
+  
+//   }
