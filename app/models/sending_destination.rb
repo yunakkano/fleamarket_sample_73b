@@ -15,6 +15,5 @@ class SendingDestination < ApplicationRecord
   validates :phone_number, format: {with: /\A\d{11}\z/, message: "ハイフン無しで11桁の数字を入力してください。"}
 
   validates :post_code, :prefecture_code, :street_number, presence: true
-  #市区町村の形式は？　郵便番号から自動フィルを実装
 
 end
