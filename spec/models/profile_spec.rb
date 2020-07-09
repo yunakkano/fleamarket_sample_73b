@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe User do
+describe Profile do
   describe '#create' do
     it "first_name, family_name, first_name_kana, family_name_kana birthdayが存在すれば登録できること" do
         profile = build(:profile)
