@@ -91,3 +91,7 @@ gem 'pry-rails'
 gem 'jquery-rails'
 gem 'active_hash'
 gem 'jp_prefecture'
+
+# For payjp
+gem 'payjp'
+gem 'dotenv'
