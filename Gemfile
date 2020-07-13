@@ -91,6 +91,7 @@ gem 'fog-aws'
 # For creating sending_destination
 gem 'pry-rails'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'active_hash'
 gem 'jp_prefecture'
 
