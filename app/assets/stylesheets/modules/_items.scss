@@ -1,5 +1,5 @@
 @mixin backVisual($url, $position) {
-  background-image: url($url);
+  background-image: url(image-path($url));
   background-size: cover;
   background-repeat: no-repeat;
   background-position: $position;
