@@ -70,6 +70,7 @@ $(document).on('turbolinks:load', function(){
 
     // 画像の削除
     $(document).on('click', '.delete-box', function() {
+      var count = $('.preview-box').length;
       setLabel(count);
       //item_images_attributes_${id}_image から${id}に入った数字のみを抽出
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
