@@ -1,136 +1,126 @@
-%body
-  = form_for @item do |f|
-    .superall
-      .all
-        %header
-          .logo
-            %img{ src: "/assets/logo.png", height: "80", width: "300" }
-        .center
-          .goods-photo
-            #image-box
-              = f.fields_for :item_imgs do |i|
-                = i.file_field :url
-          %hr.border/
-          .goods-all
-            .goods
-              %label 商品名
+= form_for @item do |f|
+  .superall
+    .all
+      %header
+        .logo
+          = image_tag "logo.png", height: "80", width: "300" 
+      .main
+        .goods-photo
+          #image-box
+            .label-box__inner
+              %label 出品画像
               %span.must 必須
-            .goods_name
-              = f.text_field :name, class: "goods_name_field"
-              %br/
-            .goods_about
-              %label 商品の説明
+            .image
+              %label.ccc
+                %form
+                  %input#image{accept: "image/*", onchange: "previewImage(this);", type: "file"}/
+                .image_form
+                  %i.fa{class: "fa-camera"}
+                  %canvas#preview
+                  :javascript
+                    function previewImage(obj)
+                    {
+                        var fileReader = new FileReader();
+                        fileReader.onload = (function() {
+                            var canvas = document.getElementById('preview');
+                            var ctx = canvas.getContext('2d');
+                            var image = new Image();
+                            image.src = fileReader.result;
+                            image.onload = (function () {
+                                canvas.width = image.width;
+                                canvas.height = image.height;
+                                ctx.drawImage(image, 0, 0);
+                            });
+                        });
+                        fileReader.readAsDataURL(obj.files[0]);
+                    }
+        %hr.border/
+        .goods-all
+          .goods
+            %label 商品名
+            %span.must 必須
+          .goods_name
+            = f.text_field :name, class: "goods_name_field", placeholder: "40字まで"
+            %br/
+          .goods_about
+            %label 商品の説明
+            %span.must 必須
+          = f.text_area :introduction, class: "goods_introduction_field", placeholder: "商品の説明（必須 1,000文字以内）(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        %hr.border/
+        .details
+          %p.detail 商品の詳細
+          .category
+            %label カテゴリー
+            %span.must 必須
+          .category_type
+            .field
+              = f.collection_select( :category_id, Category.all, :id, :category, {prompt: "選択してください"}, {class: "select_field"})
+          .brand-all
+            .brand
+              %label ブランド
+              %span.arbitrary 任意
+            .brand_type
+              = f.text_field :name, class: "select_field", placeholder: "例）シャネル"
+          .goods-status-all
+            .goods-status
+              %label 商品の状態
               %span.must 必須
-            = f.text_field :introduction, class: "goods_introduction_field"
-            -# %textarea.goods_field{:name => "description", :placeholder => "商品の説明（必須 1,000文字以内）(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "7"}
-          %hr.border/
-          .details
-            %p.detail 商品の詳細
-            .category
-              %label カテゴリー
-              %span.must 必須
-            .category_type
+            .status-select
               .field
-                = f.label :category
-                %br/
-                = f.collection_select :category_id, Category.all, :id, :category
-            .brand-all
-              .brand
-                %label ブランド
-                %span.arbitrary 任意
-              .brand_type
-                = f.collection_select :brand_id, @brands, :id, :brand
-                -# = f.text_field :brand, class: "brand_select", :placeholder => "例）シャネル"
-    
-            .goods-status-all
-              .goods-status
-                %label 商品の状態
-                %span.must 必須
-                %div
-                  .status-select
-                    .field
-                      = f.label :item_condition
-                      %br/
-                      = f.collection_select :item_condition_id, ItemCondition.all, :id, :name
-          %hr.border/
-          .delivery
-            %p.delivery_about
-              配送について
-              %a{:href => "/jp/help_center/article/68/", :rel => "noopener noreferrer", :target => "_blank"}
-                %svg.sc-ESoVU.emlFbt{"aria-hidden" => "true", :fill => "#222222", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-                  %path{:d => "M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18.6A8.6,8.6,0,1,1,20.6,12,8.61,8.61,0,0,1,12,20.6Z"}
-                  %path{:d => "M14.18,7.52A2.72,2.72,0,0,0,13.25,7a3.16,3.16,0,0,0-1.17-.2A3.12,3.12,0,0,0,10,7.43,2.92,2.92,0,0,0,9,9.27c0,.12,0,.18.12.19l1.4.22c.09,0,.15,0,.17-.13a1.63,1.63,0,0,1,.44-.91A1.2,1.2,0,0,1,12,8.31a1.17,1.17,0,0,1,.88.33,1.15,1.15,0,0,1,.33.83,1.62,1.62,0,0,1-.12.61,3.46,3.46,0,0,1-.41.67l-1.23,1.67a2.53,2.53,0,0,0-.31.58,2.51,2.51,0,0,0-.09.75v.63a.14.14,0,0,0,.16.16h1.44a.14.14,0,0,0,.16-.16v-.45a1.7,1.7,0,0,1,.07-.56,1.31,1.31,0,0,1,.24-.42l1.22-1.67A2.93,2.93,0,0,0,15,9.46a2.62,2.62,0,0,0-.22-1.09A2.43,2.43,0,0,0,14.18,7.52Z"}
-                  %circle{:cx => "12", :cy => "16.24", :r => "1"}
+                = f.collection_select( :item_condition_id, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+        %hr.border/
+        .delivery
+          %p.delivery_about
+            配送について
+            .delivery_day
+              %label 配送方法
+              %span.must 必須
+            .delivery_shipping
+              .field
+                = f.collection_select( :postage_type_id, PostageType.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+            .delivery_cost
+              %label 配送料の負担
+              %span.must 必須
+            .delivery_select
+              .field
+                = f.collection_select( :postage_payer_id, PostagePayer.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+            .delivery_area
+              %label 発送元の地域
+              %span.must 必須
+              .delivery_area_option
+                .field
+                  = f.collection_select( :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください"}, {class: "select_field"})
               .delivery_day
-                %label 配送方法
+                %label 発送までの日数
                 %span.must 必須
               .delivery_shipping
                 .field
-                  = f.label :postate_type
-                  %br/
-                  = f.collection_select :postage_type_id, PostageType.all, :id, :name
-                %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-                  %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
-              .delivery_cost
-                %label 配送料の負担
+                  = f.collection_select( :preparation_day_id, PreparationDay.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+        %hr.border/
+        .price-all
+          .price
+            %p.price_about
+              価格（¥
+              / 
+              300
+              / 
+              〜
+              / 
+              9,999,999
+              / 
+              ）
+            .price_write
+              .price_write_selling
+                %label 販売価格
                 %span.must 必須
-              .delivery_select
-                .field
-                  = f.label :postage_payer
+              .price_input
+                %span.price_logo ¥
+                .price_input_field
+                  = f.number_field :price, class: "price_input_field_form"
                   %br/
-                  = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name
-                %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-                  %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
-              .delivery_area
-                %label 発送元の地域
-                %span.must 必須
-                .delivery_area_option
-                  .field
-                    = f.label :prefecture_code
-                    %br/
-                    = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code,:name, include_blank: '都道府県'
-                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
-                .delivery_day
-                  %label 発送までの日数
-                  %span.must 必須
-                .delivery_shipping
-                  .field
-                    = f.label :prefecture_code
-                    %br/
-                    = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name
-                  %svg{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-                    %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
-          %hr.border/
-          .price-all
-            .price
-              %p.price_about
-                価格（¥
-                / 
-                300
-                / 
-                〜
-                / 
-                9,999,999
-                / 
-                ）
-                %a{:href => "/jp/help_center/article/64/", :rel => "noopener noreferrer", :target => "_blank"}
-                  %svg.sc-ESoVU.emlFbt{"aria-hidden" => "true", :fill => "#222222", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-                    %path{:d => "M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18.6A8.6,8.6,0,1,1,20.6,12,8.61,8.61,0,0,1,12,20.6Z"}
-                    %path{:d => "M14.18,7.52A2.72,2.72,0,0,0,13.25,7a3.16,3.16,0,0,0-1.17-.2A3.12,3.12,0,0,0,10,7.43,2.92,2.92,0,0,0,9,9.27c0,.12,0,.18.12.19l1.4.22c.09,0,.15,0,.17-.13a1.63,1.63,0,0,1,.44-.91A1.2,1.2,0,0,1,12,8.31a1.17,1.17,0,0,1,.88.33,1.15,1.15,0,0,1,.33.83,1.62,1.62,0,0,1-.12.61,3.46,3.46,0,0,1-.41.67l-1.23,1.67a2.53,2.53,0,0,0-.31.58,2.51,2.51,0,0,0-.09.75v.63a.14.14,0,0,0,.16.16h1.44a.14.14,0,0,0,.16-.16v-.45a1.7,1.7,0,0,1,.07-.56,1.31,1.31,0,0,1,.24-.42l1.22-1.67A2.93,2.93,0,0,0,15,9.46a2.62,2.62,0,0,0-.22-1.09A2.43,2.43,0,0,0,14.18,7.52Z"}
-                    %circle{:cx => "12", :cy => "16.24", :r => "1"}
-              .price_write
-                .price_write_selling
-                  %label 販売価格
-                  %span.must 必須
-                .price_input
-                  %span.price_logo ¥
-                  .price_input_field
-                    = f.number_field :price, class: "price_input_field_form"
-                    %br/
-          %hr.border/
-          .submit
-            .submit_form
-              = f.submit class: "submit_form_field"
-        %footer
-          規約
+        %hr.border/
+        .submit
+          .submit_form
+            = f.submit class: "submit_form_field", value: "出品する"
+      %footer
+        規約
