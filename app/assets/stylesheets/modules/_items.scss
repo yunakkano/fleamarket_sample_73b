@@ -109,7 +109,7 @@
     padding: 0 80px;
     display: flex;
     align-items: center;
-    @include backVisual('pict/bg-mainVisual-pict_pc.jpg', top center);
+    @include backVisual('/assets/pict/bg-mainVisual-pict_pc.jpg', top center);
     .visualBox {
       width: 100%;
       max-width: 1280px;
@@ -198,7 +198,7 @@
     height: 400px;
     display: flex;
     align-items: center;
-    @include backVisual('pict/bg-topMiddleDl-pict.jpg', bottom right);
+    @include backVisual('/assets/pict/bg-topMiddleDl-pict.jpg', bottom right);
     .topDlBox {
       width: 100%;
       max-width: 1040px;
