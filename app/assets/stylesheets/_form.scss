@@ -10,108 +10,102 @@ header{
   line-height: 80px;
 }
 
-.center{
+.main{
   background-color: white;
   width: 70%;
   height: 75%;
   margin: auto;
-}
-
-.goods-photo{
-  padding: 30px;
-}
-
-.goods-all{
-  padding: 30px;
-}
-
-.goods_name_field{
-  width: 95%;
-  height: 50px;
-}
-
-.goods_introduction_field{
-  width: 95%;
-  height: 150px;
-}
-
-.details{
-  padding: 30px;
-}
-
-.category_select{
-  width: 95%;
-  height: 50px;
-}
-
-.condition_select{
-  width: 95%;
-  height: 50px;
-}
-
-.brand_select{
-  width: 95%;
-  height: 50px;
-}
-
-.delivery{
-  padding: 30px;
-}
-
-.delivery_select_option{
-  width: 95%;
-  height: 50px;
-}
-
-.delivery_area_option_select{
-  width: 95%;
-  height: 50px;
-}
-
-.delivery_shipping_select{
-  width: 95%;
-  height: 50px;
-}
-
-.price-all{
-  padding: 30px;
-}
-
-.price_write{
-  display: flex;
-  justify-content: space-between;
-  &_selling{
-    margin-top: 15px;
+  .goods-photo{
+    padding: 30px;
   }
-}
-
-.price_input{
-  display: flex;
-}
-
-.price_logo{
-  margin-top: 15px;
-}
-
-.price_input_field{
-  &_form{
-    width: 300px;
+  .goods-all{
+    padding: 30px;
+  }
+  .goods_name_field{
+    width: 95%;
     height: 50px;
-    margin-left: 10px;
+    padding: 5px;
   }
-}
+  .goods_introduction_field{
+    width: 95%;
+    height: 150px;
+    padding: 5px;
+  }
+  .details{
+    padding: 30px;
+  }
+  .category_select{
+    width: 95%;
+    height: 50px;
+  }
+  .condition_select{
+    width: 95%;
+    height: 50px;
+  }
 
-.submit{
-  padding: 30px;
-  &_form{
-    text-align: center;
-    &_field{
-      margin: auto;
-      width: 350px;
-      height: 50px;
+  .brand_select{
+    width: 95%;
+    height: 50px;
+  }
+  
+  .delivery{
+    padding: 30px;
+  }
+  
+  .delivery_select_option{
+    width: 95%;
+    height: 50px;
+  }
+  
+  .delivery_area_option_select{
+    width: 95%;
+    height: 50px;
+  }
+  
+  .delivery_shipping_select{
+    width: 95%;
+    height: 50px;
+  }
+  
+  .price-all{
+    padding: 30px;
+  }
+  
+  .price_write{
+    display: flex;
+    justify-content: space-between;
+    &_selling{
+      margin-top: 15px;
+    }
+    .price_input{
+      display: flex;
+      .price_logo{
+        margin-top: 15px;
+      }
+      .price_input_field{
+        &_form{
+          width: 300px;
+          height: 50px;
+          margin-left: 10px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+  
+  .submit{
+    padding: 30px;
+    &_form{
+      text-align: center;
+      &_field{
+        margin: auto;
+        width: 350px;
+        height: 50px;
+      }
     }
   }
 }
+
 
 
 footer{
@@ -122,4 +116,54 @@ footer{
 
 .must{
   background-color: #99ffff;
+}
+
+.select_field{
+  height: 50px;
+  width: 95%;
+  padding: 5px;
+}
+
+
+
+.image {
+  #image{
+    display: none;
+  }
+  #image_viw{
+    height: 150px;
+    width: 150px;
+  }
+  &_form{
+    width: 95%;
+    height: 150px;
+    background-color: #eeeeee;
+    border-radius:4px;
+    border: 1px solid #d3d3d3;
+    line-height: 1.5;
+    cursor: pointer;
+    outline-width: 2px;
+    position: relative;
+    .fa-camera{
+      font-size: 30px;
+      display: inline-block;
+      text-align: center;
+      position: absolute;
+      margin-left: 420px;
+      margin-top: 70px;
+    }
+    #preview{
+      width: 150px;
+      height: 150px;
+    }
+  }
+}
+
+.hidden-content {
+  .hidden-field {
+    display: none;
+  }
+  .hidden-checkbox {
+    display: none;
+  }
 }
