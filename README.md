@@ -13,7 +13,6 @@
 - has_many :seller_items, foreign_key: "seller_id", class_name: "items"
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
 
-
 ## profileテーブル
 
 |Column|Type|Options|
@@ -27,7 +26,6 @@
 
 ### Association
 - belongs_to :user
-
 
 ## sending_destinationテーブル
 
@@ -70,7 +68,6 @@
 |name|string|null: false|
 |introduction|text|null: false|
 |price|integer|null: false|
-|item_img|integer|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
 |brand|references|foreign_key: true|
 |item_condition|references|null: false, foreign_key: true|
@@ -110,7 +107,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
-|ancestry|string|null: false|
+|ancestry|string||
 
 ### Association
 - has_many :items
@@ -126,7 +123,7 @@
 - has_many :items
 
 
-## item_conditionsテーブル
+## item_conditionsテーブル(active_hash)
 
 |Column|Type|Options|
 |------|----|-------|
@@ -136,7 +133,7 @@
 - has_many :items
 
 
-## postage_payersテーブル
+## postage_payersテーブル(active_hash)
 
 |Column|Type|Options|
 |------|----|-------|
@@ -146,7 +143,7 @@
 - has_many :items
 
 
-## preparation_daysテーブル
+## preparation_daysテーブル(active_hash)
 
 |Column|Type|Options|
 |------|----|-------|
@@ -156,7 +153,7 @@
 - has_many :items
 
 
-## postage_typesテーブル
+## postage_typesテーブル(active_hash)
 
 |Column|Type|Options|
 |------|----|-------|
