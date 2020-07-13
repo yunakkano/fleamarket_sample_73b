@@ -93,3 +93,6 @@ gem 'pry-rails'
 gem 'jquery-rails'
 gem 'active_hash'
 gem 'jp_prefecture'
+
+# For category to have tree-structure
+gem 'ancestry'
