@@ -22,7 +22,7 @@ var form = $("#card__form");
         $("#exp_year").removeAttr("name");
         $("#card_owner").removeAttr("name");
        //↑このremoveAttr("name")はデータを保持しないように消している
-        var payjphtml = `<input type="hidden" name="payjpToken" value=${response.id}>`
+        var payjphtml = `<input type="hidden" name="payjp-token" value=${response.id}>`
         form.append(payjphtml);
         //↑これはdbにトークンを保存するのでjsで作ったトークンをセットしてる
         document.inputForm.submit();

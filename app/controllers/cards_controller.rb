@@ -1,4 +1,4 @@
-class CardController < ApplicationController
+class CardsController < ApplicationController
 
   require "payjp"
 
@@ -53,3 +53,4 @@ class CardController < ApplicationController
       redirect_to action: "new"
   end
 end
+
