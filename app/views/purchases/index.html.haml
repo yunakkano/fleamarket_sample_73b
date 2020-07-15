@@ -1,5 +1,5 @@
--# %h1 Purchase#index
--# %p Find me in app/views/purchase/index.html.haml
+-# %h1 Purchases#index
+-# %p Find me in app/views/purchases/index.html.haml
 
 %h2 購入を確定しますか？
 %p Apple MacBook Pro 13インチ
@@ -8,7 +8,6 @@
 %h3 支払い方法
 - if @default_card_information.blank?
   %br /
-  -#newからカード登録をやる
 - else
   -#以下カード情報を表示
   = "**** **** **** " + @default_card_information.last4
