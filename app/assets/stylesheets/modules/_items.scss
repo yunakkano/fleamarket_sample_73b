@@ -317,6 +317,24 @@
               left: 0px;
               object-fit: cover;
             }
+            .productSold {
+              top: 0;
+              left: 0;
+              border-bottom: 70px solid transparent;
+              border-left: 70px solid #ea352d;
+              position: absolute;
+              z-index: 100;
+              &__inner {
+                font-weight: bold;
+                display: block;
+                top: 12px;
+                left: -68px;
+                transform: rotate(-45deg);
+                color: $white;
+                position: absolute;
+                z-index: 101;
+              }
+            }
           }
           &__content {
             padding: 15px;
@@ -328,7 +346,7 @@
               text-align: left;
               overflow: hidden;
             }
-            .details {
+            .productDetails {
               font-size: 15px;
               ul {
                 display: flex;
