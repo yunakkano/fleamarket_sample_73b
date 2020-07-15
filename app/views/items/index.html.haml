@@ -1,29 +1,5 @@
-.header
-  .headerBox
-    .mainHeader
-      .topLogo
-        %a(href="/")
-          = image_tag 'logo/logo.png', class: 'logo'
-      .search
-        = render partial: 'searchbar'
-    .nav
-      %ul.nav__left
-        %li.nav__left__item--first
-          %a#catBtn(href="#")カテゴリー
-        %li.nav__left__item
-          %a#brandBtn(href="#")ブランド
-      %ul.nav__right
-        - if user_signed_in?
-          %li.nav__right__item--login
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
-            -# %a(href="#")ログアウト
-        - else
-          %li.nav__right__item--login
-            -# %a(href="#")ログイン
-            = link_to "ログイン", new_user_session_path
-          %li.nav__right__item--regist
-            -# %a(href="#")新規会員登録
-            = link_to "新規会員登録", new_user_registration_path
+-# headerの部分テンプレート呼び出し
+= render 'header'
 .main
   .visual
     .visualBox
@@ -109,122 +85,10 @@
           様々な支払いに対応
         %p.featureList__item__description
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  .product
-    %h2.subtitle 
-      ピックアップカテゴリー
-    .productBox
-      .productHead
-        %a(href="#")
-          %h3.title
-            新規投稿商品
-      .productLists
-        != @items.each do |item|
-          .productList
-            %a(href="")
-              %figure.productList__img
-                != item.item_imgs.each do |image|
-                  = image_tag image.url.url
-              .productList__content
-                %h3.name
-                  = item.name
-                .details
-                  %ul
-                    %li
-                      = "#{item.price.to_s(:delimited, delimiter: ',')}円"
-                    %li
-                      %i.fa.fa-star.likeIcon 
-                      0
-                  %p
-                    (税込)
-  .product#last-product
-    %h2.subtitle 
-      ピックアップブランド
-    .productBox
-      .productHead
-        %a(href="#")
-          %h3.title
-            アーカイバ
-      .productLists
-        .productList
-          %a(href="#")
-            %figure.productList__img
-              = image_tag 'test/test_img1.jpeg'
-            .productList__content
-              %h3.name
-                product1
-              .details
-                %ul
-                  %li
-                    1,000円
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p
-                  (税込)
-        .productList
-          %a(href="#")
-            %figure.productList__img
-              = image_tag 'test/test_img2.jpeg'
-            .productList__content
-              %h3.name
-                product2
-              .details
-                %ul
-                  %li
-                    800円
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p
-                  (税込)
-        .productList
-          %a(href="#")
-            %figure.productList__img
-              = image_tag 'test/test_img3.jpeg'
-            .productList__content
-              %h3.name
-                product3
-              .details
-                %ul
-                  %li
-                    2,100円
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p
-                  (税込)
-        .productList
-          %a(href="#")
-            %figure.productList__img
-              = image_tag 'test/test_img4.jpeg'
-            .productList__content
-              %h3.name
-                product4
-              .details
-                %ul
-                  %li
-                    10,000円
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p
-                  (税込)
-        .productList
-          %a(href="#")
-            %figure.productList__img
-              = image_tag 'test/test_img5.jpeg'
-            .productList__content
-              %h3.name
-                product5
-              .details
-                %ul
-                  %li
-                    1,800円
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p
-                  (税込)
+  -# カテゴリ商品リストの部分テンプレート呼び出し
+  = render 'category'
+  -# ブランド商品リストの部分テンプレート呼び出し
+  = render 'brand'
   .bottomDl
     .bottomDlBox
       .bottomDlBox__title
@@ -236,44 +100,9 @@
           = image_tag 'download/aBtn.png', class: 'downloadBtn'
         %a.gBtn(href="#")
           = image_tag 'download/bBtn.png', class: 'downloadBtn'
-.footer
-  %ul.contents
-    %li.content
-      %h2.content__head
-        FURIMAについて
-      %ul
-        %li
-          %a(href="#")会社概要（運営会社）
-        %li
-          %a(href="#")プライバシーポリシー
-        %li
-          %a(href="#")FURIMA利用規約
-        %li
-          %a(href="#")ポイントに関する特約
-    %li.content
-      %h2.content__head
-        FURIMAを見る
-      %ul
-        %li
-          %a(href="#")カテゴリー一覧
-        %li
-          %a(href="#")ブランド一覧
-    %li.content
-      %h2.content__head
-        ヘルプ＆ガイド
-      %ul
-        %li
-          %a(href="#")FRIMAガイド
-        %li
-          %a(href="#")FRIMAロゴ利用ガイドライン
-        %li
-          %a(href="#")お知らせ
-  .footer__logo
-    %a(href="/")
-      = image_tag 'logo/logo-white.png'
-  %p
-    © FURIMA
--# = link_to '出品する', new_item_path, {class: "fixedBtn"}
+-# footerの部分テンプレート呼び出し
+= render 'footer'
 %a.fixedBtn(href="/items/new")
   .fixedBtn__text
+    出品する
   = image_tag 'icon/icon_camera.png', class: 'fixedBtn__icon'
