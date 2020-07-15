@@ -113,17 +113,16 @@
         .l-registration-inner {
             padding: 40px 40px 64px;
             border-top: 1px solid #f5f5f5;
-            display: block;
             .l-register-content {
                 max-width: 343px;
                 margin: 0 auto;
+                display: block;
                 .form-group:first-child {
                     margin: 0;
                 }
                 .register-form-group{
                     label.register-form-group {
                         font-weight: 600;
-                        display: block;
                         touch-action: manipulation;
                         cursor: default;
                     }
@@ -136,7 +135,7 @@
                         font-size: 12px;
                         vertical-align: top;
                     }
-                    input {
+                    input.register-field--full {
                         height: 48px;
                         width: 100%;
                         margin: 8px 0 0;
@@ -147,7 +146,39 @@
                         line-height: 1.5;
                         font-size: 16px;
                         outline: 0;
-
+                        display: inline-block;
+                        .register-field--half{
+                            width: calc(30% - 6px);
+                        }
+                    }
+                    input.register-field--half {
+                        height: 48px;
+                        width: calc(30% - 6px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
+                    select.register-field--full {
+                        height: 48px;
+                        width: 100%;
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                        .register-field--half{
+                            width: calc(30% - 6px);
+                        }
                     }
                     .register-form-info-text{
                         color: #888;
@@ -238,88 +269,19 @@
     }
 }
   
-//   .main{
-//     height: 532px;
-//     width: 100vw;
-//     background-color: blue;
-//     &-box {
-//       background-color: green;
-//       width: 700px;
-//       margin: 0 auto 40px ;
-//       &__header {
-//         height: 97px;
-//         background-color: yellow;
-//         &__info {
-//           margin: 0 auto 40px 40px;
-//           background-color: white;
-//           width: 636px;
-//           text-align: center;
-//           padding-top: 40px;
-//         }
-//       }
-//       &__border {
-//         height: 1px;
-//         background-color: white;
-//       }
-//       &__form {
-//         height: 394px;
-//         margin: 40px 40px 0 40px;
-//         background-color: violet;
-//       }
-//     }
-//   }
-  
-//   .form {
-//     width: 343px;
-//     background-color: white;
-//     margin: 0 auto ;
-//     &-group {
-//       width: 343px;
-//       margin: 0 auto;
-//       text-align: center;
-//       border: none;
-//       height: 50px;
-//       margin-top: 15px;
-//       background-color: blue;
-//       .contents__btn {
-//         text-decoration: none;
-//         font-size: 14px;
-//         line-height: 50px;
-//         border-radius: 10px;
-//         display: block;
-//       }
-//       .contents__btn__google {
-//         text-decoration: none;
-//         font-size: 14px;
-//         line-height: 50px;
-//         display: block;
-//       }
-//       .contents__btn__facebook {
-//         text-decoration: none;
-//         font-size: 14px;
-//         line-height: 50px;
-//         display: block;
-//       }
-//       .contents__btn__apple {
-//         text-decoration: none;
-//         font-size: 14px;
-//         line-height: 50px;
-//         display: block;
-  
-//       }
-//       }
-//     }
-  
-//   .footer {
-//     width: 100vw;
-//     height: 220px;
-//     background-color: pink;
-//     &-box {
-//       margin: 0 auto;
-//       height: 200px;
-//       width: 456px;
-//       text-align: center;
-//       padding-top: 40px;
-//     }
-  
-//   }
+a.register-backto-top {
+    display: inline-block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 32px;
+    margin: 24px 0 0;
+    background: #2bccd1;
+    border: 1px solid #2bccd1;
+    color: #fff;
+}

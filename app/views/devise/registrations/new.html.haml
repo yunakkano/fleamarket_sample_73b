@@ -3,7 +3,7 @@
   %header.register-header
     %h1
       %a{href: root_path}
-        %img{alt: "mercari", src: asset_path("logo/logo.png")}/
+        %img{alt: "furima", src: asset_path("logo/logo.png")}/
     %nav.progress-bar.signup-bar
       %ol.clearfix
         %li.active
@@ -24,19 +24,19 @@
           .register-form-group
             = f.label :nickname, "ニックネーム"
             %span.register-form-require 必須
-            = f.text_field :nickname, placeholder: "例) 峰フリマ子"
+            = f.text_field :nickname, placeholder: "例) 峰フリマ子", class: "register-field--full"
           .register-form-group
             = f.label :email, "メールアドレス"
             %span.register-form-require 必須
-            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "register-field--full"
           .register-form-group
             = f.label :password, "パスワード"
             %span.register-form-require 必須
-            = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上の半角英数字"
+            = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上の半角英数字", class: "register-field--full"
           .register-form-group
             = f.label :password_confirmation, "パスワード（再入力）"
             %span.register-form-require 必須
-            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度入力してください"
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度入力してください", class: "register-field--full"
             %p.register-form-info-text
               ※ 英字と数字の両方を含めて設定してください
             .form-password-revelation-toggle
