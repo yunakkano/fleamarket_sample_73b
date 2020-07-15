@@ -1,13 +1,24 @@
-.header
-.main
-  .main-box
-    .main-box__header
-      .main-box__header__info
-        %h1 会員情報入力
-    .main-box__border
-    /ボーダーを最後に修正高さもあえて高くしている
-    .main-box__form
-      = form_for @profile , html:{ class: "form" } do |f|
+%body
+.register-container
+  %header.register-header
+    %h1
+      %a{href: root_path}
+        %img{alt: "mercari", src: asset_path("logo/logo.png")}/
+    %nav.progress-bar.signup-bar
+      %ol.clearfix
+        %li.active
+          会員情報
+          .progress-status
+        %li
+          会員プロフィール
+          .progress-status
+        %li
+          完了
+          .progress-status
+  %main.register-main
+    %section.l-register-container
+      %h2.l-single-head.registration 会員プロフィール入力
+      = form_for @profile , html:{ class: "l-registration-inner" } do |f|
         = render "devise/shared/error_messages", resource: @profile
         .field
           = f.label :first_name
