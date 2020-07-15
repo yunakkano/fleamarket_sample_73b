@@ -1,25 +1,51 @@
-%h2 Sign up
-= form_for(@user, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: @user
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "次へ"
-= render "devise/shared/links"
+%body
+.register-container
+  %header.register-header
+    %h1
+      %a{href: root_path}
+        %img{alt: "mercari", src: asset_path("logo/logo.png")}/
+    %nav.progress-bar.signup-bar
+      %ol.clearfix
+        %li.active
+          会員情報
+          .progress-status
+        %li
+          会員プロフィール
+          .progress-status
+        %li
+          完了
+          .progress-status
+  %main.register-main
+    %section.l-register-container
+      %h2.l-single-head.registration 会員情報入力
+      = form_for( @user, as: resource_name, url: registration_path(resource_name), html:{class: "l-registration-inner"})  do |f|
+        = render "devise/shared/error_messages", resource: @user
+        .l-register-content
+          .register-form-group
+            = f.label :nickname, "ニックネーム"
+            %span.register-form-require 必須
+            = f.text_field :nickname, placeholder: "例) 峰フリマ子"
+          .register-form-group
+            = f.label :email, "メールアドレス"
+            %span.register-form-require 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+          .register-form-group
+            = f.label :password, "パスワード"
+            %span.register-form-require 必須
+            = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上の半角英数字"
+          .register-form-group
+            = f.label :password_confirmation, "パスワード（再入力）"
+            %span.register-form-require 必須
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度入力してください"
+            %p.register-form-info-text
+              ※ 英字と数字の両方を含めて設定してください
+            .form-password-revelation-toggle
+              .checkbox-default
+                %input#reveal_password{type: "checkbox"}/
+                %i.icon-check
+                %label{for: "reveal_password"} パスワードを表示する
+              .form-password-revelation-revealed-password-container
+                %span.form-password-revelation-revealed-password
+        .l-register-content
+          .register-form-group
+            = f.button "次へ進む", class: "register-btn register-btn-cian"
