@@ -8,4 +8,16 @@ class Profile < ApplicationRecord
     format: {with: /\A[ぁ-んー－]+\z/, message: 'ひらがなで入力してください。'}
               
   validates :birthday, presence: true
+
+  validate :birthday_before_today?
+
+  private
+
+  def birthday_before_today?
+    return if birthday.blank?
+
+    if birthday > Date.today
+      errors.add(:birthday, "birthday must be before today")
+    end
+  end
 end
