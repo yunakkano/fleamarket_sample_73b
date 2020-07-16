@@ -3,13 +3,13 @@
     ピックアップカテゴリー
   .productBox
     .productHead
-      %a(href="#")
+      = link_to '#' do
         %h3.title
           新規投稿商品
     .productLists
       - @items.each do |item|
         .productList
-          %a(href="")
+          = link_to '#' do
             %figure.productList__img
               -# trading_status -> 1 の場合、売り切れ表示
               - if item.trading_status == 1

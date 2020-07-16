@@ -10,9 +10,9 @@
         %br
         フリマアプリです
       .visualBox__btn
-        %a.aBtn(href="#")
+        =link_to '#', class: 'aBtn' do
           = image_tag 'download/aBtn.png', class: 'downloadBtn'
-        %a.gBtn(href="#")
+        =link_to '#', class: 'gBtn' do
           = image_tag 'download/bBtn.png', class: 'downloadBtn'
   .intro
     %h2.subtitle
@@ -56,9 +56,9 @@
         %br
         ほしかったあの商品に出会えるかもしれません。
       .topDlBox__btn
-        %a.aBtn(href="#")
+        =link_to '#', class: 'aBtn' do
           = image_tag 'download/aBtn.png', class: 'downloadBtn'
-        %a.gBtn(href="#")
+        =link_to '#', class: 'gBtn' do
           = image_tag 'download/bBtn.png', class: 'downloadBtn'
   .feature
     %h2.subtitle
@@ -96,13 +96,13 @@
       .bottomDlBox__text
         今すぐ無料ダウンロード！
       .bottomDlBox__btn
-        %a.aBtn(href="#")
+        =link_to '#', class: 'aBtn' do
           = image_tag 'download/aBtn.png', class: 'downloadBtn'
-        %a.gBtn(href="#")
+        =link_to '#', class: 'gBtn' do
           = image_tag 'download/bBtn.png', class: 'downloadBtn'
 -# footerの部分テンプレート呼び出し
 = render 'footer'
-%a.fixedBtn(href="/items/new")
+= link_to new_item_path, class: 'fixedBtn' do
   .fixedBtn__text
     出品する
   = image_tag 'icon/icon_camera.png', class: 'fixedBtn__icon'
