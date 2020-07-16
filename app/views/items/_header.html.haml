@@ -1,0 +1,23 @@
+.header
+  .headerBox
+    .mainHeader
+      .topLogo
+        = link_to '#' do
+          = image_tag 'logo/logo.png', class: 'logo'
+      .search
+        = render partial: 'searchbar'
+    .nav
+      %ul.nav__left
+        %li.nav__left__item--first
+          = link_to 'カテゴリー', '#', class: 'catBtn'
+        %li.nav__left__item
+          = link_to 'ブランド', '#', class: 'brandBtn'
+      %ul.nav__right
+        - if user_signed_in?
+          %li.nav__right__item--login
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.nav__right__item--login
+            = link_to "ログイン", new_user_session_path
+          %li.nav__right__item--regist
+            = link_to "新規会員登録", new_user_registration_path
