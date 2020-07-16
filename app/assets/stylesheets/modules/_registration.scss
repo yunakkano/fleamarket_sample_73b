@@ -1,0 +1,361 @@
+.register-container {
+    padding: 0 0 220px;
+    background-color: #f5f5f5;
+    line-height: 80px;
+    .register-header {
+        height: 128px;
+        text-align: center;
+        display: block;
+        h1 {
+            display: inline-block;
+            margin: 40px 0 0;
+            img {
+                width: 185px;
+                height: 50px;
+            }
+        }
+        .progress-bar {
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            padding: 0 0 0 44px;
+            border: 0;
+            ol {
+                list-style: none;
+                display: block;
+            }
+            li {
+                margin: 0 40px 0 0;
+                min-width: 60px;
+                position: relative;
+                z-index: 1;
+                display: inline-block;
+                font-size: 12px;
+                .progress-status {
+                    width: 12px;
+                    height: 12px;
+                    margin: 8px auto 0;
+                    border-radius: 50%;
+                    background: #ccc;
+                }
+                .progress-status::after{
+                    left: 50%;
+                    position: absolute;
+                    bottom: 5px;
+                    z-index: -1;
+                    display: block;
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    background: #ccc;
+                }
+                .progress-status::before{
+                    right: 50%;
+                    position: absolute;
+                    bottom: 5px;
+                    z-index: -1;
+                    display: block;
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    background: #ccc;
+                }
+            }
+            li.active{
+                font-weight: 600;
+                color: #2bccd1;
+                margin: 0 40px 0 0;
+                min-width: 60px;
+                position: relative;
+                z-index: 1;
+                display: inline-block;
+                font-size: 12px;
+                .progress-status {
+                    background: #2bccd1;
+                    width: 12px;
+                    height: 12px;
+                    margin: 8px auto 0;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    .register-main {
+        display: block;
+        .l-register-container{
+            width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 32px;
+        }
+        .registration {
+            display: block;
+            line-height: 33px;
+            font-size: 22px;
+            letter-spacing: normal;
+            margin-block-start: 0.83em;
+            margin-block-end:  0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .l-registration-inner {
+            padding: 40px 40px 64px;
+            border-top: 1px solid #f5f5f5;
+            .l-register-content {
+                max-width: 343px;
+                margin: 0 auto;
+                display: block;
+                .form-group:first-child {
+                    margin: 0;
+                }
+                .register-form-group{
+                    label.register-form-group {
+                        font-weight: 600;
+                        touch-action: manipulation;
+                        cursor: default;
+                    }
+                    .register-form-require {
+                        background: #2bccd1;
+                        margin: 0 0 0 8px;
+                        padding: 2px 4px;
+                        border-radius: 2px;
+                        color: #fff;
+                        font-size: 12px;
+                        vertical-align: top;
+                    }
+                    input.register-field--full {
+                        height: 48px;
+                        width: 100%;
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                        .register-field--half{
+                            width: calc(30% - 6px);
+                        }
+                    }
+                    input.register-field--half {
+                        height: 48px;
+                        width: calc(30% - 6px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
+                    select.register-field--full {
+                        height: 48px;
+                        width: 100%;
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                        .register-field--half{
+                            width: calc(30% - 6px);
+                        }
+                    }
+                    .register-form-info-text{
+                        color: #888;
+                        margin: 8px 0 0;
+                        line-height: 1.5;
+                    }
+                    .form-password-revelation-toggle {
+                        display: block;
+                        .checkbox-default{
+                            margin: 16px 0 0;
+                            position: relative;
+                            font-size: 0;
+                            input {
+                                display: none;
+                                cursor: default;
+                                border: 0;
+                                outline: 0;
+                                touch-action: manipulation;
+                                background-color: transparent;
+                            }
+                            .icon-check{
+                                position: absolute;
+                                top: 50%;
+                                left: 0;
+                                z-index: 1;
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 2px;
+                                background: #fff;
+                                border: 1px solid #ccc;
+                                font-size: 10px;
+                                line-height: 17px;
+                                text-align: center;
+                                color: #fff;
+                                vertical-align: middle;
+                                transition: all ease-out 0.3s;
+                                transform: translate(0, -50%);
+                                display: inline-block;
+                            }
+                            label {
+                                position: relative;
+                                z-index: 2;
+                                padding: 0 0 0 28px;
+                                font-size: 14px;
+                                font-weight: 400;
+                                vertical-align: middle;
+                                cursor: pointer;
+                                display: inline-block;
+                                touch-action: manipulation;
+                            }
+                        }
+                        .form-password-revelation-revealed-password-container{
+                            line-height: 1.5;
+                            font-size: 16px;
+                            font-weight: 500;
+                            font-family: monospace;
+                            margin: 14px 0;
+                            word-break: break-all;
+                            overflow-wrap: break-word;
+                            display: none;
+                            .form-password-revelation-revealed-password {
+                                display: none;
+                                background-color: #f5f5f5;
+                                padding: 4px 8px;
+                            }
+                        }
+                    }
+                }
+                .register-btn {
+                    display: block;
+                    width: 100%;
+                    line-height: 48px;
+                    font-size: 14px;
+                    border-radius: 4px;
+                    transition: all ease-out .3s;
+                    cursor: pointer;
+                    text-align: center;
+                    &-cian{
+                        margin-top: 32px;
+                        margin: 24px 0 0;
+                        background: #2bccd1;
+                        border: 1px solid #2bccd1;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .login-panel{
+            max-width: none;
+            width: 456px;
+            margin: 0 auto;
+            background: #fff;
+            .login-no-account{
+                padding: 40px 64px;
+                text-align: center;
+                p{
+                    font-size: 14px;
+                    display: block;
+                    margin-block-start: 1em;
+                    margin-block-end: 1em;
+                    margin-inline-start: 0px;
+                    margin-inline-end: 0px;
+                }
+                a {
+                    display: block;
+                    margin: 8px 0 0;
+                    border-radius: 4px;
+                    border: 1px solid #0099e8;
+                    background: #0099e8;
+                    color: #fff;
+                    line-height: 40px;
+                    text-decoration: none;
+                    touch-action: manipulation;
+                    cursor: pointer;
+                }   
+            }
+
+            .login-form-inner {
+                padding: 32px 64px;
+                border-top: 1px solid #eee;
+            }
+        }
+        .l-login-container{
+            width: 394px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 32px;
+            .l-login-content{
+                max-width: 343px;
+                margin: 0 auto;
+                display: block;
+                .login-form-group{
+                    font-weight: 600;
+                    touch-action: manipulation;
+                    cursor: default;
+                    input.login-field--full{
+                        height: 48px;
+                        width: calc(100% - 32px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                    }
+                    .login-btn {
+                        display: block;
+                        width: 100%;
+                        line-height: 48px;
+                        font-size: 14px;
+                        border-radius: 4px;
+                        transition: all ease-out .3s;
+                        cursor: pointer;
+                        text-align: center;
+                        &-cian{
+                            margin-top: 32px;
+                            margin: 24px 0 0;
+                            background: #2bccd1;
+                            border: 1px solid #2bccd1;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.register-complete {
+    display: flex;
+    justify-content: center;
+    a.register-backto-top {
+        display: block;
+        width: 343px;
+        margin: 8px 0 0;
+        border-radius: 4px;
+        border: 1px solid #2bccd1;
+        background: #2bccd1;
+        color: #fff;
+        line-height: 40px;
+        text-decoration: none;
+        text-align: center;
+        touch-action: manipulation;
+        cursor: pointer;
+    }
+}
