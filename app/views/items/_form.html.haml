@@ -11,29 +11,21 @@
               %label 出品画像
               %span.must 必須
             .image
-              %label.ccc
-                %form
-                  %input#image{accept: "image/*", onchange: "previewImage(this);", type: "file"}/
-                .image_form
-                  %i.fa{class: "fa-camera"}
-                  %canvas#preview
-                  :javascript
-                    function previewImage(obj)
-                    {
-                        var fileReader = new FileReader();
-                        fileReader.onload = (function() {
-                            var canvas = document.getElementById('preview');
-                            var ctx = canvas.getContext('2d');
-                            var image = new Image();
-                            image.src = fileReader.result;
-                            image.onload = (function () {
-                                canvas.width = image.width;
-                                canvas.height = image.height;
-                                ctx.drawImage(image, 0, 0);
-                            });
-                        });
-                        fileReader.readAsDataURL(obj.files[0]);
-                    }
+              #previews
+                - if @item.persisted?
+                  - @item.item_imgs.each_with_index do |item_img, i|
+                    = image_tag item_img.url, data: { index: i }, width: "100", height: '100'
+              = f.fields_for :item_imgs do |item_img|
+                .js-file_group{"data-index" => "#{item_img.index}"}
+                  = item_img.file_field :url, class: 'js-file'
+                  %br/
+                  %span.js-remove 削除
+                - if @item.persisted?
+                  = item_img.check_box :_destroy, data:{ index: item_img.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
+                  = file_field_tag :url, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][url]", class: 'js-file'
+                  .js-remove 削除
         %hr.border/
         .goods-all
           .goods
@@ -60,7 +52,7 @@
               %label ブランド
               %span.arbitrary 任意
             .brand_type
-              = f.text_field :name, class: "select_field", placeholder: "例）シャネル"
+              = f.text_field :brand, class: "select_field", placeholder: "例）シャネル"
           .goods-status-all
             .goods-status
               %label 商品の状態
@@ -122,5 +114,4 @@
         .submit
           .submit_form
             = f.submit class: "submit_form_field", value: "出品する"
-      %footer
-        規約
+      %footer 規約
