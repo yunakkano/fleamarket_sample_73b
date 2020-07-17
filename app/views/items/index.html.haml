@@ -102,7 +102,4 @@
           = image_tag 'download/bBtn.png', class: 'downloadBtn'
 -# footerの部分テンプレート呼び出し
 = render 'footer'
-= link_to new_item_path, class: 'fixedBtn' do
-  .fixedBtn__text
-    出品する
-  = image_tag 'icon/icon_camera.png', class: 'fixedBtn__icon'
+= render 'camerabutton'
