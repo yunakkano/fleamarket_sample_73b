@@ -1,4 +1,5 @@
 - if resource.errors.any?
-  %ul.has-error
-    - if resource.errors.full_messages[0] != "確認用パスワード を入力してください"
-      %li= resource.errors.full_messages[0]
+  - resource.errors.full_messages.each do |msg|
+    - if msg == "メールアドレス を入力してください"
+      %ul.has-error
+        %li=msg
