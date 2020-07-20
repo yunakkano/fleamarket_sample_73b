@@ -23,17 +23,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     @user.build_profile(@profile.attributes)
-    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"] = {user: @user.attributes, profile: @profile.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    
-    # @profile = @user.build_profile
     @address = @user.build_sending_destination
     render :new_address
   end
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
-    # @profile = Profile.new(profile_params)
     @address = SendingDestination.new(address_params)
 
     unless @address.valid?
@@ -41,6 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_address and return
     end
 
+    @user.build_profile(session["devise.regist_data"]["profile"])
     @user.build_sending_destination(@address.attributes)
     @user.save
     session["devise.regist_data"]["user"].clear
