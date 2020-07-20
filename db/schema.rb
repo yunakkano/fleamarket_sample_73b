@@ -137,11 +137,14 @@ ActiveRecord::Schema.define(version: 2020_07_13_120022) do
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   add_foreign_key "cards", "users"
 >>>>>>> card_regist
 =======
 >>>>>>> card_regist_before_rebase
+=======
+>>>>>>> d599f4ad76fc0fe387790711db4d5896f9d560b2
   add_foreign_key "item_imgs", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"

@@ -1,0 +1,67 @@
+-# %h1 Purchases#index
+-# %p Find me in app/views/purchases/index.html.haml
+
+.purchase
+  .purchase__header
+    .purchase__header__logo
+      %a{href: "http://localhost/#"}
+        = image_tag src="logo.png", size: "170x50"      
+  .purchase__body
+    .purchase__body__title
+      購入内容の確認
+    .purchase__body__item
+      .purchase__body__item__img
+        = image_tag("#{@item.item_img}", size: "80x80")
+      .purchase__body__item__right
+        .purchase__body__item__right__name
+          = @item.name
+        %ul.purchase__body__item__right__object
+          送料込み(税込)
+          %li.purchase__body__item__right__object__price
+            = @item.price
+    .purchase__body__price
+      .purchase__body__price__word
+        支払金額
+      .purchase__body__price__price
+        = @item.price
+    .purchase__body__way-to-pay
+      %ul.purchase__body__way-to-pay__title
+        %li
+          支払い方法
+        = link_to delete_cards_path ,method: :delete,class:"purchase__body__sending-destination__title__link" do
+          %button{type: "submit",class: "btn-red"}
+            削除する
+      .purchase__body__way-to-pay__credit
+        = render template: 'cards/show'
+    .purchase__body__sending-destination
+      %ul.purchase__body__sending-destination__title
+        %li
+          配送先
+        = link_to "http://localhost/#", class: "purchase__body__sending-destination__title__link" do
+          変更する 〉
+      .purchase__body__sending-destination__location
+        %p
+          〒111-1111
+        %p
+          東京都XXX 1-1-1
+        %p
+          山田太郎
+    .purchase__body__bottom-to-buy
+      .purchase__body__bottom-to-buy__object
+        = form_tag(action: :pay, method: :post) do
+          %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_edb1398ecec5f03fc683f0fe"}
+
+        
+  .purchase__footer
+    .purchase__footer__top-content
+      = link_to "http://localhost/#", class: "purchase__footer__top-content__object-1" do
+        プライバシーポリシー
+      = link_to "http://localhost/#", class: "purchase__footer__top-content__object-2" do
+        FRIMA利用規約
+      = link_to "http://localhost/#", class: "purchase__footer__top-content__object-3" do
+        特定商取引に関する表記
+    .purchase__footer__logo
+      %a{href: "http://localhost/#"}
+        = image_tag src="logo-white.png", size: "170x50"
+    .purchase__footer__copy
+      ©︎ Furima, Inc.
