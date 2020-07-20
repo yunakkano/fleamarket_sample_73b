@@ -40,6 +40,7 @@
             = f.label :password_confirmation, "パスワード（再入力）"
             %span.register-form-require 必須
             = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度入力してください", class: "register-field--full"
+            = render "devise/shared/error_message_pass_confirmation", resource: @user
             %p.register-form-info-text
               ※ 英字と数字の両方を含めて設定してください
             .form-password-revelation-toggle
@@ -49,6 +50,9 @@
                 %label{for: "reveal_password"} パスワードを表示する
               .form-password-revelation-revealed-password-container
                 %span.form-password-revelation-revealed-password
+          .register-form-group
+            %h3.text-left.l-chapter-subhead 本人確認
+            %p.l-single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
         .l-register-content
           .register-form-group
             = f.button "次へ進む", class: "register-btn register-btn-cian"
