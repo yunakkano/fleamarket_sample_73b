@@ -1,4 +1,4 @@
-class PurchasesController < ApplicationController
+class PurchasesController < ItemsController
 
   require 'payjp'
 
@@ -18,14 +18,14 @@ class PurchasesController < ApplicationController
   end
 
   def pay
+    @item = Item.find(params[:id]) #エラー！！！
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = "sk_test_b846970e4339aacd4d2503c7"
     Payjp::Charge.create(
-    :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
+    :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
-  )
+    ) 
   redirect_to action: 'done' #完了画面に移動
   end
-
 end

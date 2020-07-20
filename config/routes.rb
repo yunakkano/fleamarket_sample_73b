@@ -9,7 +9,15 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :items, except: :show
+  # resources :items, except: :show
+  resources :items do
+    collection do
+      get 'index', to: 'items#index'
+      get 'purchase/:id', to:'items#purchase'
+      post 'pay/:id', to:'items#pay'#httpメソッドはpostなので注意
+      get  'done', to:'items#done'
+    end
+  end
   resources :users, only: :show
   resources :cards, only: [:new, :show] do
     collection do
