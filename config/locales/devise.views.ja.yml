@@ -15,12 +15,14 @@ ja:
       models:
         user:
           attributes:
+            nickname:
+              blank: "を入力してください"
             email:
               blank: "を入力してください"
             password:
               blank: "を入力してください"
-            nickname:
-              blank: "を入力してください"
+            password_confirmation:
+              confirmation: "を入力してください"
   devise:
     confirmations:
       new:
