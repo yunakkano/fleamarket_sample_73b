@@ -238,6 +238,19 @@
                             }
                         }
                     }
+                    h3.l-chapter-subhead{
+                        font-size: 16px;
+                    }
+                    p.l-single-text{
+                        margin: 8px 0 0;
+                        padding: 0;
+                        line-height: 1.5;
+                        display: block;
+                        margin-block-start: 1em;
+                        margin-block-end: 1em;
+                        margin-inline-end: 0px;
+                        margin-inline-start: 0px;
+                    }
                     ul.has-error {
                         color: #ea352d;
                         line-height: 1.5;
