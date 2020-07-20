@@ -10,9 +10,9 @@ class SendingDestination < ApplicationRecord
   validates :dest_first_name_kana, :dest_family_name_kana, presence: true,
     format: {with: /\A[ぁ-んー－]+\z/, message: 'ひらがなで入力してください。'}
 
-  validates :post_code, format: {with: /\A\d{7}\z/, message: 'ハイフン無しで7桁の数字を入力してください。'}
+  validates :post_code, format: {with: /\A\d{7}\z/, message: 'ハイフン無しで数字7桁を入力してください。'}
 
-  validates :phone_number, format: {with: /\A\d{11}\z/, message: "ハイフン無しで11桁の数字を入力してください。"}
+  validates :phone_number, format: {with: /\A(\d{10}|\d{11})\z/, message: "ハイフン無しで数字10桁又は数字11桁を入力してください。"}
 
   validates :post_code, :prefecture_code, :street_number, presence: true
 
