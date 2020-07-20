@@ -1,3 +1,4 @@
 - if resource.errors.any?
   %ul.has-error
-    %li= resource.errors.full_messages[0]
+    - if resource.errors.full_messages[0] != "確認用パスワード を入力してください"
+      %li= resource.errors.full_messages[0]
