@@ -14,9 +14,21 @@ ja:
         family_name_kana: "姓（かな）"
         first_name_kana: "名前（かな）"
         birthday: "生年月日"
+      sending_destination:
+        dest_family_name: "姓"
+        dest_first_name: "名前"
+        dest_family_name_kana: "姓（かな）"
+        dest_first_name_kana: "名前（かな）"
+        city: "市区町村名"
+        building_name: "マンション・ビル名"
+        post_code: "郵便番号"
+        prefecture_code: "都道府県"
+        street_number: "番地"
+        phone_number: "電話番号"
     models:
       user: "会員情報"
       profile: "本人確認情報"
+      sending_destination: "会員住所"
     
     errors:
       models:
@@ -41,6 +53,26 @@ ja:
             first_name_kana:
               blank: "を入力してください"
             birthday:
+              blank: "を入力してください"
+        sending_destination:
+          attributes:
+            dest_family_name:
+              blank: "を入力してください"
+            dest_first_name:
+              blank: "を入力してください"
+            dest_family_name_kana:
+              blank: "を入力してください"
+            dest_first_name_kana:
+              blank: "を入力してください"
+            city:
+              blank: "を入力してください"
+            post_code:
+              blank: "を入力してください"
+            prefecture_code:
+              blank: "を入力してください"
+            street_number:
+              blank: "を入力してください"
+            phone_number:
               blank: "を入力してください"
   devise:
     confirmations:
