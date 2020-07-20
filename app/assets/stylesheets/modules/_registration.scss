@@ -238,6 +238,13 @@
                             }
                         }
                     }
+                    ul.has-error {
+                        color: #ea352d;
+                        line-height: 1.5;
+                        font-size: 14px;
+                        list-style: none;
+                        display: block;
+                    }
                 }
                 .register-btn {
                     display: block;
