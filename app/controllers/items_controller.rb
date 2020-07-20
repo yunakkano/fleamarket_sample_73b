@@ -29,14 +29,14 @@ class ItemsController < ApplicationController
     # 登録したcardを表示させるため、cards/showを呼び出す必要がある
     # render template:'cards/show'
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = "sk_test_b846970e4339aacd4d2503c7"
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
   end
 
   def pay
     @item = Item.find(params[:id])
-    Payjp.api_key = "sk_test_b846970e4339aacd4d2503c7"
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     charge = Payjp::Charge.create(
     amount: @item.price,
     card: params['payjp-token'],
