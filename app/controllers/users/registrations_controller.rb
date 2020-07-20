@@ -12,13 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     @profile = Profile.new(profile_params)
-    unless @user.valid?
-      flash.now[:alert] = @user.errors.full_messages
-      render :new and return
-    end
-
-    unless @profile.valid?
-      flash.now[:alert] = @profile.errors.full_messages
+    unless @user.valid? && @profile.valid?
+      flash.now[:alert] = @user.errors.full_messages.concat @profile.errors.full_messages
+      puts @user.errors.full_messages.concat @profile.errors.full_messages
       render :new and return
     end
 
@@ -48,7 +44,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def profile_params
-    params.require(:profile).permit(
+    params.require(:user).require(:profile).permit(
       :first_name, :family_name, 
       :first_name_kana, :family_name_kana, :birthday
     )
