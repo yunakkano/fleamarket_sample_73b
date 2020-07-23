@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  # before_action :set_item, only: [:show, :purchase, :pay]
 
   def index
     @items = Item.includes(:item_imgs).order('created_at DESC')
@@ -18,35 +17,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @item = Item.find(params[:id])
-  end
-  
-  def purchase
-    @item = Item.find(params[:id])
-    # 登録したcardを表示させるため、cards/showを呼び出す必要がある
-    card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
-    # render template:'cards/new'
-  end
-
-  def pay
-    @item = Item.find(params[:id])
-    card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    Payjp::Charge.create(
-      :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
-      :customer => card.customer_id, #顧客ID
-      :currency => 'jpy', #日本円
-    )
-    redirect_to action: :done
-  end
-
-  def done
   end
 
   private
