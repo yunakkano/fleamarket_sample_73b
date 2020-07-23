@@ -290,26 +290,30 @@
       }
       .productLists {
         width: 60%;
+        // 画面幅1128pxまではwidth60%を確保、1128px以下cssは別途設定
+        min-width: 1128px;
         margin: 0px auto;
         display:flex;
-        justify-content: space-around;
+        flex-wrap: wrap;
         .productList {
-          margin-right: 10px;
+          background-color: lightcoral;
+          margin: 1.1%;
           a {
             background-color: $white;
             display: inline-block;
             text-decoration: none;
           }
           &__img {
+            background-color: lightgreen;
             height: 150px;
-            width: 220px;
+            width: 200px;
             margin: 0;
             overflow: hidden;
             position: relative;
             z-index: auto;
             img {
-              height: 150px;
-              width: 220px;
+              height: 100%;
+              width: 100%;
               position: absolute;
               top: 0px;
               right: 0px;

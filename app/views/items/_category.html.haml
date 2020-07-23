@@ -16,8 +16,8 @@
                 .productSold
                   .productSold__inner
                     SOLD
-              - item.item_imgs.each do |image|
-                = image_tag image.url.url
+              - item.item_imgs.each do |item_img|
+                = image_tag item_img.url.url
             .productList__content
               %h3.name
                 = item.name

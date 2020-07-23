@@ -6,37 +6,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     @user = User.new
+    @profile = Profile.new
   end
 
   def create
     @user = User.new(sign_up_params)
-    unless @user.valid?
-      flash.now[:alert] = @user.errors.full_messages
-      render :new and return
-    end
-    session["devise.regist_data"] = {user: @user.attributes}
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @profile = @user.build_profile
-    @address = @user.build_sending_destination
-    render :new_profile_address
-  end
-
-  def create_profile_address
-    @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(profile_params)
-    @address = SendingDestination.new(address_params)
-
-    unless @profile.valid?
-      flash.now[:alert] = @profile.errors.full_messages
-      render :new_profile_address and return
-    end
-
-    unless @address.valid?
-      flash.now[:alert] = @address.errors.full_messages
-      render :new_profile_address and return
+    unless @user.valid? && @profile.valid?
+      flash.now[:alert] = @user.errors.full_messages.concat @profile.errors.full_messages
+      puts @user.errors.full_messages.concat @profile.errors.full_messages
+      render :new and return
     end
 
     @user.build_profile(@profile.attributes)
+    session["devise.regist_data"] = {user: @user.attributes, profile: @profile.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @address = @user.build_sending_destination
+    render :new_address
+  end
+
+  def create_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = SendingDestination.new(address_params)
+
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
+    end
+
+    @user.build_profile(session["devise.regist_data"]["profile"])
     @user.build_sending_destination(@address.attributes)
     @user.save
     session["devise.regist_data"]["user"].clear
@@ -46,7 +44,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def profile_params
-    params.require(:profile).permit(
+    params.require(:user).require(:profile).permit(
       :first_name, :family_name, 
       :first_name_kana, :family_name_kana, :birthday
     )
