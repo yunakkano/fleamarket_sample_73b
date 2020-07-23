@@ -7,4 +7,5 @@
       %li
         = link_to '削除', "/items/#{@item.id}", method: :delete
       %li
-        = link_to '購入画面へ進む', "/items/purchase/#{@item.id}", method: :get
+        -# = link_to '購入画面へ進む', "/items/purchase/#{@item.id}", method: :get
+        = link_to '購入画面へ進む', "/items/#{@item.id}/purchase", method: :get

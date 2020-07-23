@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_120022) do
+ActiveRecord::Schema.define(version: 2020_07_23_103538) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "brand", null: false
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 2020_07_13_120022) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "customer_id"
-    t.string "card_id"
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -135,16 +135,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_120022) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  add_foreign_key "cards", "users"
->>>>>>> card_regist
-=======
->>>>>>> card_regist_before_rebase
-=======
->>>>>>> d599f4ad76fc0fe387790711db4d5896f9d560b2
   add_foreign_key "item_imgs", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"

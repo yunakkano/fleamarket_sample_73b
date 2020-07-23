@@ -12,18 +12,20 @@ Rails.application.routes.draw do
   # resources :items, except: :show
   resources :items do
     collection do
-      get 'index', to: 'items#index'
-      get 'purchase/:id', to:'items#purchase'
-      post 'pay/:id', to:'items#pay'#httpメソッドはpostなので注意
       get  'done', to:'items#done'
+    end
+    member do
+      get "purchase"
+      post "pay"
     end
   end
   resources :users, only: :show
   resources :cards, only: [:new, :show] do
     collection do
+      # get 'index', to: 'cards#index'
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
-      delete 'delete', to: 'cards#delete'
+      post 'delete', to: 'cards#delete'
     end
   end
   resources :purchases, only: [:index] do

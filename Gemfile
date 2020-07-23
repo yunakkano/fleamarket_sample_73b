@@ -99,4 +99,4 @@ gem 'jp_prefecture'
 gem 'ancestry'
 # For payjp
 gem 'payjp'
-gem 'dotenv'
+gem 'dotenv-rails'

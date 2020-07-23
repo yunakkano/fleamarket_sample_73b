@@ -27,20 +27,21 @@ class ItemsController < ApplicationController
   def purchase
     @item = Item.find(params[:id])
     # 登録したcardを表示させるため、cards/showを呼び出す必要がある
-    # render template:'cards/show'
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = "sk_test_b846970e4339aacd4d2503c7"
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
+    # render template:'cards/new'
   end
 
   def pay
     @item = Item.find(params[:id])
-    Payjp.api_key = "sk_test_b846970e4339aacd4d2503c7"
-    charge = Payjp::Charge.create(
-    amount: @item.price,
-    card: params['payjp-token'],
-    currency: 'jpy'
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp::Charge.create(
+      :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      :customer => card.customer_id, #顧客ID
+      :currency => 'jpy', #日本円
     )
     redirect_to action: :done
   end

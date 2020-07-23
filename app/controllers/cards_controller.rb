@@ -1,6 +1,17 @@
-class CardsController < ItemsController
+# class CardsController < ItemsController
+class CardsController < ApplicationController
 
   require "payjp"
+
+  # def index
+  #   card = Card.where(user_id: current_user.id)
+  #   if card.blank?
+  #     redirect_to action: "new" 
+  #   else
+  #     redirect_to action: "show"
+  #   end
+  # end
+
 
   def new
     card = Card.where(user_id: current_user.id)
@@ -9,7 +20,7 @@ class CardsController < ItemsController
 
 
   def pay #payjpとCardのデータベース作成を実施します。
-    Payjp.api_key = "sk_test_b846970e4339aacd4d2503c7"
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -17,6 +28,7 @@ class CardsController < ItemsController
       card: params['payjp-token'],
       # metadata: {user_id: current_user.id}
       ) #念の為metadataにuser_idを入れましたが
+    end
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
@@ -25,7 +37,6 @@ class CardsController < ItemsController
         redirect_to action: "pay"
         flash[:notice] = 'クレジットカードの登録に失敗しました'
       end
-    end
   end
 
 
@@ -34,10 +45,11 @@ class CardsController < ItemsController
     if card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = "sk_test_b846970e4339aacd4d2503c7"
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+    # redirect_to controller: "items", action: "purchase"
   end
 
 
@@ -45,7 +57,7 @@ class CardsController < ItemsController
     card = Card.where(user_id: current_user.id).first
     if card.blank?
     else
-      Payjp.api_key = "sk_test_b846970e4339aacd4d2503c7"
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
@@ -53,4 +65,3 @@ class CardsController < ItemsController
       redirect_to action: "new"
   end
 end
-
