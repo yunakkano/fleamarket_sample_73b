@@ -1,10 +1,7 @@
--# %h1 Purchases#index
--# %p Find me in app/views/purchases/index.html.haml
-
 .purchase
   .purchase__header
     .purchase__header__logo
-      %a{href: "/"}
+      = link_to root_path ,method: :get,class:"purchase__header__logo__link" do
         = image_tag src="logo.png", size: "170x50"      
   .purchase__body
     .purchase__body__title
@@ -68,7 +65,7 @@
       = link_to "http://localhost/#", class: "purchase__footer__top-content__object-3" do
         特定商取引に関する表記
     .purchase__footer__logo
-      %a{href: "http://localhost/#"}
+      = link_to root_path ,method: :get,class:"purchase__footer__logo__link" do
         = image_tag src="logo-white.png", size: "170x50"
     .purchase__footer__copy
       ©︎ Furima, Inc.
