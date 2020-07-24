@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  # resources :items, except: :show
+  resources :items, except: :show
   resources :items do
     collection do
       get  'done', to:'items#done'
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :cards, only: [:new, :show] do
     collection do
-      # get 'index', to: 'cards#index'
+      # get 'index', to: 'cards#index'（確認中）
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'

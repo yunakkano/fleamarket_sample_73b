@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
-    # render template:'cards/new'
+    # render template:'cards/new'(確認中)
   end
 
   def pay

@@ -37,7 +37,7 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
-    # redirect_to controller: "items", action: "purchase"
+    # redirect_to controller: "items", action: "purchase"(確認中)
   end
 
 

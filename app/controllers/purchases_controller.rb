@@ -1,9 +1,9 @@
 class PurchasesController <  ApplicationController
+  before_action :set_card, only: [:index, :pay]
 
   require 'payjp'
 
   def index
-    card = Card.find_by(user_id: current_user.id)
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
@@ -19,7 +19,6 @@ class PurchasesController <  ApplicationController
 
   def pay
     @item = Item.find(params[:id]) #エラー！！！
-    card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
     :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
@@ -27,5 +26,9 @@ class PurchasesController <  ApplicationController
     :currency => 'jpy', #日本円
     ) 
   redirect_to action: 'done' #完了画面に移動
+  end
+
+  def set_card
+    card = Card.find_by(user_id: current_user.id)
   end
 end
