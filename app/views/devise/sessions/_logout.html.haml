@@ -1,4 +1,3 @@
 .logout-container
   .logout-container__content
-    .logout-container__content__form-group
-      = button_to("ログアウト", destroy_user_session_path, method: :delete, html:{class: "login-btn login-btn-cian"})
+    = button_to("ログアウト", destroy_user_session_path, method: :delete)
