@@ -109,7 +109,7 @@ main.mypage__container{
 				text-decoration: none;
 				.mypage__number{
 					margin:	8px 0 0;
-					font-size:	0;
+					font-size:	14px;
 					.bold{
 						font-weight: 600;
 					}
@@ -240,7 +240,45 @@ main.mypage__container{
 			}
 		}
 	}
+	.logout-container{
+		float: right;
+		height: 179px;
+		width: 700px;
+		margin: 0 auto;
+		// background: #fff;
+		// padding: 32px;
+		&__content{
+			max-width: 343px;
+			margin: 0 auto;
+			display: block;
+			font-weight: 600;
+			touch-action: manipulation;
+			cursor: default;
+			.button_to {
+				display: block;
+				width: 100%;
+				line-height: 48px;
+				font-size: 14px;
+				border-radius: 4px;
+				transition: all ease-out .3s;
+				cursor: pointer;
+				text-align: center;
+				margin-top: 32px;
+				margin: 24px 0 0;
+				background: #2bccd1;
+				border: 1px solid #2bccd1;
+				color: #fff;
+				input{
+					border: none;
+					background: #2bccd1;
+					cursor: pointer;
+					color: white;
+				}
+			}
+		}
+	}
 }
+
 .bottomDl {
 	clear: both;
 	height: 176px;
