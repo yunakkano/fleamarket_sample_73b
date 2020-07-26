@@ -1,0 +1,17 @@
+.categories
+  = link_to 'カテゴリー', '#', class: 'catBtn'
+  %ul.category-parent.category-list
+    - @parents.each do |parent|
+      %li
+        = link_to "#", class: "category-parent--name" do
+          = parent.category
+        %ul.category-child.category-list
+          - parent.children.each do |child|
+            %li
+              = link_to "#", class: "category-child--name" do
+                = child.category
+              %ul.category-grandchild.category-list
+                - child.children.each do |grandchild|
+                  %li
+                    = link_to "#", class: "category-child--name" do
+                      = grandchild.category

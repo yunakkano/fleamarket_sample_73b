@@ -9,7 +9,8 @@
     .nav
       %ul.nav__left
         %li.nav__left__item--first
-          = link_to 'カテゴリー', '#', class: 'catBtn'
+          -# header_categoryの部分テンプレート呼び出し
+          = render 'header_category'
         %li.nav__left__item
           = link_to 'ブランド', '#', class: 'brandBtn'
       %ul.nav__right

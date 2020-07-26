@@ -1,0 +1,81 @@
+@mixin hover_behavior($hover_fontColor, $hover_backgroundColor) {
+  color: $hover_fontColor;
+  background-color: $hover_backgroundColor;
+}
+
+.category-child, .category-parent, .category-grandchild {
+  display: none;
+}
+
+.category-list {
+  position: absolute;
+  height: calc(40 * 13px);
+  background-color: $white;
+}
+
+
+.category-child--name {
+  width: 100%;
+  display: inline-block;
+  padding: 5px 0 0 15px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.category-child--name:hover {
+  width: 285px;
+  @include hover_behavior($white, $lightgray);
+}
+
+.categories {
+  .catBtn {
+    font-weight: bold;
+  }
+  &:hover {
+    .category-parent {
+      border-right: 2px solid $lightgray;
+      top: 105px;
+      display: block;
+      &--name {
+        width: 100%;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 13px;
+        letter-spacing: 2px;
+        &:hover {
+          @include hover_behavior($white, $blue)
+        }
+      }
+      li {
+        &:hover {
+          .category-child {
+            border-right: 2px solid $lightgray;
+            width: 100%;
+            height: calc(28 * 19px);
+            display: block;
+            top: 0;
+            left: 222px;
+            li {
+              &:hover {
+                .category-grandchild {
+                  border-right: 2px solid $lightgray;
+                  width: 300px;
+                  height: calc(28 * 23px);
+                  display: block;
+                  top: 0;
+                  left: 222px;
+                }
+              }
+            }
+          }
+          .category-child a:hover {
+            color: $blue;
+          }
+        }
+      }
+    }
+    .category-parent a:hover {
+      color: $white;
+    }
+  }
+}

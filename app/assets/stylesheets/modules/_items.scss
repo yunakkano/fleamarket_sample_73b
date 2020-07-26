@@ -82,14 +82,17 @@
         color: $black;
         list-style: none;
         text-decoration: none;
+        &:hover {
+          color: $blue;
+        }
       }
       &__left {
         display: flex;
         &__item--first {
           margin-right: 40px;
         }
-        a:hover {
-          color: $orange;
+        .brandBtn {
+          font-weight: bold;
         }
       }
       &__right {
@@ -369,9 +372,9 @@
               }
             }
           }
-        }
-        .productList:hover {
-          opacity: 0.5;
+          &:hover {
+            opacity: 0.5;
+          }
         }
       }
     }
