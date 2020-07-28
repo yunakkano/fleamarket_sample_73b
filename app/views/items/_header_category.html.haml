@@ -2,16 +2,16 @@
   = link_to 'カテゴリー', '#', class: 'catBtn'
   %ul.category-parent.category-list
     - @parents.each do |parent|
-      %li
+      %li.parent-list
         = link_to "#", class: "category-parent--name" do
           = parent.category
         %ul.category-child.category-list
           - parent.children.each do |child|
-            %li
+            %li.child-list
               = link_to "#", class: "category-child--name" do
                 = child.category
               %ul.category-grandchild.category-list
                 - child.children.each do |grandchild|
-                  %li
+                  %li.grandchild-list
                     = link_to "#", class: "category-child--name" do
                       = grandchild.category

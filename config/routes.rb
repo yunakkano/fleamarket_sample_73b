@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :items, except: :show
+  resources :items, except: [:show] do
+    collection do
+      get :search
+    end
+  end
   resources :users, only: :show
 end

@@ -3,8 +3,16 @@
   background-color: $hover_backgroundColor;
 }
 
-.category-child, .category-parent, .category-grandchild {
-  display: none;
+.active {
+  display: block;
+}
+
+.active2 {
+  display: block;
+}
+
+.active3 {
+  display: block;
 }
 
 .category-list {
@@ -13,69 +21,61 @@
   background-color: $white;
 }
 
-
-.category-child--name {
-  width: 100%;
-  display: inline-block;
-  padding: 5px 0 0 15px;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-.category-child--name:hover {
-  width: 285px;
-  @include hover_behavior($white, $lightgray);
-}
-
 .categories {
   .catBtn {
     font-weight: bold;
   }
-  &:hover {
-    .category-parent {
-      border-right: 2px solid $lightgray;
-      top: 105px;
-      display: block;
-      &--name {
-        width: 100%;
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 13px;
-        letter-spacing: 2px;
-        &:hover {
-          @include hover_behavior($white, $blue)
-        }
+  .category-parent {
+    display: none;
+    border-right: 2px solid $lightgray;
+    top: 105px;
+    &--name {
+      width: 100%;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      &:hover {
+        @include hover_behavior($white, $blue)
       }
-      li {
-        &:hover {
-          .category-child {
+    }
+    li {
+      .category-child {
+        display: none;
+        border-right: 2px solid $lightgray;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 222px;
+        &--name {
+          width: 100%;
+          display: inline-block;
+          padding: 5px 0 0 15px;
+          font-size: 12px;
+          letter-spacing: 2px;
+          &:hover {
+            width: 285px;
+            @include hover_behavior($white, $lightgray);
+          }
+        }
+        li {
+          .category-grandchild {
+            display: none;
             border-right: 2px solid $lightgray;
-            width: 100%;
-            height: calc(28 * 19px);
-            display: block;
+            width: 300px;
+            height: calc(25 * 29px);
             top: 0;
             left: 222px;
-            li {
-              &:hover {
-                .category-grandchild {
-                  border-right: 2px solid $lightgray;
-                  width: 300px;
-                  height: calc(28 * 23px);
-                  display: block;
-                  top: 0;
-                  left: 222px;
-                }
-              }
-            }
-          }
-          .category-child a:hover {
-            color: $blue;
-          }
+            z-index: 1;
+          }          
         }
       }
+      .category-child a:hover {
+        color: $blue;
+      } 
     }
-    .category-parent a:hover {
-      color: $white;
-    }
+  }
+  .category-parent a:hover {
+    color: $white;
   }
 }
