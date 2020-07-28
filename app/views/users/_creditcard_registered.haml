@@ -1,0 +1,16 @@
+%main.creditcard__container
+  .creditcard__container__content
+    .creditcard__container__chapter
+      %h2.creditcard__container__chapter__head 支払い方法
+      .creditcard__container__chapter__inner
+        %section
+          .creditcard__container__chapter__inner__content
+            %h3.creditcard__container__chapter__subhead クレジットカード一覧
+          %ul.creditcard__list
+            %li
+              %form.creditcard__container__chapter__inner__content{action: "/users/#{current_user.id}"}
+                %figure
+                  %img{alt: "master-card", height: "20", src: "//pcweb-assets.mercdn.net/assets/img/card/master-card.svg?2479546424", width: "34"}
+                .card-info ************9999
+                .card-info 12 / 33
+                = button_to('削除する', '', class: "card-remove-btn")

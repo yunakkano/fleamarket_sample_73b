@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cards/new'
+  get 'cards/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -13,4 +15,10 @@ Rails.application.routes.draw do
 
   resources :items, except: :show
   resources :users, only: :show
+  get '/users/:id/credit_card', to: 'users#credit_card'
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+    end
+  end
 end

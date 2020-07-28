@@ -6,4 +6,7 @@ class UsersController < ApplicationController
         end
         @user = User.find(current_user.id)
     end
+
+    def credit_card
+    end
 end

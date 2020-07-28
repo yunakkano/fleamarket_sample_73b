@@ -15,6 +15,9 @@ class Item < ApplicationRecord
   include JpPrefecture
   jp_prefecture :prefecture_code
 
+  validates_associated :item_imgs
+  validates :item_imgs, presence: true
+
   private
 
   def set_default_trading_status

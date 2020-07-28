@@ -277,6 +277,102 @@ main.mypage__container{
 			}
 		}
 	}
+	main.creditcard__container{
+		margin: 24px auto 0;
+		padding: 0 0 40px;
+		display: block;
+		.creditcard__container__content{
+			width: 100%;
+			.creditcard__container__chapter{
+				margin: 0;
+				background: #fff;
+				h2.creditcard__container__chapter__head{
+					padding: 12px 4%;
+					border-bottom: 1px solid #f5f5f5;
+					text-align: center;
+					font-size: 18px;
+					line-height: 1.4;
+				}
+				&__inner{
+					border-top: 1px solid #f5f5f5;
+					padding: 40px;
+					&__content{
+						max-width: 320px;
+						margin: 0 auto;
+						h3.creditcard__container__chapter__subhead{
+							font-size: 14px;
+
+						}
+					}
+					ul.creditcard__list{
+						list-style: none;
+						li{
+							padding: 24px 0;
+							border-bottom: 1px solid #eee;
+							form.creditcard__container__chapter__inner__content{
+								position: relative;
+								max-width: 320px;
+								margin: 0 auto;
+								figure{
+									display: block;
+									margin-block-start: 1em;
+									margin-block-end: 1em;
+									margin-inline-start: 40px;
+									margin-inline-end: 40px;
+									img{
+										vertical-align: middle;
+									}
+								}
+								.card-info{
+									margin: 8px 0 0;
+									font-size: 16px;
+								}
+								input.card-remove-btn{
+									position: absolute;
+									top: 0;
+									right: 0;
+									padding: 4px 6px;
+									background: #fff;
+									border-radius: 3px;
+									border: 1px solid #2BCCD1;
+									color: #2BCCD1;
+								}
+							}
+						}
+					}
+					&__addcard{
+						padding: 24px 0;
+						border-bottom: 1px solid #eee;
+						&__content{
+							max-width: 320px;
+							margin: 0 auto;
+							.button_to {
+								display: block;
+								width: 100%;
+								line-height: 48px;
+								font-size: 14px;
+								border-radius: 4px;
+								transition: all ease-out .3s;
+								cursor: pointer;
+								text-align: center;
+								margin-top: 32px;
+								margin: 24px 0 0;
+								background: #2bccd1;
+								border: 1px solid #2bccd1;
+								color: #fff;
+								input{
+									border: none;
+									background: #2bccd1;
+									cursor: pointer;
+									color: white;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .bottomDl {
