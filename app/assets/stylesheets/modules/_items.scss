@@ -382,26 +382,26 @@
   #last-product {
     padding-bottom: 80px;
   }
-  .bottomDl {
-    padding: 100px 40px;
-    @include backVisual('pict/bg-appBanner-pict.jpg', center);
-    .bottomDlBox {
-      color: $white;
-      text-align: center;
-      &__title {
-        font-size: 24px;
-        font-weight: bold;
-        line-height: 1.4;
-        @include textShadow;
-      }
-      &__text {
-        font-size: 35px;
-        @include textShadow;
-      }
-      &__btn {
-        justify-content: center;
-        @include dlBtn;
-      }
+}
+.bottomDl {
+  padding: 100px 40px;
+  @include backVisual('pict/bg-appBanner-pict.jpg', center);
+  .bottomDlBox {
+    color: $white;
+    text-align: center;
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+      @include textShadow;
+    }
+    &__text {
+      font-size: 35px;
+      @include textShadow;
+    }
+    &__btn {
+      justify-content: center;
+      @include dlBtn;
     }
   }
 }
