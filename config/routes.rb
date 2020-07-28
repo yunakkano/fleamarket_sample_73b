@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'categories/index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: :show
+  resources :categories, only: [:index, :show]
 end
