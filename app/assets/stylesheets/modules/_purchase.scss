@@ -87,13 +87,9 @@
         }
       }
       &__credit{
-        text-align: left;
-        margin: 8px 0 0;
-        &__p{
-          
-        }
-        &__img{
-          margin: 8px 0 0;
+        &__link{
+          text-decoration: none;
+          color: deepskyblue;
         }
       }
     }

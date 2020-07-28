@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'sending_destinations/new'
+  get 'sending_destinations/show'
+  get 'sends/new'
+  get 'sends/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -17,9 +21,16 @@ Rails.application.routes.draw do
     member do
       get "purchase"
       post "pay"
+      post 'card_show', to:'cards#show'
     end
   end
-  resources :users, only: :show
+  get '/items/:id/card_show', to: 'items#card_show'
+  resources :users, only: [:show] do
+    member do
+      get "regist"
+      get "sending_destination"
+    end
+  end
   resources :cards, only: [:new, :show] do
     collection do
       # get 'index', to: 'cards#index'（確認中）
@@ -28,6 +39,7 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
+
   resources :purchases, only: [:index] do
     collection do
       get 'index', to: 'purchases#index'
@@ -35,4 +47,5 @@ Rails.application.routes.draw do
       get 'done', to: 'purchases#done'
     end
   end
+
 end

@@ -26,8 +26,10 @@ class ItemsController < ApplicationController
   
   def purchase
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    @default_card_information = customer.cards.retrieve(@card.card_id)
+    if not @card.blank?
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
     # render template:'cards/new'(確認中)
   end
 
@@ -44,8 +46,11 @@ class ItemsController < ApplicationController
   def done
   end
 
+  def card_show
+  end
+
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.find_by(params[:id])
   end
 
   def set_card
