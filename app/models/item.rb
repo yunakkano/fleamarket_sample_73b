@@ -15,6 +15,7 @@ class Item < ApplicationRecord
   include JpPrefecture
   jp_prefecture :prefecture_code
 
+  validates_associated :item_imgs
   validates :item_imgs, presence: { message: 'を選択してください。' }, length: { minimum: 1, maximum: 5 }
 
   validates :name,             presence: true, length: {maximum: 40}

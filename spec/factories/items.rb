@@ -1,4 +1,14 @@
 FactoryBot.define do
+  factory :category do
+    category {"テストカテゴリー"}
+    ancestry {"親カテゴリー"}
+  end
+
+  factory :item_img, class: ItemImg do     
+    url        {File.open("#{Rails.root}/spec/fixtures/test_image.jpg")} 
+    association  :item, factory: :item   
+  end
+
   factory :item do
     id {1}
     name {"テスト"}

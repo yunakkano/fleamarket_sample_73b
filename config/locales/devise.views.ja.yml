@@ -78,8 +78,10 @@ ja:
           attributes:
             name:
               blank: "を入力してください"
+              too_long: "商品名は40字以内で書いてください"
             introduction:
               blank: "を入力してください"
+              too_long: "商品紹介は1000文字以内で書いてください"
             category_id:
               blank: "を選択してください"
             item_condition_id:
