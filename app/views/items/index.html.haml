@@ -85,10 +85,27 @@
           様々な支払いに対応
         %p.featureList__item__description
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  -# カテゴリ商品リストの部分テンプレート呼び出し
-  = render 'category'
-  -# ブランド商品リストの部分テンプレート呼び出し
-  = render 'brand'
+  .product
+    %h2.subtitle 
+      ピックアップカテゴリー
+    .productBox
+      .productHead
+        = link_to '#' do
+          %h3.title
+            新規投稿商品
+      -# 商品リストの部分テンプレート呼び出し
+      = render 'category'
+  -# カテゴリー/ブランドの表示分けは追って対応
+  .product#last-product
+    %h2.subtitle 
+      ピックアップブランド
+    .productBox
+      .productHead
+        =link_to '#' do
+          %h3.title
+            アーカイバ
+      -# 商品リストの部分テンプレート呼び出し
+      = render 'category'
   -# ページ下部ダウンロードの部分テンプレート呼び出し
   = render 'bottom_dl'
 -# footerの部分テンプレート呼び出し

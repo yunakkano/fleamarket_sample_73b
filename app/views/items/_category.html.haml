@@ -1,32 +1,24 @@
-.product
-  %h2.subtitle 
-    ピックアップカテゴリー
-  .productBox
-    .productHead
+.productLists
+  - @items.each do |item|
+    .productList
       = link_to '#' do
-        %h3.title
-          新規投稿商品
-    .productLists
-      - @items.each do |item|
-        .productList
-          = link_to '#' do
-            %figure.productList__img
-              -# trading_status -> 1 の場合、売り切れ表示
-              - if item.trading_status == 1
-                .productSold
-                  .productSold__inner
-                    SOLD
-              - item.item_imgs.each do |item_img|
-                = image_tag item_img.url.url
-            .productList__content
-              %h3.name
-                = item.name
-              .productDetails
-                %ul
-                  %li
-                    = "#{item.price.to_s(:delimited, delimiter: ',')}円"
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p
-                  (税込)
+        %figure.productList__img
+          -# trading_status -> 1 の場合、売り切れ表示
+          - if item.trading_status == 1
+            .productSold
+              .productSold__inner
+                SOLD
+          - item.item_imgs.each do |item_img|
+            = image_tag item_img.url.url
+        .productList__content
+          %h3.name
+            = item.name
+          .productDetails
+            %ul
+              %li
+                = "#{item.price.to_s(:delimited, delimiter: ',')}円"
+              %li
+                %i.fa.fa-star.likeIcon 
+                0
+            %p
+              (税込)
