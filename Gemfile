@@ -100,3 +100,5 @@ gem 'jp_prefecture'
 
 # For category to have tree-structure
 gem 'ancestry'
+
+gem 'kaminari'
