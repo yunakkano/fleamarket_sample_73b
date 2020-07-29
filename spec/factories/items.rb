@@ -1,12 +1,8 @@
 FactoryBot.define do
   factory :category do
+    id {1}
     category {"テストカテゴリー"}
     ancestry {"親カテゴリー"}
-  end
-
-  factory :item_img, class: ItemImg do     
-    url        {File.open("#{Rails.root}/spec/fixtures/test_image.jpg")} 
-    association  :item, factory: :item   
   end
 
   factory :item do
@@ -21,8 +17,13 @@ FactoryBot.define do
     postage_type_id {2}
     prefecture_code {2}
     after(:build) do |item|
-      item.item_imgs<< build(:item_img, item: item)
+      item.item_imgs << build(:item_img, item: item)
     end
+  end
+  
+  factory :item_img, class: ItemImg do     
+    url         { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec/fixtures/test_image.jpg"), 'image/png') }
+    association  :item, factory: :item   
   end
 
   factory :item_no_picture ,class: Item do
@@ -48,12 +49,13 @@ FactoryBot.define do
     item_condition_id {1}
     category_id {1}
     after(:build) do |item|
-      item.item_imgs<< build(:item_img, item: item)
-      item.item_imgs<< build(:item_img, item: item)
-      item.item_imgs<< build(:item_img, item: item)
-      item.item_imgs<< build(:item_img, item: item)
-      item.item_imgs<< build(:item_img, item: item)
-      item.item_imgs<< build(:item_img, item: item)
+      item.item_imgs = []
+      item.item_imgs << build(:item_img, item: item)
+      item.item_imgs << build(:item_img, item: item)
+      item.item_imgs << build(:item_img, item: item)
+      item.item_imgs << build(:item_img, item: item)
+      item.item_imgs << build(:item_img, item: item)
+      item.item_imgs << build(:item_img, item: item)
     end
 
   end

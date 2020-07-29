@@ -4,8 +4,9 @@ describe Item do
   
     # presence: true 
     it "is valid with a name, price, introduction, item_condition_id, postage_payer_id, prefecture_code, preparation_day_id, postage_type_id, category_id" do
-      category = create(:category)
+      category = build(:category)
       item = build(:item, category_id: category.id)
+      item.valid?
       expect(item).to be_valid
     end
 
