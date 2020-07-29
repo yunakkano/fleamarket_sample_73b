@@ -74,6 +74,26 @@ ja:
               blank: "を入力してください"
             phone_number:
               blank: "を入力してください"
+        item:
+          attributes:
+            name:
+              blank: "を入力してください"
+            introduction:
+              blank: "を入力してください"
+            category_id:
+              blank: "を選択してください"
+            item_condition_id:
+              blank: "を選択してください"
+            postage_type_id:
+              blank: "を選択してください"
+            postage_payer_id:
+              blank: "を選択してください"
+            prefecture_code:
+              blank: "を選択してください"
+            preparation_day_id:
+              blank: "を選択してください"
+            price:
+              blank: "を入力してください"
   devise:
     confirmations:
       new:
