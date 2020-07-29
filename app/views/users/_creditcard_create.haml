@@ -3,8 +3,7 @@
     .creditcard__container__chapter
       %h2.creditcard__container__chapter__head クレジットカード情報入力
       .creditcard__container__chapter__inner
-      %form#add-card-form.l-single-inner.registration-form{action: "https://www.mercari.com/jp/mypage/card/add/", "data-adyen-id" => "card-form", method: "POST", novalidate: "novalidate"}
-        %input{name: "__csrf_value", type: "hidden", value: "95c82e6004cd6fc47646c7046698be29d26051c09dcf79f208201deb93d51b938c8f8d8068120c98247640f939ed7be1c84a58117155586f9b4ea33a3fda507d8"}/
+      %form.creditcard__container__chapter__inner__addcard__form{action: "", "data-adyen-id" => "card-form", method: "POST", novalidate: "novalidate"}
         .l-single-content
           .form-group
             %label{for: "payment_card_no"} カード番号
