@@ -15,7 +15,7 @@
       %ul.nav__right
         - if user_signed_in? && request.path == user_path(current_user.id)
           %li.nav__right__item--login
-            = link_to "ログアウト", logout_confirmation_path
+            = link_to "ログアウト", user_sessions_path(current_user)
             -# = link_to "ログアウト", destroy_user_session_path, method: :delete
         - elsif user_signed_in?
           %li.nav__right__item--login
