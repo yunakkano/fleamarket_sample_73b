@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_parents, only: [:index, :new, :create]
   before_action :set_item, only: [:show, :purchase, :pay, :card_show]
   before_action :set_card, only: [:purchase, :pay, :card_show]
 
@@ -18,6 +19,20 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  # 商品出品ページのカテゴリー選択における、選択した親IDに該当する子IDの検索
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        if params[:parent_id]
+          @childrens = Category.find(params[:parent_id]).children
+        elsif params[:children_id]
+          @grandChilds =Category.find(params[:children_id]).children
+        end
+      end
     end
   end
 
@@ -64,6 +79,9 @@ class ItemsController < ApplicationController
   end
 
   private
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
 
   def item_params
     params.require(:item).permit(

@@ -97,6 +97,10 @@ gem 'jp_prefecture'
 
 # For category to have tree-structure
 gem 'ancestry'
+
+# For PageNation
+gem 'kaminari'
+
 # For payjp
 gem 'payjp'
 gem 'dotenv-rails'
