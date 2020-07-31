@@ -10,5 +10,6 @@ class SendingDestinationsController < ApplicationController
       redirect_to action: "new" 
     else
       render template: "users/address"
+    end
   end
 end
