@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'categories/index'
   get 'sending_destinations/new'
   get 'sending_destinations/show'
   get 'sends/new'
@@ -15,7 +16,11 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :items, except: :show
+  resources :items, except: [:show] do
+    collection do
+      get :search
+    end
+  end
   resources :items do
     collection do
       get  'done', to:'items#done'
@@ -55,4 +60,6 @@ Rails.application.routes.draw do
       resources :cards,    only: [:index, :new, :create]
     end
   end
+  
+  resources :categories, only: [:index, :show]
 end
