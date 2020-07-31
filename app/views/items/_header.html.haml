@@ -16,7 +16,6 @@
         - if user_signed_in? && (request.path == user_path(current_user.id) || request.path == user_cards_path(current_user) || request.path == new_user_card_path(current_user))
           %li.nav__right__item--login
             = link_to "ログアウト", user_sessions_path(current_user)
-            -# = link_to "ログアウト", destroy_user_session_path, method: :delete
         - elsif user_signed_in?
           %li.nav__right__item--login
             = link_to "マイページ", user_path(current_user.id), method: :get

@@ -19,10 +19,4 @@ Rails.application.routes.draw do
       resources :cards,    only: [:index, :new, :create]
     end
   end
-  # get '/users/:id/credit_card', to: 'users#credit_card'
-  # resources :cards, only: [:new, :show] do
-  #   collection do
-  #     post 'show', to: 'cards#show'
-  #   end
-  # end
 end
