@@ -6,7 +6,7 @@
   .purchase__body
     .purchase__body__title
       = form_with url:pay_cards_path(@item), method: :post do
-        %script.payjp-button{"data-key" => ENV["PAYJP_KEY"], src: "https://checkout.pay.jp/"}
+        %script.payjp-button{"data-key" => Rails.application.credentials[:payjp_key], src: "https://checkout.pay.jp/"}
         
   .purchase__footer
     .purchase__footer__top-content
