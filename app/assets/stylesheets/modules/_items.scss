@@ -271,8 +271,11 @@
       }
     }
   }
-  .product {
+  #product {
+    // TOPページの商品一覧用
     padding: 80px 0 35px;
+  }
+  .product {
     background-color: $lightgray;
     .subtitle {
       margin-bottom: 5px;
