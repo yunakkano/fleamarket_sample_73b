@@ -5,7 +5,7 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    redirect_to action: "show" if @card.present?
+    redirect_to controller: "items", action: "show" if @card.present?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。

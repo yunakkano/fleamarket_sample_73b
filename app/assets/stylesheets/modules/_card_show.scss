@@ -5,7 +5,6 @@
 .customer-card{
   background-color: white;
   text-align: left;
-  text-decoration: none;
   // display: flex;
   &__content{
     float: left;
@@ -13,10 +12,15 @@
     }
     &__expired{  
     }
-    &__item{  
+    &__item{ 
+      &__link{
+        text-decoration: none;
+        color: deepskyblue;
+      }
     }
   }
   &__delete{  
     float: right;
+    margin-top: -30px;
   }
 }
