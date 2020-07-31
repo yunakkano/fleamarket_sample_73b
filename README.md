@@ -47,18 +47,15 @@
 - belongs_to :user
 
 
-## credit_cardsテーブル
+## cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
-|user_id|references|null: false, foreign_key: true|
+|card_id|string|null: false|
+|customer_id|string|null: false|
+|user_id|integer|null: false|
 
 ### Association
-- belongs_to :user
 
 
 ## itemsテーブル
