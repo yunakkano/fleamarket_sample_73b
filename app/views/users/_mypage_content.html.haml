@@ -1,8 +1,8 @@
 .mypage__content
   %section.mypage__user-icon
-    %a{href: "#"}
+    = link_to user_path(current_user.id), method: :get do
       %figure
-        %img{alt: "", height: "60", src: "//static.mercdn.net/thumb/members/593500295.jpg?1485573557", width: "60"}/
+        = image_tag asset_path('icon/member_photo_noimage_thumb.png'), alt: '', height: '60', width: '60', class: 'lazyloaded'
       %h2.bold
         = @user.nickname
       .mypage__number
@@ -16,22 +16,22 @@
     %ul.mypage__tabs
       %li.active
         %h3
-          %a{"data-toggle" => "tab", href: "#mypage-tab-notification"}
+          = link_to user_path(current_user.id), method: :get do
             お知らせ
             %span.mypage-nav-number.hidden-large
               99+
       %li
         %h3
-          %a{"data-toggle" => "tab", href: "#mypage-tab-todo"}
+          = link_to user_path(current_user.id), method: :get do
             やることリスト
             %span.mypage-nav-number.hidden-large
               1
     .mypage__tab-content
       %ul.mypage__item-list--active
         %li
-          %a.mypage__item-link{href: "#"}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              = image_tag 'logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text 事務局から個別メッセージ「ログイン通知」
               %time
@@ -39,9 +39,9 @@
                 %span 0 秒前
             %i.icon-arrow-right
         %li
-          %a.mypage__item-link{"data-modal" => "banner", "data-open" => "modal", href: ""}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              = image_tag 'logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text 《メルカリｘマイナポイントがお得》メルカリで買うと最大でP5,000+P1,000もらえる！事前準備はこちら
               %time
@@ -49,9 +49,9 @@
                 %span 1 日前
             %i.icon-arrow-right
         %li
-          %a.mypage__item-link{"data-modal" => "banner", "data-open" => "modal", href: ""}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              = image_tag 'logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text 《最大P1,000もらえる♪》dアカウント連携してGETしよう！ドコモ以外も全員対象！
               %time
@@ -59,9 +59,9 @@
                 %span 5 日前
             %i.icon-arrow-right
         %li
-          %a.mypage__item-link{href: "#"}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              = image_tag 'logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text 事務局から個別メッセージ「商品削除のお知らせ」
               %time
@@ -69,9 +69,9 @@
                 %span 6 日前
             %i.icon-arrow-right
         %li
-          %a.mypage__item-link{href: "#"}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              = image_tag 'logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text 事務局から個別メッセージ「ログイン通知」
               %time
@@ -79,12 +79,12 @@
                 %span 6 日前
             %i.icon-arrow-right
         %li.mypage__go-list
-          %a{href: "#"} 一覧を見る
+          = link_to "一覧を見る", user_path(current_user.id), method: :get
       %ul.mypage__item-list
         %li
-          %a.mypage__item-link{href: "#"}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              = image_tag 'logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text メールが届いていない状態です。設定しているメールアドレスをご確認ください
               %time
@@ -92,26 +92,24 @@
                 %span 48 日前
             %i.icon-arrow-right
         %li.mypage__go-list
-          %a{href: "#"} 一覧を見る
+          = link_to "一覧を見る", user_path(current_user.id), method: :get
   %section.mypage__tab-container
     %h2.mypage__tab-head 購入した商品
     %ul.mypage__tabs
       %li.active
         %h3
-          %a{"data-toggle" => "tab", href: "#mypage-tab-transaction-now"}
-            取引中
+          = link_to "取引中", user_path(current_user.id), method: :get
       %li
         %h3
-          %a{"data-toggle" => "tab", href: "#mypage-tab-transaction-old"}
-            過去の取引
+          = link_to "過去の取引", user_path(current_user.id), method: :get
     .mypage__tab-content
       %ul.mypage__item-list
         %li.mypage-item-not-found.bold 取引中の商品がありません
       %ul.mypage__item-list--active
         %li
-          %a.mypage__item-link{href: "#"}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m95269895967_1.jpg?1579615319"}/
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text
                 「siroca 4L 電気圧力鍋　ホワイト SP-4D171 シロカ」 を購入しました。
@@ -120,9 +118,9 @@
                 取引完了
             %i.icon-arrow-right
         %li
-          %a.mypage__item-link{href: "#"}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m55596442625_1.jpg?1574080785"}/
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text
                 「CFP 精選過去問題集 2018〜2019年  ライフプランニング」 を購入しました。
@@ -131,9 +129,9 @@
                 取引完了
             %i.icon-arrow-right
         %li
-          %a.mypage__item-link{href: "#"}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m46215870580_1.jpg?1574080587"}/
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text
                 「CFP 精選過去問題集 2018〜2019年  リスクと保険」 を購入しました。
@@ -142,9 +140,9 @@
                 取引完了
             %i.icon-arrow-right
         %li
-          %a.mypage__item-link{href: "#"}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m24534089083_1.jpg?1574080385"}/
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text
                 「CFP 精選過去問題集 2018〜2019年  不動産運用設計」 を購入しました。
@@ -153,9 +151,9 @@
                 取引完了
             %i.icon-arrow-right
         %li
-          %a.mypage__item-link{href: "#"}
+          = link_to user_path(current_user.id), method: :get , class: "mypage__item-link" do
             %figure
-              %img.lazyload{alt: "", "data-src" => "//static.mercdn.net/thumb/photos/m67053114610_1.jpg?1574080256"}/
+              = image_tag 'logo/logo_notext.png', alt: '', height: '50', width: '20', class: 'lazyloaded'
             .mypage__item-body
               .mypage__item-body__text
                 「CFP 精選過去問題集 2018〜2019年 金融資産運用設計」 を購入しました。
@@ -164,4 +162,5 @@
                 取引完了
             %i.icon-arrow-right
         %li.mypage__go-list
-          %a{href: "/jp/mypage/purchased/"} 一覧を見る
+          = link_to "一覧を見る", user_path(current_user.id), method: :get
+            
