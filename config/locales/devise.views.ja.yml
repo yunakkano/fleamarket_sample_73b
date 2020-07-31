@@ -75,6 +75,31 @@ ja:
               blank: "を入力してください"
             phone_number:
               blank: "を入力してください"
+        item:
+          attributes:
+            item_imgs:
+              blank: "を選択してください"
+              too_short: "を選択してください"
+            name:
+              blank: "を入力してください"
+              too_long: "商品名は40字以内で書いてください"
+            introduction:
+              blank: "を入力してください"
+              too_long: "商品紹介は1000文字以内で書いてください"
+            category_id:
+              blank: "を選択してください"
+            item_condition_id:
+              blank: "を選択してください"
+            postage_type_id:
+              blank: "を選択してください"
+            postage_payer_id:
+              blank: "を選択してください"
+            prefecture_code:
+              blank: "を選択してください"
+            preparation_day_id:
+              blank: "を選択してください"
+            price:
+              blank: "を入力してください"
   devise:
     confirmations:
       new:
