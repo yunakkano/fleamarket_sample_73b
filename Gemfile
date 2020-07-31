@@ -56,8 +56,8 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
   gem 'rspec'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -97,6 +97,10 @@ gem 'jp_prefecture'
 
 # For category to have tree-structure
 gem 'ancestry'
+
+# For PageNation
+gem 'kaminari'
+
 # For payjp
 gem 'payjp'
 gem 'dotenv-rails'

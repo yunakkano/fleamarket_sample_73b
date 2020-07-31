@@ -5,5 +5,6 @@ class UsersController < ApplicationController
             return
         end
         @user = User.find(current_user.id)
+        @card = CreditCard.find_by(user_id: current_user.id)
     end
 end

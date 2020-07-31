@@ -85,21 +85,29 @@
           様々な支払いに対応
         %p.featureList__item__description
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  -# カテゴリ商品リストの部分テンプレート呼び出し
-  = render 'category'
-  -# ブランド商品リストの部分テンプレート呼び出し
-  = render 'brand'
-  .bottomDl
-    .bottomDlBox
-      .bottomDlBox__title
-        だれでもかんたん、人生を変えるフリマアプリ
-      .bottomDlBox__text
-        今すぐ無料ダウンロード！
-      .bottomDlBox__btn
-        =link_to '#', class: 'aBtn' do
-          = image_tag 'download/aBtn.png', class: 'downloadBtn'
-        =link_to '#', class: 'gBtn' do
-          = image_tag 'download/bBtn.png', class: 'downloadBtn'
+  .product#product
+    %h2.subtitle 
+      ピックアップカテゴリー
+    .productBox
+      .productHead
+        = link_to '#' do
+          %h3.title
+            新規投稿商品
+      -# 商品リストの部分テンプレート呼び出し
+      = render 'category'
+  -# カテゴリー/ブランドの表示分けは追って対応
+  .product#last-product
+    %h2.subtitle 
+      ピックアップブランド
+    .productBox
+      .productHead
+        =link_to '#' do
+          %h3.title
+            アーカイバ
+      -# 商品リストの部分テンプレート呼び出し
+      = render 'category'
+  -# ページ下部ダウンロードの部分テンプレート呼び出し
+  = render 'bottom_dl'
 -# footerの部分テンプレート呼び出し
 = render 'footer'
 = render 'camerabutton'
