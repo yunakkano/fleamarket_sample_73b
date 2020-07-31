@@ -1,0 +1,10 @@
+.contents.row
+  .content_post
+    %span= image_tag 'pict/test_img1.jpg'
+    %ul.more_list
+      %li
+        = link_to '編集', edit_item_path(@item), method: :get
+      %li
+        = link_to '削除', item_path(@item), method: :delete
+      %li
+        = link_to '購入画面へ進む', purchase_item_path(@item), method: :get
