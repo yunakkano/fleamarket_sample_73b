@@ -76,6 +76,9 @@ ja:
               blank: "を入力してください"
         item:
           attributes:
+            item_imgs:
+              blank: "を選択してください"
+              too_short: "を選択してください"
             name:
               blank: "を入力してください"
               too_long: "商品名は40字以内で書いてください"
