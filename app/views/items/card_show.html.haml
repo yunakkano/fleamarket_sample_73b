@@ -11,11 +11,9 @@
       - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
       %h3
         = exp_month + " / " + exp_year
-      -# （以下確認中）
     .customer-card__content__item
       -if @item
-        -# = link_to '支払い方法を選択する', purchase_item_path(@item), method: :get
-        = link_to purchase_item_path(@item.id) ,method: :get,class:"customer-card__content__item__link" do
+        = link_to purchase_item_path(@item) ,method: :get,class:"customer-card__content__item__link" do
           支払い方法を選択する
       -else
         none
@@ -24,10 +22,3 @@
     = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
       %input{ type: "hidden", name: "card_id", value: "" }
       %button 削除する
-      -# = render template: 'items/purchase_after'
-      -# 支払い方法を選択する
-      -# = link_to purchase_items_path(@item), method: :post do
-    -# .customer-card__content--botton
-    -#   = link_to purchase_item_path ,method: :post do
-    -#     .button
-    -#       支払い方法を選択する

@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   get '/items/:id/card_show', to: 'items#card_show'
   resources :users, only: [:show] do
     member do
-      get "regist"
       get "sending_destination"
     end
   end

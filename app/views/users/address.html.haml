@@ -2,11 +2,12 @@
   %ul.purchase__body__sending-destination__title
     %li
       配送先
-    -# = link_to "http://localhost/#", class: "purchase__body__sending-destination__title__link" do
-    -#   変更する 〉
-    = form_tag(new_send_path, method: :post, id: 'charge-form',  name: "inputForm") do
-      %input{ type: "hidden", name: "card_id", value: "" }
-      %button 変更する
+    = link_to "http://localhost/#", class: "purchase__body__sending-destination__title__link" do
+      変更する 〉
+      -# (以下確認中)
+    -# = form_tag(new_send_path, method: :post, id: 'charge-form',  name: "inputForm") do
+    -#   %input{ type: "hidden", name: "card_id", value: "" }
+    -#   %button 変更する
   .purchase__body__sending-destination__location
     -# = "#{controller: :registrations, action: :@address.post_code}"
     -# = fields_for @address do |adr|
