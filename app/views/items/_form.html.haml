@@ -5,6 +5,12 @@
         .logo
           = image_tag "logo.png", height: "80", width: "300" 
       .form-main
+        - if @item.errors.any?
+          .chat-group-form__errors
+            %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
+            %ul
+              - @item.errors.full_messages.each do |message|
+                %li= message
         .goods-photo
           #image-box
             .goods-photo_about
