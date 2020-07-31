@@ -15,6 +15,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.trading_status = 0
+    @item.seller_id = current_user.id
     if @item.save
       redirect_to root_path
     else
@@ -54,6 +56,9 @@ class ItemsController < ApplicationController
       :customer => @card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
+    @item.trading_status = 1
+    @item.buyer_id = current_user.id
+    @item.save
     redirect_to action: :done
   end
 
