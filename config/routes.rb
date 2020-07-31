@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   devise_scope :user do
-    get 'profiles', to: 'users/registrations#new_profile_address'
-    post 'profiles', to: 'users/registrations#create_profile_address'
+    get  'sending_destinations', to: 'users/registrations#new_address'
+    post 'sending_destinations', to: 'users/registrations#create_address'
     get  '/users/:user_id/sessions', to: 'users/sessions#index'
   end
 
