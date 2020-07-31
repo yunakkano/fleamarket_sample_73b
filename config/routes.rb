@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   get 'sends/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
   devise_scope :user do
     get 'profiles', to: 'users/registrations#new_profile_address'
     post 'profiles', to: 'users/registrations#create_profile_address'
+    get  '/users/:user_id/sessions', to: 'users/sessions#index'
   end
 
   root 'items#index'
@@ -47,4 +49,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: :show
+  resources :users do
+    scope module: :users do
+      resources :sessions, only: [:index, :destroy]
+      resources :cards,    only: [:index, :new, :create]
+    end
+  end
 end
