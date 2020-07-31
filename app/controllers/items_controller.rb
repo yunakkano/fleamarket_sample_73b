@@ -34,11 +34,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  private
   def set_parents
     @parents = Category.where(ancestry: nil)
   end
-
-  private
 
   def item_params
     params.require(:item).permit(

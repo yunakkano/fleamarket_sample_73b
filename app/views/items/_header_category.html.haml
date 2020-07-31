@@ -1,17 +1,17 @@
-.categories
+.header-categories
   = link_to 'カテゴリー', '#', class: 'catBtn'
-  %ul.category-parent.category-list
+  %ul.header-category-parent.header-category-list
     - @parents.each do |parent|
-      %li.parent-list
-        = link_to "#", class: "category-parent--name" do
+      %li.header-parent-list
+        = link_to "#", class: "header-category-parent--name" do
           = parent.category
-        %ul.category-child.category-list
+        %ul.header-category-child.header-category-list
           - parent.children.each do |child|
-            %li.child-list
-              = link_to "#", class: "category-child--name" do
+            %li.header-child-list
+              = link_to "#", class: "header-category-child--name" do
                 = child.category
-              %ul.category-grandchild.category-list
+              %ul.header-category-grandchild.header-category-list
                 - child.children.each do |grandchild|
-                  %li.grandchild-list
-                    = link_to "#", class: "category-child--name" do
+                  %li.header-grandchild-list
+                    = link_to "#", class: "header-category-child--name" do
                       = grandchild.category
