@@ -48,7 +48,6 @@ Rails.application.routes.draw do
       get 'done', to: 'purchases#done'
     end
   end
-  
   resources :users, only: :show
   resources :users do
     scope module: :users do
