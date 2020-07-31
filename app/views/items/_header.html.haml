@@ -2,10 +2,10 @@
   .headerBox
     .mainHeader
       .topLogo
-        = link_to '#' do
+        = link_to root_path do
           = image_tag 'logo/logo.png', class: 'logo'
       .search
-        = render partial: 'searchbar'
+        = render partial: 'items/searchbar'
     .nav
       %ul.nav__left
         %li.nav__left__item--first
@@ -13,7 +13,10 @@
         %li.nav__left__item
           = link_to 'ブランド', '#', class: 'brandBtn'
       %ul.nav__right
-        - if user_signed_in?
+        - if user_signed_in? && (request.path == user_path(current_user.id) || request.path == user_cards_path(current_user) || request.path == new_user_card_path(current_user))
+          %li.nav__right__item--login
+            = link_to "ログアウト", user_sessions_path(current_user)
+        - elsif user_signed_in?
           %li.nav__right__item--login
             = link_to "マイページ", user_path(current_user.id), method: :get
         - else
