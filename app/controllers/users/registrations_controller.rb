@@ -14,7 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @profile = Profile.new(profile_params)
     unless @user.valid? && @profile.valid?
       flash.now[:alert] = @user.errors.full_messages.concat @profile.errors.full_messages
-      puts @user.errors.full_messages.concat @profile.errors.full_messages
       render :new and return
     end
 

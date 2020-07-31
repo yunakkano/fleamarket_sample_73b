@@ -1,0 +1,21 @@
+= render 'items/header'
+
+.products-container
+  .products-index
+    .products_links
+      - @category_links.each do |category|
+        = link_to category.category, category_path(category)
+    .products-title
+      = "#{@category.category}の商品一覧"
+    - if @items
+      .main
+        .product
+          .productBox
+            = render "items/category", items: @items
+
+    -# ページネーション（def showのper(9)部分）
+    .products-paginate
+      = paginate(@items)
+
+= render 'items/bottom_dl'
+= render 'items/footer'
