@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+.customer-card{
+  background-color: white;
+  text-align: left;
+  text-decoration: none;
+  // display: flex;
+  &__content{
+    float: left;
+    &__number{  
+    }
+    &__expired{  
+    }
+    &__item{  
+    }
+  }
+  &__delete{  
+    float: right;
+  }
+}
