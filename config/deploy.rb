@@ -42,6 +42,17 @@ namespace :deploy do
      end
      upload!('config/master.key', "#{shared_path}/config/master.key")
    end
+
+   desc 'Run seed'
+   task :seed do
+     on roles(:app) do
+       with rails_env: fetch(:rails_env) do
+         within current_path do
+           execute :bundle, :exec, :rake, 'db:seed'
+         end
+       end
+     end
+    end
  end
  before :starting, 'deploy:upload'
  after :finishing, 'deploy:cleanup'
