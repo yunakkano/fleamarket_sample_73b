@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_parents, only: [:index, :new, :create]
   before_action :set_item, only: [:show, :purchase, :pay, :card_show]
   before_action :set_card, only: [:purchase, :pay, :card_show]
 
@@ -12,14 +13,26 @@ class ItemsController < ApplicationController
     @brands = Brand.all
   end
 
+  
   def create
     @item = Item.new(item_params)
+    @item.trading_status = 0
+    @item.seller_id = current_user.id
     if @item.save
       redirect_to root_path
     else
+      @item.item_imgs.new
       render :new
     end
   end
+
+ 
+
+
+
+
+
+
 
   def show
   end
@@ -64,6 +77,9 @@ class ItemsController < ApplicationController
   end
 
   private
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
 
   def item_params
     params.require(:item).permit(
@@ -73,4 +89,5 @@ class ItemsController < ApplicationController
       :price,           item_imgs_attributes:[:url]
     )
   end
+  
 end
