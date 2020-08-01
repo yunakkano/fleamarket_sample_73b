@@ -42,6 +42,10 @@ class ItemsController < ApplicationController
   end
   
   def purchase
+    # 自分の出品物の購入ページには遷移しない
+    redirect_to root_path if not user_signed_in?
+    redirect_to root_path if @item.seller_id == current_user.id
+
     Payjp.api_key = Rails.application.credentials[:payjp_private_key]
     if not @card.blank?
       customer = Payjp::Customer.retrieve(@card.customer_id)
