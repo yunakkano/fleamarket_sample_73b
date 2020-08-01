@@ -13,28 +13,26 @@ class ItemsController < ApplicationController
     @brands = Brand.all
   end
 
+  
   def create
     @item = Item.new(item_params)
+    @item.trading_status = 0
+    @item.seller_id = current_user.id
     if @item.save
       redirect_to root_path
     else
+      @item.item_imgs.new
       render :new
     end
   end
 
-  # 商品出品ページのカテゴリー選択における、選択した親IDに該当する子IDの検索
-  def search
-    respond_to do |format|
-      format.html
-      format.json do
-        if params[:parent_id]
-          @childrens = Category.find(params[:parent_id]).children
-        elsif params[:children_id]
-          @grandChilds =Category.find(params[:children_id]).children
-        end
-      end
-    end
-  end
+ 
+
+
+
+
+
+
 
   def show
   end
@@ -91,4 +89,5 @@ class ItemsController < ApplicationController
       :price,           item_imgs_attributes:[:url]
     )
   end
+  
 end

@@ -1,4 +1,5 @@
 FactoryBot.define do
+
   factory :category do
     id {1}
     category {"テストカテゴリー"}
@@ -37,5 +38,6 @@ FactoryBot.define do
     item_condition_id {1}
     category_id {1}
   end
+  
 
 end
