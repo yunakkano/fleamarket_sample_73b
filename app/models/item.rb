@@ -27,9 +27,11 @@ class Item < ApplicationRecord
   validates :postage_type_id,  presence: true
   validates :item_condition_id,           presence: true
   validates :category_id,    presence: true
+
   private
 
   def set_default_trading_status
     self.trading_status = 0
   end
+
 end
