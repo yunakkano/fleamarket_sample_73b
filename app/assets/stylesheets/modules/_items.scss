@@ -18,7 +18,7 @@
   transform: translateX(-50%);
 }
 @mixin dlBtn {
-  margin-top: 30px;
+  margin-top: 25px;
   display: flex;
   img:hover {
     opacity: 0.5;
@@ -388,6 +388,7 @@
 }
 .bottomDl {
   padding: 100px 40px;
+  height: 100%;
   @include backVisual('pict/bg-appBanner-pict.jpg', center);
   .bottomDlBox {
     color: $white;
