@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  after_initialize :set_default_trading_status
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :item_imgs, dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
@@ -14,7 +16,9 @@ class Item < ApplicationRecord
   include JpPrefecture
   jp_prefecture :prefecture_code
 
+  
   validates_associated :item_imgs
+
   validates :item_imgs, presence: true, length: { minimum: 1, maximum: 5 }
 
   validates :name,             presence: true, length: {maximum: 40}
@@ -26,5 +30,9 @@ class Item < ApplicationRecord
   validates :postage_type_id,  presence: true
   validates :item_condition_id,           presence: true
   validates :category_id,    presence: true
+  private
 
+  def set_default_trading_status
+    self.trading_status = 0
+  end
 end
