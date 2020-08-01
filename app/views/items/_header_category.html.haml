@@ -1,5 +1,5 @@
 .header-categories
-  = link_to 'カテゴリー', '#', class: 'catBtn'
+  = link_to 'カテゴリー', categories_path, class: 'catBtn'
   %ul.header-category-parent.header-category-list
     - @parents.each do |parent|
       %li.header-parent-list
