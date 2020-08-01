@@ -5,11 +5,11 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    redirect_to action: "show" if @card.present?
+    redirect_to controller: "items", action: "show" if @card.present?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials[:payjp_private_key]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -31,7 +31,7 @@ class CardsController < ApplicationController
   def delete #PayjpとCardデータベースを削除します
     if @card.blank?
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials[:payjp_private_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
       @card.delete

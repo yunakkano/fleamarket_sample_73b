@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
     @profile = Profile.new
+    @minimum_password_length = User.password_length.min
   end
 
   def create

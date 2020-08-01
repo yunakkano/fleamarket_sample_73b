@@ -1,2 +1,23 @@
-= form_with url:pay_cards_path(@item), method: :post do
-  %script.payjp-button{"data-key" => ENV["PAYJP_KEY"], src: "https://checkout.pay.jp/"}
+.purchase
+  .purchase__header
+    .purchase__header__logo
+      = link_to root_path ,method: :get,class:"purchase__header__logo__link" do
+        = image_tag src="logo.png", size: "170x50"      
+  .purchase__body
+    .purchase__body__title
+      = form_with url:pay_cards_path(@item), method: :post do
+        %script.payjp-button{"data-key" => Rails.application.credentials[:payjp_key], src: "https://checkout.pay.jp/"}
+        
+  .purchase__footer
+    .purchase__footer__top-content
+      = link_to "http://localhost/#", class: "purchase__footer__top-content__object-1" do
+        プライバシーポリシー
+      = link_to "http://localhost/#", class: "purchase__footer__top-content__object-2" do
+        FRIMA利用規約
+      = link_to "http://localhost/#", class: "purchase__footer__top-content__object-3" do
+        特定商取引に関する表記
+    .purchase__footer__logo
+      = link_to root_path ,method: :get,class:"purchase__footer__logo__link" do
+        = image_tag src="logo-white.png", size: "170x50"
+    .purchase__footer__copy
+      ©︎ Furima, Inc.

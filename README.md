@@ -92,7 +92,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|item|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 |url|string|null: false|
 
 ### Association

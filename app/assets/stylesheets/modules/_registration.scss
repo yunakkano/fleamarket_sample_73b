@@ -172,6 +172,19 @@
                             width: calc(30% - 6px);
                         }
                     }
+                    select#sending_destination_prefecture_code{
+                        height: 48px;
+                        width: 100%;
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
                     .register-form-info-text{
                         color: #888;
                         margin: 8px 0 0;
@@ -281,7 +294,7 @@
 
         .login-panel{
             max-width: none;
-            width: 456px;
+            width: 394px;
             margin: 0 auto;
             background: #fff;
             .login-no-account{

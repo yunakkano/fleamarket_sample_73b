@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
   end
   
   def purchase
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials[:payjp_private_key]
     if not @card.blank?
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
@@ -46,12 +46,15 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials[:payjp_private_key]
     Payjp::Charge.create(
       :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
       :customer => @card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
+    @item.trading_status = 1
+    @item.buyer_id = current_user.id
+    @item.save
     redirect_to action: :done
   end
 
@@ -62,7 +65,7 @@ class ItemsController < ApplicationController
     if @card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials[:payjp_private_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end

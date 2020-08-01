@@ -32,11 +32,7 @@ Rails.application.routes.draw do
     end
   end
   get '/items/:id/card_show', to: 'items#card_show'
-  resources :users, only: [:show] do
-    member do
-      get "sending_destination"
-    end
-  end
+
   resources :cards, only: [:new, :show] do
     collection do
       # get 'index', to: 'cards#index'（確認中）
@@ -53,7 +49,13 @@ Rails.application.routes.draw do
       get 'done', to: 'purchases#done'
     end
   end
-  resources :users, only: :show
+  
+  resources :users, only: :show do
+    member do
+      get "sending_destination"
+    end
+  end
+
   resources :users do
     scope module: :users do
       resources :sessions, only: [:index, :destroy]

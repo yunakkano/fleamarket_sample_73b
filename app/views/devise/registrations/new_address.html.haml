@@ -44,7 +44,7 @@
           .register-form-group
             = adr.label :prefecture_code, "都道府県（選択）"
             %span.register-form-require 必須
-            = adr.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code,:name, prompt: "", class:"register-field--full"
+            = adr.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code,:name, class:"register-field--full"
             = render partial: "devise/shared/error_message_fieldname", locals: {model: @address, fieldname: "都道府県"}
           .register-form-group
             = adr.label :city, "市区町村名"
