@@ -304,7 +304,6 @@
         display:flex;
         flex-wrap: wrap;
         .productList {
-          background-color: lightcoral;
           margin: 1.1%;
           a {
             background-color: $white;
@@ -312,7 +311,6 @@
             text-decoration: none;
           }
           &__img {
-            background-color: lightgreen;
             height: 150px;
             width: 200px;
             margin: 0;
