@@ -37,5 +37,4 @@ FactoryBot.define do
     item_condition_id {1}
     category_id {1}
   end
-
 end

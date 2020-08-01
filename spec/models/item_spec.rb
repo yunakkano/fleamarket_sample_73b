@@ -93,5 +93,6 @@ describe Item do
       item_no_picture.valid?
       expect(item_no_picture.errors[:item_img]).to include()
     end
+    
   end
 end

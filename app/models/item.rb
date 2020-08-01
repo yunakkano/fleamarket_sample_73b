@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  
   after_initialize :set_default_trading_status
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :item_imgs, dependent: :destroy
@@ -15,8 +16,10 @@ class Item < ApplicationRecord
   include JpPrefecture
   jp_prefecture :prefecture_code
 
+  
   validates_associated :item_imgs
-  validates :item_imgs, presence: { message: 'を選択してください。' }, length: { minimum: 1, maximum: 5 }
+
+  validates :item_imgs, presence: true, length: { minimum: 1, maximum: 5 }
 
   validates :name,             presence: true, length: {maximum: 40}
   validates :price,            presence: true
@@ -32,4 +35,5 @@ class Item < ApplicationRecord
   def set_default_trading_status
     self.trading_status = 0
   end
+
 end

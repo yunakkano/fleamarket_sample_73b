@@ -32,7 +32,10 @@
 }
 
 .header {
+  position: relative;
   padding: 0 60px;
+  // border-bottom: solid 1px black;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   .headerBox {
     height: 90px;
     width: 100%;
@@ -82,14 +85,17 @@
         color: $black;
         list-style: none;
         text-decoration: none;
+        &:hover {
+          color: $blue;
+        }
       }
       &__left {
         display: flex;
         &__item--first {
           margin-right: 40px;
         }
-        a:hover {
-          color: $orange;
+        .brandBtn {
+          font-weight: bold;
         }
       }
       &__right {
@@ -265,8 +271,11 @@
       }
     }
   }
-  .product {
+  #product {
+    // TOPページの商品一覧用
     padding: 80px 0 35px;
+  }
+  .product {
     background-color: $lightgray;
     .subtitle {
       margin-bottom: 5px;
@@ -369,9 +378,9 @@
               }
             }
           }
-        }
-        .productList:hover {
-          opacity: 0.5;
+          &:hover {
+            opacity: 0.5;
+          }
         }
       }
     }
@@ -379,26 +388,26 @@
   #last-product {
     padding-bottom: 80px;
   }
-  .bottomDl {
-    padding: 100px 40px;
-    @include backVisual('pict/bg-appBanner-pict.jpg', center);
-    .bottomDlBox {
-      color: $white;
-      text-align: center;
-      &__title {
-        font-size: 24px;
-        font-weight: bold;
-        line-height: 1.4;
-        @include textShadow;
-      }
-      &__text {
-        font-size: 35px;
-        @include textShadow;
-      }
-      &__btn {
-        justify-content: center;
-        @include dlBtn;
-      }
+}
+.bottomDl {
+  padding: 100px 40px;
+  @include backVisual('pict/bg-appBanner-pict.jpg', center);
+  .bottomDlBox {
+    color: $white;
+    text-align: center;
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+      @include textShadow;
+    }
+    &__text {
+      font-size: 35px;
+      @include textShadow;
+    }
+    &__btn {
+      justify-content: center;
+      @include dlBtn;
     }
   }
 }
