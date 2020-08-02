@@ -37,6 +37,11 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.includes(:item_imgs).where(id: params[:id])
+    @item = Item.find_by(id: params[:id])
+    @category_grandchild = Category.find_by(id: @item.category_id)
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
   end
   
   def purchase
