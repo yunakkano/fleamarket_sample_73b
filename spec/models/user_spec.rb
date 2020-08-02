@@ -29,7 +29,7 @@ describe User do
         user = create(:user)
         another_user = build(:user)
         another_user.valid?
-        expect(another_user.errors[:email]).to include("はすでに存在します。")
+        expect(another_user.errors[:email]).to include("はすでに存在します")
     end
     it "passwrodは最低7文字以上である場合登録できること" do
         user = build(:user, password: "1234567", password_confirmation: "1234567")
