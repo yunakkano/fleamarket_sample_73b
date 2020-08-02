@@ -132,7 +132,6 @@ categories = [
       ]
     },
     {level2: "その他", level2_children:[
-      "すべて"
       ]
     }
   ]},
@@ -249,7 +248,6 @@ categories = [
       ]
     },
     {level2: "その他", level2_children:[
-      "すべて"
       ]},
   ]},
 
@@ -310,7 +308,7 @@ categories = [
       ]
     },
     {level2: "コレクション", level2_children:[
-      "武具", "使用済切手/官製はがき"< "旧貨幣/金貨/銀貨/記念硬貨", "印刷物", "ノベルティグッズ", "その他"
+      "武具", "使用済切手/官製はがき", "旧貨幣/金貨/銀貨/記念硬貨", "印刷物", "ノベルティグッズ", "その他"
       ]
     },
     {level2: "ミリタリー", level2_children:[
@@ -416,7 +414,6 @@ categories = [
       ]
     },
     {level2: "その他", level2_children:[
-      "すべて", "その他"
       ]
     }
   ]},
@@ -455,7 +452,7 @@ categories = [
       ]
     },
     {level2: "スキー", level2_children:[
-      "板", "ブーツ(男性用)", "ブーツ(女性用)", "ブーツ(子ども用)"< "ビンディング", "ウエア(男性用)", "ウエア(女性用)", "ウエア(子ども用)", "ストック", "その他"
+      "板", "ブーツ(男性用)", "ブーツ(女性用)", "ブーツ(子ども用)", "ビンディング", "ウエア(男性用)", "ウエア(女性用)", "ウエア(子ども用)", "ストック", "その他"
       ]
     },
     {level2: "その他スポーツ", level2_children:[
@@ -506,7 +503,6 @@ categories = [
       ]
     },
     {level2: "その他", level2_children:[
-      "すべて"
       ]
     }
   ]},
@@ -541,7 +537,6 @@ categories = [
       ]
     },
     {level2: "その他", level2_children:[
-      "すべて"
       ]
     }
   ]},
@@ -564,7 +559,6 @@ categories = [
       ]
     },
     {level2: "オートバイ車体", level2_children:[
-      "すべて"
       ]
     },
     {level2: "オートバイパーツ", level2_children:[
@@ -579,7 +573,6 @@ categories = [
 
   {level1: "その他", level1_children:[
     {level2: "まとめ売り", level2_children:[
-      "すべて"
       ]
     },
     {level2: "ペット用品", level2_children:[
@@ -611,7 +604,6 @@ categories = [
       ]
     },
     {level2: "その他", level2_children:[
-      "すべて"
       ]
     }
   ]}
