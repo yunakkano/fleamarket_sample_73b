@@ -5,13 +5,13 @@
     .categories_container__top--title
       %p カテゴリー一覧
     - @parents.each_with_index do |parent, i|
-      = link_to "#{i}", class: "categories_container__top--link" do
+      = link_to "##{i}", class: "categories_container__top--link" do
         = parent.category
 
   .categories_container__box
     %ul.categories_parents
-      - @parents.each_with_index do |parent|
-        %li.categories_parents--title
+      - @parents.each_with_index do |parent, i|
+        %li.categories_parents--title{id: "#{i}"}
           = link_to "#{parent.category}", category_path(parent), class: "categories_parents--link"
 
         .childCategory_area
