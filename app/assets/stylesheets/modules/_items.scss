@@ -18,7 +18,7 @@
   transform: translateX(-50%);
 }
 @mixin dlBtn {
-  margin-top: 30px;
+  margin-top: 25px;
   display: flex;
   img:hover {
     opacity: 0.5;
@@ -33,8 +33,7 @@
 
 .header {
   position: relative;
-  padding: 0 60px;
-  // border-bottom: solid 1px black;
+  padding: 0 60px 18px 60px;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   .headerBox {
     height: 90px;
@@ -305,7 +304,6 @@
         display:flex;
         flex-wrap: wrap;
         .productList {
-          background-color: lightcoral;
           margin: 1.1%;
           a {
             background-color: $white;
@@ -313,7 +311,6 @@
             text-decoration: none;
           }
           &__img {
-            background-color: lightgreen;
             height: 150px;
             width: 200px;
             margin: 0;
@@ -391,6 +388,7 @@
 }
 .bottomDl {
   padding: 100px 40px;
+  height: 100%;
   @include backVisual('pict/bg-appBanner-pict.jpg', center);
   .bottomDlBox {
     color: $white;

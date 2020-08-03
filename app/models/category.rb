@@ -2,11 +2,7 @@ class Category < ApplicationRecord
   has_many :items
   has_ancestry
 
-  # set_items：コントローラーから呼び出し
   # カテゴリーが親or子or孫の内のどれに当たるかで条件分岐
-  # カテゴリーが親or子の場合は、自身が持つ孫カテゴリーのid範囲を指定して商品を取得
-  # Ancestryモデル：インスタンスメソッドの使用
-
   def set_items
     # 親カテゴリーの場合
     ## root?：レコードがルートであれば、trueを返す
@@ -23,7 +19,6 @@ class Category < ApplicationRecord
     elsif self.has_children?
       start_id = self.children.first.id
       end_id = self.children.last.id
-      # 自身が持つ孫カテゴリーのid範囲を指定して商品を取得
       items = Item.where(category_id: start_id..end_id)
       return items
 
