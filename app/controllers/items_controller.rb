@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase, :pay, :card_show]
-  before_action :set_card, only: [:purchase, :pay, :card_show]
+  before_action :set_item, only: [:show, :purchase, :pay]
+  before_action :set_card, only: [:purchase, :pay]
 
   def index
     @items = Item.includes(:item_imgs).order('created_at DESC')
@@ -45,15 +45,15 @@ class ItemsController < ApplicationController
   def done
   end
 
-  def card_show
-    if @card.blank?
-      redirect_to action: "new" 
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @default_card_information = customer.cards.retrieve(@card.card_id)
-    end
-  end
+  # def card_show
+  #   if @card.blank?
+  #     redirect_to controller: "items/cards", action: "new" 
+  #   else
+  #     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+  #     customer = Payjp::Customer.retrieve(@card.customer_id)
+  #     @default_card_information = customer.cards.retrieve(@card.card_id)
+  #   end
+  # end
 
   def set_item
     @item = Item.find_by(id:params[:id])
