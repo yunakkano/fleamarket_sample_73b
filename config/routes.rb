@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   get 'categories/index'
-  get 'sending_destinations/new'
-  get 'sending_destinations/show'
-  get 'sends/new'
-  get 'sends/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -22,13 +18,22 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
+    scope module: :items do
+      resources :cards, only:[:new] do
+        collection do
+          get 'show', to: 'cards#show'
+          post 'pay', to: 'cards#pay'
+          post 'delete', to: 'cards#delete'
+        end
+      end
+    end
     collection do
       get  'done', to:'items#done'
     end
     member do
       get "purchase"
       post "pay"
-      post 'card_show', to:'cards#show'
+      # get "card_show"
     end
   end
   get '/items/:id/card_show', to: 'items#card_show'
