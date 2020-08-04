@@ -1,6 +1,6 @@
 = render 'items/header'
 %main.mypage__container.clearfix
-  =render 'users/sidemenu'
+  =render partial: 'users/sidemenu', locals: {active_menu: "支払い方法"}
   -if @card.present?
     =render 'users/cards/creditcard_registered'
   -else
