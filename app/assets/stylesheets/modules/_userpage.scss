@@ -338,6 +338,7 @@ main.mypage__container{
 									border-radius: 3px;
 									border: 1px solid #2BCCD1;
 									color: #2BCCD1;
+									cursor: pointer;
 								}
 							}
 						}
@@ -348,10 +349,10 @@ main.mypage__container{
 						&__content{
 							max-width: 320px;
 							margin: 0 auto;
-							.button_to {
+							form.button_to {
 								display: block;
+								height: 100%;
 								width: 100%;
-								line-height: 48px;
 								font-size: 14px;
 								border-radius: 4px;
 								transition: all ease-out .3s;
@@ -363,6 +364,9 @@ main.mypage__container{
 								border: 1px solid #2bccd1;
 								color: #fff;
 								input{
+									height: 100%;
+									width: 100%;
+									line-height: 48px;
 									border: none;
 									background: #2bccd1;
 									cursor: pointer;
