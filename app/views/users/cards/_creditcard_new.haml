@@ -4,7 +4,7 @@
     .creditcard__container__chapter
       %h2.creditcard__container__chapter__head クレジットカード情報入力
       .creditcard__container__chapter__inner
-      = form_with model: @card, url: user_cards_path, id: "payjp_cardForm", method: "POST", local: true do |f|
+      = form_with model: @card, url: user_cards_path, id: "payjp_cardForm", class: "creditcard__container__chapter__inner__addcard__form", method: "POST", local: true do |f|
         .creditcard__container__chapter__inner__single-content
           .creditcard__container__chapter__inner__single-content__form-group
             = f.label :cardNumber, "カード番号"
