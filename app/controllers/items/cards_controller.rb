@@ -10,7 +10,6 @@ class Items::CardsController < ApplicationController
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
-     
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -20,7 +19,7 @@ class Items::CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        # redirect_to card_show_item_path(@item.id)@item = Item.find_by(params[:id])
+        # redirect_to card_show_item_path(@item.id)
         redirect_to action: "show"
         flash[:notice] = 'クレジットカードの登録ができました'
       else
