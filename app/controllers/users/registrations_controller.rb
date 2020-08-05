@@ -45,6 +45,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   protected
 
   def profile_params
