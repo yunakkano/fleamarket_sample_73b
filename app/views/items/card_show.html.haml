@@ -19,6 +19,6 @@
         none
 
   .customer-card__delete
-    = form_tag(delete_item_cards_path(@item), method: :post, id: 'charge-form',  name: "inputForm") do
+    = form_tag(item_card_path(@item.id), method: :delete, id: 'charge-form',  name: "inputForm") do
       %input{ type: "hidden", name: "card_id", value: "" }
       %button 削除する
