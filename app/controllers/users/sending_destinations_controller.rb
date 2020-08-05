@@ -5,15 +5,10 @@ class Users::SendingDestinationsController < ApplicationController
     end
 
     def update
-        @address = SendingDestination.new(address_params)
-
+        @address = SendingDestination.find_by(user_id: current_user.id)
+        @address.update_attributes(address_params)
         unless @address.valid?
           flash.now[:alert] = @address.errors.full_messages
-          render :edit and return
-        end
-    
-        unless @address.save
-          flash.now[:alert] = @user.errors.full_messages
           render :edit and return
         end
     end
@@ -28,5 +23,4 @@ class Users::SendingDestinationsController < ApplicationController
           :street_number,         :phone_number
         )
     end
-
 end

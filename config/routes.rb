@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'categories/index'
-  get 'sending_destinations/new'
-  get 'sending_destinations/show'
-  get 'sends/new'
-  get 'sends/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'

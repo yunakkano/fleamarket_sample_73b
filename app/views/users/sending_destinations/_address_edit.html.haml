@@ -1,7 +1,7 @@
 %main.register-main
 	%section.l-register-container
 		%h2.l-single-head.registration 発送元・お届け先住所変更
-		= form_with model: @address, url: user_sending_destination_path(current_user.id, 1), class: "l-registration-inner", method: :patch, local: true do |adr|
+		= form_with model: @address, url: user_sending_destination_path(current_user.id, @address.id), method: "patch", class: "l-registration-inner", local: true do |adr|
 			.l-register-content
 				.register-form-group
 					= adr.label :dest_family_name, "送付先住所のお名前（全角）"
