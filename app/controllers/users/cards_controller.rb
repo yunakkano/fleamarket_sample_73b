@@ -46,10 +46,6 @@ class Users::CardsController < ApplicationController
     end
 
     private
-    def set_parents
-        @parents = Category.where(ancestry: nil)
-    end
-
     def set_card
         @card = Card.find_by(user_id: current_user.id)
     end

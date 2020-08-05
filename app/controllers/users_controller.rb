@@ -5,12 +5,8 @@ class UsersController < ApplicationController
             redirect_to root_path
             return
         end
-        @user = User.find(current_user.id)
-        @card = Card.find_by(user_id: current_user.id)
+        @user = User.includes(:sending_destination).find(current_user.id)
+        puts @user.sending_destination.dest_family_name
     end
 
-    private
-    def set_parents
-        @parents = Category.where(ancestry: nil)
-    end
 end

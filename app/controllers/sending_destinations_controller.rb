@@ -12,4 +12,5 @@ class SendingDestinationsController < ApplicationController
       render template: "users/address"
     end
   end
+
 end

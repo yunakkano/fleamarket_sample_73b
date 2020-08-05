@@ -36,9 +36,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @user.build_profile(session["devise.regist_data"]["profile"])
     @user.build_sending_destination(@address.attributes)
-    @user.save
-    session["devise.regist_data"]["user"].clear
-    sign_in(:user, @user)
+    if @user.save
+      session["devise.regist_data"]["user"].clear
+      sign_in(:user, @user)
+    else
+      flash.now[:alert] = @user.errors.full_messages
+      render :new_address and return
+    end
   end
 
   protected

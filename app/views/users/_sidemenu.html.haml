@@ -1,22 +1,14 @@
 .mypage__side
   %nav.mypage__nav
-    - sidemenu.each do |head, items|
+    - sidemenu(active_menu).each do |head, menu_items|
       %h3.mypage__nav__head
         = head
-      - items.each do |item|
+      - menu_items.each do |menu_item|
         %ul.mypage__nav__list
           %li
-            -if active_menu==item[:title]
-              = link_to eval(item[:path]), method: :get , class: "mypage__nav__list-item__active" do
-                = item[:title]
-                -if item[:value]
-                  %span.mypage-nav-number
-                    = item[:value]
-                %i.icon-arrow-right
-            -else
-              = link_to eval(item[:path]), method: :get , class: "mypage__nav__list-item" do
-                = item[:title]
-                -if item[:value]
-                  %span.mypage-nav-number
-                    = item[:value]
-                %i.icon-arrow-right
+            = link_to eval(menu_item[:path]), method: menu_item[:method] , class: menu_item[:class] do
+              = menu_item[:title]
+              -if menu_item[:value]
+                %span.mypage-nav-number
+                  = menu_item[:value]
+              %i.icon-arrow-right
