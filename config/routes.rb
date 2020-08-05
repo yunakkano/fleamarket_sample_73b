@@ -20,13 +20,7 @@ Rails.application.routes.draw do
   # get '/items/:id/cards/show', to:'items/cards#show'
   resources :items do
     scope module: :items do
-      resources :cards, only:[:new] do
-        collection do
-          get 'show', to: 'cards#show'
-          post 'pay', to: 'cards#pay'
-          post 'delete', to: 'cards#delete'
-        end
-      end
+      resources :cards, only:[:new, :create, :show, :destroy]
     end
     collection do
       get  'done', to:'items#done'
