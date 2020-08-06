@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     scope module: :items do
       resources :cards, only:[:new] do
         collection do
-          get 'show', to: 'cards#show'
-          post 'pay', to: 'cards#pay'
-          post 'delete', to: 'cards#delete'
+          # get 'show', to: 'cards#show'
+          get 'create', to: 'cards#create'
+          post 'destroy', to: 'cards#destroy'
         end
       end
     end
@@ -46,14 +46,6 @@ Rails.application.routes.draw do
   #     post 'delete', to: 'cards#delete'
   #   end
   # end
-
-  resources :purchases, only: [:index] do
-    collection do
-      get 'index', to: 'purchases#index'
-      post 'pay', to: 'purchases#pay'
-      get 'done', to: 'purchases#done'
-    end
-  end
   
   resources :users, only: :show do
     member do

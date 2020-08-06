@@ -8,7 +8,7 @@
       購入内容の確認
     .purchase__body__item
       .purchase__body__item__img
-        -# = image_tag("#{@item.item_imgs[0].url}", size: "80x80")
+        = image_tag("#{@item.item_imgs[0].url}", size: "80x80")
       .purchase__body__item__right
         .purchase__body__item__right__name
           = @item.name
@@ -27,7 +27,7 @@
           支払い方法
       .purchase__body__way-to-pay__credit
         - if @card
-          = render template: 'items/card_show' 
+          = render template: 'items/cards/create' 
         - else
           = link_to new_item_card_path(@item) ,method: :get,class:"purchase__body__way-to-pay__credit__link" do
             ※登録してください
