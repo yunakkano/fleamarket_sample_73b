@@ -12,10 +12,9 @@
       %h3
         = exp_month + " / " + exp_year
     .customer-card__content__item
-      = link_to purchase_item_path(@item) ,method: :get,class:"customer-card__content__item__link" do
+      = link_to purchase_item_path(@item) ,method: :get, class:"customer-card__content__item__link" do
         支払い方法を選択する
 
   .customer-card__delete
-    = form_tag(destroy_item_cards_path(@item), method: :post, id: 'charge-form',  name: "inputForm") do
-      %input{ type: "hidden", name: "card_id", value: "" }
-      %button 削除する
+    = link_to item_card_path(@item.id, 1), method: :delete, id: 'charge-form',  name: "inputForm" do
+      削除する
