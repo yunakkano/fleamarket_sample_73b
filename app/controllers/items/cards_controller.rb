@@ -5,8 +5,7 @@ class Items::CardsController < ApplicationController
   require "payjp"
 
   def new
-    # redirect_to controller: "items", action: "card_show" if @card.present?
-    redirect_to action: :show if @card.present?
+    redirect_to action: :create if @card.present?
   end
 
   def create #payjpとCardのデータベース作成を実施します。
@@ -19,8 +18,6 @@ class Items::CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        # redirect_to card_show_item_path(@item.id)
-        # redirect_to action: :show
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @default_card_information = customer.cards.retrieve(@card.card_id)
         flash[:notice] = 'クレジットカードの登録ができました'
@@ -28,17 +25,6 @@ class Items::CardsController < ApplicationController
         redirect_to action: :new
         flash[:notice] = 'クレジットカードの登録に失敗しました'
       end
-    end
-  end
-
-  def show
-    if @card.blank?
-      redirect_to action: :new 
-      # redirect_to controller: "items/cards", action: "new" 
-    else
-      Payjp.api_key = Rails.application.credentials[:payjp_private_key]
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 

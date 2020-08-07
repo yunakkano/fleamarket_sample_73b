@@ -16,5 +16,5 @@
         支払い方法を選択する
 
   .customer-card__delete
-    = link_to item_card_path(@item.id, 1), method: :delete, id: 'charge-form',  name: "inputForm" do
-      削除する
+    = link_to item_card_path(@item.id, 1), method: :delete, id: 'charge-form',  name: "inputForm", class:"customer-card__delete__link"do
+      削除する 〉
