@@ -1,0 +1,11 @@
+%main.creditcard__container
+  .creditcard__container__content
+    .creditcard__container__chapter
+      %h2.creditcard__container__chapter__head 支払い方法
+      .creditcard__container__chapter__inner
+        %section
+          .creditcard__container__chapter__inner__content
+            %h3.creditcard__container__chapter__subhead クレジットカード一覧
+        .creditcard__container__chapter__inner__addcard
+          .creditcard__container__chapter__inner__addcard__content
+            = button_to('クレジットカードを追加する', {action: 'new'}, {method: :get})

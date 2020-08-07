@@ -1,105 +1,14 @@
 .mypage__side
   %nav.mypage__nav
-    %ul.mypage__nav__list
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item__active" do
-          マイページ
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          お知らせ
-          %span.mypage-nav-number
-            99+
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          やることリスト
-          %span.mypage-nav-number
-            1
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          いいね！一覧
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          出品する
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          下書き一覧
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          出品した商品 - 出品中
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          出品した商品 - 取引中
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          出品した商品 - 売却済み
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          購入した商品 - 取引中
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          購入した商品 - 過去の取引
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          ニュース一覧
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          評価一覧
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          ガイド
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          お問い合わせ
-          %i.icon-arrow-right
-    %h3.mypage__nav__head メルペイ
-    %ul.mypage__nav__list
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          残高・振込申請
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          ポイント
-          %i.icon-arrow-right
-    %h3.mypage__nav__head 設定
-    %ul.mypage__nav__list
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          プロフィール
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          発送元・お届け先住所変更
-          %i.icon-arrow-right
-      %li
-        -if @card
-          = link_to("支払い方法", user_cards_path(current_user), class:"mypage__nav__list-item")
-        -else
-          = link_to("支払い方法", new_user_card_path(current_user), class:"mypage__nav__list-item")
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          メール/パスワード
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          本人情報
-          %i.icon-arrow-right
-      %li
-        = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-          電話番号の確認
-          %i.icon-arrow-right
+    - sidemenu(active_menu).each do |head, menu_items|
+      %h3.mypage__nav__head
+        = head
+      - menu_items.each do |menu_item|
+        %ul.mypage__nav__list
+          %li
+            = link_to eval(menu_item[:path]), method: menu_item[:method] , class: menu_item[:class] do
+              = menu_item[:title]
+              -if menu_item[:value]
+                %span.mypage-nav-number
+                  = menu_item[:value]
+              %i.icon-arrow-right

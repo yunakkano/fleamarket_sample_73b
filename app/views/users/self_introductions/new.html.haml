@@ -1,8 +1,7 @@
 = render 'items/header'
 %main.mypage__container.clearfix
-  =render partial: 'users/sidemenu', locals: {active_menu: "マイページ"}
-  =render 'logout'
-
+  =render partial: 'users/sidemenu', locals: {active_menu: "プロフィール"}
+  =render 'users/self_introductions/new_introduction'
 = render 'items/appbanner'
 -# footerの部分テンプレート呼び出し
 = render 'items/footer'

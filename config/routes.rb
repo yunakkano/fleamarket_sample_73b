@@ -49,8 +49,11 @@ Rails.application.routes.draw do
 
   resources :users do
     scope module: :users do
-      resources :sessions, only: [:index, :destroy]
-      resources :cards,    only: [:index, :new, :create]
+      resources :sessions,            only: [:index,  :destroy]
+      resources :cards,               only: [:index,  :new, :create, :destroy]
+      resources :sending_destinations,only: [:edit,   :update]
+      resources :profiles,            only: [:edit,  :update]
+      resources :self_introductions,  only: [:new, :create, :edit, :update]
     end
   end
   
