@@ -1,0 +1,11 @@
+%main.creditcard__container
+  .creditcard__container__content
+    .creditcard__container__chapter
+      %h2.creditcard__container__chapter__head 住所変更が完了しました
+      .creditcard__container__chapter__inner
+        %section
+          .creditcard__container__chapter__inner__content
+            %h3.creditcard__container__chapter__subhead
+        .creditcard__container__chapter__inner__addcard
+          .creditcard__container__chapter__inner__addcard__content
+            = button_to("マイページに戻る", user_path(current_user.id), {method: :get})

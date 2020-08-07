@@ -254,8 +254,9 @@ main.mypage__container{
 			font-weight: 600;
 			touch-action: manipulation;
 			cursor: default;
-			.button_to {
+			input[type="submit"]{
 				display: block;
+				height: 100%;
 				width: 100%;
 				line-height: 48px;
 				font-size: 14px;
@@ -790,7 +791,96 @@ main.mypage__container{
                 }
             }
         }
-    }
+	}
+	main.intro-register-main{
+		float: right;
+		width: 700px;
+		margin: 24px auto 0;
+		padding: 0 0 40px;
+		display: block;
+        .intro-register-container{
+            width: 700px;
+            margin: 0 auto;
+            background: #fff;
+			padding: 32px;
+			h2.l-single-head{
+				padding: 12px 4%;
+				border-bottom: 1px solid #f5f5ff;
+				text-align: center;
+				font-size: 18px;
+			}
+			form{
+				.setting__profile-icon{
+					padding: 72px 16px 24px;
+					background: url(asset_path("pict/user-bg.jpg"));
+					background-repeat: no-repeat;
+					background-size: cover;
+					text-align: center;
+					font-size: 0;
+					figure{
+						display: inline-block;
+						overflow: hidden;
+						width: 60px;
+						height: 60px;
+						border-radius: 50%;
+						vertical-align: middle;
+						img{
+							vertical-align: middle;
+							width: 60px;
+							height: 60px;
+						}
+					}
+					input#user_nickname{
+						width: 220px;
+						margin: 0 0 0 8px;
+						vertical-align: middle;
+						height: 48px;
+						padding: 10px 16px 8px;
+						border-radius: 4px;
+						border: 1px solid #ccc;
+						background: #fff;
+						line-height: 1.5;
+						font-size: 16px;
+					}
+				}
+				.setting_profile-content{
+					padding: 40px 16px;
+					textarea{
+						min-height: 216px;
+						display: block;
+						width: 100%;
+						max-width: 100%;
+						padding: 10px;
+						border: 1px solid #ccc;
+						background: #fff;
+						font-size: 16px;
+						line-height: 1.5;
+						border-radius: 0;
+						outline: 0;
+						touch-action: manipulation;
+						resize: vertical;
+					}
+					button.register-btn{
+						display: block;
+						width: 100%;
+						line-height: 48px;
+						font-size: 14px;
+						border-radius: 4px;
+						transition: all ease-out .3s;
+						cursor: pointer;
+						text-align: center;
+						&-cian{
+							margin-top: 32px;
+							margin: 24px 0 0;
+							background: #2bccd1;
+							border: 1px solid #2bccd1;
+							color: #fff;
+						}
+					}
+				}
+			}
+        }
+	}
 
 }
 

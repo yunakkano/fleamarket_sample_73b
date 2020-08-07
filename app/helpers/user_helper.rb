@@ -42,11 +42,11 @@ module UserHelper
           {title:"お問い合わせ", path: "user_path(current_user.id)", method: "get", value: ""},
         ],
         "設定": [
-          {title:"プロフィール", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"発送元・お届け先住所変更", path: "edit_user_sending_destination_path(current_user.id, 1)", method: "get", value: ""},
+          {title:"プロフィール", path: "new_user_self_introduction_path(current_user.id)", method: "get", value: ""},
+          {title:"発送元・お届け先住所変更", path: "edit_user_sending_destination_path(current_user.id, current_user.sending_destination.id)", method: "get", value: ""},
           {title:"支払い方法", path: "user_cards_path(current_user.id)", method: "get", value: ""},
-          {title:"メール/パスワード", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"本人情報", path: "user_path(current_user.id)", method: "get", value: ""},
+          {title:"メール/パスワード", path: "edit_user_registration_path", method: "get", value: ""},
+          {title:"本人情報", path: "edit_user_profile_path(current_user.id, current_user.profile.id)", method: "get", value: ""},
           {title:"電話番号の確認", path: "user_path(current_user.id)", method: "get", value: ""},
         ] 
       }

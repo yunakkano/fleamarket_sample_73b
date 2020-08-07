@@ -5,8 +5,7 @@ class UsersController < ApplicationController
             redirect_to root_path
             return
         end
-        @user = User.includes(:sending_destination).find(current_user.id)
-        puts @user.sending_destination.dest_family_name
+        @user = User.includes(:sending_destination, :profile).find(current_user.id)
     end
 
 end

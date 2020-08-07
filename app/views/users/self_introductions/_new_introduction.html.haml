@@ -1,0 +1,12 @@
+%main.intro-register-main
+	.intro-register-container
+		%h2.l-single-head.registration プロフィール
+		= form_with model: @intro, url: user_self_introductions_path(current_user.id), method: "post", class: "profile-registration-inner", local: true do |f|
+			.setting__profile-icon
+				%figure
+					= image_tag asset_path('icon/member_photo_noimage_thumb.png'), class: 'lazyloaded'
+				= fields_for @user do |u|
+					= u.text_field :nickname
+			.setting_profile-content
+				= f.text_area :introduction, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: ""
+				= f.button "登録する", class: "register-btn register-btn-cian"
