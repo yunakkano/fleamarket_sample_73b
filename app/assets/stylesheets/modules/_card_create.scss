@@ -5,7 +5,6 @@
 .customer-card{
   background-color: white;
   text-align: left;
-  // display: flex;
   &__content{
     float: left;
     &__number{  
@@ -22,5 +21,9 @@
   &__delete{  
     float: right;
     margin-top: -30px;
+    &__link{
+      text-decoration: none;
+      color: deepskyblue;
+    }
   }
 }

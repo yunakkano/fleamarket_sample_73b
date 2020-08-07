@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   get 'categories/index'
-  get 'sending_destinations/new'
-  get 'sending_destinations/show'
-  get 'sends/new'
-  get 'sends/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -21,34 +17,29 @@ Rails.application.routes.draw do
       get :search
     end
   end
+  # get '/items/:id/cards/show', to:'items/cards#show'
   resources :items do
+    scope module: :items do
+      resources :cards, only:[:new, :create, :show, :destroy]
+    end
     collection do
       get  'done', to:'items#done'
     end
     member do
       get "purchase"
       post "pay"
-      post 'card_show', to:'cards#show'
+      # get "card_show"
     end
   end
-  get '/items/:id/card_show', to: 'items#card_show'
+  # get '/items/:id/card_show', to: 'items#card_show'
 
-  resources :cards, only: [:new, :show] do
-    collection do
-      # get 'index', to: 'cards#index'（確認中）
-      post 'show', to: 'cards#show'
-      post 'pay', to: 'cards#pay'
-      post 'delete', to: 'cards#delete'
-    end
-  end
-
-  resources :purchases, only: [:index] do
-    collection do
-      get 'index', to: 'purchases#index'
-      post 'pay', to: 'purchases#pay'
-      get 'done', to: 'purchases#done'
-    end
-  end
+  # resources :cards, only: [:new, :show] do
+  #   collection do
+  #     post 'show', to: 'cards#show'
+  #     post 'pay', to: 'cards#pay'
+  #     post 'delete', to: 'cards#delete'
+  #   end
+  # end
   
   resources :users, only: :show do
     member do

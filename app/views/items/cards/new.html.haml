@@ -5,9 +5,9 @@
         = image_tag src="logo.png", size: "170x50"      
   .purchase__body
     .purchase__body__title
-      = form_with url:pay_cards_path(@item), method: :post do
+      = form_with url: item_cards_path(@item.id), method: :post do
         %script.payjp-button{"data-key" => Rails.application.credentials[:payjp_key], src: "https://checkout.pay.jp/"}
-        
+         
   .purchase__footer
     .purchase__footer__top-content
       = link_to "http://localhost/#", class: "purchase__footer__top-content__object-1" do

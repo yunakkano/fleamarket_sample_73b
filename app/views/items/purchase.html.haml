@@ -27,9 +27,9 @@
           支払い方法
       .purchase__body__way-to-pay__credit
         - if @card
-          = render template: 'items/card_show' 
+          = render template: 'items/cards/create' 
         - else
-          = link_to new_card_path(@item) ,method: :get,class:"purchase__body__way-to-pay__credit__link" do
+          = link_to new_item_card_path(@item) ,method: :get,class:"purchase__body__way-to-pay__credit__link" do
             ※登録してください
     .purchase__body__sending-destination
       %ul.purchase__body__sending-destination__title
@@ -58,10 +58,6 @@
         = link_to pay_item_path(@item), class: "purchase__body__bottom-to-buy__object__link", method: :post do
           .button
             購入する
-        -# （以下確認中）
-        -# = form_tag(action: :pay, method: :post) do
-        -#   %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_edb1398ecec5f03fc683f0fe"}
-        
   .purchase__footer
     .purchase__footer__top-content
       = link_to "http://localhost/#", class: "purchase__footer__top-content__object-1" do
