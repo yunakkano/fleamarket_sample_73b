@@ -71,8 +71,10 @@ $(document).on('turbolinks:load', function(){
       }
     });
   });
+});
 
-  // ↓↓商品出品ページのカテゴリ選択機能
+
+// 商品出品ページ > カテゴリ選択機能
 
 function build_childSelect() {
   let child_select = `
@@ -148,7 +150,7 @@ $(document).on("change", ".child_category_id", function(){
   }
 });
 
-// ↓↓headerカテゴリメニュー表示機能
+// topページ > headerカテゴリメニュー表示機能
 
 $(document).ready(function() {
 
@@ -181,4 +183,18 @@ $(document).ready(function() {
 
 });
 
-})
+// カテゴリ一覧ページ > スクロール機能
+
+$(function () {
+  // "#"クリックでイベント発火（categories/index > "##{i}"）
+  $('a[href^="#"]').click(function() {
+    let speed = 400;
+    // this：クリックされたリンク要素
+    let href = $(this).attr("href");
+    // 三項目演算子（「条件式 ? A : B;」 *true -> A, false -> B） 
+    let target = $(href == "#" || href == "" ? 'html' : href);
+    let position = target.offset().top;
+    $('body, html').animate({scrollTop:position}, speed, 'swing');
+    return false;
+  });
+});

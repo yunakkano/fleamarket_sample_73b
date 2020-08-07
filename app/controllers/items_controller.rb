@@ -41,9 +41,15 @@ class ItemsController < ApplicationController
 
 
   def show
+    @items = Item.includes(:item_imgs).where(id: params[:id])
+    @item = Item.find_by(id: params[:id])
+    @category_grandchild = Category.find_by(id: @item.category_id)
+    @category_child = @category_grandchild.parent
+    @category_parent = @category_child.parent
   end
   
   def purchase
+    # @itemid = Item.find_by(id:params[:id])
     Payjp.api_key = Rails.application.credentials[:payjp_private_key]
     if not @card.blank?
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -67,15 +73,15 @@ class ItemsController < ApplicationController
   def done
   end
 
-  def card_show
-    if @card.blank?
-      redirect_to action: "new" 
-    else
-      Payjp.api_key = Rails.application.credentials[:payjp_private_key]
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @default_card_information = customer.cards.retrieve(@card.card_id)
-    end
-  end
+  # def card_show
+  #   if @card.blank?
+  #     redirect_to action: "new" 
+  #   else
+  #     Payjp.api_key = Rails.application.credentials[:payjp_private_key]
+  #     customer = Payjp::Customer.retrieve(@card.customer_id)
+  #     @default_card_information = customer.cards.retrieve(@card.card_id)
+  #   end
+  # end
 
   def set_item
     @item = Item.find_by(id:params[:id])
@@ -86,10 +92,6 @@ class ItemsController < ApplicationController
   end
 
   private
-  def set_parents
-    @parents = Category.where(ancestry: nil)
-  end
-
   def item_params
     params.require(:item).permit(
       :name,            :introduction,              :category_id, 

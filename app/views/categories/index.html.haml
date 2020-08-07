@@ -5,17 +5,18 @@
     .categories_container__top--title
       %p カテゴリー一覧
     - @parents.each_with_index do |parent, i|
-      = link_to "#{i}", class: "categories_container__top--link" do
+      = link_to "##{i}", class: "categories_container__top--link" do
         = parent.category
 
   .categories_container__box
     %ul.categories_parents
-      - @parents.each_with_index do |parent|
-        %li.categories_parents--title
-          = link_to "#{parent.category}", category_path(parent), class: "categories_parents--link"
+      - @parents.each_with_index do |parent, i|
+        %li.categories_parents--title{id: "#{i}"}
+          .categories_parents--link
+            = parent.category
 
         .childCategory_area
-          = link_to "#", class: "parent-all" do
+          = link_to category_path(parent), class: "parent-all" do
             すべて
           %ul.categories_children
             - parent.children.each do |child|
@@ -23,7 +24,7 @@
                 = child.category
 
               .grandchildCategory_area
-                = link_to "#", class: "child-all" do
+                = link_to category_path(child), class: "child-all" do
                   すべて
                 %ul.categories_grandchild
                   - child.children.each do |grandchild|

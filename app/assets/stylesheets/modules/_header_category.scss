@@ -17,8 +17,8 @@
 
 .header-category-list {
   position: absolute;
-  height: calc(40 * 13px);
   background-color: $white;
+  z-index: 2;
 }
 
 .header-categories {
@@ -28,23 +28,29 @@
   .header-category-parent {
     display: none;
     border-right: 2px solid $lightgray;
+    border-left: 2px solid #EEEEEE;
+    border-bottom: 2px solid #CCCCCC;
     top: 105px;
+    height: calc(40 * 13px);
     &--name {
       width: 100%;
       display: inline-block;
       padding: 10px 20px;
       font-size: 13px;
       letter-spacing: 2px;
+    }
+    #header-category-parent--hover {
       &:hover {
-        @include hover_behavior($white, $blue)
+        @include hover_behavior($white, $blue);
       }
     }
     li {
       .header-category-child {
         display: none;
         border-right: 2px solid $lightgray;
+        border-bottom: 2px solid #CCCCCC;
+        height: calc(40 * 13px);
         width: 100%;
-        height: 100%;
         top: 0;
         left: 222px;
         &--name {
@@ -61,11 +67,13 @@
         li {
           .header-category-grandchild {
             display: none;
-            border-right: 2px solid $lightgray;
+            border-right: 2px solid #EEEEEE;
+            border-left: 2px solid #EEEEEE;
+            border-bottom: 2px solid #CCCCCC;
             width: 300px;
             height: calc(25 * 29px);
             top: 0;
-            left: 222px;
+            left: 220px;
             z-index: 1;
           }          
         }
