@@ -41,9 +41,15 @@ class ItemsController < ApplicationController
 
 
   def show
-    @items = Item.includes(:item_imgs).where(id: params[:id])
-    @item = Item.find_by(id: params[:id])
-    @category_grandchild = Category.find_by(id: @item.category_id)
+    @item = Item.includes(:item_imgs).find(params[:id])
+    @seller = User.find(@item.seller_id)
+    @buyer = User.find(@item.buyer_id) if @item.buyer_id
+    @item_condition = ItemCondition.find(@item.item_condition_id)
+    @postage_type = PostageType.find(@item.postage_type_id)
+    @postage_payer = PostagePayer.find(@item.postage_payer_id)
+    @preparation_day = PreparationDay.find(@item.preparation_day_id)
+    @prefecture = JpPrefecture::Prefecture.find(@item.prefecture_code)
+    @category_grandchild = Category.find(@item.category_id)
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent
   end
