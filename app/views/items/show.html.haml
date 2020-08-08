@@ -1,15 +1,19 @@
-.contents.row
-  .content_post
-    - @items.each do |item|
-      - item.item_imgs.each do |item_img|
-        = image_tag item_img.url.url
-    %ul.more_list
-      %li
-        = link_to '編集', edit_item_path(@item), method: :get
-      %li
-        = link_to '削除', item_path(@item), method: :delete
-      %li
-        = link_to '購入画面へ進む', purchase_item_path(@item), method: :get
+= render 'items/header'
+%main.itemdetail-background
+  %section.itemdetail-container
+    %h1.item-name
+      = @item.name
+    .content_post
+      - @items.each do |item|
+        - item.item_imgs.each do |item_img|
+          = image_tag item_img.url.url
+      %ul.more_list
+        %li
+          = link_to '編集', edit_item_path(@item), method: :get
+        %li
+          = link_to '削除', item_path(@item), method: :delete
+        %li
+          = link_to '購入画面へ進む', purchase_item_path(@item), method: :get
 
 
   -# 鈴木追加：カテゴリーリスト ---------------
@@ -29,3 +33,7 @@
         = @category_grandchild.category
   
   -# --------------------------------------
+= render 'items/appbanner'
+-# footerの部分テンプレート呼び出し
+= render 'items/footer'
+= render 'items/camerabutton'
