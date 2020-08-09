@@ -229,4 +229,32 @@ main.itemdetail-background{
             }
         }
     }
+    .items-related{
+        width: 950px;
+        margin: 8px auto;
+        &__group{
+            h2.items-related__group__head{
+                font-size: 18px;
+                margin: 24px 4% 8px;
+                line-height: 1.4;
+                a{
+                    color: #0099e8;
+                    text-decoration: none;
+                    touch-action: manipulation;
+                }
+            }
+            &__content{
+                width: 92%;
+                margin: 0 auto;
+                &__box{
+                    width: calc(33.3333% - 2.666666px);
+                    margin: 0 4px 4px 0;
+                    position: relative;
+                    float: left;
+                    background: #fff;
+                }
+            }
+
+        }
+    }
 }
