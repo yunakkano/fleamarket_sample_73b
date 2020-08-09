@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :items, except: [:show] do
+  resources :items do
     collection do
       get :search
     end
