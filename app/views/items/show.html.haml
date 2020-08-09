@@ -90,6 +90,16 @@
           = text_area "", "post", {class: "textarea-default"}
           = button_tag "", {type: "reset", class: "message-submit-btn"} do
             %span コメントする
+  .items-related
+    .items-related__group
+      %h2.items-realated__group__head
+        = link_to "#{@seller.nickname}さんのその他の出品"
+      .items-related__group__content
+        - for i in 0..5
+          .items-related__group__content__box
+            = link_to 
+    .items-related__group
+      %h2.items-realated__group--head
 
 = render 'items/appbanner'
 -# footerの部分テンプレート呼び出し
