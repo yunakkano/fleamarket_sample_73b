@@ -43,6 +43,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.includes(:item_imgs).find(params[:id])
     @seller = User.find(@item.seller_id)
+    @seller_items = Item.includes(:item_imgs).where(seller_id: @item.seller_id).limit(6)
     @buyer = User.find(@item.buyer_id) if @item.buyer_id
     @item_condition = ItemCondition.find(@item.item_condition_id)
     @postage_type = PostageType.find(@item.postage_type_id)
@@ -52,6 +53,7 @@ class ItemsController < ApplicationController
     @category_grandchild = Category.find(@item.category_id)
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent
+    @category_items = Item.includes(:item_imgs).where(category_id: @item.category_id).limit(6)
   end
   
   def purchase
