@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
   get 'categories/index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
