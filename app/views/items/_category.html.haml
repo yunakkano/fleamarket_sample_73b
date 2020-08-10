@@ -18,7 +18,9 @@
               %li
                 = "#{item.price.to_s(:delimited, delimiter: ',')}円"
               %li
-                %i.fa.fa-star.likeIcon 
-                0
+                .top-grade
+                  %i.far.fa-star.top-grade__likeIcon
+                  .top-grade__favCnt
+                    = item.favorites.count
             %p
               (税込)

@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_one :self_introduction, dependent: :destroy
   has_many :seller_items, foreign_key: "seller_id", class_name: "items"
   has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_items, through: :favorites, source: :item
 
   validates :nickname, presence: true
 end

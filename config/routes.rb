@@ -58,4 +58,14 @@ Rails.application.routes.draw do
   end
   
   resources :categories, only: [:index, :show]
+
+  resources :items do
+    resource :favorites, only: [:create, :destroy]
+  end
+
+  resources :users, only: [:index, :show] do
+    member do
+      get :favorites
+    end
+  end
 end

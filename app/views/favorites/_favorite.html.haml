@@ -1,0 +1,25 @@
+- if user_signed_in?
+  - if current_user.favorites.find_by(item_id: item.id)
+    = link_to item_favorites_path(item.id), method: :delete, remote: true, class: "show-favLink", id: "show-favLink-Like" do
+      .show-favLink__icon#LikeIcon
+        = icon('fa', 'star')
+      .show-favLink__text#LikeText
+        いいね!
+      .show-favLink__cnt#LikeCnt
+        = item.favorites.count
+  - else
+    = link_to item_favorites_path(item.id), method: :post, remote: true, class: "show-favLink", id: "show-favLink-UnLike" do
+      .show-favLink__icon
+        = icon('far', 'star')
+      .show-favLink__text
+        いいね!
+      .show-favLink__cnt
+        = item.favorites.count
+- else
+  = link_to new_user_session_path, class: "show-favLink" do
+    .show-favLink__icon
+      = icon('far', 'star')
+    .show-favLink__text
+      いいね!
+    .show-favLink__cnt
+      = item.favorites.count
