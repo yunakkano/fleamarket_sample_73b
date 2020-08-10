@@ -1,10 +1,12 @@
+%script{src: "https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js"}
 %main.itemdetail-background
   .itemdetail
     %h1.itemdetail--name
       = @item.name
     .itemdetail__content
       .itemdetail__content__photo
-        = image_tag "#{@item.item_imgs[0].url.url}"
+        = link_to "#{@item.item_imgs[0].url.url}",  class: "luminous" do
+          = image_tag "#{@item.item_imgs[0].url.url}"
       %table.itemdetail__content__table
         %tbody.itemdetail__content__table__body
           %tr
