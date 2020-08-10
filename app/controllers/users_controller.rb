@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action :set_parents, only: [:show]
+    before_action :set_parents
+
     def show
         if not request.referrer
             redirect_to root_path
@@ -9,8 +10,7 @@ class UsersController < ApplicationController
         @card = Card.find_by(user_id: current_user.id)
     end
 
-    private
-    def set_parents
-        @parents = Category.where(ancestry: nil)
+    def favorites
+        Favorite.find_by(user_id: current_user.id, item_id: params[:item_id])
     end
 end
