@@ -92,12 +92,19 @@
             %span コメントする
   .items-related
     .items-related__group
-      %h2.items-realated__group__head
-        = link_to "#{@seller.nickname}さんのその他の出品"
+      %h2.items-related__group__head
+        = link_to "#{@seller.nickname}さんのその他の出品", ""
       .items-related__group__content
         - for i in 0..5
-          .items-related__group__content__box
-            = link_to 
+          - if @seller_items[i]
+            .items-related__group__content__box
+              = link_to item_path(@seller_items[i].id) do
+                %figure.items-related__group__content__box__photo
+                  - if @seller_items[i].trading_status == 1
+                    .product-sold
+                      .product-sold__inner
+                        SOLD
+                  = image_tag @seller_items[i].item_imgs[0].url.url, class: 'items-related__group__content__box__photo__img'
     .items-related__group
       %h2.items-realated__group--head
 
