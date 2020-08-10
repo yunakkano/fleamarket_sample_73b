@@ -71,7 +71,7 @@ $(document).on('turbolinks:load', function(){
       }
     });
   });
-
+});
 
 // 商品出品ページ > カテゴリ選択機能
 
