@@ -28,8 +28,5 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  private
-  def set_parents
-      @parents = Category.where(ancestry: nil)
-  end
+
 end

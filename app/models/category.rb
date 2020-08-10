@@ -11,7 +11,7 @@ class Category < ApplicationRecord
       start_id = self.indirects.first.id
       end_id = self.indirects.last.id
       # 自身が持つ孫カテゴリーのid範囲を指定して商品を取得
-      items = where(category_id: start_id..end_id)
+      items = Item.where(category_id: start_id..end_id)
       return items
 
     # 子カテゴリーの場合

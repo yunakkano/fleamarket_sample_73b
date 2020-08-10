@@ -3,7 +3,7 @@
   %ul.header-category-parent.header-category-list
     - @parents.each do |parent|
       %li.header-parent-list
-        = link_to "#", class: "header-category-parent--name" do
+        = link_to "#", class: "header-category-parent--name", id: "header-category-parent--hover" do
           = parent.category
         %ul.header-category-child.header-category-list
           - parent.children.each do |child|

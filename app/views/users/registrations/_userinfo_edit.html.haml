@@ -1,0 +1,37 @@
+%main.register-main
+  %section.l-register-container
+    %h2.l-single-head.registration メール/パスワード
+    = form_with model: @user, url: user_registration_path, method: "patch", class: "l-registration-inner", local: true do |f|
+      .l-register-content
+        .register-form-group
+          = f.label :email, "メールアドレス"
+          %span.register-form-require 必須
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "register-field--full"
+          = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "メールアドレス"}
+        .register-form-group
+          = f.label :current_password, "現在のパスワード"
+          %span.register-form-require 必須
+          = f.password_field :current_password, autocomplete: "current-password", placeholder: "#{@minimum_password_length}文字以上の半角英数字", class: "register-field--full"
+          = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "現在のパスワード を入力"}
+        .register-form-group
+          = f.label :password, "新しいパスワード"
+          %span.register-form-require 必須
+          = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上の半角英数字", class: "register-field--full"
+          = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "パスワード を入力"}
+        .register-form-group
+          = f.label :password_confirmation, "新しいパスワード（再入力）"
+          %span.register-form-require 必須
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度入力してください", class: "register-field--full"
+          = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "パスワード（確認用）"}
+          %p.register-form-info-text
+            ※ 英字と数字の両方を含めて設定してください
+          .form-password-revelation-toggle
+            .checkbox-default
+              %input#reveal_password{type: "checkbox"}/
+              %i.icon-check
+              %label{for: "reveal_password"} パスワードを表示する
+            .form-password-revelation-revealed-password-container
+              %span.form-password-revelation-revealed-password
+      .l-register-content
+        .register-form-group
+          = f.button "変更する", class: "register-btn register-btn-cian"

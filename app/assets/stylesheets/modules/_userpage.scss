@@ -254,8 +254,9 @@ main.mypage__container{
 			font-weight: 600;
 			touch-action: manipulation;
 			cursor: default;
-			.button_to {
+			input[type="submit"]{
 				display: block;
+				height: 100%;
 				width: 100%;
 				line-height: 48px;
 				font-size: 14px;
@@ -329,7 +330,7 @@ main.mypage__container{
 									margin: 8px 0 0;
 									font-size: 16px;
 								}
-								input.card-remove-btn{
+								button.card-remove-btn{
 									position: absolute;
 									top: 0;
 									right: 0;
@@ -338,6 +339,7 @@ main.mypage__container{
 									border-radius: 3px;
 									border: 1px solid #2BCCD1;
 									color: #2BCCD1;
+									cursor: pointer;
 								}
 							}
 						}
@@ -348,10 +350,10 @@ main.mypage__container{
 						&__content{
 							max-width: 320px;
 							margin: 0 auto;
-							.button_to {
+							form.button_to {
 								display: block;
+								height: 100%;
 								width: 100%;
-								line-height: 48px;
 								font-size: 14px;
 								border-radius: 4px;
 								transition: all ease-out .3s;
@@ -363,6 +365,9 @@ main.mypage__container{
 								border: 1px solid #2bccd1;
 								color: #fff;
 								input{
+									height: 100%;
+									width: 100%;
+									line-height: 48px;
 									border: none;
 									background: #2bccd1;
 									cursor: pointer;
@@ -466,7 +471,7 @@ main.mypage__container{
 								}
 							}
 						}
-						button.addcard-btn {
+						input.addcard-btn {
 							display: block;
 							width: 100%;
 							line-height: 48px;
@@ -487,6 +492,394 @@ main.mypage__container{
 				}
 			}
 		}
+	}
+	main.register-main {
+        float: right;
+		width: 700px;
+		margin: 24px auto 0;
+		padding: 0 0 40px;
+		display: block;
+        .l-register-container{
+            width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 32px;
+        }
+        .registration {
+            display: block;
+            line-height: 33px;
+            font-size: 22px;
+            letter-spacing: normal;
+            margin-block-start: 0.83em;
+            margin-block-end:  0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .l-registration-inner {
+            padding: 40px 40px 64px;
+            border-top: 1px solid #f5f5f5;
+            .l-register-content {
+                max-width: 343px;
+                margin: 0 auto;
+                display: block;
+                .form-group:first-child {
+                    margin: 0;
+                }
+                .register-form-group{
+					margin: 0 0 30px 0;
+                    label.register-form-group {
+                        font-weight: 600;
+                        touch-action: manipulation;
+                        cursor: default;
+                    }
+                    .register-form-require {
+                        background: #2bccd1;
+                        margin: 0 0 0 8px;
+                        padding: 2px 4px;
+                        border-radius: 2px;
+                        color: #fff;
+                        font-size: 12px;
+                        vertical-align: top;
+                    }
+                    input.register-field--full {
+                        height: 48px;
+                        width: 100%;
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                        .register-field--half{
+                            width: calc(30% - 6px);
+                        }
+                    }
+                    input.register-field--half {
+                        height: 48px;
+                        width: calc(30% - 6px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
+                    select.register-field--full {
+                        height: 48px;
+                        width: 100%;
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                        .register-field--half{
+                            width: calc(30% - 6px);
+                        }
+                    }
+                    select#sending_destination_prefecture_code{
+                        height: 48px;
+                        width: 100%;
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
+                    .register-form-info-text{
+                        color: #888;
+                        margin: 8px 0 0;
+                        line-height: 1.5;
+                    }
+                    .form-password-revelation-toggle {
+                        display: block;
+                        .checkbox-default{
+                            margin: 16px 0 0;
+                            position: relative;
+                            font-size: 0;
+                            input {
+                                display: none;
+                                cursor: default;
+                                border: 0;
+                                outline: 0;
+                                touch-action: manipulation;
+                                background-color: transparent;
+                            }
+                            .icon-check{
+                                position: absolute;
+                                top: 50%;
+                                left: 0;
+                                z-index: 1;
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 2px;
+                                background: #fff;
+                                border: 1px solid #ccc;
+                                font-size: 10px;
+                                line-height: 17px;
+                                text-align: center;
+                                color: #fff;
+                                vertical-align: middle;
+                                transition: all ease-out 0.3s;
+                                transform: translate(0, -50%);
+                                display: inline-block;
+                            }
+                            label {
+                                position: relative;
+                                z-index: 2;
+                                padding: 0 0 0 28px;
+                                font-size: 14px;
+                                font-weight: 400;
+                                vertical-align: middle;
+                                cursor: pointer;
+                                display: inline-block;
+                                touch-action: manipulation;
+                            }
+                        }
+                        .form-password-revelation-revealed-password-container{
+                            line-height: 1.5;
+                            font-size: 16px;
+                            font-weight: 500;
+                            font-family: monospace;
+                            margin: 14px 0;
+                            word-break: break-all;
+                            overflow-wrap: break-word;
+                            display: none;
+                            .form-password-revelation-revealed-password {
+                                display: none;
+                                background-color: #f5f5f5;
+                                padding: 4px 8px;
+                            }
+                        }
+                    }
+                    h3.l-chapter-subhead{
+                        font-size: 16px;
+                    }
+                    p.l-single-text{
+                        margin: 8px 0 0;
+                        padding: 0;
+                        line-height: 1.5;
+                        display: block;
+                        margin-block-start: 1em;
+                        margin-block-end: 1em;
+                        margin-inline-end: 0px;
+                        margin-inline-start: 0px;
+                    }
+                    ul.has-error {
+                        color: #ea352d;
+                        line-height: 1.5;
+                        font-size: 14px;
+                        list-style: none;
+                        display: block;
+                    }
+                }
+                .register-btn {
+                    display: block;
+                    width: 100%;
+                    line-height: 48px;
+                    font-size: 14px;
+                    border-radius: 4px;
+                    transition: all ease-out .3s;
+                    cursor: pointer;
+                    text-align: center;
+                    &-cian{
+                        margin-top: 32px;
+                        margin: 24px 0 0;
+                        background: #2bccd1;
+                        border: 1px solid #2bccd1;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .login-panel{
+            max-width: none;
+            width: 394px;
+            margin: 0 auto;
+            background: #fff;
+            .login-no-account{
+                padding: 40px 64px;
+                text-align: center;
+                p{
+                    font-size: 14px;
+                    display: block;
+                    margin-block-start: 1em;
+                    margin-block-end: 1em;
+                    margin-inline-start: 0px;
+                    margin-inline-end: 0px;
+                }
+                a {
+                    display: block;
+                    margin: 8px 0 0;
+                    border-radius: 4px;
+                    border: 1px solid #0099e8;
+                    background: #0099e8;
+                    color: #fff;
+                    line-height: 40px;
+                    text-decoration: none;
+                    touch-action: manipulation;
+                    cursor: pointer;
+                }   
+            }
+
+            .login-form-inner {
+                padding: 32px 64px;
+                border-top: 1px solid #eee;
+            }
+        }
+        .l-login-container{
+            width: 394px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 32px;
+            .l-login-content{
+                max-width: 343px;
+                margin: 0 auto;
+                display: block;
+                .login-form-group{
+                    font-weight: 600;
+                    touch-action: manipulation;
+                    cursor: default;
+                    input.login-field--full{
+                        height: 48px;
+                        width: calc(100% - 32px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                    }
+                    .login-btn {
+                        display: block;
+                        width: 100%;
+                        line-height: 48px;
+                        font-size: 14px;
+                        border-radius: 4px;
+                        transition: all ease-out .3s;
+                        cursor: pointer;
+                        text-align: center;
+                        &-cian{
+                            width: 100%;
+                            height: 100%;
+                            margin-top: 32px;
+                            margin: 24px 0 0;
+                            background: #2bccd1;
+                            border: 1px solid #2bccd1;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+	}
+	main.intro-register-main{
+		float: right;
+		width: 700px;
+		margin: 24px auto 0;
+		padding: 0 0 40px;
+		display: block;
+        .intro-register-container{
+            width: 700px;
+            margin: 0 auto;
+            background: #fff;
+			padding: 32px;
+			h2.l-single-head{
+				padding: 12px 4%;
+				border-bottom: 1px solid #f5f5ff;
+				text-align: center;
+				font-size: 18px;
+			}
+			form{
+				.setting__profile-icon{
+					padding: 72px 16px 24px;
+					background: url(asset_path("pict/user-bg.jpg"));
+					background-repeat: no-repeat;
+					background-size: cover;
+					text-align: center;
+					font-size: 0;
+					figure{
+						display: inline-block;
+						overflow: hidden;
+						width: 60px;
+						height: 60px;
+						border-radius: 50%;
+						vertical-align: middle;
+						img{
+							vertical-align: middle;
+							width: 60px;
+							height: 60px;
+						}
+					}
+					input#user_nickname{
+						width: 220px;
+						margin: 0 0 0 8px;
+						vertical-align: middle;
+						height: 48px;
+						padding: 10px 16px 8px;
+						border-radius: 4px;
+						border: 1px solid #ccc;
+						background: #fff;
+						line-height: 1.5;
+						font-size: 16px;
+					}
+				}
+				.setting_profile-content{
+					padding: 40px 16px;
+					textarea{
+						min-height: 216px;
+						display: block;
+						width: 100%;
+						max-width: 100%;
+						padding: 10px;
+						border: 1px solid #ccc;
+						background: #fff;
+						font-size: 16px;
+						line-height: 1.5;
+						border-radius: 0;
+						outline: 0;
+						touch-action: manipulation;
+						resize: vertical;
+					}
+					button.register-btn{
+						display: block;
+						width: 100%;
+						line-height: 48px;
+						font-size: 14px;
+						border-radius: 4px;
+						transition: all ease-out .3s;
+						cursor: pointer;
+						text-align: center;
+						&-cian{
+							margin-top: 32px;
+							margin: 24px 0 0;
+							background: #2bccd1;
+							border: 1px solid #2bccd1;
+							color: #fff;
+						}
+					}
+				}
+			}
+        }
 	}
 
 }

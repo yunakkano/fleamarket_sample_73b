@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  before_action :set_parents, only: [:edit, :update]
   def new
     @user = User.new
     @profile = Profile.new
@@ -36,9 +36,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @user.build_profile(session["devise.regist_data"]["profile"])
     @user.build_sending_destination(@address.attributes)
-    @user.save
-    session["devise.regist_data"]["user"].clear
-    sign_in(:user, @user)
+    if @user.save
+      session["devise.regist_data"]["user"].clear
+      sign_in(:user, @user)
+    else
+      flash.now[:alert] = @user.errors.full_messages
+      render :new_address and return
+    end
+  end
+
+  def edit
+    @user = current_user
+    @minimum_password_length = User.password_length.min
+  end
+
+  def update
+    @user = current_user
+    if @user.update_with_password(userinfo_update_params)
+      bypass_sign_in(@user)
+    else
+      flash.now[:alert] = @user.errors.full_messages
+      render :edit and return
+    end
   end
 
   protected
@@ -60,4 +79,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     )
   end
 
+  def userinfo_update_params
+    params.require(:user).permit(
+      :email, :current_password, :password, :password_confirmation
+    )
+  end
 end
