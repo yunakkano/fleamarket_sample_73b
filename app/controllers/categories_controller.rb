@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   def show
     # @items = @category.items の記述では、@categoryが孫の場合しか商品情報を取得出来ないため、モデルメソッド set_itemsにより、カテゴリー内の適切な商品を取得する
     @items = @category.set_items
-    @items = @items.where(buyer_id: nil).order("created_at DESC").page(params[:page]).per(9)
+    @items = @items.where(buyer_id: nil).order("created_at DESC").page(params[:page]).per(30)
   end
 
   private
@@ -19,5 +19,4 @@ class CategoriesController < ApplicationController
       @category_links = @category.siblings
     end
   end
-
 end

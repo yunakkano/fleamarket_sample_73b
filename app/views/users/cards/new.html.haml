@@ -1,6 +1,6 @@
 = render 'items/header'
 %main.mypage__container.clearfix
-  =render 'users/sidemenu'
+  =render partial: 'users/sidemenu', locals: {active_menu: "支払い方法"}
   =render 'users/cards/creditcard_new'
 
 = render 'items/appbanner'

@@ -1,8 +1,10 @@
 = render 'items/header'
 %main.mypage__container.clearfix
-  =render 'users/sidemenu'
-  =render 'users/cards/creditcard_registered'
-
+  =render partial: 'users/sidemenu', locals: {active_menu: "支払い方法"}
+  -if @card.present?
+    =render 'users/cards/creditcard_registered'
+  -else
+    =render 'users/cards/creditcard_new_confirm'
 = render 'items/appbanner'
 -# footerの部分テンプレート呼び出し
 = render 'items/footer'

@@ -17,7 +17,7 @@ class Profile < ApplicationRecord
     return if birthday.blank?
 
     if birthday > Date.today
-      errors.add(:birthday, "birthday must be before today")
+      errors.add(:birthday, "誕生日が不正です。")
     end
   end
 end
