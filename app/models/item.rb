@@ -1,6 +1,4 @@
 class Item < ApplicationRecord
-  after_initialize :set_default_trading_status
-
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :item_imgs, dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
@@ -30,9 +28,4 @@ class Item < ApplicationRecord
   validates :postage_type_id,  presence: true
   validates :item_condition_id,           presence: true
   validates :category_id,    presence: true
-  private
-
-  def set_default_trading_status
-    self.trading_status = 0
-  end
 end
