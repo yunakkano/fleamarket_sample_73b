@@ -13,7 +13,7 @@
           %li.mypage__favContent__list
             = link_to item_path(item), class: "mypage__favContent__content" do
               %figure.mypage__favContent__content__image
-                - if item.trading_status == 0
+                - if item.trading_status == 1
                   .mypage__productSold
                     .mypage__productSold__inner
                       SOLD

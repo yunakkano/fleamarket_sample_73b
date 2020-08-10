@@ -17,12 +17,8 @@
           %span.mypage-nav-number
             1
           %i.icon-arrow-right
-      -# %li
-      -#   = link_to user_path(current_user.id), method: :get , class: "mypage__nav__list-item" do
-      -#     いいね！一覧
-      -#     %i.icon-arrow-right
       %li
-        = link_to favorites_user_path, controller: :users, action: :favorites, class: "mypage__nav__list-item" do
+        = link_to favorites_user_path(current_user.id), method: :get, class: "mypage__nav__list-item" do
           いいね！一覧
           %i.icon-arrow-right
       %li
