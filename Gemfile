@@ -104,3 +104,6 @@ gem 'kaminari'
 # For payjp
 gem 'payjp'
 gem 'dotenv-rails'
+
+# For stylish image presentation on 'item details' page
+gem 'owlcarousel-rails'
