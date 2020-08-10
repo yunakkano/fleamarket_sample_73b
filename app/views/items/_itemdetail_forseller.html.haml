@@ -1,10 +1,12 @@
+%script{src: "https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js"}
 %main.itemdetail-background
   .itemdetail
     %h1.itemdetail--name
       = @item.name
     .itemdetail__content
       .itemdetail__content__photo
-        = image_tag "#{@item.item_imgs[0].url.url}"
+        = link_to "#{@item.item_imgs[0].url.url}",  class: "luminous" do
+          = image_tag "#{@item.item_imgs[0].url.url}"
       %table.itemdetail__content__table
         %tbody.itemdetail__content__table__body
           %tr
@@ -73,13 +75,6 @@
     .itemdetail__description
       %p.itemdetail__description__inner
         = @item.introduction
-    .itemdetail__buttons
-      .itemdetail__buttons__left
-        = button_tag class:"like-btn" do
-          =icon('fas','heart', class: "like-icon-border")
-          %span いいね
-          %span.like-count 3
-      .itemdetail__buttons__right
   .item-edit-delete
     .item-edit-delete__box
       = link_to "商品の編集", "", method: :get, class: "item-edit-button"
