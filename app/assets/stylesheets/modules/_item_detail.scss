@@ -186,6 +186,51 @@ main.itemdetail-background{
             }
         }
     }
+    .item-edit-delete{
+        background: #fff;
+        width: 100%;
+        max-width: 700px;
+        margin: 8px auto;
+        &__box{
+            margin: 24px 0 24px 0;
+            background: #fff;
+            padding: 8px 16px 8px 16px;
+            a.item-edit-button{
+                margin: 16px 0 16px 0;
+                background: #2bccd1;
+                color: #fff;
+                display: block;
+                width: 100%;
+                line-height: 40px;
+                font-size: 14px;
+                border-radius: 4px;
+                transition: all ease-out .3s;
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                touch-action: manipulation;
+            }
+            p.text-center{
+                font-size: 16px;
+                text-align: center;
+            }
+            a.item-delete-button{
+                margin: 16px 0 16px 0;
+                background: #aaa;
+                color: #fff;
+                display: block;
+                width: 100%;
+                line-height: 40px;
+                font-size: 14px;
+                border-radius: 4px;
+                transition: all ease-out .3s;
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                touch-action: manipulation;
+            }
+        }
+    }
     .itemcomment{
         width: 100%;
         max-width: 700px;

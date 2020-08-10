@@ -1,0 +1,95 @@
+%main.itemdetail-background
+  .itemdetail
+    %h1.itemdetail--name
+      = @item.name
+    .itemdetail__content
+      .itemdetail__content__photo
+        = image_tag "#{@item.item_imgs[0].url.url}"
+      %table.itemdetail__content__table
+        %tbody.itemdetail__content__table__body
+          %tr
+            %th 出品者
+            %td
+              = link_to @seller.nickname, user_path(@seller.id), method: :get 
+              %div
+                .item-user-ratings
+                  = icon('far', 'smile', class: "icon-good")
+                  %span 8
+                .item-user-ratings
+                  = icon('far', 'frown', class: "icon-bad")
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td
+              = link_to category_path(@category_parent), method: "get" do
+                %div
+                  = @category_parent.category
+              = link_to category_path(@category_child), method: "get" do
+                .item-detail-table-category
+                  = icon('fas','caret-right', class: 'icon-arrow-right')
+                  = @category_child.category
+              = link_to category_path(@category_grandchild), method: "get" do
+                .item-detail-table-category
+                  = icon('fas','caret-right', class: 'icon-arrow-right')
+                  = @category_grandchild.category
+          %tr
+            %th ブランド
+            %td
+              = link_to "", method: "get" do
+                %div
+                  アディダス
+          %tr
+            %th 商品のサイズ
+            %td L
+          %tr
+            %th 商品の状態
+            %td
+              = @item_condition.name
+          %tr
+            %th 配送料の負担
+            %td
+              = @postage_payer.name
+          %tr
+            %th 配送の方法
+            %td
+              = @postage_type.name
+          %tr
+            %th 配送元地域
+            %td
+              = @prefecture.name
+          %tr
+            %th 発送日の目安
+            %td
+              = @preparation_day.name
+    .itemdetail__pricebox
+      .itemdetail__pricebox__price
+        = "#{@item.price.to_s(:delimited, delimiter: ',')}円"
+      .itemdetail__pricebox__tax （税込）
+      .itemdetail__pricebox__shippingfee
+        - if @postage_payer.name == '送料込み(出品者負担)'
+          送料込み
+        - else
+          送料別途
+    .itemdetail__description
+      %p.itemdetail__description__inner
+        = @item.introduction
+    .itemdetail__buttons
+      .itemdetail__buttons__left
+        = button_tag class:"like-btn" do
+          =icon('fas','heart', class: "like-icon-border")
+          %span いいね
+          %span.like-count 3
+      .itemdetail__buttons__right
+  .item-edit-delete
+    .item-edit-delete__box
+      = link_to "商品の編集", "", method: :get, class: "item-edit-button"
+      %p.text-center or
+      = link_to "この商品を削除する", "", method: :delete, class: "item-delete-button"
+  .itemcomment
+    .itemcomment__box
+      .itemcomment__box__content
+        = form_tag '#', class: "message-form" do
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = text_area "", "post", {class: "textarea-default"}
+          = button_tag "", {type: "reset", class: "message-submit-btn"} do
+            %span コメントする
