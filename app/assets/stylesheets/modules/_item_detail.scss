@@ -126,6 +126,15 @@ main.itemdetail-background{
             text-decoration: none;
             touch-action: manipulation;
         }
+        &__sold{
+            font-size: 24px;
+            line-height: 60px;
+            margin-top: 16px;
+            background: #888;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+        }
         &__description{
             padding: 32px 0 0;
             line-height: 1.5;
@@ -302,6 +311,46 @@ main.itemdetail-background{
                                 bottom: 0;
                                 z-index: 1;
                                 opacity: 1;
+                            }
+                        }
+                        .items-related__group__content__box__body{
+                            width: 220px;
+                            height: 110px;
+                            padding: 16px;
+                            h3.items-related__group__content__box__body__name{
+                                overflow: hidden;
+                                position: relative;
+                                font-weight: 400;
+                                height: 3em;
+                                line-height: 1.5;
+                                word-break: break-word;
+                                white-space: normal;
+                                font-size: 16px;
+                                color: #333;
+                            }
+                            &__num{
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                margin: 8px 0 0;
+                                &__price{
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    color: #333;
+                                }
+                                &__like{
+                                    font-size: 16px;
+                                    font-weight: 400;
+                                    color: #333;
+                                    i.like-icon-border{
+                                        font-size: 14px;
+                                        vertical-align: middle;
+                                        display: inline-block;
+                                        font-weight: 400;
+                                        line-height: 1;
+                                        color: #ccc;
+                                    }
+                                }
                             }
                         }
                     }
