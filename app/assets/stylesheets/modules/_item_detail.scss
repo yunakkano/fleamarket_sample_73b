@@ -20,11 +20,45 @@ main.itemdetail-background{
         &__content{
             margin: 16px 0 16px 0;
             height: 100%;
+            clear: both;
+            content: "";
             &__photo{
                 float: left;
                 position: relative;
+                overflow: hidden;
                 margin: 0 auto;
+                width: 300px;
+                height: 420px;
                 background: #fafafa;
+                .owl-carousel .owl-stage {
+                    display: flex;
+                    align-items: center;
+                }
+                .owl-item{
+                    min-width: 300px;
+                    min-height: 360px;
+                }
+                #slide-control-box{
+                    a.slide-controls{
+                        width: 60px;
+                        height: 60px;
+                        max-height: none;
+                        position: relative;
+                        overflow: hidden;
+                        display: inline-block;
+                        cursor: default;
+                        img{
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            width: auto;
+                            height: 100%;
+                            transform: translate(-50%, 0);
+                            vertical-align: bottom;
+                            opacity: 0.3;
+                        }
+                    }
+                }
             }
             table.itemdetail__content__table{
                 float: right;
