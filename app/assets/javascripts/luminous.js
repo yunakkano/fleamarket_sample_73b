@@ -4,6 +4,6 @@ $(document).on('turbolinks:load', function () {
       new LuminousGallery(luminousTrigger);
   }
 });
-$(document).on("click", ".itemdetail__content__photo", function(){
-  $('.lum-lightbox-image-wrapper').css('background-color', 'rgba(0, 0, 0, 0.7)');
+$(document).on("click", ".luminous", function(){
+  $('.lum-lightbox').css('background-color', 'rgba(0, 0, 0, 0.7)').css('z-index','10');
 });
