@@ -35,7 +35,7 @@
       %ul.purchase__body__sending-destination__title
         %li
           配送先
-        = link_to "http://localhost/#", class: "purchase__body__sending-destination__title__link" do
+        = link_to edit_item_sending_destination_path(@item.id, current_user.id), class: "purchase__body__sending-destination__title__link" do
           変更する 〉
         -# (以下確認中)
         -# = form_tag(new_send_path, method: :post, id: 'charge-form',  name: "inputForm") do
@@ -48,26 +48,14 @@
         -# = render template: 'registrations/new_profile_address' do
         -#   = @address.post_code
         %p
-          〒111-1111
+          = post_code_string(@sending_destination)
         %p
-          東京都XXX 1-1-1
+          = address_string(@sending_destination)
         %p
-          山田太郎
+          = recipient_name(@sending_destination)
     .purchase__body__bottom-to-buy
       .purchase__body__bottom-to-buy__object
         = link_to pay_item_path(@item), class: "purchase__body__bottom-to-buy__object__link", method: :post do
           .button
             購入する
-  .purchase__footer
-    .purchase__footer__top-content
-      = link_to "http://localhost/#", class: "purchase__footer__top-content__object-1" do
-        プライバシーポリシー
-      = link_to "http://localhost/#", class: "purchase__footer__top-content__object-2" do
-        FRIMA利用規約
-      = link_to "http://localhost/#", class: "purchase__footer__top-content__object-3" do
-        特定商取引に関する表記
-    .purchase__footer__logo
-      = link_to root_path ,method: :get,class:"purchase__footer__logo__link" do
-        = image_tag src="logo-white.png", size: "170x50"
-    .purchase__footer__copy
-      ©︎ Furima, Inc.
+  = render 'purchase_footer'
