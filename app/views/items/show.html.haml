@@ -6,9 +6,3 @@
 = render 'items/appbanner'
 -# footerの部分テンプレート呼び出し
 = render 'items/footer'
--# 鈴木追加：お気に入り機能 -----------------
-
-.favorites_btn{id: "favorites_btn_#{@item.id}"}
-  = render 'favorites/favorite', item: @item
-
--# --------------------------------------
