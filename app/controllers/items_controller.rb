@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:item_imgs).order('created_at DESC')
+    @itemsRanks = Item.find(Favorite.group(:item_id).order('count(item_id) DESC').pluck(:item_id))
   end
 
   def new
