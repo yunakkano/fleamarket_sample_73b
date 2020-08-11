@@ -111,3 +111,5 @@ gem 'owlcarousel-rails'
 # To reduce redundant category queries
 gem 'redis'
 gem 'redis-rails'
+#For test
+gem 'rails-controller-testing'
