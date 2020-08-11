@@ -59,8 +59,8 @@ class ItemsController < ApplicationController
   end
   
   def purchase
-    # @itemid = Item.find_by(id:params[:id])
     Payjp.api_key = Rails.application.credentials[:payjp_private_key]
+    @sending_destination = SendingDestination.find_by(user_id: current_user.id)
     if not @card.blank?
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
