@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :items do
     scope module: :items do
       resources :cards, only:[:new, :create, :show, :destroy]
+      resources :sending_destinations, onyl:[:edit, :update]
     end
     collection do
       get  'done', to:'items#done'
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
     member do
       get "purchase"
       post "pay"
-      # get "card_show"
     end
   end
   # get '/items/:id/card_show', to: 'items#card_show'
