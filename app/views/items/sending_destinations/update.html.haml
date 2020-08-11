@@ -1,0 +1,8 @@
+.edit-dest
+  .edit-dest__header
+    .edit-dest__header__logo
+      = link_to root_path ,method: :get,class:".edit-dest__header__logo__link" do
+        = image_tag src="logo.png", size: "170x50"
+  %main.mypage__container.clearfix
+    =render 'items/sending_destinations/address_updated'
+  =render 'items/purchase_footer'
