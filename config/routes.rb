@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       get "purchase"
       post "pay"
     end
+    resources :comments, only: :create
   end
   
   resources :users, only: :show do
