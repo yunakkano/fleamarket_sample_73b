@@ -1,35 +1,11 @@
-.contents.row
-  .content_post
-    - @items.each do |item|
-      - item.item_imgs.each do |item_img|
-        = image_tag item_img.url.url
-    %ul.more_list
-      %li
-        = link_to '編集', edit_item_path(@item), method: :get
-      %li
-        = link_to '削除', item_path(@item), method: :delete
-      %li
-        = link_to '購入画面へ進む', purchase_item_path(@item), method: :get
-
-
-  -# 鈴木追加：カテゴリーリスト ---------------
-
-  .detail__category
-    .detail__category__title
-      カテゴリ
-    .detail__category__name
-      -# 親カテゴリー
-      .detail__category__name--parent
-        = @category_parent.category
-      -# 子カテゴリー
-      .detail__category__name--child
-        = @category_child.category
-      -# 孫カテゴリー
-      .detail__category__name--grandchild
-        = @category_grandchild.category
-  
-  -# --------------------------------------
-
+= render 'items/header'
+- if @seller.id == current_user.id
+  = render 'items/itemdetail_forseller'
+- else
+  = render 'items/itemdetail_forbuyer'
+= render 'items/appbanner'
+-# footerの部分テンプレート呼び出し
+= render 'items/footer'
 -# 鈴木追加：お気に入り機能 -----------------
 
 .favorites_btn{id: "favorites_btn_#{@item.id}"}
