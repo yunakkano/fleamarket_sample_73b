@@ -73,15 +73,6 @@ class ItemsController < ApplicationController
   def done
   end
 
-  # def card_show
-  #   if @card.blank?
-  #     redirect_to action: "new" 
-  #   else
-  #     Payjp.api_key = Rails.application.credentials[:payjp_private_key]
-  #     customer = Payjp::Customer.retrieve(@card.customer_id)
-  #     @default_card_information = customer.cards.retrieve(@card.card_id)
-  #   end
-  # end
 
   def set_item
     @item = Item.find_by(id:params[:id])

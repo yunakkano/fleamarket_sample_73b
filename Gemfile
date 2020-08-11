@@ -104,3 +104,6 @@ gem 'kaminari'
 # For payjp
 gem 'payjp'
 gem 'dotenv-rails'
+
+#For test
+gem 'rails-controller-testing'

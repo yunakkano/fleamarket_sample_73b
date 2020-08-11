@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  # get '/items/:id/cards/show', to:'items/cards#show'
+  
   resources :items do
     scope module: :items do
       resources :cards, only:[:new, :create, :show, :destroy]
@@ -28,18 +28,8 @@ Rails.application.routes.draw do
     member do
       get "purchase"
       post "pay"
-      # get "card_show"
     end
   end
-  # get '/items/:id/card_show', to: 'items#card_show'
-
-  # resources :cards, only: [:new, :show] do
-  #   collection do
-  #     post 'show', to: 'cards#show'
-  #     post 'pay', to: 'cards#pay'
-  #     post 'delete', to: 'cards#delete'
-  #   end
-  # end
   
   resources :users, only: :show do
     member do
