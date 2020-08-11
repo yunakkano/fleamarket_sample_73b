@@ -89,10 +89,8 @@
         = @item.introduction
     .itemdetail__buttons
       .itemdetail__buttons__left
-        = button_tag class:"like-btn" do
-          =icon('fas','heart', class: "like-icon-border")
-          %span いいね
-          %span.like-count 3
+        .favorites_btn{id: "favorites_btn_#{@item.id}"}
+          = render 'favorites/favorite', item: @item
       .itemdetail__buttons__right
   .itemcomment
     .itemcomment__box
@@ -124,8 +122,9 @@
                     .items-related__group__content__box__body__num__price
                       = "#{@seller_items[i].price.to_s(:delimited, delimiter: ',')}円"
                     .items-related__group__content__box__body__num__like
-                      .favorites_btn{id: "favorites_btn_#{@item.id}"}
-                        = render 'favorites/favorite', item: @item
+                      =icon('far','star', class: "like-icon-border") do
+                        %span
+                          = item.favorites.count
   .items-related
     .items-related__group
       %h2.items-related__group__head
@@ -148,5 +147,6 @@
                     .items-related__group__content__box__body__num__price
                       = "#{@category_items[i].price.to_s(:delimited, delimiter: ',')}円"
                     .items-related__group__content__box__body__num__like
-                      =icon('fas','heart', class: "like-icon-border")
-                      %span 1
+                      =icon('far','star', class: "like-icon-border") do
+                        %span
+                          = item.favorites.count
