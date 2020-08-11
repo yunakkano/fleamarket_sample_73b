@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_parents, only: [:index, :new, :create, :show]
+  # Category情報のクエリ削減（未実装）
+  # before_action :set_all_categories, only: [:show]
   before_action :set_item, only: [:show, :purchase, :pay, :card_show]
   before_action :set_card, only: [:purchase, :pay, :card_show]
 
