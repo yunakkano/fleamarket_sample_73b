@@ -104,3 +104,10 @@ gem 'kaminari'
 # For payjp
 gem 'payjp'
 gem 'dotenv-rails'
+
+# For stylish image presentation on 'item details' page
+gem 'owlcarousel-rails'
+
+# To reduce redundant category queries
+gem 'redis'
+gem 'redis-rails'

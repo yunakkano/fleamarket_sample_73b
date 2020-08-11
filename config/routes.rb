@@ -12,12 +12,13 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :items, except: [:show] do
+  resources :items do
     collection do
       get :search
     end
   end
   # get '/items/:id/cards/show', to:'items/cards#show'
+  get  'done', to:'items#done'
   resources :items do
     scope module: :items do
       resources :cards, only:[:new, :create, :show, :destroy]

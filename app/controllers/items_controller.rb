@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_parents, only: [:index, :new, :create]
+  before_action :set_parents, only: [:index, :new, :create, :show]
+  # Category情報のクエリ削減（未実装）
+  # before_action :set_all_categories, only: [:show]
   before_action :set_item, only: [:show, :purchase, :pay, :card_show]
   before_action :set_card, only: [:purchase, :pay, :card_show]
 
@@ -41,11 +43,19 @@ class ItemsController < ApplicationController
 
 
   def show
-    @items = Item.includes(:item_imgs).where(id: params[:id])
-    @item = Item.find_by(id: params[:id])
-    @category_grandchild = Category.find_by(id: @item.category_id)
+    @item = Item.includes(:item_imgs).find(params[:id])
+    @seller = User.find(@item.seller_id)
+    @seller_items = Item.includes(:item_imgs).where(seller_id: @item.seller_id).where.not(id: @item.id).limit(6)
+    @buyer = User.find(@item.buyer_id) if @item.buyer_id
+    @item_condition = ItemCondition.find(@item.item_condition_id)
+    @postage_type = PostageType.find(@item.postage_type_id)
+    @postage_payer = PostagePayer.find(@item.postage_payer_id)
+    @preparation_day = PreparationDay.find(@item.preparation_day_id)
+    @prefecture = JpPrefecture::Prefecture.find(@item.prefecture_code)
+    @category_grandchild = Category.find(@item.category_id)
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent
+    @category_items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).limit(6)
   end
   
   def purchase
