@@ -1,13 +1,10 @@
 = render 'items/header'
 %main.mypage__container.clearfix
-  =render 'users/sidemenu'
+  =render partial: 'users/sidemenu', locals: {active_menu: "いいね！一覧"}
   .mypage__content
-    
-
     .mypage__favContent
       .mypage__favContent__title
         いいね！一覧
-        
       %ul.mypage__favContent__lists
         - current_user.favorite_items.each do |item|
           %li.mypage__favContent__list
@@ -29,12 +26,8 @@
                       = "#{item.price.to_s(:delimited, delimiter: ',')}円"
                   %p.tax
                     (税込)
-
               .mypage__favContent__content__iconArrow
-
     .mypage__favPagenate
-
-
 = render 'items/appbanner'
 -# footerの部分テンプレート呼び出し
 = render 'items/footer'
