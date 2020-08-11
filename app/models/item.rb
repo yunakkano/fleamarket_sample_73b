@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   after_initialize :set_default_trading_status
 
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_many :comments, dependent: :destroy
   has_many :item_imgs, dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
   belongs_to :category

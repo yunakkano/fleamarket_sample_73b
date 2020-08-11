@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       get "purchase"
       post "pay"
     end
+    resources :comments, only: :create
   end
   
   resources :users, only: :show do
@@ -45,4 +46,5 @@ Rails.application.routes.draw do
   end
   
   resources :categories, only: [:index, :show]
+
 end
