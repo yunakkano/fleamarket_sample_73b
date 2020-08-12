@@ -111,3 +111,8 @@ gem 'owlcarousel-rails'
 # To reduce redundant category queries
 gem 'redis'
 gem 'redis-rails'
+
+# For Oauth sign up
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
