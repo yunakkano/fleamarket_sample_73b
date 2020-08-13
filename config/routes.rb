@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   get 'categories/index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks',
   }
   devise_scope :user do
     get  'sending_destinations', to: 'users/registrations#new_address'
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
   #   end
   # end
   
-  resources :users, only: :show do
+  resources :users, only: [:show, :new] do
     member do
       get "sending_destination"
     end
