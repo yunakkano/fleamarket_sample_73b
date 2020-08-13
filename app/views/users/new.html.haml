@@ -1,0 +1,24 @@
+%body
+.register-container
+  %header.register-header
+    %h1
+      =link_to root_path do
+        =image_tag asset_path("logo/logo.png"), alt: "furima"
+  %main.register-main
+    %section.l-register-container
+      %h2.l-single-head.registration 新規会員登録
+      .l-registration-inner
+        .l-register-content
+          .register-form-group
+            = link_to new_user_registration_path, method: :get, class: "register-btn register-btn-cian" do
+              = icon('far','envelope')
+              メールアドレスで登録する
+          .register-form-group
+            = link_to user_facebook_omniauth_authorize_path, method: :post, class: "register-btn register-btn-cian" do
+              = icon('fab','facebook-square')
+              Facebookで登録する
+          .register-form-group
+            = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "register-btn register-btn-cian" do
+              = icon('fab','google')
+              Googleで登録する
+  = render 'items/purchase_footer'
