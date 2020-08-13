@@ -18,15 +18,23 @@ class User < ApplicationRecord
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     # sns認証したことがあればアソシエーションで取得
     # 無ければemailでユーザー検索して取得orビルド(保存はしない)
-    user = sns.user || User.where(email: auth.info.email).first_or_initialize(
-      nickname: auth.info.name,
+    if sns.user
+      user = sns.user
+    else
+      user = User.where(email: auth.info.email).first_or_initialize(
+        nickname: auth.info.name,
         email: auth.info.email
-    )
+      )
+      profile = Profile.where(user_id: user.id).first_or_initialize(
+        first_name: auth.info.first_name,
+        family_name: auth.info.last_name
+      )
+    end
     # userが登録済みの場合はそのままログインの処理へ行くので、ここでsnsのuser_idを更新しておく
     if user.persisted?
       sns.user = user
       sns.save
     end
-    user
+    { user: user, sns: sns, profile: profile }
   end
 end
