@@ -21,3 +21,15 @@
         .l-login-content
           .login-form-group
             = f.button "ログイン", class: "login-btn login-btn-cian"
+
+  %section.l-register-container
+    .l-registration-inner
+      .l-register-content
+        .register-form-group
+          = link_to user_facebook_omniauth_authorize_path, method: :post, class: "register-btn register-btn-cian" do
+            = icon('fab','facebook-square')
+            Facebookでログインする
+        .register-form-group
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "register-btn register-btn-cian" do
+            = image_tag asset_path('logo/google.svg')
+            Googleでログインする
