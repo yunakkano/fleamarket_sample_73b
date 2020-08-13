@@ -19,6 +19,6 @@
               Facebookで登録する
           .register-form-group
             = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "register-btn register-btn-cian" do
-              = icon('fab','google')
+              = image_tag asset_path('logo/google.svg')
               Googleで登録する
   = render 'items/purchase_footer'
