@@ -2,8 +2,8 @@
 .register-container
   %header.register-header
     %h1
-      %a{href: root_path}
-        %img{alt: "furima", src: asset_path("logo/logo.png")}/
+      = link_to root_path do
+        = image_tag asset_path("logo/logo.png"), alt: "furima"
     %nav.progress-bar.signup-bar
       %ol.clearfix
         %li.active
