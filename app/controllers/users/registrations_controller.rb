@@ -11,6 +11,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      puts "pass = #{pass}"
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
+
+    puts sign_up_params
     @user = User.new(sign_up_params)
     @profile = Profile.new(profile_params)
     unless @user.valid? && @profile.valid?
