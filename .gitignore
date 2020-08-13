@@ -29,3 +29,4 @@
 public/uploads/*
 *.DS_Store
 .env
+app/assets/images/.DS_Store
