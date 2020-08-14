@@ -57,6 +57,8 @@ class ItemsController < ApplicationController
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent
     @category_items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).limit(6)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
   
   def purchase

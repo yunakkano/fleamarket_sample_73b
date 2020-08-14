@@ -422,9 +422,9 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.3)
+  rails-controller-testing
   redis
   redis-rails
-  rails-controller-testing
   rspec
   rspec-rails
   sass-rails (~> 5.0)
