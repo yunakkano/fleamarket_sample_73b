@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_parents, only: [:show]
+    before_action :set_parents, only: [:show, :favorites]
 
     def new
     end
