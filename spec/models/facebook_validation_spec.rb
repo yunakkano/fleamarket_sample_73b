@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SnsCredential, type: :model do
-  describe  '#facebook validation' do
+  describe  '#facebook_validation', :oauth do
     before do
       Rails.application.env_config['omniauth.auth'] = facebook_mock
     end
