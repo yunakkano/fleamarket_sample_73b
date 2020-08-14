@@ -86,14 +86,27 @@
   .item-edit-delete
     .item-edit-delete__box
       - if @item.trading_status == 0
-        = link_to "商品の編集", "", method: :get, class: "item-edit-button"
+        = link_to "商品の編集", edit_item_path(@item), method: :get, class: "item-edit-button"
         %p.text-center or
-      = link_to "この商品を削除する", "", method: :delete, class: "item-delete-button"
+      = link_to "この商品を削除する", item_path(@item), method: :delete, class: "item-delete-button"
   .itemcomment
     .itemcomment__box
       .itemcomment__box__content
-        = form_tag '#', class: "message-form" do
-          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          = text_area "", "post", {class: "textarea-default"}
-          = button_tag "", {type: "reset", class: "message-submit-btn"} do
-            %span コメントする
+        - if current_user
+          = form_with(model:[@item, @comment], local:true, class: "message-form") do |form|
+            %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = form.text_area :text, {class: "textarea-default"}
+            = button_tag "", {type: "reset", class: "message-submit-btn"} do
+              = form.submit "コメントする"        
+        - else
+          %strong
+            %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+        .itemcomment__box__content__comment
+          %p コメント一覧
+          - if @comments
+            .itemcomment__box__content__comment__member
+            - @comments.each do |comment|
+              %ul
+                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                = comment.text

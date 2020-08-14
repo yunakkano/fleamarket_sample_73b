@@ -95,11 +95,25 @@
   .itemcomment
     .itemcomment__box
       .itemcomment__box__content
-        = form_tag '#', class: "message-form" do
-          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          = text_area "", "post", {class: "textarea-default"}
-          = button_tag "", {type: "reset", class: "message-submit-btn"} do
-            %span コメントする
+        - if current_user
+          = form_with(model:[@item, @comment], local:true, class: "message-form") do |form|
+            %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = form.text_area :text, {class: "textarea-default"}
+            = button_tag "", {type: "reset", class: "message-submit-btn"} do
+              = form.submit "コメントする"        
+        - else
+          %strong
+            %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+        .itemcomment__box__content__comment
+          %p コメント一覧
+          - if @comments
+            .itemcomment__box__content__comment__member
+            - @comments.each do |comment|
+              %ul
+                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                = comment.text
+
   .items-related
     .items-related__group
       %h2.items-related__group__head

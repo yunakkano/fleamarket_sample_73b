@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_many :comments, dependent: :destroy
   has_many :item_imgs, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
@@ -30,4 +31,13 @@ class Item < ApplicationRecord
   validates :postage_type_id,  presence: true
   validates :item_condition_id,           presence: true
   validates :category_id,    presence: true
+
+  def self.search(search)
+    if search
+      Item.where(['name LIKE ?', "%#{search}%"])
+    else
+      Item.all
+    end
+  end
+  
 end
