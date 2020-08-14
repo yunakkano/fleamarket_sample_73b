@@ -31,4 +31,13 @@ class Item < ApplicationRecord
   validates :postage_type_id,  presence: true
   validates :item_condition_id,           presence: true
   validates :category_id,    presence: true
+
+  def self.search(search)
+    if search
+      Item.where(['name LIKE ?', "%#{search}%"])
+    else
+      Item.all
+    end
+  end
+  
 end

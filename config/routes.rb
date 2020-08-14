@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'categories/index'
+  # get 'categories/index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -12,12 +12,10 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :items do
-    collection do
-      get :search
-    end
+  namespace :items do
+    resources :searches, only: :index
   end
-  
+
   resources :items do
     scope module: :items do
       resources :cards, only:[:new, :create, :show, :destroy]
@@ -31,6 +29,10 @@ Rails.application.routes.draw do
       post "pay"
     end
     resources :comments, only: :create
+    collection do
+      get :search
+    end
+    resource :favorites, only: [:create, :destroy]
   end
   
   resources :users, only: :show do
@@ -50,10 +52,6 @@ Rails.application.routes.draw do
   end
   
   resources :categories, only: [:index, :show]
-
-  resources :items do
-    resource :favorites, only: [:create, :destroy]
-  end
 
   resources :users, only: [:index, :show] do
     member do
