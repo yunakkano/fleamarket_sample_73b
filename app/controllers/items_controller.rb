@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_parents, only: [:index, :new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :purchase, :pay, :card_show]
+  before_action :set_item, only: [:show, :purchase, :pay, :card_show, :edit, :update]
   before_action :set_card, only: [:purchase, :pay, :card_show]
 
   def index
@@ -28,12 +28,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @item_imgs = @item.item_imgs
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_update_params)
       redirect_to root_path
     else
