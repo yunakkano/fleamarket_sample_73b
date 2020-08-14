@@ -6,7 +6,7 @@
       = @item.name
     .itemdetail__content
       .itemdetail__content__photo
-        .owl-carousel.owl-theme.owl-loaded.owl-drag
+        .owl-carousel.owl-theme.owl-loaded.owl-drag.item-photo-container
           - for i in 0..(@item.item_imgs.size - 1)
             .item-photo
               = link_to "#{@item.item_imgs[i].url.url}", class: "luminous", "data-hash" => "#{i}" do
