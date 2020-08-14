@@ -88,7 +88,7 @@
       - if @item.trading_status == 0
         = link_to "商品の編集", edit_item_path(@item), method: :get, class: "item-edit-button"
         %p.text-center or
-      = link_to "この商品を削除する", "", method: :delete, class: "item-delete-button"
+      = link_to "この商品を削除する", item_path(@item), method: :delete, class: "item-delete-button"
   .itemcomment
     .itemcomment__box
       .itemcomment__box__content
