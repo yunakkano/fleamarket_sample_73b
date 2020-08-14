@@ -41,4 +41,14 @@ describe User do
         expect(user.errors[:password]).to include("は最低7文字以上必要です")
     end
   end
+
+  describe '#oauth validation' do
+    before do
+      Rails.application.env_config['omniauth.auth'] = facebook_mock
+    end
+    it 'userが登録済みの場合は、User.from_oauthメソッドでsns_credentialがDBに登録される(件数が１つ増える)' do
+      user = create(:user, nickname: facebook_mock[:info][:name], email: facebook_mock[:info][:email])
+      expect {sns_info = User.from_omniauth(Rails.application.env_config['omniauth.auth'])}.to change(SnsCredential, :count).by(1)
+    end
+  end
 end
