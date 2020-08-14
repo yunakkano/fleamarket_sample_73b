@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
   has_many :favorites, dependent: :destroy
   has_many :favorite_items, through: :favorites, source: :item
-  has_many :sns_credentials
+  has_many :sns_credentials, dependent: :destroy
 
   validates :nickname, presence: true
 

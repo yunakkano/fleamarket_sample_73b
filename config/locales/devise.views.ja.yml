@@ -31,6 +31,8 @@ ja:
       sending_destination: "会員住所"
     
     errors:
+      messages:
+        record_invalid: "不正なデータです"
       models:
         user:
           attributes:
@@ -103,6 +105,13 @@ ja:
               blank: "を選択してください"
             price:
               blank: "を入力してください"
+        sns_credential:
+          attributes:
+            provider:
+              blank: "が取得できませんでした"
+            uid:
+              blank: "が取得できませんでした"
+              taken: "はすでに登録されています"
   devise:
     confirmations:
       new:
