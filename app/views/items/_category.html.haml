@@ -17,6 +17,7 @@
             %ul
               %li
                 = "#{item.price.to_s(:delimited, delimiter: ',')}円"
+                = link_to '詳細', item_path(item), method: :get
               %li
                 .top-grade
                   %i.far.fa-star.top-grade__likeIcon

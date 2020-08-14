@@ -86,7 +86,7 @@
   .item-edit-delete
     .item-edit-delete__box
       - if @item.trading_status == 0
-        = link_to "商品の編集", "", method: :get, class: "item-edit-button"
+        = link_to "商品の編集", edit_item_path(@item), method: :get, class: "item-edit-button"
         %p.text-center or
       = link_to "この商品を削除する", "", method: :delete, class: "item-delete-button"
   .itemcomment
