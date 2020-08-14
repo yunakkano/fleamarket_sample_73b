@@ -4,13 +4,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :set_parents, only: [:edit, :update]
+  before_action :minimum_pass_len, only: [:new, :edit]
   def new
     @user = User.new
     @profile = Profile.new
-    @minimum_password_length = User.password_length.min
   end
 
   def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
+
     @user = User.new(sign_up_params)
     @profile = Profile.new(profile_params)
     unless @user.valid? && @profile.valid?
@@ -47,7 +53,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def edit
     @user = current_user
-    @minimum_password_length = User.password_length.min
   end
 
   def update
@@ -83,5 +88,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(
       :email, :current_password, :password, :password_confirmation
     )
+  end
+
+  def minimum_pass_len
+    @minimum_password_length = User.password_length.min
   end
 end

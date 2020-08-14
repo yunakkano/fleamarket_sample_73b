@@ -76,6 +76,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 # For User account management
@@ -111,7 +112,11 @@ gem 'owlcarousel-rails'
 # To reduce redundant category queries
 gem 'redis'
 gem 'redis-rails'
-#For test
-gem 'rails-controller-testing'
+
+# For Oauth sign up
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+
 #For test
 gem 'rails-controller-testing'

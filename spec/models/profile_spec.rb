@@ -53,7 +53,7 @@ describe Profile do
     it "birthdayが存在しても日付が本日より先の場合は場合登録できないこと" do
         profile = build(:profile, birthday: Date.today+1)
         profile.valid?
-        expect(profile.errors[:birthday]).to include("birthday must be before today")
+        expect(profile.errors[:birthday]).to include("誕生日が不正です。")
     end
   end
 end

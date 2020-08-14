@@ -30,6 +30,25 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+module OmniauthMocks
+  def facebook_mock
+    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
+      {
+        provider: 'facebook',
+        uid: '12345',
+        info: {
+          name: 'mockuser',
+          email: 'sample@test.com'
+        },
+        credentials: {
+          token: 'hogefuga'
+        }
+      }
+    )
+  end
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -63,6 +82,9 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
+
+  OmniAuth.config.test_mode = true
+  config.include OmniauthMocks
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
 end
