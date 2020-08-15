@@ -13,10 +13,25 @@ RSpec.describe SnsCredential, type: :model do
         before do
           SnsCredential.create(provider: 'google_oauth2', uid: '12345', user_id: '1')
         end
-          example 'uidのvalidation(unique制約）が機能するか' do
-            expect(SnsCredential.create(provider: 'facebook', uid: '12345', user_id: '1').errors[:uid]).to include('はすでに登録されています')
-          end         
+        example 'uidのvalidation(unique制約）が機能するか' do
+          expect(SnsCredential.create(provider: 'facebook', uid: '12345', user_id: '1').errors[:uid]).to include('はすでに登録されています')
+        end         
       end
     end
+
+    context '認可サーバーから返ってきたメールアドレスを、すでに登録済みのuserが持っていた場合' do
+        before do
+          user = create(:user, email: 'sample@test.com')
+        end
+        context '認可サーバーから帰ってきた情報とprovider名が同じだが、同じuidを持つSnsCredentialレコードがない場合' do
+          before do
+            SnsCredential.create(provider: 'facebook', uid: '12345', user_id: '1')
+          end
+          example 'credentialが登録できるか' do
+            expect(SnsCredential.create(provider: 'facebook', uid: '000000', user_id: '1')).to be_valid
+          end         
+        end
+    end
+
   end
 end
