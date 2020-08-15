@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+
+  
     before_action :redirect_if_signed_out, except: [:new]  
     before_action :set_parents, only: [:show, :favorites]
 
