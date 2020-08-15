@@ -110,6 +110,7 @@ class ItemsController < ApplicationController
   end
 
   def set_card
+    redirect_to user_session_path and return unless user_signed_in?
     @card = Card.find_by(user_id: current_user.id)
   end
 
