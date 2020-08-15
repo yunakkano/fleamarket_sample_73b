@@ -164,7 +164,42 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|introduction|text|null: false, foreign_key: true|
+|introduction|text|null: false,foreign_key: true|
+|user|reference|null: false,foreign_key: true|
+
 
 ### Association
 - belongs_to :user
+
+## sns_credentialテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|provider|string|null: false|
+|uid|string|null: false, unique: ture|
+
+### Association
+- belongs_to :user, optional: true
+
+## favoritesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|bigint|foreign_key: true|
+|item_id|bigint|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer||
+|item_id|integer||
+|text|text|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
