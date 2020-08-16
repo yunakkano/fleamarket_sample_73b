@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_parents, only: [:index, :new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :purchase, :pay, :card_show, :edit, :update]
+  before_action :set_parents, only: [:index, :new, :create, :edit, :update, :show]
+  before_action :set_item, only: [:show, :purchase, :pay, :card_show, :edit, :update, :destroy]
   before_action :set_card, only: [:purchase, :pay, :card_show]
 
   def index
@@ -39,6 +39,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    if @item.seller_id == current_user.id && @item.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :show
+    end
+  end
+
   def search
     respond_to do |format|
       format.html
@@ -67,6 +75,8 @@ class ItemsController < ApplicationController
     @category_child = @category_grandchild.parent
     @category_parent = @category_child.parent
     @category_items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).limit(6)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
   
   def purchase
@@ -94,21 +104,13 @@ class ItemsController < ApplicationController
   def done
   end
 
-  # def card_show
-  #   if @card.blank?
-  #     redirect_to action: "new" 
-  #   else
-  #     Payjp.api_key = Rails.application.credentials[:payjp_private_key]
-  #     customer = Payjp::Customer.retrieve(@card.customer_id)
-  #     @default_card_information = customer.cards.retrieve(@card.card_id)
-  #   end
-  # end
 
   def set_item
     @item = Item.find_by(id:params[:id])
   end
 
   def set_card
+    redirect_to user_session_path and return unless user_signed_in?
     @card = Card.find_by(user_id: current_user.id)
   end
 

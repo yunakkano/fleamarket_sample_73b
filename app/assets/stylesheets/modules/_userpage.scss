@@ -606,7 +606,7 @@ main.mypage__container{
                         color: #888;
                         margin: 8px 0 0;
                         line-height: 1.5;
-                    }
+					}
                     .form-password-revelation-toggle {
                         display: block;
                         .checkbox-default{
@@ -666,7 +666,7 @@ main.mypage__container{
                                 background-color: #f5f5f5;
                                 padding: 4px 8px;
                             }
-                        }
+						}
                     }
                     h3.l-chapter-subhead{
                         font-size: 16px;
@@ -697,15 +697,16 @@ main.mypage__container{
                     border-radius: 4px;
                     transition: all ease-out .3s;
                     cursor: pointer;
-                    text-align: center;
+					text-align: center;
                     &-cian{
                         margin-top: 32px;
                         margin: 24px 0 0;
                         background: #2bccd1;
                         border: 1px solid #2bccd1;
-                        color: #fff;
+						color: #fff;
+						text-decoration: none;
                     }
-                }
+				}
             }
         }
 

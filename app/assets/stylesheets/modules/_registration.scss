@@ -172,6 +172,45 @@
                             width: calc(30% - 6px);
                         }
                     }
+                    select.year{
+                        height: 48px;
+                        width: calc(32% - 10px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
+                    select.month{
+                        height: 48px;
+                        width: calc(25% - 10px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
+                    select.day{
+                        height: 48px;
+                        width: calc(25% - 10px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
                     select#sending_destination_prefecture_code{
                         height: 48px;
                         width: 100%;
@@ -276,17 +315,51 @@
                     display: block;
                     width: 100%;
                     line-height: 48px;
-                    font-size: 14px;
+                    font-size: 18px;
                     border-radius: 4px;
                     transition: all ease-out .3s;
                     cursor: pointer;
                     text-align: center;
                     &-cian{
                         margin-top: 32px;
-                        margin: 24px 0 0;
+                        margin: 16px 0 0;
                         background: #2bccd1;
                         border: 1px solid #2bccd1;
                         color: #fff;
+                        text-decoration: none;
+                        position: relative;
+                        i{
+                            display: inline-block;
+                            position: absolute;
+                            font-size: 20px;
+                            top: 50%;
+                            left: 16px;
+                            transform: translate(0, -50%);
+                        }
+                    }
+                    &-facebook{
+                        margin: 24px 0 0;
+                        background: #385185;
+                        border: 1px solid #385185;
+                        color: #fff;
+                        text-decoration: none;
+                        position: relative;
+                        i{
+                            display: inline-block;
+                            position: absolute;
+                            font-size: 20px;
+                            top: 50%;
+                            left: 16px;
+                            transform: translate(0,-50%);
+                        }
+                    }
+                    &-google{
+                        margin: 24px 0 0;
+                        background: #fff url(asset_path('logo/google.svg'));
+                        background-repeat: no-repeat;
+                        border: 1px solid #979797;
+                        color: #333;
+                        text-decoration: none;
                     }
                 }
             }
@@ -298,7 +371,7 @@
             margin: 0 auto;
             background: #fff;
             .login-no-account{
-                padding: 40px 64px;
+                padding: 20px 32px;
                 text-align: center;
                 p{
                     font-size: 14px;
@@ -331,7 +404,7 @@
             width: 394px;
             margin: 0 auto;
             background: #fff;
-            padding: 32px;
+            padding: 15px;
             .l-login-content{
                 max-width: 343px;
                 margin: 0 auto;
@@ -342,7 +415,7 @@
                     cursor: default;
                     input.login-field--full{
                         height: 48px;
-                        width: calc(100% - 32px);
+                        width: 100%;
                         margin: 8px 0 0;
                         padding: 10px 16px 8px;
                         border-radius: 4px;
@@ -370,11 +443,63 @@
                             border: 1px solid #2bccd1;
                             color: #fff;
                         }
+                        &-facebook{
+                            margin: 64px 0 0;
+                            background: #385185;
+                            border: 1px solid #385185;
+                            color: #fff;
+                            text-decoration: none;
+                            position: relative;
+                            i{
+                                display: inline-block;
+                                position: absolute;
+                                font-size: 20px;
+                                top: 50%;
+                                left: 16px;
+                                transform: translate(0,-50%);
+                            }
+                        }
+                        &-google{
+                            margin: 24px 0 0;
+                            background: #fff url(asset_path('logo/google.svg'));
+                            background-repeat: no-repeat;
+                            border: 1px solid #979797;
+                            color: #333;
+                            text-decoration: none;
+                        }
+
                     }
                 }
             }
         }
     }
+    .purchase__footer{
+        background-color: #f5f5f5;
+        height: 170px;
+        width: 100vw;
+        text-align: center;
+        &__top-content{
+          padding: 30px 250px 0;
+          font-size: 14px;
+          &__object-1{
+            text-decoration: none;
+            color: black;
+          }
+          &__object-2{
+            text-decoration: none;
+            color: black;
+            margin-left: 30px;
+          }
+          &__object-3{
+            text-decoration: none;
+            color: black;
+            margin-left: 30px;
+          }
+        }
+        &__logo{
+          padding: 20px 0 0;
+        }
+      }
 }
 .register-complete {
     display: flex;

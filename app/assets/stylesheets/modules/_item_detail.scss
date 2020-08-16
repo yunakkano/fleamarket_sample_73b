@@ -34,6 +34,10 @@ main.itemdetail-background{
                     display: flex;
                     align-items: center;
                 }
+                .item-photo-container{
+                    display: flex;
+                    align-items: center;
+                }
                 .owl-item{
                     min-width: 300px;
                     min-height: 360px;
@@ -294,7 +298,7 @@ main.itemdetail-background{
                         touch-action: manipulation;
                         resize: vertical;
                     }
-                    button.message-submit-btn{
+                    link.message-submit-btn{
                         width: 100%;
                         margin: 8px 0 0;
                         font-size: 0;
@@ -315,6 +319,12 @@ main.itemdetail-background{
                             vertical-align: middle;
 
                         }
+                    }
+                }
+                &__comment{
+                    margin-top: 10px;
+                    &__member{
+                        display: flex;
                     }
                 }
             }
