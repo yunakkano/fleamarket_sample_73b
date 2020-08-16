@@ -74,7 +74,10 @@
                 = render partial: "devise/shared/error_message_fieldname", locals: {model: @profile, fieldname: "名前（かな）"}
             .register-form-group
               = p.label :birthday, "生年月日"
-              = p.date_field :birthday, class: "register-field--full"
+              %span.register-form-require 必須
+              %br
+              = raw sprintf(p.date_select(:birthday, {start_year: 1930, use_two_digit_numbers: true, end_year: (Time.now.year - 18),with_css_classes: true, default: Date.new(1989, 1, 1), date_separator: '%s'}),'年 ', '月 ') + '日'
+              -# = p.date_field :birthday, class: "register-field--full"
               = render partial: "devise/shared/error_message_fieldname", locals: {model: @profile, fieldname: "生年月日"}
         .l-register-content
           .register-form-group

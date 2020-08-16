@@ -172,6 +172,45 @@
                             width: calc(30% - 6px);
                         }
                     }
+                    select.year{
+                        height: 48px;
+                        width: calc(32% - 10px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
+                    select.month{
+                        height: 48px;
+                        width: calc(25% - 10px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
+                    select.day{
+                        height: 48px;
+                        width: calc(25% - 10px);
+                        margin: 8px 0 0;
+                        padding: 10px 16px 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        outline: 0;
+                        display: inline-block;
+                    }
                     select#sending_destination_prefecture_code{
                         height: 48px;
                         width: 100%;
