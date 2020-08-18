@@ -1,0 +1,9 @@
+= render 'items/header'
+%main.mypage__container.clearfix
+  =render partial: 'users/sidemenu', locals: {active_menu: "出品した商品 - 売却済み"}
+  =render partial: 'users/mypage_itemlist', locals: {active_tab: "sold", msg:"を売却しました。", item_status: "売却済"}
+
+= render 'items/appbanner'
+-# footerの部分テンプレート呼び出し
+= render 'items/footer'
+= render 'items/camerabutton'

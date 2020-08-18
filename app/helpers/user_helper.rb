@@ -30,12 +30,12 @@ module UserHelper
           {title:"お知らせ",path: "user_path(current_user.id)", method: "get", value: "1"},
           {title:"いいね！一覧",path: "favorites_user_path(current_user.id)", method: "get", value: "", class: "mypage__nav__list-item"},
           {title:"出品する",path: "new_item_path", method: "get", value: ""},
-          {title:"下書き一覧", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"出品した商品 - 出品中", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"出品した商品 - 取引中", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"出品した商品 - 売却済み", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"購入した商品 - 取引中", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"購入した商品 - 過去の取引", path: "user_path(current_user.id)", method: "get", value: ""},
+          #{title:"下書き一覧", path: "user_path(current_user.id)", method: "get", value: ""},
+          {title:"出品した商品 - 出品中", path: "user_on_sale_items_path(current_user.id)", method: "get", value: ""},
+          #{title:"出品した商品 - 取引中", path: "user_path(current_user.id)", method: "get", value: ""},
+          {title:"出品した商品 - 売却済み", path: "user_sold_items_path(current_user.id)", method: "get", value: ""},
+          #{title:"購入した商品 - 取引中", path: "user_purchased_items_path(current_user.id)", method: "get", value: ""},
+          {title:"購入した商品 - 過去の取引", path: "user_purchased_items_path(current_user.id)", method: "get", value: ""},
           {title:"ニュース一覧", path: "user_path(current_user.id)", method: "get", value: ""},
           {title:"評価一覧", path: "user_path(current_user.id)", method: "get", value: ""},
           {title:"ガイド", path: "user_path(current_user.id)", method: "get", value: ""},
@@ -62,5 +62,18 @@ module UserHelper
       }
 
       menulist
+    end
+
+    def user_items_tab(active_tab)
+      tablist=[
+        {tab:"onsale",  head:"出品中", path: "user_on_sale_items_path(current_user.id)", class: "itemlist-tab"},
+        {tab:"sold",    head:"売却済み", path: "user_sold_items_path(current_user.id)", class: "itemlist-tab"},
+        {tab:"purchased",  head:"購入した商品", path: "user_purchased_items_path(current_user.id)", class: "itemlist-tab"},
+      ]
+      tablist.each do |tab|
+        tab[:class]="itemlist-tab__active" if tab[:tab]==active_tab
+      end
+      puts tablist
+      tablist
     end
 end  

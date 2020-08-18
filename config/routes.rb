@@ -49,6 +49,9 @@ Rails.application.routes.draw do
       resources :sending_destinations,only: [:edit,   :update]
       resources :profiles,            only: [:edit,  :update]
       resources :self_introductions,  only: [:new, :create, :edit, :update]
+      resources :on_sale_items,       only: [:index]
+      resources :sold_items,          only: [:index]
+      resources :purchased_items,     only: [:index]
     end
   end
   
