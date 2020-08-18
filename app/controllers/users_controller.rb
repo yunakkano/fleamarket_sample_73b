@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :redirect_if_signed_out, except: [:new]
+  before_action :redirect_if_direct_access, except: [:new]
   before_action :set_parents, only: [:show, :favorites]
 
   def new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   private
-  def redirect_if_signed_out
-    redirect_to root_path and return unless request.referrer && user_signed_in?
+  def redirect_if_direct_access
+    redirect_to root_path and return unless request.referrer
   end
 end
