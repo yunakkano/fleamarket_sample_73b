@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @root = Category.where(category_id: @item.category.category)
     @item_imgs = @item.item_imgs
   end
 
