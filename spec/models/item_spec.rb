@@ -95,4 +95,36 @@ describe Item do
     end
     
   end
+
+  # 検索機能単体テスト
+  describe '#search' do
+
+    context "一致するデータが存在する場合" do
+
+      it "検索文字列に完全一致する配列を返すこと" do
+        item = create(:item)
+        expect(Item.search("テスト")).to include(item)
+      end
+
+      it "検索文字列に部分一致する配列を返すこと" do
+        item = create(:item)
+        expect(Item.search("テ")).to include(item)
+      end
+    end
+
+    context "一致するデータが存在しない場合" do
+
+      it "検索文字列が一致しない場合、空の配列を返すこと" do
+        item = create(:item)
+        expect(Item.search("あああ")).to be_empty
+      end
+
+      it "検索文字列が空白の場合、すべての配列を返すこと" do
+        item = create(:item)
+        expect(Item.search("")).to include(item)
+      end
+    end
+
+  end
+  
 end
