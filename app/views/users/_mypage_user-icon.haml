@@ -1,0 +1,13 @@
+%section.mypage__user-icon
+  = link_to user_path(current_user.id), method: :get do
+    %figure
+      = image_tag asset_path('icon/member_photo_noimage_thumb.png'), alt: '', height: '60', width: '60', class: 'lazyloaded'
+    %h2.bold
+      = @user.nickname
+    .mypage__number
+      %div
+        評価
+        %span.bold 42
+      %div
+        出品数
+        %span.bold 37

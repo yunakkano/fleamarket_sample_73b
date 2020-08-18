@@ -1,0 +1,10 @@
+.mypage__content
+  = render partial: 'users/mypage_tab-title', locals: {title: ""}
+  %section.mypage__tab-container
+    %ul.mypage__tabs
+      - user_items_tab(active_tab).each do |tab|
+        %li{class: "#{tab[:class]}"}
+          %h3
+            = link_to eval(tab[:path]), method: :get do
+              = tab[:head]
+    = render partial: 'users/mypage_tab-content', locals:{items: @items, msg: msg, item_status: item_status}
