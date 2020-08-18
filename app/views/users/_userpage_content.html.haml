@@ -1,0 +1,56 @@
+%main.userpage_content
+  .user-detail
+    .user-detail__profile-box
+      .user-detail__profile-box__photo
+        =link_to user_path(@user.id) do
+          =image_tag asset_path('icon/member_photo_noimage_thumb.png'), class: 'user-detail-photo'
+          %h2.user-detail-title
+            = @user.nickname
+        .user-detail-score
+          %span 評価 0
+          %span
+            = "出品数 #{@items.length}"
+    .user-detail__intro
+      .user-detail__intro__ratings
+        %div
+          .user-detail__intro__ratings--inner
+            = icon('far', 'smile', class: "icon-good")
+            .user-detail__intro__ratings--inner__score
+              0
+        %div
+          .user-detail__intro__ratings--inner
+            = icon('far', 'frown', class: "icon-bad")
+            .user-detail__intro__ratings--inner__score
+              0
+      .user-detail__intro__description
+        - if @user.self_introduction.present?
+          %p
+            = @user.self_introduction.introduction
+        - else
+          %p.no-introduction
+            この出品者の自己紹介はまだありません。
+  .items-related
+    .items-related__group
+      %h2.items-related__group__head
+        = link_to "#{@user.nickname}さんの出品", ""
+      .items-related__group__content
+        - @items.each do |item|
+          - if item
+            .items-related__group__content__box
+              = link_to item_path(item.id) do
+                %figure.items-related__group__content__box__photo
+                  - if item.trading_status == 1
+                    .product-sold
+                      .product-sold__inner
+                        SOLD
+                  = image_tag item.item_imgs[0].url.url, class: 'items-related__group__content__box__photo__img'
+                .items-related__group__content__box__body
+                  %h3.items-related__group__content__box__body__name
+                    = item.name
+                  .items-related__group__content__box__body__num
+                    .items-related__group__content__box__body__num__price
+                      = "#{item.price.to_s(:delimited, delimiter: ',')}円"
+                    .items-related__group__content__box__body__num__like
+                      =icon('far','star', class: "like-icon-border")
+                      %span
+                        = item.favorites.count

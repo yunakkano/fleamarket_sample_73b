@@ -6,7 +6,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:sending_destination, :profile).find(current_user.id)
+    @target_user_id = params[:id].to_i
+    if user_signed_in? && (current_user.id == @target_user_id)
+      @user = User.includes(:sending_destination, :profile).find(current_user.id)
+      @onsale_items = Item.includes(:item_imgs, :favorites).where(seller_id: current_user.id, buyer_id: nil).order("created_at DESC").limit(5)
+      @sold_items = Item.includes(:item_imgs, :favorites).where(seller_id: current_user.id).where.not(buyer_id: nil).order("created_at DESC").limit(5)
+      @purchased_items = Item.includes(:item_imgs, :favorites).where(buyer_id: current_user.id).order("created_at DESC").limit(5)
+    else
+      @user = User.includes(:profile, :self_introduction).find(@target_user_id)
+      @items = Item.includes(:item_imgs, :favorites).where(seller_id: @user.id)
+    end
   end
 
   def favorites
