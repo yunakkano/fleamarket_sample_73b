@@ -1,0 +1,17 @@
+.mypage__tab-content
+  %ul.mypage__item-list--active
+    - if items.length == 0
+      %li.mypage__tab-content_no-item
+        該当する商品がありません
+    - else
+      - items.each do |item|
+        %li
+          = link_to item_path(item.id), method: :get , class: "mypage__item-link" do
+            %figure
+              = image_tag item.item_imgs[0].url.url, alt: '', height: '50', width: '20', class: 'lazyloaded'
+            .mypage__item-body
+              .mypage__item-body__text
+                = "「#{item.name}」 #{msg}"
+              .mypage-item-status.bold.done
+                = item_status
+            %i.icon-arrow-right

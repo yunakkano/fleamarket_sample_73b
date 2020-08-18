@@ -3,6 +3,7 @@ $(document).on('turbolinks:load', function () {
     owl.owlCarousel({
         loop: true,
         rewind: true,
+        mouseDrag: true,
         margin:0,
         nav:false,
         dots:false,
@@ -10,13 +11,7 @@ $(document).on('turbolinks:load', function () {
         URLhashListener:true,
         autoplayHoverPause:true,
         startPosition: 'URLHash',
-        responsive:{
-            0:{
-                items:1
-            }
-        }
     });
-
     let ctrl = document.getElementById("slide-control-box");
     ctrl.addEventListener("mouseover", function( event ) {
         event.target.style.opacity = 1;

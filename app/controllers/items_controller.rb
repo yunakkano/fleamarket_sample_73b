@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.includes(:item_imgs).find(params[:id])
     @seller = User.find(@item.seller_id)
-    @seller_items = Item.includes(:item_imgs).where(seller_id: @item.seller_id).where.not(id: @item.id).limit(6)
+    @seller_items = Item.includes(:item_imgs, :favorites).where(seller_id: @item.seller_id).where.not(id: @item.id).limit(6)
     @buyer = User.find(@item.buyer_id) if @item.buyer_id
     @item_condition = ItemCondition.find(@item.item_condition_id)
     @postage_type = PostageType.find(@item.postage_type_id)

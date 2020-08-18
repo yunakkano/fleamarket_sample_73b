@@ -1,12 +1,21 @@
 class UsersController < ApplicationController
-  before_action :redirect_if_signed_out, except: [:new]
+  before_action :redirect_if_direct_access, except: [:new]
   before_action :set_parents, only: [:show, :favorites]
 
   def new
   end
 
   def show
-    @user = User.includes(:sending_destination, :profile).find(current_user.id)
+    @target_user_id = params[:id].to_i
+    if user_signed_in? && (current_user.id == @target_user_id)
+      @user = User.includes(:sending_destination, :profile).find(current_user.id)
+      @onsale_items = Item.includes(:item_imgs, :favorites).where(seller_id: current_user.id, buyer_id: nil).order("created_at DESC").limit(5)
+      @sold_items = Item.includes(:item_imgs, :favorites).where(seller_id: current_user.id).where.not(buyer_id: nil).order("created_at DESC").limit(5)
+      @purchased_items = Item.includes(:item_imgs, :favorites).where(buyer_id: current_user.id).order("created_at DESC").limit(5)
+    else
+      @user = User.includes(:profile, :self_introduction).find(@target_user_id)
+      @items = Item.includes(:item_imgs, :favorites).where(seller_id: @user.id)
+    end
   end
 
   def favorites
@@ -14,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   private
-  def redirect_if_signed_out
-    redirect_to root_path and return unless request.referrer && user_signed_in?
+  def redirect_if_direct_access
+    redirect_to root_path and return unless request.referrer
   end
 end

@@ -1,8 +1,10 @@
 = render 'items/header'
-%main.mypage__container.clearfix
-  =render partial: 'users/sidemenu', locals: {active_menu: "マイページ"}
-  =render 'users/mypage_content'
-
+- if user_signed_in? && current_user.id == @target_user_id
+  %main.mypage__container.clearfix
+    =render partial: 'users/sidemenu', locals: {active_menu: "マイページ"}
+    =render 'users/mypage_content'
+- else
+  =render 'users/userpage_content'
 = render 'items/appbanner'
 -# footerの部分テンプレート呼び出し
 = render 'items/footer'

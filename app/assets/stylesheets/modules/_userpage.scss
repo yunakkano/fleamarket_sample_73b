@@ -90,6 +90,11 @@ main.mypage__container{
 	.mypage__content{
 		float: right;
 		width: 700px;
+		section.mypage__tab-title{
+			height: 64px;
+			padding: 20px;
+			text-align: center;
+		}
 		section.mypage__user-icon{
 			height: 200px;
 			position: relative;
@@ -133,7 +138,7 @@ main.mypage__container{
 				list-style: none;
 				li.active{
 					background: #fff;
-					width: 50%;
+					width: 100%;
 					display: inline-block;
 					text-align: center;
 					vertical-align: top;
@@ -152,6 +157,43 @@ main.mypage__container{
 				}
 				li{
 					width: 50%;
+					display: inline-block;
+					text-align: center;
+					vertical-align: top;
+					h3{
+						font-size: 22px;
+						a{
+							position: relative;
+							display: block;
+							color: #333;
+							font-size: 16px;
+							line-height: 72px;
+							text-decoration: none;
+						}
+					}
+				}
+				li.itemlist-tab__active{
+					background: #fff;
+					width: calc(100% / 3);
+					height: 72px;
+					display: inline-block;
+					text-align: center;
+					vertical-align: top;
+					h3{
+						font-size: 22px;
+						a{
+							border-top: 2px solid #2BCCD1;
+							position: relative;
+							display: block;
+							color: #333;
+							font-size: 16px;
+							line-height: 72px;
+							text-decoration: none;
+						}
+					}
+				}
+				li.itemlist-tab{
+					width: calc(100% / 3);;
 					display: inline-block;
 					text-align: center;
 					vertical-align: top;
@@ -215,6 +257,19 @@ main.mypage__container{
 							}
 						}
 					}
+					li.mypage__tab-content_no-item{
+						border: 0;
+						position: relative;
+						padding: 160px 0 60px;
+						background: url(asset_path('logo/logo_notext.png'));
+						opacity: 0.35;
+						background-repeat: no-repeat;
+						background-position: center 40px;
+						background-size: 78px 85px;
+						text-align: center;
+						font-size: 16px;
+						color: #ccc;
+					}
 					li.mypage__go-list{
 						border: 0;
 						border-bottom: 1px solid #eee;
@@ -240,6 +295,7 @@ main.mypage__container{
 			}
 		}
 	}
+	
 	.logout-container{
 		float: right;
 		height: 179px;
@@ -883,6 +939,223 @@ main.mypage__container{
         }
 	}
 
+}
+main.userpage_content{
+	background: #f5f5f5;
+	padding-top: 40px;
+	.user-detail{
+		margin: 0 auto;
+		width: 700px;
+		background: #fff;
+		&__profile-box{
+			background: url(asset_path('pict/user_bg2.jpg'));
+			background-size: cover;
+			padding-top: 50px;
+			&__photo{
+				text-align: center;
+				a{
+					color: #0099e8;
+					text-decoration: none;
+					touch-action: manipulation;
+					img.user-detail-photo{
+						width: 180px;
+						height: 180px;
+						background-repeat: no-repeat;
+						background-size: cover;
+						border-radius: 50%;
+						margin: 0 auto;
+					}
+					h2.user-detail-title{
+						margin: 8px 0 16px;
+						font-size: 18px;
+						font-weight: 400;
+						color: #333;
+						line-height: 1.4;
+					}
+				}
+			}
+			.user-detail-score{
+				padding-bottom: 30px;
+				font-size: 14px;
+				font-weight: 600;
+				color: #333;
+				span{
+					margin-right: 12px;
+				}
+			}
+		}
+		&__intro{
+			background-color: #fff;
+			&__ratings{
+				height: 50px;
+				padding-top: 14px;
+				width: 230px;
+				margin: 0 auto;
+				font-size: 18px;
+				font-weight: 400;
+				color: #333;
+				display: flex;
+				justify-content: space-between;
+				&--inner{
+					width: 100px;
+					line-height: 26px;
+					&__score{
+						display: inline-block;
+						vertical-align: middle;
+						width: 60px;
+						margin: 0 0 0 14px;	
+					}
+					i.icon-good{
+						font-size: 20px;
+						color: red;
+					}
+					i.icon-bad{
+						font-size: 20px;
+						color: blue;
+					}
+				}
+			}
+			&__description{
+				padding: 30px 50px 60px 50px;
+				p{
+					font-size: 20px;
+					font-weight: 400;
+					color: #333;
+				}
+				p.no-introduction{
+					font-size: 20px;
+					font-weight: 400;
+					color: gray;
+					text-align: center;
+				}
+			}
+		}
+	}
+	.items-related{
+        width: 100%;
+        max-width: 700px;
+        margin: 8px auto;
+        &__group{
+            h2.items-related__group__head{
+                font-size: 18px;
+                margin: 24px 4% 8px;
+                line-height: 1.4;
+                a{
+                    color: #0099e8;
+                    text-decoration: none;
+                    touch-action: manipulation;
+                }
+            }
+            &__content{
+                height: 700px;
+                width: 100%;
+                margin: 0 auto;
+                clear: both;
+                content: "";
+                &__box{
+                    width: 220px;
+                    margin: 0 13px 13px 0;
+                    position: relative;
+                    float: left;
+                    background: #fff;
+                    a{
+                        display: block;
+                        color: #333;
+                        text-decoration: none;
+                        touch-action: manipulation;
+                        figure.items-related__group__content__box__photo{
+                            margin-block-start: 0;
+                            margin-block-end: 0;
+                            margin-inline-start: 0;
+                            margin-inline-end: 0;
+                            overflow: hidden;
+                            position: relative;
+                            padding-bottom: 0 0 100%;
+                            width: 220px;
+                            height: 220px;
+                            .product-sold {
+                                top: 0;
+                                left: 0;
+                                border-bottom: 70px solid transparent;
+                                border-left: 70px solid #ea352d;
+                                position: absolute;
+                                z-index: 100;
+                                &__inner {
+                                  font-weight: bold;
+                                  display: block;
+                                  top: 12px;
+                                  left: -68px;
+                                  transform: rotate(-45deg);
+                                  color: #fff;
+                                  position: absolute;
+                                  z-index: 101;
+                                }
+                            }
+                            img.items-related__group__content__box__photo__img{
+                                vertical-align: middle;
+                                top: 50%;
+                                width: 100%;
+                                transform: translate(0, -50%);
+                                transition: opacity .3s;
+                                position: absolute;
+                                bottom: 0;
+                                z-index: 1;
+                                opacity: 1;
+                            }
+                        }
+                        .items-related__group__content__box__body{
+                            width: 220px;
+                            height: 110px;
+                            padding: 16px;
+                            h3.items-related__group__content__box__body__name{
+                                overflow: hidden;
+                                position: relative;
+                                font-weight: 400;
+                                height: 3em;
+                                line-height: 1.5;
+                                word-break: break-word;
+                                white-space: normal;
+                                font-size: 16px;
+                                color: #333;
+                            }
+                            &__num{
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                margin: 8px 0 0;
+                                &__price{
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    color: #333;
+                                }
+                                &__like{
+                                    font-size: 16px;
+                                    font-weight: 400;
+                                    color: #333;
+                                    i.like-icon-border{
+                                        font-size: 14px;
+                                        vertical-align: middle;
+                                        display: inline-block;
+                                        font-weight: 400;
+                                        line-height: 1;
+                                        color: #ccc;
+									}
+									span{
+										font-size: 14px;
+                                        vertical-align: middle;
+                                        display: inline-block;
+                                        font-weight: 400;
+                                        line-height: 1;
+                                        color: #ccc;
+									}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .bottomDl {

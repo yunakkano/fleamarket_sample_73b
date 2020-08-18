@@ -1,9 +1,6 @@
 = render 'items/header'
-- if user_signed_in?
-  - if @seller.id == current_user.id
-    = render 'items/itemdetail_forseller'
-  - else
-    = render 'items/itemdetail_forbuyer'
+- if user_signed_in? && @seller.id == current_user.id
+  = render 'items/itemdetail_forseller'
 - else
   = render 'items/itemdetail_forbuyer'
 = render 'items/appbanner'

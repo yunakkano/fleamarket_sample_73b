@@ -20,7 +20,8 @@
           %tr
             %th 出品者
             %td
-              = link_to @seller.nickname, "", method: :get 
+              = link_to user_path(@seller.id), method: :get do
+                = @seller.nickname 
               %div
                 .item-user-ratings
                   = icon('far', 'smile', class: "icon-good")
@@ -136,9 +137,9 @@
                     .items-related__group__content__box__body__num__price
                       = "#{@seller_items[i].price.to_s(:delimited, delimiter: ',')}円"
                     .items-related__group__content__box__body__num__like
-                      =icon('far','star', class: "like-icon-border") do
-                        %span
-                          = item.favorites.count
+                      =icon('far','star', class: "like-icon-border")
+                      %span
+                        = @seller_items[i].favorites.count
   .items-related
     .items-related__group
       %h2.items-related__group__head
@@ -161,6 +162,6 @@
                     .items-related__group__content__box__body__num__price
                       = "#{@category_items[i].price.to_s(:delimited, delimiter: ',')}円"
                     .items-related__group__content__box__body__num__like
-                      =icon('far','star', class: "like-icon-border") do
-                        %span
-                          = item.favorites.count
+                      =icon('far','star', class: "like-icon-border")
+                      %span
+                        = @category_items[i].favorites.count
