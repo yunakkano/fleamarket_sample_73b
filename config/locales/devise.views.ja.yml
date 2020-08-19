@@ -45,10 +45,26 @@ ja:
         prefecture_code: "都道府県"
         street_number: "番地"
         phone_number: "電話番号"
+      item:
+        name: "商品名"
+        item_imgs: "出品画像"
+        introduction: "商品の説明"
+        price: "販売価格"
+        category_id: "カテゴリー"
+        brand_id: "ブランド"
+        item_condition_id: "商品の状態"
+        postage_payer_id: "配送料の負担"
+        preparation_day_id: "発送までの日数"
+        postage_type_id: "配送方法"
+        prefecture_code: "都道府県"
+      item_img:
+        url: "出品画像"
     models:
       user: "会員情報"
       profile: "本人確認情報"
       sending_destination: "会員住所"
+      item: "商品"
+      item_img: "商品画像"
     
     errors:
       messages:

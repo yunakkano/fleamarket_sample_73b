@@ -22,8 +22,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      flash.now[:alert] = @item.errors.full_messages
       @item.item_imgs.new
-      render :new
+      render :new and return
     end
   end
 
@@ -35,7 +36,8 @@ class ItemsController < ApplicationController
     if @item.update(item_update_params)
       redirect_to root_path
     else
-      render :edit
+      flash.now[:alert] = @item.errors.full_messages
+      render :edit and return
     end
   end
 

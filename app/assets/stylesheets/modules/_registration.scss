@@ -303,13 +303,6 @@
                         margin-inline-end: 0px;
                         margin-inline-start: 0px;
                     }
-                    ul.has-error {
-                        color: #ea352d;
-                        line-height: 1.5;
-                        font-size: 14px;
-                        list-style: none;
-                        display: block;
-                    }
                 }
                 .register-btn {
                     display: block;
@@ -518,4 +511,12 @@
         touch-action: manipulation;
         cursor: pointer;
     }
+}
+ul.has-error {
+    padding-left: 12px;
+    color: #ea352d;
+    line-height: 1.5;
+    font-size: 14px;
+    list-style: none;
+    display: block;
 }
