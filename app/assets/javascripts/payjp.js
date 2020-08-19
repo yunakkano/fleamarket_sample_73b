@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function () {
+  if($('.creditcard__container__chapter__inner__addcard__form').length){
     Payjp.setPublicKey("pk_test_edb1398ecec5f03fc683f0fe");
     var form = $("#payjp_cardForm");
       number = form.find("#payjp_cardNum"),
@@ -33,4 +34,5 @@ $(document).on('turbolinks:load', function () {
         }
       });
     });
-  });
+  }
+});
