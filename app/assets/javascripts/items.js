@@ -156,6 +156,7 @@ $(document).on("change", "#category_form", function(){
     })
       .done(function (data) {
         $(".child_category_id").remove();
+        $(".gc_category_id").remove(); //親カテゴリ欄が修正された場合は、孫カテゴリの欄も削除する
         let child_select = build_childSelect
         $("#category_field").append(child_select);
         data.forEach(function(d) {
