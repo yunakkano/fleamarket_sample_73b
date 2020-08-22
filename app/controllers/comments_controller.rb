@@ -5,9 +5,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       respond_to do |format|
-        # format.html {redirect_to item_path(@item)}
+        format.html {redirect_to item_path(@item)}
         format.json
-        # format.json {render json: @comment}
       end
     else
       flash.now[:alert] = 'コメントを入力してください。'

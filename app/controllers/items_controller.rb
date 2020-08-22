@@ -77,7 +77,6 @@ class ItemsController < ApplicationController
     @category_items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).limit(6)
     @comment = Comment.new
     @comments = @item.comments.order(created_at: :desc)
-    # @comments = @item.comments.includes(:user)
   end
   
   def purchase
