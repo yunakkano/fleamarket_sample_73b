@@ -97,22 +97,22 @@
     .itemcomment__box
       .itemcomment__box__content
         - if current_user
-          = form_with(model:[@item, @comment], local:true, class: "message-form") do |form|
+          = form_with(model:[@item, @comment], class: "message-form", id: "new_comment") do |form|
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            = form.text_area :text, {class: "textarea-default"}
-            = button_tag "", {type: "reset", class: "message-submit-btn"} do
-              = form.submit "コメントする"        
+            = form.text_area :text, {class: "textbox"}
+            %input{type:"submit", class:"form__submit", value:"コメントする"}
         - else
           %strong
             %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
 
         .itemcomment__box__content__comment
-          %p コメント一覧
+          %p < コメント一覧 >
           - if @comments
             .itemcomment__box__content__comment__member
             - @comments.each do |comment|
-              %ul
-                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              .itemcomment__box__content__comment__member__list
+                = comment.user.nickname
+                %strong :
                 = comment.text
 
   .items-related
