@@ -1,11 +1,15 @@
 class CommentsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
-    comment = Comment.new(comment_params)
-    if comment.save
-      redirect_to item_path(@item)
+    @comment = @item.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      respond_to do |format|
+        format.html {redirect_to item_path(@item)}
+        format.json
+      end
     else
-      puts "コメントの投稿に失敗しました"
+      flash.now[:alert] = 'コメントを入力してください。'
     end
   end
 
