@@ -8,6 +8,11 @@
       = link_to category_brands_path(cat.id), class: "categories_container__top--link" do
         = cat.category
 
+  .categories_container__index
+    - @index_list.each_with_index do |idx, i|
+      .categories_container__index__link
+        =link_to idx, {anchor: "initial#{i}"}
+
   .categories_container__box
     %ul.categories_parents
       %li.categories_parents--title{id: "1"}
@@ -16,8 +21,8 @@
 
       .childCategory_area
         %ul.categories_children
-          - @index_list.each do |idx|
-            %li.categories_children--title
+          - @index_list.each_with_index do |idx, i|
+            %li{id: "initial#{i}", class: "categories_children--title"}
               = idx
 
             .grandchildCategory_area
