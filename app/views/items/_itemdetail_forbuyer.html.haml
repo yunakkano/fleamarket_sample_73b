@@ -7,11 +7,11 @@
         .owl-carousel.owl-theme.owl-loaded.owl-drag.item-photo-container
           - for i in 0..(@item.item_imgs.size - 1)
             .item-photo
-              = link_to "#{@item.item_imgs[i].url.url}", class: "luminous", "data-hash" => "#{i}" do
+              = link_to "#{@item.item_imgs[i].url.url}", class: "luminous" do
                 = image_tag @item.item_imgs[i].url.url
-        #slide-control-box
+        %ul#slide-control-box
           - for i in 0..(@item.item_imgs.size - 1)
-            = link_to "##{i}", class: "slide-controls" do
+            %li.owl-dot
               = image_tag @item.item_imgs[i].url.url, class: "slide-images"
       %table.itemdetail__content__table
         %tbody.itemdetail__content__table__body
