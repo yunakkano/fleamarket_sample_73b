@@ -15,7 +15,6 @@ $(document).on("keyup", "#brand_name_field", function(event){
   var c_id = $(".child_category_id").val();
   var gc_id = $(".gc_category_id").val();
   if(p_id>0 && c_id>0 && gc_id>0){
-    console.log(`input = ${ input }`);
     $.ajax({
       type: 'GET',
       url: '/items/brand_searches',

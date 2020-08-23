@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item_imgs = @item.item_imgs
+    @brand = Brand.find(@item.brand_id)
   end
 
   def update

@@ -155,8 +155,13 @@ $(document).on("change", "#category_form", function(){
       dataType: 'json'
     })
       .done(function (data) {
+        //親カテゴリ欄が修正された場合は、子カテゴリ孫カテゴリの欄を削除
         $(".child_category_id").remove();
-        $(".gc_category_id").remove(); //親カテゴリ欄が修正された場合は、孫カテゴリの欄も削除する
+        $(".gc_category_id").remove();
+        //ブランド欄をクリア
+        $("#brands_matched").empty();
+        $("#brand_name_field").val("");
+        $("#brand_select_field").val("");
         let child_select = build_childSelect
         $("#category_field").append(child_select);
         data.forEach(function(d) {
