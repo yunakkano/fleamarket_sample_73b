@@ -173,7 +173,6 @@ $(document).on("change", "#category_form", function(){
 $(document).on("change", ".child_category_id", function(){
   $(".gc_category_id").remove();
   let childValue = $(".child_category_id").val();
-  console.log(childValue);
   if (childValue.length != 0) {
     $.ajax({
       url: '/items/search',
