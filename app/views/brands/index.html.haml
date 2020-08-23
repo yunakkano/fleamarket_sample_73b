@@ -1,0 +1,30 @@
+= render 'items/header'
+
+.categories_container
+  .categories_container__top
+    .categories_container__top--title
+      %p ブランド一覧
+    - @brand_categories.each do |cat|
+      = link_to category_brands_path(cat.id), class: "categories_container__top--link" do
+        = cat.category
+
+  .categories_container__box
+    %ul.categories_parents
+      %li.categories_parents--title{id: "1"}
+        .categories_parents--link
+          = "レディース"
+
+      .childCategory_area
+        %ul.categories_children
+          - @index_list.each do |idx|
+            %li.categories_children--title
+              = idx
+
+            .grandchildCategory_area
+              %ul.categories_grandchild
+                - @ladies_hash[idx].each do |brand|
+                  %li.categories_grandchild--title
+                    = link_to "#{brand.brand}", brand_path(brand), class: "categories_grandchild--link"
+
+= render 'items/bottom_dl'
+= render 'items/footer'
