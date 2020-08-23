@@ -30,7 +30,8 @@
     border-right: 2px solid $lightgray;
     border-left: 2px solid #EEEEEE;
     border-bottom: 2px solid #CCCCCC;
-    top: 105px;
+    // カテゴリーのトップメニューと、メニュー一覧の間に隙間を作らないよう修正
+    top: 95px;
     height: calc(40 * 13px);
     &--name {
       width: 100%;
