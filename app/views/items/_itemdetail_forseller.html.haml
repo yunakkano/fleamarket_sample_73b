@@ -1,5 +1,3 @@
-%link{crossorigin: "anonymous", href: "https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous-basic.css", integrity: "sha512-ZWBxkS1FFKklAjYzD98QwMSZfARyE+dReALepM7DdaTgiFGbQxlcrNYWwAcKH0DSc96wk8oGB5kOQLlHV70fdg==", rel: "stylesheet"}/
-%script{crossorigin: "anonymous", integrity: "sha512-m4kT2yNAKoSDZ6+orVQhqgrIMwAng5X/wBEiNeegedjIRhZRnlgyGzYqkzJ1HR1wn0aidznu8O4Yzz7bKTSrFQ==", src: "https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/2.3.2/luminous.min.js"}
 %main.itemdetail-background
   .itemdetail
     %h1.itemdetail--name
@@ -42,15 +40,16 @@
                 .item-detail-table-category
                   = icon('fas','caret-right', class: 'icon-arrow-right')
                   = @category_grandchild.category
-          %tr
-            %th ブランド
-            %td
-              = link_to "", method: "get" do
-                %div
-                  アディダス
-          %tr
-            %th 商品のサイズ
-            %td L
+          - if @brand
+            %tr
+              %th ブランド
+              %td
+                = link_to brand_path(@brand), method: "get" do
+                  %div
+                    = @brand.brand
+          -# %tr
+          -#   %th 商品のサイズ
+          -#   %td L
           %tr
             %th 商品の状態
             %td
