@@ -85,6 +85,7 @@
     .register-main {
         display: block;
         .l-register-container{
+            height: 100%;
             width: 700px;
             margin: 0 auto;
             background: #fff;
@@ -505,10 +506,13 @@
       }
 }
 .register-complete {
+    height: 400px;
     display: flex;
     justify-content: center;
+    vertical-align: middle;
     a.register-backto-top {
         display: block;
+        height: 50px;
         width: 343px;
         margin: 8px 0 0;
         border-radius: 4px;
