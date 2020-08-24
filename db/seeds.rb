@@ -608,7 +608,7 @@ categories = [
     }
   ]}
 ]
-
+puts "Loading Categories data..."
 categories.each.with_index(1) do |category, i|
   level1_var = "@category#{i}"                                                              #1階層の変数 (ex.@category1)
   level1_val = Category.create(category: "#{category[:level1]}")                            #1階層の値作成 (ex.レディース)
@@ -622,3 +622,32 @@ categories.each.with_index(1) do |category, i|
         end
     end
 end
+puts "Loading Brands data..."
+# ブランドデータの投入
+Dir.glob("db/brandsdata/*.txt") {|file|
+  puts file
+  txtfile = File.open(file, 'r')
+  file_data = txtfile.readlines.map(&:chomp)
+  
+  category = '****'
+  prev_line = '****'
+  index_char = ''
+  file_data.each do |line|
+    break if line == '--'
+    if category == '****' && prev_line == '****'
+      category = line 
+    elsif prev_line == '-'
+      index_char = line
+    elsif line == '-' || line == ''
+    else
+      linked_category = nil
+      brand = nil
+      assoc = nil
+      brand = Brand.where(brand: line, kana_index: index_char).first_or_create
+      linked_category = Category.find_by(category: category)
+      assoc = BrandCategory.where(brand_id: brand.id, category_id: linked_category.id).first_or_create
+    end
+    prev_line = line
+  end
+  txtfile.close
+}

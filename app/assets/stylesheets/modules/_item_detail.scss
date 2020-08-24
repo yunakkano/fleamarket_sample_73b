@@ -42,8 +42,8 @@ main.itemdetail-background{
                     min-width: 300px;
                     min-height: 360px;
                 }
-                #slide-control-box{
-                    a.slide-controls{
+                ul#slide-control-box{
+                    li.owl-dot{
                         width: 60px;
                         height: 60px;
                         max-height: none;

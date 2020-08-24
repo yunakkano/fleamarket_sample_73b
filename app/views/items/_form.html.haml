@@ -55,7 +55,9 @@
               %label ブランド
               %span.arbitrary 任意
             .brand_type
-              = f.text_field :brand, class: "select_field", placeholder: "例）シャネル"
+              = text_field_tag "brand_name", "", {class: "select_field", id: "brand_name_field", placeholder: "例）シャネル"}
+              %ul{id:"brands_matched", class: "brands-list"}
+              = f.text_field :brand_id, {type: "hidden", id: "brand_select_field"}
           .goods-status-all
             .goods-status
               %label 商品の状態

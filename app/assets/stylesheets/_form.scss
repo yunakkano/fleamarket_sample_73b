@@ -60,6 +60,26 @@ header{
     margin-top: 15px;
     margin-bottom: 10px;
   }
+  ul.brands-list{
+    width: 95%;
+    margin-top: 0px;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 2px 4px;
+    max-height: 252px;
+    overflow: auto;
+    list-style: none;
+    li.brand_list-item{
+      display: list-item;
+      cursor: pointer;
+      padding: 16px 8px;
+    }
+    li.active{
+      display: list-item;
+      cursor: pointer;
+      padding: 16px 8px;
+      color: #fff;
+      background: #2bccd1;
+    }
+  }
 
   .brand_select{
     width: 95%;

@@ -15,12 +15,13 @@ Rails.application.routes.draw do
 
   namespace :items do
     resources :searches, only: :index
+    resources :brand_searches, only: :index
   end
 
   resources :items do
     scope module: :items do
-      resources :cards, only:[:new, :create, :show, :destroy]
-      resources :sending_destinations, onyl:[:edit, :update]
+      resources :cards,                 only:[:new, :create, :show, :destroy]
+      resources :sending_destinations,  onyl:[:edit,:update]
     end
     collection do
       get  'done', to:'items#done'
@@ -35,27 +36,28 @@ Rails.application.routes.draw do
     end
     resource :favorites, only: [:create, :destroy]
   end
-  
-  resources :users, only: [:show, :new] do
-    member do
-      get "sending_destination"
-    end
-  end
 
   resources :users do
     scope module: :users do
       resources :sessions,            only: [:index,  :destroy]
-      resources :cards,               only: [:index,  :new, :create, :destroy]
+      resources :cards,               only: [:index,  :new,   :create, :destroy]
       resources :sending_destinations,only: [:edit,   :update]
-      resources :profiles,            only: [:edit,  :update]
-      resources :self_introductions,  only: [:new, :create, :edit, :update]
+      resources :profiles,            only: [:edit,   :update]
+      resources :self_introductions,  only: [:new,    :create,:edit, :update]
       resources :on_sale_items,       only: [:index]
       resources :sold_items,          only: [:index]
       resources :purchased_items,     only: [:index]
     end
   end
   
-  resources :categories, only: [:index, :show]
+  resources :categories,  only: [:index, :show]
+  resources :categories do
+    scope module: :categories do
+      resources :brands,  only: [:index]
+    end
+  end
+
+  resources :brands,     only: [:index, :show]
 
   resources :users, only: [:index, :show] do
     member do

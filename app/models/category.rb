@@ -1,6 +1,8 @@
 class Category < ApplicationRecord
   has_many :items
   has_ancestry
+  has_many :brand_categories
+  has_many :brands, through: :brand_categories
 
   # カテゴリーが親or子or孫の内のどれに当たるかで条件分岐
   def set_items
