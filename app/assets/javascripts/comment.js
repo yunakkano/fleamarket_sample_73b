@@ -1,4 +1,5 @@
-$(function (){
+$(document).on('turbolinks:load', function(){
+// $(function (){
   function buildHTML(comment){
     var html = 
       `<div class="itemcomment__box__content__comment__member__list">
@@ -29,5 +30,5 @@ $(function (){
     .fail(function(){
       alert('error');
     })
-  })
-})
+  });
+});
