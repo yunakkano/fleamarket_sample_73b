@@ -200,38 +200,38 @@ $(document).on("change", ".child_category_id", function(){
 });
 
 // topページ > headerカテゴリメニュー表示機能
+$(document).on('turbolinks:load', function(){
+  $(document).ready(function() {
 
-$(document).ready(function() {
+    $(".header-categories").hover(function() {
+      $(this).addClass("active");
+      let parent = $(".active").children(".header-category-parent");
+      parent.show();
+    }, function() {
+      $(this).removeClass("active");
+      $(this).children(".header-category-parent").hide();
+    });
 
-  $(".header-categories").hover(function() {
-    $(this).addClass("active");
-    let parent = $(".active").children(".header-category-parent");
-    parent.show();
-  }, function() {
-    $(this).removeClass("active");
-    $(this).children(".header-category-parent").hide();
+    $(".header-parent-list").hover(function() {
+      $(this).addClass("active2");
+      let child = $(".active2").children(".header-category-child");
+      child.show();
+    }, function() {
+      $(this).removeClass("active2");
+      $(this).children(".header-category-child").hide();
+    });
+
+    $(".header-child-list").hover(function() {
+      $(this).addClass("active3");
+      let grandchild = $(".active3").children(".header-category-grandchild");
+      grandchild.show();
+    }, function() {
+      $(this).removeClass("active3");
+      $(this).children(".header-category-grandchild").hide();
+    });
+
   });
-
-  $(".header-parent-list").hover(function() {
-    $(this).addClass("active2");
-    let child = $(".active2").children(".header-category-child");
-    child.show();
-  }, function() {
-    $(this).removeClass("active2");
-    $(this).children(".header-category-child").hide();
-  });
-
-  $(".header-child-list").hover(function() {
-    $(this).addClass("active3");
-    let grandchild = $(".active3").children(".header-category-grandchild");
-    grandchild.show();
-  }, function() {
-    $(this).removeClass("active3");
-    $(this).children(".header-category-grandchild").hide();
-  });
-
 });
-
 // カテゴリ一覧ページ > スクロール機能
 
 $(function () {
