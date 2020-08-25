@@ -1,0 +1,27 @@
+.header_breadcrumbs
+  .headerBox
+    .mainHeader
+      .topLogo
+        = link_to root_path do
+          = image_tag 'logo/logo.png', class: 'logo'
+      .search
+        = render partial: 'items/searchbar'
+    .nav
+      %ul.nav__left
+        %li.nav__left__item--first
+          -# header_categoryの部分テンプレート呼び出し
+          = render 'items/header_category'
+        %li.nav__left__item
+          = link_to 'ブランド', '#', class: 'brandBtn'
+      %ul.nav__right
+        - if user_signed_in? && (request.path == user_path(current_user.id) || request.path == user_cards_path(current_user) || request.path == new_user_card_path(current_user))
+          %li.nav__right__item--login
+            = link_to "ログアウト", user_sessions_path(current_user)
+        - elsif user_signed_in?
+          %li.nav__right__item--login
+            = link_to "マイページ", user_path(current_user.id), method: :get
+        - else
+          %li.nav__right__item--login
+            = link_to "ログイン", new_user_session_path
+          %li.nav__right__item--regist
+            = link_to "新規会員登録", new_user_path

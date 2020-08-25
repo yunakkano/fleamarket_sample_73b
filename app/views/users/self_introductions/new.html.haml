@@ -1,4 +1,6 @@
-= render 'items/header'
+= render 'items/header_breadcrumbs'
+- breadcrumb :self_introduction
+= render 'layouts/breadcrumbs'
 %main.mypage__container.clearfix
   =render partial: 'users/sidemenu', locals: {active_menu: "プロフィール"}
   =render 'users/self_introductions/new_introduction'
