@@ -35,7 +35,6 @@ GEM
       activemodel (= 5.2.4.3)
       activesupport (= 5.2.4.3)
       arel (>= 9.0)
-    activerecord-reset-pk-sequence (0.2.1)
     activestorage (5.2.4.3)
       actionpack (= 5.2.4.3)
       activerecord (= 5.2.4.3)
@@ -253,6 +252,8 @@ GEM
     owlcarousel-rails (2.2.3.5)
     payjp (0.0.7)
       rest-client (~> 2.0)
+    polyamorous (2.3.2)
+      activerecord (>= 5.2.1)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -293,6 +294,11 @@ GEM
       thor (>= 0.19.0, < 2.0)
     raindrops (0.19.1)
     rake (13.0.1)
+    ransack (2.3.2)
+      activerecord (>= 5.2.1)
+      activesupport (>= 5.2.1)
+      i18n
+      polyamorous (= 2.3.2)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -419,7 +425,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
-  activerecord-reset-pk-sequence
   ancestry
   bootsnap (>= 1.1.0)
   byebug
@@ -455,6 +460,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.3)
   rails-controller-testing
+  ransack
   redis
   redis-rails
   rspec
