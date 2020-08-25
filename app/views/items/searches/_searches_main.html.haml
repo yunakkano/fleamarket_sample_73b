@@ -1,8 +1,11 @@
 .searches_main_contents
   .searches_product
     %h2.searches_title
-      = @search_word
-      %span.searches_title__sub  の検索結果
+      -if @search_word.present?
+        = @search_word
+        %span.searches_title__sub  の検索結果
+      -else
+        = "検索結果"
     -if @search_result.present?
       .searches_cnt
         = "1-#{@search_result_cnt}件表示"
