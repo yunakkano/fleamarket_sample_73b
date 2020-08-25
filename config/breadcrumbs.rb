@@ -30,6 +30,17 @@ crumb :item_detail do |item|
   parent :root
 end
 
+crumb :brands do
+  link "ブランド一覧", brands_path
+  parent :root
+end
+
+crumb :brands_detail do |brand|
+  @brand = Brand.find_by(id:params[:id])
+  link "#{@brand.brand}"
+  parent :brands
+end
+
 crumb :mypage do
   link "マイページ", user_path(current_user.id)
 end

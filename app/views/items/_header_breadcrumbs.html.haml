@@ -12,7 +12,8 @@
           -# header_categoryの部分テンプレート呼び出し
           = render 'items/header_category'
         %li.nav__left__item
-          = link_to 'ブランド', '#', class: 'brandBtn'
+          -# header_brandの部分テンプレート呼び出し
+          = render 'items/header_brand'
       %ul.nav__right
         - if user_signed_in? && (request.path == user_path(current_user.id) || request.path == user_cards_path(current_user) || request.path == new_user_card_path(current_user))
           %li.nav__right__item--login
