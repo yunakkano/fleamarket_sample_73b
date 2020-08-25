@@ -26,8 +26,8 @@ module UserHelper
     def sidemenu(active_menu)
       menulist = {
         "メニュー": [
-          {title:"マイページ",path: "user_path(current_user.id)", method: "get", value: "99+"},
-          {title:"お知らせ",path: "user_path(current_user.id)", method: "get", value: "1"},
+          {title:"マイページ",path: "user_path(current_user.id)", method: "get", value: ""},
+          # {title:"お知らせ",path: "user_path(current_user.id)", method: "get", value: "1"},
           {title:"いいね！一覧",path: "favorites_user_path(current_user.id)", method: "get", value: "", class: "mypage__nav__list-item"},
           {title:"出品する",path: "new_item_path", method: "get", value: ""},
           #{title:"下書き一覧", path: "user_path(current_user.id)", method: "get", value: ""},
@@ -36,10 +36,10 @@ module UserHelper
           {title:"出品した商品 - 売却済み", path: "user_sold_items_path(current_user.id)", method: "get", value: ""},
           #{title:"購入した商品 - 取引中", path: "user_purchased_items_path(current_user.id)", method: "get", value: ""},
           {title:"購入した商品 - 過去の取引", path: "user_purchased_items_path(current_user.id)", method: "get", value: ""},
-          {title:"ニュース一覧", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"評価一覧", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"ガイド", path: "user_path(current_user.id)", method: "get", value: ""},
-          {title:"お問い合わせ", path: "user_path(current_user.id)", method: "get", value: ""},
+          # {title:"ニュース一覧", path: "user_path(current_user.id)", method: "get", value: ""},
+          # {title:"評価一覧", path: "user_path(current_user.id)", method: "get", value: ""},
+          # {title:"ガイド", path: "user_path(current_user.id)", method: "get", value: ""},
+          # {title:"お問い合わせ", path: "user_path(current_user.id)", method: "get", value: ""},
         ],
         "設定": [
           {title:"プロフィール", path: "new_user_self_introduction_path(current_user.id)", method: "get", value: ""},

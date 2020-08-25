@@ -1,0 +1,7 @@
+.header-categories
+  = link_to 'ブランド', brands_path, class: 'catBtn'
+  %ul.header-category-parent.header-category-list
+    - pick_up_brands.each do |brand|
+      %li.header-parent-list
+        = link_to eval(brand[:path]), class: "header-category-parent--name", id: "header-category-parent--hover" do
+          = brand[:name]

@@ -22,22 +22,22 @@
 				.register-form-group
 					= adr.label :post_code, "郵便番号（半角数字７桁）"
 					%span.register-form-require 必須
-					= adr.text_field :post_code, placeholder: "例) 1234567", class: "register-field--full"
+					= adr.text_field :post_code, placeholder: "例) 1234567", id:"sending_destination_post_code", class: "register-field--full"
 					= render partial: "devise/shared/error_message_fieldname", locals: {model: @address, fieldname: "郵便番号"}
 				.register-form-group
 					= adr.label :prefecture_code, "都道府県（選択）"
 					%span.register-form-require 必須
-					= adr.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {}, {class:"register-field--full"}
+					= adr.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {}, {id:"sending_destination_prefecture_code", class:"register-field--full"}
 					= render partial: "devise/shared/error_message_fieldname", locals: {model: @address, fieldname: "都道府県"}
 				.register-form-group
 					= adr.label :city, "市区町村名"
 					%span.register-form-require 必須
-					= adr.text_field :city, placeholder: "例) 港区",class: "register-field--full"
+					= adr.text_field :city, placeholder: "例) 港区",id:"sending_destination_city", class: "register-field--full"
 					= render partial: "devise/shared/error_message_fieldname", locals: {model: @address, fieldname: "市区町村名"}
 				.register-form-group
 					= adr.label :street_number, "番地"
 					%span.register-form-require 必須
-					= adr.text_field :street_number, placeholder: "例) 芝浦１−１−１", class: "register-field--full"
+					= adr.text_field :street_number, placeholder: "例) 芝浦１−１−１", id:"sending_destination_street_number", class: "register-field--full"
 					= render partial: "devise/shared/error_message_fieldname", locals: {model: @address, fieldname: "番地"}
 				.register-form-group
 					= adr.label :building_name, "マンション・ビル名"

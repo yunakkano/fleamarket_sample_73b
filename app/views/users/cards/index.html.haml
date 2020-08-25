@@ -1,4 +1,6 @@
-= render 'items/header'
+= render 'items/header_breadcrumbs'
+- breadcrumb :user_cards
+= render 'layouts/breadcrumbs'
 %main.mypage__container.clearfix
   =render partial: 'users/sidemenu', locals: {active_menu: "支払い方法"}
   -if @card.present?
