@@ -1,4 +1,6 @@
-= render 'items/header'
+= render 'items/header_breadcrumbs'
+- breadcrumb :item_detail
+= render 'layouts/breadcrumbs'
 - if user_signed_in? && @seller.id == current_user.id
   = render 'items/itemdetail_forseller'
 - else
