@@ -6,13 +6,13 @@
   box-shadow: 0 3px 3px 0 #00000029;
   position: relative;
   display: block;
-}
 
-.breadcrumbs_list a{
-  text-decoration: none;
-  color: black;
-}
-
-.breadcrumbs_list a:hover{
-  text-decoration: underline;
+  a{
+    text-decoration: none;
+    color: black;
+  
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 }
