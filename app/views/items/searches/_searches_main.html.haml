@@ -1,31 +1,38 @@
-.searchs_main_contens
-  .searchs_product
-    %h2.searchs_subtitle 
-      検索結果
-    .searchs_productBox
-      .searchs_productLists
-        - @items.each do |item|
-          .searchs_productList
-            = link_to item_path(item) do
-              %figure.searchs_productList__img
-                -# trading_status -> 1 の場合、売り切れ表示
-                - if item.trading_status == 1
-                  .searchs_productSold
-                    .searchs_productSold__inner
-                      SOLD
-                - item.item_imgs.each do |item_img|
-                  = image_tag item_img.url.url
-              .searchs_productList__content
-                %h3.searchs_name
-                  = item.name
-                .searchs_productDetails
-                  %ul
-                    %li
-                      = "#{item.price.to_s(:delimited, delimiter: ',')}円"
-                    %li
-                      .searchs_top-grade
-                        %i.far.fa-star.searchs_top-grade__likeIcon
-                        .searchs_top-grade__favCnt
-                          = item.favorites.count
-                  %p
-                    (税込)
+.searches_main_contents
+  .searches_product
+    %h2.searches_title
+      = @search_word
+      %span.searches_title__sub  の検索結果
+    -if @search_result.present?
+      .searches_cnt
+        = "1-#{@search_result_cnt}件表示"
+      .searches_productBox
+        .searches_productLists
+          - @search_result.each do |item|
+            .searches_productList
+              = link_to item_path(item) do
+                %figure.searches_productList__img
+                  -# trading_status -> 1 の場合、売り切れ表示
+                  - if item.trading_status == 1
+                    .searches_productSold
+                      .searches_productSold__inner
+                        SOLD
+                  - item.item_imgs.each do |item_img|
+                    = image_tag item_img.url.url
+                .searches_productList__content
+                  %h3.searches_name
+                    = item.name
+                  .searches_productDetails
+                    %ul
+                      %li
+                        = "#{item.price.to_s(:delimited, delimiter: ',')}円"
+                      %li
+                        .searches_top-grade
+                          %i.far.fa-star.searches_top-grade__likeIcon
+                          .searches_top-grade__favCnt
+                            = item.favorites.count
+                    %p
+                      (税込)
+    -else
+      .search_error_text
+        該当する商品が見つかりません。検索条件を変えて、再度お試しください。
