@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :redirect_if_direct_access, except: [:new]
   before_action :set_parents, only: [:show, :favorites]
+  before_action :search_params, only: [:new, :show, :favorites]
 
   def new
   end
