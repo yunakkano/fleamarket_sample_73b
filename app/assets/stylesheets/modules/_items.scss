@@ -54,10 +54,10 @@
       .search {
         width: 100%;
         margin-left: auto;
-        form {
+        .form {
           height: 34px;
           display: flex;
-          input {
+          .input {
             width: calc(100% - 26px);
             padding-left: 5px;
           }
@@ -65,6 +65,7 @@
             width: 36px;
             padding: 8px;
             background-color: $blue;
+            color: $blue;
             border: none;
             cursor: pointer;
             .icon {

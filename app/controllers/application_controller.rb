@@ -20,6 +20,19 @@ class ApplicationController < ActionController::Base
     @parents = Category.where(ancestry: nil)
   end
 
+  def search_params
+    if params[:q].present?
+      @search = Item.ransack(params[:q])
+      @search_result = @search.result
+      @search_word = @search.name_cont
+      @search_result_cnt = @search.result.count
+    else
+      params[:q] = { sorts: 'id desc' }
+      @search = Item.ransack()
+      @search_result = Item.all
+    end
+  end
+  
   protected
 
   def configure_permitted_parameters

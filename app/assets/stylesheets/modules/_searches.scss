@@ -1,3 +1,11 @@
+@mixin searches_form($searches_width) {
+  height: 48px;
+  width: $searches_width;
+  padding: 0 16px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
 .searches_background {
   background-color: $lightgray;
   .searches_contents {
@@ -5,146 +13,301 @@
     width: 1020px;
     padding: 40px 0;
     margin: 0 auto;
-    .searches_sidemenu_contents {
-      // background-color: bisque;
-      width: 250px;
+
+
+    .searches_sideMenu_contents {
+      width: 280px;
       margin-right: 20px;
-      .searches_form {
-        .search-sort {
-          .form-group {
-    
+      color: $fontBaseColor;
+      .select-wrap {
+        background-color: $white;
+        position: relative;
+        height: 48px;
+        width: 280px;
+        .icon-arrow-bottom {
+          color: rgb(179, 179, 179);
+          position: absolute;
+          line-height: 48px;
+          right: 20px;
+          font-size: 20px;
+        }
+        select {
+          @include searches_form(280px);
+        }
+        .select-default {
+          @include searches_form(280px);
+        }
+        // IEのselect要素の右側矢印を無効化
+        select::-ms-expand {
+          display: none;
+        }
+        // IE以外ブラウザのselect要素の右側矢印を無効化
+        select {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+        }
+      }
+      .search-dropdown-content {
+        background-color: $white;
+        margin-top: 30px;
+        padding: 0 15px;
+        .search_subtitle {
+          font-weight: 600;
+          padding: 12px 0;
+          font-size: 16px;
+        }
+        .form-group {
+          padding-bottom: 30px;
+          span {
+            font-size: 14px;
+            font-weight: 550;
+          }
+          .icon {
+            color: gray;
+          }
+          // 入力フォーム
+          .input-default {
+            @include searches_form(250px);
+          }
+          // 選択フォーム
+          .select-wrap {
+            position: relative;
+            height: 48px;
+            width: 250px;
+            .icon-arrow-bottom {
+              color: rgb(179, 179, 179);
+              position: absolute;
+              line-height: 48px;
+              right: 20px;
+              font-size: 20px;
+            }
+            select {
+              height: 100%;
+              width: 100%;
+            }
+          }
+          // IEのselect要素の右側矢印を無効化
+          select::-ms-expand {
+            display: none;
+          }
+          // IE以外ブラウザのselect要素の右側矢印を無効化
+          select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+          }
+          .select-default {
+            @include searches_form(250px);
+          }          
+          .input-default_MinMax {
+            @include searches_form(115.2px);
+            margin-top: 8px;
+            font-size: 13px;
+          }
+          .childa_MinMax {
+            color: gray;
+          }
+          // 商品の状態
+          .checkbox {
+            margin-bottom: 10px;
+            .checkbox-default input[type="checkbox"] {
+              display: none;
+            }
+            .checkbox-default input[type="checkbox"]:checked+.icon-check {
+              border-color: transparent;
+              background-color: $blue;
+              opacity: 1;
+              color: $white;
+            }
+            .checkbox-default {
+              font-size: 13px;
+              width: 47%;
+              height:  20px;
+              display: inline-block;
+              vertical-align: middle;
+              word-break: break-word;
+              position: relative;
+              margin: 16px 0 0 0;
+              label {
+                z-index: 2;
+                // display: block;
+                padding-left: 28px;
+                display: inline-block;
+                line-height: 14px;
+                .icon-check {
+                  position: absolute;
+                  top: 0%;
+                  left: 0px;
+                  height: 20px;
+                  width: 20px;
+                  border-radius: 2px;
+                  border: 1px solid #ccc;
+                  font-size: 12px;
+                  background-color: $white;
+                  z-index: 1;
+                  display: inline-block;
+                  vertical-align: middle;
+                }
+                .icon-check::before {
+                  position: absolute;
+                  content: '';
+                  width: 10px;
+                  height: 5px;
+                  top: 30%;
+                  left: 3px;
+                  border-left: 2px solid $white;
+                  border-bottom: 2px solid $white;
+                  transform: rotate(-45deg);
+                }
+              }
+            }
           }
         }
-        .search-dropdown-content {
-          .search_subtitle {
-    
+        .search-extend-btn {
+          height: 70px;
+          .btn-default {
+            width: 45%;
+            display: block;
+            line-height: 48px;
+            font-size: 14px;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
           }
-          .form-group {
-    
+          .btn-gray {
+            background-color: #aaa;
+            border: none;
+            color: $white;
+            float: left;
+          }
+          .btn-red {
+            background-color: $blue;
+            border: 0.5px solid $blue;
+            color: $white;
+            float: right;
+            margin-right: 10px;
           }
         }
       }
     }
-    .searchs_main_contens {
+    .searches_main_contents {
       width: 750px;
-      .searchs_product {
-        background-color: $lightgray;
-        .searchs_subtitle {
-          margin-bottom: 5px;
-          font-size: 28px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 1.4;
+      .searches_title {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+        margin-left: 18px;
+        &__sub {
+          font-size: 18px;
+          font-weight: normal;
         }
-        .searchs_productBox {
-          .searchs_productHead {
-            text-align: center;
-            margin-bottom: 15px;
-            a {
-              color: $blue;
-              font-size: 16px;
-              text-decoration: none;
-              .searchs_title {
+      }
+      .searches_cnt {
+        font-size: 12px;
+        margin: 12px 0 6px 0;
+        color: gray;
+        margin-left: 18px;
+
+      }
+      .searches_productHead {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      .searches_productLists {
+        margin: 0px auto;
+        display:flex;
+        flex-wrap: wrap;
+        .searches_productList {
+          margin: 0 0 17px 15px;
+          a {
+            display: inline-block;
+            text-decoration: none;
+          }
+          &__img {
+            height: 130px;
+            width: 165px;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            z-index: auto;
+            img {
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              top: 0px;
+              right: 0px;
+              bottom: 0px;
+              left: 0px;
+              object-fit: cover;
+            }
+            .searches_productSold {
+              top: 0;
+              left: 0;
+              border-bottom: 70px solid transparent;
+              border-left: 70px solid #ea352d;
+              position: absolute;
+              z-index: 100;
+              &__inner {
                 font-weight: bold;
+                display: block;
+                top: 12px;
+                left: -68px;
+                transform: rotate(-45deg);
+                color: $white;
+                position: absolute;
+                z-index: 101;
               }
             }
           }
-          .searchs_productLists {
-            width: 60%;
-            // 画面幅1128pxまではwidth60%を確保、1128px以下cssは別途設定
-            min-width: 1128px;
-            margin: 0px auto;
-            display:flex;
-            flex-wrap: wrap;
-            .searchs_productList {
-              margin: 1.1%;
-              a {
-                background-color: $white;
-                display: inline-block;
-                text-decoration: none;
-              }
-              &__img {
-                height: 150px;
-                width: 200px;
-                margin: 0;
-                overflow: hidden;
-                position: relative;
-                z-index: auto;
-                img {
-                  height: 100%;
-                  width: 100%;
-                  position: absolute;
-                  top: 0px;
-                  right: 0px;
-                  bottom: 0px;
-                  left: 0px;
-                  object-fit: cover;
-                }
-                .searchs_productSold {
-                  top: 0;
-                  left: 0;
-                  border-bottom: 70px solid transparent;
-                  border-left: 70px solid #ea352d;
-                  position: absolute;
-                  z-index: 100;
-                  &__inner {
-                    font-weight: bold;
-                    display: block;
-                    top: 12px;
-                    left: -68px;
-                    transform: rotate(-45deg);
-                    color: $white;
-                    position: absolute;
-                    z-index: 101;
-                  }
-                }
-              }
-              &__content {
-                padding: 15px;
-                background-color: $white;
-                color: $black;
-                .searchs_name {
-                  font-size: 15px;
-                  line-height: 1.8;
-                  text-align: left;
-                  overflow: hidden;
-                }
-                .searchs_productDetails {
-                  font-size: 15px;
-                  ul {
+          &__content {
+            padding: 15px;
+            background-color: $white;
+            color: $black;
+            .searches_name {
+              font-size: 15px;
+              line-height: 1.8;
+              text-align: left;
+              overflow: hidden;
+            }
+            .searches_productDetails {
+              font-size: 15px;
+              ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                li {
+                  .searches_top-grade {
                     display: flex;
                     align-items: center;
-                    justify-content: space-between;
-                    li {
-                      .searchs_top-grade {
-                        display: flex;
-                        align-items: center;
-                        &__likeIcon {
-                          font-size: 14px;
-                          display: inline-block;
-                          color: gray;
-                        }
-                        &__favCnt {
-                          display: inline-block;
-                          margin-left: 5px;
-                          font-size: 13px;
-                        }
-                      }
+                    &__likeIcon {
+                      font-size: 14px;
+                      display: inline-block;
+                      color: gray;
+                    }
+                    &__favCnt {
+                      display: inline-block;
+                      margin-left: 5px;
+                      font-size: 13px;
                     }
                   }
                 }
-                p {
-                  font-size: 10px;
-                  text-align: left;
-                }          
               }
             }
-            &:hover {
-              opacity: 0.5;
-            }
+            p {
+              font-size: 10px;
+              text-align: left;
+            }          
+          }
+          &:hover {
+            opacity: 0.5;
           }
         }
       }
     }
   }
+}
+.search_error_text {
+  margin: 10px 0 0 18px;
+  font-size: 14px;
 }

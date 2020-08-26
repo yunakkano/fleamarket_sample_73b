@@ -110,6 +110,41 @@ describe Item do
         item = create(:item)
         expect(Item.search("テ")).to include(item)
       end
+
+      # sort
+      it "updated_at降順で配列を返すこと" do
+        create(:item)
+        create(:item2)
+        create(:item3)
+        expect(Item.order("updated_at DESC").map(&:id)).to eq [2,3,1]
+      end
+
+      it "price降順で配列を返すこと" do
+        create(:item)
+        create(:item2)
+        create(:item3)
+        expect(Item.order("price DESC").map(&:id)).to eq [3,1,2]
+      end
+
+      # between
+      it "価格が15,000円〜25,000円に含まれるのitemが1件抽出されること" do
+        create(:item)
+        create(:item2)
+        create(:item3)
+        items = Item.where(price: 15000..25000)
+        expect(items.count).to eq 1
+      end
+
+      # select
+      it "item_conditionが1のitemが2件抽出されること" do
+        create(:item)
+        create(:item2)
+        
+        create(:item3)
+        items = Item.where(item_condition_id: 1)
+        expect(items.count).to eq 2
+      end
+
     end
 
     context "一致するデータが存在しない場合" do
@@ -122,6 +157,15 @@ describe Item do
       it "検索文字列が空白の場合、すべての配列を返すこと" do
         item = create(:item)
         expect(Item.search("")).to include(item)
+      end
+
+      # not between
+      it "価格が15,000円〜25,000円に含まれるitemが0件抽出される（空の配列を返す））こと" do
+        create(:item)
+        create(:item2)
+        create(:item3)
+        items = Item.where(price: 500..1000)
+        expect(items.count).to eq 0
       end
     end
 
