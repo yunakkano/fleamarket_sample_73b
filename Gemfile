@@ -121,5 +121,7 @@ gem "omniauth-rails_csrf_protection"
 #For test
 gem 'rails-controller-testing'
 
+# For dummy data generation
+gem 'faker'
 #For breadcrumbs
 gem "gretel"
