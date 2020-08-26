@@ -1,4 +1,6 @@
-= render 'items/header'
+= render 'items/header_breadcrumbs'
+- breadcrumb :edit_user_sending_destination
+= render 'layouts/breadcrumbs'
 %main.mypage__container.clearfix
   =render partial: 'users/sidemenu', locals: {active_menu: "メール/パスワード"}
   =render 'users/sending_destinations/address_edit'

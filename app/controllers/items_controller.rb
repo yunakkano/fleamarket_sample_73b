@@ -12,31 +12,34 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_imgs.new
-    @brands = Brand.all
+    @brands = Brand.joins(:categories).merge(Category.where(id: "1")).where(kana_index: "ア")
   end
-
   
   def create
     @item = Item.new(item_params)
     @item.trading_status = 0
     @item.seller_id = current_user.id
-    if @item.save
+    if @item.valid?
+      @item.save
       redirect_to root_path
     else
+      flash.now[:alert] = @item.errors.full_messages
       @item.item_imgs.new
-      render :new
+      render :new and return
     end
   end
 
   def edit
     @item_imgs = @item.item_imgs
+    @brand = Brand.find(@item.brand_id)
   end
 
   def update
     if @item.update(item_update_params)
       redirect_to root_path
     else
-      render :edit
+      flash.now[:alert] = @item.errors.full_messages
+      render :edit and return
     end
   end
 
@@ -61,12 +64,12 @@ class ItemsController < ApplicationController
     end
   end
 
-
   def show
     @item = Item.includes(:item_imgs).find(params[:id])
     @seller = User.find(@item.seller_id)
     @seller_items = Item.includes(:item_imgs, :favorites).where(seller_id: @item.seller_id).where.not(id: @item.id).limit(6)
     @buyer = User.find(@item.buyer_id) if @item.buyer_id
+    @brand = Brand.find(@item.brand_id) if @item.brand_id
     @item_condition = ItemCondition.find(@item.item_condition_id)
     @postage_type = PostageType.find(@item.postage_type_id)
     @postage_payer = PostagePayer.find(@item.postage_payer_id)
@@ -77,7 +80,7 @@ class ItemsController < ApplicationController
     @category_parent = @category_child.parent
     @category_items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).limit(6)
     @comment = Comment.new
-    @comments = @item.comments.includes(:user)
+    @comments = @item.comments.order(created_at: :desc)
   end
   
   def purchase

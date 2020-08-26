@@ -155,7 +155,13 @@ $(document).on("change", "#category_form", function(){
       dataType: 'json'
     })
       .done(function (data) {
+        //親カテゴリ欄が修正された場合は、子カテゴリ孫カテゴリの欄を削除
         $(".child_category_id").remove();
+        $(".gc_category_id").remove();
+        //ブランド欄をクリア
+        $("#brands_matched").empty();
+        $("#brand_name_field").val("");
+        $("#brand_select_field").val("");
         let child_select = build_childSelect
         $("#category_field").append(child_select);
         data.forEach(function(d) {
@@ -172,7 +178,6 @@ $(document).on("change", "#category_form", function(){
 $(document).on("change", ".child_category_id", function(){
   $(".gc_category_id").remove();
   let childValue = $(".child_category_id").val();
-  console.log(childValue);
   if (childValue.length != 0) {
     $.ajax({
       url: '/items/search',
@@ -195,38 +200,38 @@ $(document).on("change", ".child_category_id", function(){
 });
 
 // topページ > headerカテゴリメニュー表示機能
+$(document).on('turbolinks:load', function(){
+  $(document).ready(function() {
 
-$(document).ready(function() {
+    $(".header-categories").hover(function() {
+      $(this).addClass("active");
+      let parent = $(".active").children(".header-category-parent");
+      parent.show();
+    }, function() {
+      $(this).removeClass("active");
+      $(this).children(".header-category-parent").hide();
+    });
 
-  $(".header-categories").hover(function() {
-    $(this).addClass("active");
-    let parent = $(".active").children(".header-category-parent");
-    parent.show();
-  }, function() {
-    $(this).removeClass("active");
-    $(this).children(".header-category-parent").hide();
+    $(".header-parent-list").hover(function() {
+      $(this).addClass("active2");
+      let child = $(".active2").children(".header-category-child");
+      child.show();
+    }, function() {
+      $(this).removeClass("active2");
+      $(this).children(".header-category-child").hide();
+    });
+
+    $(".header-child-list").hover(function() {
+      $(this).addClass("active3");
+      let grandchild = $(".active3").children(".header-category-grandchild");
+      grandchild.show();
+    }, function() {
+      $(this).removeClass("active3");
+      $(this).children(".header-category-grandchild").hide();
+    });
+
   });
-
-  $(".header-parent-list").hover(function() {
-    $(this).addClass("active2");
-    let child = $(".active2").children(".header-category-child");
-    child.show();
-  }, function() {
-    $(this).removeClass("active2");
-    $(this).children(".header-category-child").hide();
-  });
-
-  $(".header-child-list").hover(function() {
-    $(this).addClass("active3");
-    let grandchild = $(".active3").children(".header-category-grandchild");
-    grandchild.show();
-  }, function() {
-    $(this).removeClass("active3");
-    $(this).children(".header-category-grandchild").hide();
-  });
-
 });
-
 // カテゴリ一覧ページ > スクロール機能
 
 $(function () {

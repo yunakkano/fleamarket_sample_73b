@@ -38,6 +38,7 @@
               %span.register-form-require 必須
               = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上の半角英数字", class: "register-field--full"
               = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "パスワード を入力"}
+              = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "文字"}
             .register-form-group
               = f.label :password_confirmation, "パスワード（再入力）"
               %span.register-form-require 必須
@@ -77,7 +78,6 @@
               %span.register-form-require 必須
               %br
               = raw sprintf(p.date_select(:birthday, {start_year: 1930, use_two_digit_numbers: true, end_year: (Time.now.year - 18),with_css_classes: true, default: Date.new(1989, 1, 1), date_separator: '%s'}),'年 ', '月 ') + '日'
-              -# = p.date_field :birthday, class: "register-field--full"
               = render partial: "devise/shared/error_message_fieldname", locals: {model: @profile, fieldname: "生年月日"}
         .l-register-content
           .register-form-group

@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
 
   def set_parents
     @parents = Category.where(ancestry: nil)
-    @all = Category.all
   end
 
   def search_params

@@ -123,3 +123,6 @@ gem 'rails-controller-testing'
 
 # For search
 gem 'ransack'
+
+#For breadcrumbs
+gem "gretel"

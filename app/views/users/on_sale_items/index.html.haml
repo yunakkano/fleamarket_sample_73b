@@ -1,4 +1,6 @@
-= render 'items/header'
+= render 'items/header_breadcrumbs'
+- breadcrumb :user_on_sale_items
+= render 'layouts/breadcrumbs'
 %main.mypage__container.clearfix
   =render partial: 'users/sidemenu', locals: {active_menu: "出品した商品 - 出品中"}
   =render partial: 'users/mypage_itemlist', locals: {active_tab: "onsale", msg:"を出品中です。", item_status: "出品中"}

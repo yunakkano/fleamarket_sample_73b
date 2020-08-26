@@ -25,6 +25,6 @@ class Items::SendingDestinationsController < ApplicationController
     end
 
     def current_item
-        @item = Item.find(params[:id])
+        @item = Item.find(params[:item_id])
     end
 end

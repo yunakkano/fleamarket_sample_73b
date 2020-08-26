@@ -26,6 +26,26 @@
       }
     }
   }
+  &__index{
+    width: 700px;
+    height: 150px;
+    margin: 0 auto;
+    padding: 10px 0 35px 0;
+    &__link{
+      float: left;
+      padding: 5px 0;
+      a{
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #2bccd1;
+        text-decoration: none;
+        touch-action: manipulation;
+      }
+    }
+    &__link::after{
+      content: '|';
+    }
+  }
   &__box {
     width: 700px; 
     margin: 0 auto;

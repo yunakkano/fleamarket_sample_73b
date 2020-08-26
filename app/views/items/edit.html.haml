@@ -3,7 +3,8 @@
     .all
       %header
         .logo
-          = image_tag "logo.png", height: "80", width: "300" 
+          = link_to root_path do
+            = image_tag "logo.png", height: "80", width: "300"
       .form-main
         - if @item.errors.any?
           .chat-group-form__errors
@@ -44,6 +45,7 @@
                     //5つのfile_fieldを準備するに当たって、足りない分を表示
                   - @item.item_imgs.length.upto(4) do |i|
                     %input{name: "item[item_imgs_attributes][#{i}][url]", id: "item_item_imgs_attributes_#{i}_url", class:"hidden-field", type:"file"}
+            = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "画像"}  
         %hr.border/
         .goods-all
           .goods
@@ -52,6 +54,7 @@
           .goods_name
             = f.text_field :name, class: "goods_name_field", placeholder: "40字まで"
             %br/
+            = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "商品名"}
           .goods_about
             %label 商品の説明
             %span.must 必須
@@ -65,13 +68,18 @@
             .category_type
 
               #category_field
-                = f.collection_select  :category_id, @all, :id, :category, {prompt: "選択してください"}, class: "select_field", id: "category_form"
+                = f.collection_select  :category_id, @parents, :id, :category, {selected: "#{@item.category.root.id}"}, class: "select_field", id: "category_form"
+                = f.collection_select  :category_id, @item.category.root.children, :id, :category, {prompt: "選択してください", selected: @item.category.parent.id}, {class: "child_category_id select_field", id: "category_form"}
+                = f.collection_select  :category_id, @item.category.parent.children, :id, :category, {prompt: "選択してください", selected: @item.category.id}, {class: "gc_category_id select_field", id: "category_form"}
+              = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "カテゴリー"}
           .brand-all
             .brand
               %label ブランド
               %span.arbitrary 任意
             .brand_type
-              = f.text_field :brand, class: "select_field", placeholder: "例）シャネル"
+              = text_field_tag "brand_name", @brand.brand, {class: "select_field", id: "brand_name_field", placeholder: "例）シャネル"}
+              %ul{id:"brands_matched", class: "brands-list"}
+              = f.text_field :brand_id, {type: "hidden", id: "brand_select_field"}
           .goods-status-all
             .goods-status
               %label 商品の状態
@@ -79,6 +87,7 @@
             .status-select
               .field
                 = f.collection_select( :item_condition_id, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "商品の状態"}
         %hr.border/
         .delivery
           %p.delivery_about
@@ -89,24 +98,28 @@
             .delivery_shipping
               .field
                 = f.collection_select( :postage_type_id, PostageType.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "配送方法"}
             .delivery_cost
               %label 配送料の負担
               %span.must 必須
             .delivery_select
               .field
                 = f.collection_select( :postage_payer_id, PostagePayer.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "配送料の負担"}
             .delivery_area
               %label 発送元の地域
               %span.must 必須
               .delivery_area_option
                 .field
                   = f.collection_select( :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください"}, {class: "select_field"})
+                  = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "都道府県"}
             .delivery_day
               %label 発送までの日数
               %span.must 必須
               .delivery_shipping
                 .field
                   = f.collection_select( :preparation_day_id, PreparationDay.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+                  = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "発送までの日数"}
         %hr.border/
         .price-all
           .price
@@ -129,6 +142,7 @@
                 .price_input_field
                   = f.number_field :price, class: "price_input_field_form"
                   %br/
+                  = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "販売価格"}
         %hr.border/
         .submit
           .submit_form
