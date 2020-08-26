@@ -651,3 +651,122 @@ Dir.glob("db/brandsdata/*.txt") {|file|
   end
   txtfile.close
 }
+
+require 'faker'
+
+users = []
+100.times do |n|
+  nickname = Faker::Name.name
+  email = Faker::Internet.email
+  password = "0000000"
+  user = User.create!(
+    nickname: nickname,
+    email: email,
+    password: password,
+    password_confirmation: password,
+  )
+  
+  users << user
+end
+
+Faker::Config.locale = :ja
+users.each do |user|
+  first_name = Faker::Name.first_name
+  family_name = Faker::Name.last_name
+  first_name_kana = 3.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) }
+  family_name_kana = 3.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) }
+  birthday = Faker::Date.birthday(min_age: 18)
+  Profile.create!(
+    first_name:       first_name,
+    family_name:      family_name,
+    first_name_kana:  first_name_kana,
+    family_name_kana: family_name_kana,
+    birthday:         birthday,
+    user_id:          user.id
+  )
+end
+
+users.each do |user|
+  dest_first_name = Faker::Name.first_name
+  dest_family_name = Faker::Name.last_name
+  dest_first_name_kana = 3.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) }
+  dest_family_name_kana = 3.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) }
+  city = Faker::Address.city
+  building_name = "テスト"
+  post_code = Faker::Number.number(digits: 7).to_s
+  prefecture_code = Faker::Number.between(from: 1, to:47).to_s
+  street_number = Faker::Address.street_address
+  phone_number = Faker::Number.number(digits: 10).to_s
+  SendingDestination.create!(
+    dest_first_name:       dest_first_name,
+    dest_family_name:      dest_family_name,
+    dest_first_name_kana:  dest_first_name_kana,
+    dest_family_name_kana: dest_family_name_kana,
+    city:             city,
+    building_name:    building_name,
+    post_code:        post_code,
+    prefecture_code:  prefecture_code,
+    street_number:    street_number,
+    phone_number:     phone_number,
+    user_id:          user.id
+  )
+end
+
+puts "Loading Items..."
+items = []
+2000.times do |i|
+  name = Faker::Company.name
+  introduction = 150.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) }
+  price = Faker::Number.between(from: 300, to:100000).to_s
+  category_id = Faker::Number.between(from: 3, to:19).to_s
+  item_condition_id = Faker::Number.between(from: 1, to:6).to_s
+  postage_payer_id  = Faker::Number.between(from: 1, to:2).to_s
+  preparation_day_id  = Faker::Number.between(from: 1, to:3).to_s
+  postage_type_id = Faker::Number.between(from: 1, to:3).to_s
+  prefecture_code = Faker::Number.between(from: 1, to:47).to_s
+  trading_status  = Faker::Number.between(from: 1, to:2).to_s
+  buyer_id = Faker::Number.between(from: 1, to:100).to_s if trading_status == '1'
+  seller_id = Faker::Number.between(from: 1, to:100).to_s
+  brand_id = Faker::Number.between(from: 1, to:5000).to_s
+
+  image_urls={}
+  num_of_imgs = Faker::Number.between(from: 1, to:5)
+  num_of_imgs.times do |num|
+    pic_num = Faker::Number.between(from: 0, to:20).to_s
+    Dir.glob("db/random_pictures/#{pic_num}.*") {|targetfile|
+      open(targetfile, :allow_redirections => :safe) do |file|
+        # 一時的にテンポラリーファイルを作る必要があった。
+        filename=DateTime.now.strftime('%Y%m%d%H%M%S') + ".jpg"
+        temp_img_file = Tempfile.new(filename)
+        temp_img_file.binmode
+        temp_img_file << file.read
+        temp_img_file.rewind
+        # UploadedFileもしくはCarrierWave::Uploader::Base形式にする必要がある。
+        uploaded_file = ActionDispatch::Http::UploadedFile.new(
+          filename: filename,
+          type: "image/jpeg",
+          headers: "Content-Disposition: form-data; name=\"item[item_imgs_attributes][#{num - 1}][url]\"; filename=\"#{targetfile}\"\r\nContent-Type: image/jpeg\r\n",
+          tempfile: temp_img_file
+        )
+        image_urls[num.to_s]= {"url": uploaded_file}
+      end
+    }
+  end
+  item = Item.create!(
+    name: name,
+    introduction: introduction,
+    price: price,
+    category_id: category_id,
+    item_condition_id: item_condition_id,
+    postage_payer_id: postage_payer_id,
+    preparation_day_id: preparation_day_id,
+    postage_type_id: postage_type_id,
+    prefecture_code: prefecture_code,
+    trading_status: trading_status,
+    buyer_id: buyer_id,
+    seller_id: seller_id,
+    brand_id: brand_id,
+    item_imgs_attributes: image_urls
+  )
+end
+puts "done."
