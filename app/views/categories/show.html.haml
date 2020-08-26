@@ -1,0 +1,24 @@
+= render 'items/header_breadcrumbs'
+- if @category.root?
+  - breadcrumb :parent_category
+- elsif @category.has_children?
+  - breadcrumb :child_category
+- else
+  - breadcrumb :grandchild_category
+= render 'layouts/breadcrumbs'
+.products-container
+  .products-index
+    .products-title
+      = "#{@category.category}の商品一覧"
+    - if @items
+      .main
+        .product
+          .productBox
+            = render "items/category", items: @items
+
+    -# ページネーション（def showのper(9)部分）
+    .products-paginate
+      = paginate(@items)
+
+= render 'items/bottom_dl'
+= render 'items/footer'

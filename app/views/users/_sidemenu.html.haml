@@ -1,0 +1,14 @@
+.mypage__side
+  %nav.mypage__nav
+    - sidemenu(active_menu).each do |head, menu_items|
+      %h3.mypage__nav__head
+        = head
+      - menu_items.each do |menu_item|
+        %ul.mypage__nav__list
+          %li
+            = link_to eval(menu_item[:path]), method: menu_item[:method] , class: menu_item[:class] do
+              = menu_item[:title]
+              -if menu_item[:value]
+                %span.mypage-nav-number
+                  = menu_item[:value]
+              %i.icon-arrow-right

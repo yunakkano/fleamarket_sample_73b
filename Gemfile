@@ -15,7 +15,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+# Without mini_racer, the app does not startup
+gem 'mini_racer'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -55,8 +56,72 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'rspec'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+
+# For automatic deployment
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+end
+
+# For User account management
+gem 'devise'
+# For front-end
+gem 'haml-rails'
+gem 'font-awesome-sass'
+# For image data handling
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+
+# For creating sending_destination
+gem 'pry-rails'
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+gem 'active_hash'
+gem 'jp_prefecture'
+
+# For category to have tree-structure
+gem 'ancestry'
+
+# For PageNation
+gem 'kaminari'
+
+# For payjp
+gem 'payjp'
+gem 'dotenv-rails'
+
+# For stylish image presentation on 'item details' page
+gem 'owlcarousel-rails'
+
+# To reduce redundant category queries
+gem 'redis'
+gem 'redis-rails'
+
+# For Oauth sign up
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+
+#For test
+gem 'rails-controller-testing'
+
+# For dummy data generation
+gem 'faker'
+#For breadcrumbs
+gem "gretel"

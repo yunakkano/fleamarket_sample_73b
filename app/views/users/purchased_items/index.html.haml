@@ -1,0 +1,11 @@
+= render 'items/header_breadcrumbs'
+- breadcrumb :purchased_items
+= render 'layouts/breadcrumbs'
+%main.mypage__container.clearfix
+  =render partial: 'users/sidemenu', locals: {active_menu: "購入した商品 - 過去の取引"}
+  =render partial: 'users/mypage_itemlist', locals: {active_tab: "purchased", msg:"を購入しました。", item_status: "取引完了"}
+
+= render 'items/appbanner'
+-# footerの部分テンプレート呼び出し
+= render 'items/footer'
+= render 'items/camerabutton'

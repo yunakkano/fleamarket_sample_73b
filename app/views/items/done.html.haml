@@ -1,0 +1,11 @@
+.purchase
+  .purchase__header
+    .purchase__header__logo
+      = link_to root_path ,method: :get,class:"purchase__header__logo__link" do
+        = image_tag src="logo.png", size: "170x50"
+.register-container
+  %main.register-main
+    %h2.l-single-head.done-purchase 購入が完了しました！
+    .register-complete
+      = link_to "トップへ戻る", root_path, class: "register-backto-top"
+  = render 'items/purchase_footer'

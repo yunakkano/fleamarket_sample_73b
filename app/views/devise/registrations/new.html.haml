@@ -1,0 +1,84 @@
+%body
+.register-container
+  %header.register-header
+    %h1
+      = link_to root_path do
+        = image_tag asset_path("logo/logo.png"), alt: "furima"
+    %nav.progress-bar.signup-bar
+      %ol.clearfix
+        %li.active
+          会員情報
+          .progress-status
+        %li
+          会員プロフィール
+          .progress-status
+        %li
+          完了
+          .progress-status
+  %main.register-main
+    %section.l-register-container
+      %h2.l-single-head.registration 会員情報入力
+      = form_for( @user, as: resource_name, url: registration_path(resource_name), html:{class: "l-registration-inner"})  do |f|
+        .l-register-content
+          .register-form-group
+            = f.label :nickname, "ニックネーム"
+            %span.register-form-require 必須
+            = f.text_field :nickname, placeholder: "例) 峰フリマ子", class: "register-field--full"
+            = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "ニックネーム"}
+          .register-form-group
+            = f.label :email, "メールアドレス"
+            %span.register-form-require 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "register-field--full"
+            = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "メールアドレス"}
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
+            .register-form-group
+              = f.label :password, "パスワード"
+              %span.register-form-require 必須
+              = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上の半角英数字", class: "register-field--full"
+              = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "パスワード を入力"}
+              = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "文字"}
+            .register-form-group
+              = f.label :password_confirmation, "パスワード（再入力）"
+              %span.register-form-require 必須
+              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度入力してください", class: "register-field--full"
+              = render partial: "devise/shared/error_message_fieldname", locals: {model: @user, fieldname: "パスワード（確認用）"}
+              %p.register-form-info-text
+                ※ 英字と数字の両方を含めて設定してください
+              .form-password-revelation-toggle
+                .checkbox-default
+                  %input#reveal_password{type: "checkbox"}/
+                  %i.icon-check
+                  %label{for: "reveal_password"} パスワードを表示する
+                .form-password-revelation-revealed-password-container
+                  %span.form-password-revelation-revealed-password
+          .register-form-group
+            %h3.text-left.l-chapter-subhead 本人確認
+            %p.l-single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          = f.fields_for @profile do |p|
+            .register-form-group
+              = p.label :family_name, "お名前（全角）"
+              %span.register-form-require 必須
+              .register-form-double-fileds
+                = p.text_field :family_name, placeholder: "例) 山田" , class: "register-field--half"
+                = p.text_field :first_name, placeholder: "例) タマ子", class: "register-field--half"
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @profile, fieldname: "姓 "}
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @profile, fieldname: "名前 "}
+            .register-form-group
+              = p.label :family_name_kana, "お名前（全角かな）"
+              %span.register-form-require 必須
+              .register-form-double-fileds
+                = p.text_field :family_name_kana, placeholder: "例) やまだ" , class: "register-field--half"
+                = p.text_field :first_name_kana, placeholder: "例) たまこ" , class: "register-field--half"
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @profile, fieldname: "姓（かな）"}
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @profile, fieldname: "名前（かな）"}
+            .register-form-group
+              = p.label :birthday, "生年月日"
+              %span.register-form-require 必須
+              %br
+              = raw sprintf(p.date_select(:birthday, {start_year: 1930, use_two_digit_numbers: true, end_year: (Time.now.year - 18),with_css_classes: true, default: Date.new(1989, 1, 1), date_separator: '%s'}),'年 ', '月 ') + '日'
+              = render partial: "devise/shared/error_message_fieldname", locals: {model: @profile, fieldname: "生年月日"}
+        .l-register-content
+          .register-form-group
+            = f.button "次へ進む", class: "register-btn register-btn-cian"

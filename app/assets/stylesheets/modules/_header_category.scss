@@ -1,0 +1,90 @@
+@mixin hover_behavior($hover_fontColor, $hover_backgroundColor) {
+  color: $hover_fontColor;
+  background-color: $hover_backgroundColor;
+}
+
+.active {
+  display: block;
+}
+
+.active2 {
+  display: block;
+}
+
+.active3 {
+  display: block;
+}
+
+.header-category-list {
+  position: absolute;
+  background-color: $white;
+  z-index: 2;
+}
+
+.header-categories {
+  .catBtn {
+    font-weight: bold;
+  }
+  .header-category-parent {
+    display: none;
+    border-right: 2px solid $lightgray;
+    border-left: 2px solid #EEEEEE;
+    border-bottom: 2px solid #CCCCCC;
+    // カテゴリーへのリンクと、カテゴリドロップダウンの間に隙間を作らないよう修正
+    top: 95px;
+    height: calc(40 * 13px);
+    &--name {
+      width: 100%;
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+    #header-category-parent--hover {
+      &:hover {
+        @include hover_behavior($white, $blue);
+      }
+    }
+    li {
+      .header-category-child {
+        display: none;
+        border-right: 2px solid $lightgray;
+        border-bottom: 2px solid #CCCCCC;
+        height: calc(40 * 13px);
+        width: 100%;
+        top: 0;
+        left: 222px;
+        &--name {
+          width: 100%;
+          display: inline-block;
+          padding: 5px 0 0 15px;
+          font-size: 12px;
+          letter-spacing: 2px;
+          &:hover {
+            width: 285px;
+            @include hover_behavior($white, $lightgray);
+          }
+        }
+        li {
+          .header-category-grandchild {
+            display: none;
+            border-right: 2px solid #EEEEEE;
+            border-left: 2px solid #EEEEEE;
+            border-bottom: 2px solid #CCCCCC;
+            width: 300px;
+            height: calc(25 * 29px);
+            top: 0;
+            left: 220px;
+            z-index: 1;
+          }          
+        }
+      }
+      .header-category-child a:hover {
+        color: $blue;
+      } 
+    }
+  }
+  .header-category-parent a:hover {
+    color: $white;
+  }
+}

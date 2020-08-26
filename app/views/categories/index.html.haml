@@ -1,0 +1,36 @@
+= render 'items/header_breadcrumbs'
+- breadcrumb :category
+= render 'layouts/breadcrumbs'
+.categories_container
+  .categories_container__top
+    .categories_container__top--title
+      %p カテゴリー一覧
+    - @parents.each_with_index do |parent, i|
+      = link_to "##{i}", class: "categories_container__top--link" do
+        = parent.category
+
+  .categories_container__box
+    %ul.categories_parents
+      - @parents.each_with_index do |parent, i|
+        %li.categories_parents--title{id: "#{i}"}
+          .categories_parents--link
+            = parent.category
+
+        .childCategory_area
+          = link_to category_path(parent), class: "parent-all" do
+            すべて
+          %ul.categories_children
+            - parent.children.each do |child|
+              %li.categories_children--title
+                = child.category
+
+              .grandchildCategory_area
+                = link_to category_path(child), class: "child-all" do
+                  すべて
+                %ul.categories_grandchild
+                  - child.children.each do |grandchild|
+                    %li.categories_grandchild--title
+                      = link_to "#{grandchild.category}", category_path(grandchild), class: "categories_grandchild--link"
+
+= render 'items/bottom_dl'
+= render 'items/footer'

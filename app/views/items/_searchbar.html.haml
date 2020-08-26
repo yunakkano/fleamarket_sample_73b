@@ -1,0 +1,8 @@
+= form_with(url: items_searches_path, local: true, method: :get) do |f|
+  -# = f.text_field :state, class: 'search__input', placeholder: 'キーワードから探す'
+  %input.search__input{name: "keyword", placeholder: 'キーワードから探す'}
+  %button{type: 'submit'}
+    .icon
+      = image_tag 'icon/icon-search 1.png', class: 'icon-image'
+    %input{type: 'hidden'}
+    -# = f.submit 'POST'

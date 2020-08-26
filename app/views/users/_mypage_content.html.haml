@@ -1,0 +1,84 @@
+.mypage__content
+  = render 'mypage_user-icon'
+  = render partial: 'users/mypage_tab-title', locals: {title: "購入した商品"}
+  %section.mypage__tab-container
+    %ul.mypage__tabs
+      %li.active
+        %h3
+          = link_to user_purchased_items_path(current_user.id), method: :get do
+            出品中
+      %li
+        %h3
+    .mypage__tab-content
+      %ul.mypage__item-list--active
+        - if @onsale_items.length == 0
+          %li.mypage__tab-content_no-item
+            該当する商品がありません
+        - else
+          - @onsale_items.each do |item|
+            %li
+              = link_to item_path(item.id), method: :get , class: "mypage__item-link" do
+                %figure
+                  = image_tag item.item_imgs[0].url.url, alt: '', height: '50', width: '20', class: 'lazyloaded'
+                .mypage__item-body
+                  .mypage__item-body__text
+                    = "「#{item.name}」 を出品中です。"
+                  .mypage-item-status.bold.done
+                    出品中
+                %i.icon-arrow-right
+          %li.mypage__go-list
+            = link_to "一覧を見る", user_on_sale_items_path(current_user.id), method: :get
+  %section.mypage__tab-container
+    %ul.mypage__tabs
+      %li.active
+        %h3
+          = link_to user_purchased_items_path(current_user.id), method: :get do
+            売却済み
+      %li
+        %h3
+    .mypage__tab-content
+      %ul.mypage__item-list--active
+        - if @sold_items.length == 0
+          %li.mypage__tab-content_no-item
+            該当する商品がありません
+        - else
+          - @sold_items.each do |item|
+            %li
+              = link_to item_path(item.id), method: :get , class: "mypage__item-link" do
+                %figure
+                  = image_tag item.item_imgs[0].url.url, alt: '', height: '50', width: '20', class: 'lazyloaded'
+                .mypage__item-body
+                  .mypage__item-body__text
+                    = "「#{item.name}」 を売却しました。"
+                  .mypage-item-status.bold.done
+                    売却済
+                %i.icon-arrow-right
+          %li.mypage__go-list
+            = link_to "一覧を見る", user_on_sale_items_path(current_user.id), method: :get
+  %section.mypage__tab-container
+    %ul.mypage__tabs
+      %li.active
+        %h3
+          = link_to user_purchased_items_path(current_user.id), method: :get do
+            過去の取引
+      %li
+        %h3
+    .mypage__tab-content
+      %ul.mypage__item-list--active
+        - if @purchased_items.length == 0
+          %li.mypage__tab-content_no-item
+            該当する商品がありません
+        - else
+          - @purchased_items.each do |item|
+            %li
+              = link_to item_path(item.id), method: :get , class: "mypage__item-link" do
+                %figure
+                  = image_tag item.item_imgs[0].url.url, alt: '', height: '50', width: '20', class: 'lazyloaded'
+                .mypage__item-body
+                  .mypage__item-body__text
+                    = "「#{item.name}」 を購入しました。"
+                  .mypage-item-status.bold.done
+                    購入済み
+                %i.icon-arrow-right
+          %li.mypage__go-list
+            = link_to "一覧を見る", user_purchased_items_path(current_user.id), method: :get

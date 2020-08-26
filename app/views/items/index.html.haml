@@ -1,0 +1,112 @@
+-# headerの部分テンプレート呼び出し
+= render 'header'
+.main
+  .visual
+    .visualBox
+      %h2.visualBox__title
+        人生を変えるフリマアプリ
+      %p.visualBox__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .visualBox__btn
+        =link_to '#', class: 'aBtn' do
+          = image_tag 'download/aBtn.png', class: 'downloadBtn'
+        =link_to '#', class: 'gBtn' do
+          = image_tag 'download/bBtn.png', class: 'downloadBtn'
+  .intro
+    %h2.subtitle
+      FURIMAが選ばれる3つの理由
+    %ul.introList
+      %li.introList__item
+        .introList__item__pict
+          %span.number 1
+          = image_tag 'pict/pict-reason-01.jpg', class: 'pict-reason'
+        %h3.introList__item__text
+          %span 3分
+          ですぐに出品
+        %p.introList__item__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.introList__item
+        .introList__item__pict
+          %span.number 2
+          = image_tag 'pict/pict-reason-02.jpg', class: 'pict-reason'
+        %h3.introList__item__text
+          %span シンプル
+          で使いやすい
+        %p.introList__item__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.introList__item.introList__item--last
+        .introList__item__pict
+          %span.number 3
+          = image_tag 'pict/pict-reason-03.jpg', class: 'pict-reason'
+        %h3.introList__item__text
+          %span 手数料
+          業界最安
+        %p.introList__item__description
+          最大3%でお得に出品&購入！
+  .topDl
+    .topDlBox
+      %h2.topDlBox__title
+        会員数日本一位
+      %p.topDlBox__text
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .topDlBox__btn
+        =link_to '#', class: 'aBtn' do
+          = image_tag 'download/aBtn.png', class: 'downloadBtn'
+        =link_to '#', class: 'gBtn' do
+          = image_tag 'download/bBtn.png', class: 'downloadBtn'
+  .feature
+    %h2.subtitle
+      FURIMAの特徴
+    .featureList
+      .featureList__item
+        %figure.featureList__item__pict
+          = image_tag 'icon/icon-01.png', class: 'pict-reason'
+        %h3.featureList__item__text
+          簡単に売り買いできる
+        %p.featureList__item__description
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .featureList__item
+        %figure.featureList__item__pict
+          = image_tag 'icon/icon-03.png', class: 'pict-reason'
+        %h3.featureList__item__text
+          売上金は即日振込みに対応
+        %p.featureList__item__description
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      .featureList__item
+        %figure.featureList__item__pict
+          = image_tag 'icon/icon-04.png', class: 'pict-reason'
+        %h3.featureList__item__text
+          様々な支払いに対応
+        %p.featureList__item__description
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  .product#product
+    %h2.subtitle 
+      NEW ITEMS
+    .productBox
+      .productHead
+        = link_to '#' do
+          %h3.title
+            新着アイテム
+      -# 新着商品リストの部分テンプレート呼び出し
+      = render 'category'
+  .product#last-product
+    %h2.subtitle 
+      RANKING
+    .productBox
+      .productHead
+        =link_to '#' do
+          %h3.title
+            人気ランキング
+      -# 人気商品リストの部分テンプレート呼び出し
+      = render 'brand'
+  -# ページ下部ダウンロードの部分テンプレート呼び出し
+  = render 'bottom_dl'
+-# footerの部分テンプレート呼び出し
+= render 'footer'
+= render 'camerabutton'

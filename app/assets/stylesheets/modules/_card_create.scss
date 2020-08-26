@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.customer-card{
+  background-color: white;
+  text-align: left;
+  &__content{
+    float: left;
+    &__number{  
+    }
+    &__expired{  
+    }
+    &__item{ 
+      &__link{
+        text-decoration: none;
+        color: deepskyblue;
+      }
+    }
+  }
+  &__delete{  
+    float: right;
+    margin-top: -30px;
+    &__link{
+      text-decoration: none;
+      color: deepskyblue;
+    }
+  }
+}

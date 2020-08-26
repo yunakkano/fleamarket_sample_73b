@@ -1,0 +1,61 @@
+.purchase
+  .purchase__header
+    .purchase__header__logo
+      = link_to root_path ,method: :get,class:"purchase__header__logo__link" do
+        = image_tag src="logo.png", size: "170x50"
+  .purchase__body
+    .purchase__body__title
+      購入内容の確認
+    .purchase__body__item
+      .purchase__body__item__img
+        = image_tag("#{@item.item_imgs[0].url}", size: "80x80")
+      .purchase__body__item__right
+        .purchase__body__item__right__name
+          = @item.name
+        %ul.purchase__body__item__right__object
+          送料込み(税込)
+          %li.purchase__body__item__right__object__price
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+    .purchase__body__price
+      .purchase__body__price__word
+        支払金額
+      .purchase__body__price__price
+        = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+    .purchase__body__way-to-pay
+      %ul.purchase__body__way-to-pay__title
+        %li
+          支払い方法
+      .purchase__body__way-to-pay__credit
+        - if @card
+          = render template: 'items/cards/create' 
+        - else
+          = link_to new_item_card_path(@item) ,method: :get,class:"purchase__body__way-to-pay__credit__link" do
+            ※登録してください
+    .purchase__body__sending-destination
+      %ul.purchase__body__sending-destination__title
+        %li
+          配送先
+        = link_to edit_item_sending_destination_path(@item.id, current_user.id), class: "purchase__body__sending-destination__title__link" do
+          変更する 〉
+        -# (以下確認中)
+        -# = form_tag(new_send_path, method: :post, id: 'charge-form',  name: "inputForm") do
+        -#   %input{ type: "hidden", name: "card_id", value: "" }
+        -#   %button 変更する
+      .purchase__body__sending-destination__location
+        -# = "#{controller: :registrations, action: :@address.post_code}"
+        -# = fields_for @address do |adr|
+        -#   = render "devise/shared/links", resource: @address
+        -# = render template: 'registrations/new_profile_address' do
+        -#   = @address.post_code
+        %p
+          = post_code_string(@sending_destination)
+        %p
+          = address_string(@sending_destination)
+        %p
+          = recipient_name(@sending_destination)
+    .purchase__body__bottom-to-buy
+      .purchase__body__bottom-to-buy__object
+        = link_to pay_item_path(@item), class: "purchase__body__bottom-to-buy__object__link", method: :post do
+          .button
+            購入する
+  = render 'purchase_footer'

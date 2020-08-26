@@ -22,9 +22,12 @@ Rails.application.configure do
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
-    config.action_controller.perform_caching = false
+    # Enable caching to see speed up
+    config.action_controller.perform_caching = true
 
     config.cache_store = :null_store
+    # redisを用いたキャッシュストア実装時に以下が必要
+    # config.cache_store = :redis_store, "redis://localhost:6379/0/cache"
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options)

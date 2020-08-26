@@ -1,0 +1,31 @@
+%body
+.register-container
+  %header.register-header
+    %h1
+      = link_to root_path do
+        = image_tag asset_path("logo/logo.png"), alt: "furima"
+  %main.register-main
+    .login-panel
+      .login-no-account
+        %p アカウントをお持ちでない方はこちら
+        = link_to '新規会員登録', new_user_path
+    .l-login-container
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .l-login-content
+          .login-form-group
+            = f.label :email, "メールアドレス"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "login-field--full"
+          .login-form-group
+            = f.label :password, "パスワード"
+            = f.password_field :password, autocomplete: "current-password", class: "login-field--full"
+        .l-login-content
+          .login-form-group
+            = f.button "ログイン", class: "login-btn login-btn-cian"
+        .l-login-content
+          .login-form-group
+            = link_to user_facebook_omniauth_authorize_path, method: :post, class: "login-btn login-btn-facebook" do
+              = icon('fab','facebook-square')
+              Facebookでログインする
+          .login-form-group
+            = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "login-btn login-btn-google" do
+              Googleでログインする

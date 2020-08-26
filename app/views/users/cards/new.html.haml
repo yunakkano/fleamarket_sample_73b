@@ -1,0 +1,9 @@
+= render 'items/header'
+%main.mypage__container.clearfix
+  =render partial: 'users/sidemenu', locals: {active_menu: "支払い方法"}
+  =render 'users/cards/creditcard_new'
+
+= render 'items/appbanner'
+-# footerの部分テンプレート呼び出し
+= render 'items/footer'
+= render 'items/camerabutton'

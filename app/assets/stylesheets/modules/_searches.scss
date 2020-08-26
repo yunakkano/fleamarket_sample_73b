@@ -1,0 +1,150 @@
+.searches_background {
+  background-color: $lightgray;
+  .searches_contents {
+    display: flex;
+    width: 1020px;
+    padding: 40px 0;
+    margin: 0 auto;
+    .searches_sidemenu_contents {
+      // background-color: bisque;
+      width: 250px;
+      margin-right: 20px;
+      .searches_form {
+        .search-sort {
+          .form-group {
+    
+          }
+        }
+        .search-dropdown-content {
+          .search_subtitle {
+    
+          }
+          .form-group {
+    
+          }
+        }
+      }
+    }
+    .searchs_main_contens {
+      width: 750px;
+      .searchs_product {
+        background-color: $lightgray;
+        .searchs_subtitle {
+          margin-bottom: 5px;
+          font-size: 28px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 1.4;
+        }
+        .searchs_productBox {
+          .searchs_productHead {
+            text-align: center;
+            margin-bottom: 15px;
+            a {
+              color: $blue;
+              font-size: 16px;
+              text-decoration: none;
+              .searchs_title {
+                font-weight: bold;
+              }
+            }
+          }
+          .searchs_productLists {
+            width: 60%;
+            // 画面幅1128pxまではwidth60%を確保、1128px以下cssは別途設定
+            min-width: 1128px;
+            margin: 0px auto;
+            display:flex;
+            flex-wrap: wrap;
+            .searchs_productList {
+              margin: 1.1%;
+              a {
+                background-color: $white;
+                display: inline-block;
+                text-decoration: none;
+              }
+              &__img {
+                height: 150px;
+                width: 200px;
+                margin: 0;
+                overflow: hidden;
+                position: relative;
+                z-index: auto;
+                img {
+                  height: 100%;
+                  width: 100%;
+                  position: absolute;
+                  top: 0px;
+                  right: 0px;
+                  bottom: 0px;
+                  left: 0px;
+                  object-fit: cover;
+                }
+                .searchs_productSold {
+                  top: 0;
+                  left: 0;
+                  border-bottom: 70px solid transparent;
+                  border-left: 70px solid #ea352d;
+                  position: absolute;
+                  z-index: 100;
+                  &__inner {
+                    font-weight: bold;
+                    display: block;
+                    top: 12px;
+                    left: -68px;
+                    transform: rotate(-45deg);
+                    color: $white;
+                    position: absolute;
+                    z-index: 101;
+                  }
+                }
+              }
+              &__content {
+                padding: 15px;
+                background-color: $white;
+                color: $black;
+                .searchs_name {
+                  font-size: 15px;
+                  line-height: 1.8;
+                  text-align: left;
+                  overflow: hidden;
+                }
+                .searchs_productDetails {
+                  font-size: 15px;
+                  ul {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    li {
+                      .searchs_top-grade {
+                        display: flex;
+                        align-items: center;
+                        &__likeIcon {
+                          font-size: 14px;
+                          display: inline-block;
+                          color: gray;
+                        }
+                        &__favCnt {
+                          display: inline-block;
+                          margin-left: 5px;
+                          font-size: 13px;
+                        }
+                      }
+                    }
+                  }
+                }
+                p {
+                  font-size: 10px;
+                  text-align: left;
+                }          
+              }
+            }
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+= form_for @item, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
+  .superall
+    .all
+      %header
+        .logo
+          = link_to root_path do
+            = image_tag "logo.png", height: "80", width: "300" 
+      .form-main
+        .goods-photo
+          #image-box
+            .goods-photo_about
+              %label 出品画像
+              %span.must 必須
+              %p 最大5枚までアップロードできます
+              .post__drop__box__container
+                .prev-content
+                .label-content
+                  %label{for: "item_item_imgs_attributes_0_url", class: "label-box", id: "label-box--0"}
+                    %pre.label-box__text-visible クリックしてファイルをアップロード
+                .hidden-content
+                  = f.fields_for :item_imgs do |i|
+                    = i.file_field :item_img, class: "hidden-field", id: "item_item_imgs_attributes_0_url", name: "item[item_imgs_attributes][0][url]"
+                    %input{class:"hidden-field", type: "file", name: "item[item_imgs_attributes][1][url]", id: "item_item_imgs_attributes_1_url" }
+                    %input{class:"hidden-field", type: "file", name: "item[item_imgs_attributes][2][url]", id: "item_item_imgs_attributes_2_url" }
+                    %input{class:"hidden-field", type: "file", name: "item[item_imgs_attributes][3][url]", id: "item_item_imgs_attributes_3_url" }
+                    %input{class:"hidden-field", type: "file", name: "item[item_imgs_attributes][4][url]", id: "item_item_imgs_attributes_4_url" }
+              = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "画像"}
+        %hr.border/
+        .goods-all
+          .goods
+            %label 商品名
+            %span.must 必須
+          .goods_name
+            = f.text_field :name, class: "goods_name_field", placeholder: "40字まで"
+            %br/
+            = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "商品名"}
+          .goods_about
+            %label 商品の説明
+            %span.must 必須
+          = f.text_area :introduction, class: "goods_introduction_field", placeholder: "商品の説明（必須 1,000文字以内）(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        %hr.border/
+        .details
+          %p.detail 商品の詳細
+          .category
+            %label カテゴリー
+            %span.must 必須
+          .category_type
+
+            #category_field
+              = f.collection_select  :category_id, @parents, :id, :category, {prompt: "選択してください"}, class: "select_field", id: "category_form"
+            -# ----------------------------------------
+            = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "カテゴリー"}
+          .brand-all
+            .brand
+              %label ブランド
+              %span.arbitrary 任意
+            .brand_type
+              = text_field_tag "brand_name", "", {class: "select_field", id: "brand_name_field", placeholder: "例）シャネル"}
+              %ul{id:"brands_matched", class: "brands-list"}
+              = f.text_field :brand_id, {type: "hidden", id: "brand_select_field"}
+          .goods-status-all
+            .goods-status
+              %label 商品の状態
+              %span.must 必須
+            .status-select
+              .field
+                = f.collection_select( :item_condition_id, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "商品の状態"}
+        %hr.border/
+        .delivery
+          %p.delivery_about
+            配送について
+            .delivery_how
+              %label 配送方法
+              %span.must 必須
+            .delivery_shipping
+              .field
+                = f.collection_select( :postage_type_id, PostageType.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "配送方法"}
+            .delivery_cost
+              %label 配送料の負担
+              %span.must 必須
+            .delivery_select
+              .field
+                = f.collection_select( :postage_payer_id, PostagePayer.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+                = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "配送料の負担"}
+            .delivery_area
+              %label 発送元の地域
+              %span.must 必須
+              .delivery_area_option
+                .field
+                  = f.collection_select( :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください"}, {class: "select_field"})
+                  = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "都道府県"}
+            .delivery_day
+              %label 発送までの日数
+              %span.must 必須
+              .delivery_shipping
+                .field
+                  = f.collection_select( :preparation_day_id, PreparationDay.all, :id, :name, {prompt: "選択してください"}, {class: "select_field"})
+                  = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "発送までの日数"}
+        %hr.border/
+        .price-all
+          .price
+            %p.price_about
+              価格（¥
+              / 
+              300
+              / 
+              〜
+              / 
+              9,999,999
+              / 
+              ）
+            .price_write
+              .price_write_selling
+                %label 販売価格
+                %span.must 必須
+              .price_input
+                %span.price_logo ¥
+                .price_input_field
+                  = f.number_field :price, class: "price_input_field_form"
+                  %br/
+                  = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "販売価格"}
+        %hr.border/
+        .submit
+          .submit_form
+            = f.submit class: "submit_form_field", value: "出品する"
+      %footer 規約

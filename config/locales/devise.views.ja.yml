@@ -1,0 +1,206 @@
+ja:
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m/%d"
+      long: "%Y年%m月%d日(%a)"
+    day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
+    abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
+    month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    order:
+      - :year
+      - :month
+      - :day
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%y/%m/%d %H:%M"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
+    am: "午前"
+    pm: "午後"
+  activerecord:
+    attributes:
+      user:
+        current_password: "現在のパスワード"
+        email: "メールアドレス"
+        password: "パスワード"
+        nickname: "ニックネーム"
+        password_confirmation: "パスワード（確認用）"
+        remember_me: "ログインを記憶"
+      profile:
+        family_name: "姓"
+        first_name: "名前"
+        family_name_kana: "姓（かな）"
+        first_name_kana: "名前（かな）"
+        birthday: "生年月日"
+      sending_destination:
+        dest_family_name: "姓"
+        dest_first_name: "名前"
+        dest_family_name_kana: "姓（かな）"
+        dest_first_name_kana: "名前（かな）"
+        city: "市区町村名"
+        building_name: "マンション・ビル名"
+        post_code: "郵便番号"
+        prefecture_code: "都道府県"
+        street_number: "番地"
+        phone_number: "電話番号"
+      item:
+        name: "商品名"
+        item_imgs: "出品画像"
+        introduction: "商品の説明"
+        price: "販売価格"
+        category_id: "カテゴリー"
+        brand_id: "ブランド"
+        item_condition_id: "商品の状態"
+        postage_payer_id: "配送料の負担"
+        preparation_day_id: "発送までの日数"
+        postage_type_id: "配送方法"
+        prefecture_code: "都道府県"
+      item_img:
+        url: "出品画像"
+    models:
+      user: "会員情報"
+      profile: "本人確認情報"
+      sending_destination: "会員住所"
+      item: "商品"
+      item_img: "商品画像"
+    
+    errors:
+      messages:
+        record_invalid: "不正なデータです"
+      models:
+        user:
+          attributes:
+            nickname:
+              blank: "を入力してください"
+            email:
+              blank: "を入力してください"
+              taken: "はすでに存在します"
+            current_password:
+              blank: "を入力してください"
+            password:
+              blank: "を入力してください"
+              too_short: "は最低%{count}文字以上必要です"
+            password_confirmation:
+              confirmation: "を入力してください"
+        profile:
+          attributes:
+            family_name:
+              blank: "を入力してください"
+            first_name:
+              blank: "を入力してください"
+            family_name_kana:
+              blank: "を入力してください"
+            first_name_kana:
+              blank: "を入力してください"
+            birthday:
+              blank: "を入力してください"
+        sending_destination:
+          attributes:
+            dest_family_name:
+              blank: "を入力してください"
+            dest_first_name:
+              blank: "を入力してください"
+            dest_family_name_kana:
+              blank: "を入力してください"
+            dest_first_name_kana:
+              blank: "を入力してください"
+            city:
+              blank: "を入力してください"
+            post_code:
+              blank: "を入力してください"
+            prefecture_code:
+              blank: "を入力してください"
+            street_number:
+              blank: "を入力してください"
+            phone_number:
+              blank: "を入力してください"
+        item:
+          attributes:
+            item_imgs:
+              blank: "を選択してください"
+              too_short: "を選択してください"
+            name:
+              blank: "を入力してください"
+              too_long: "商品名は40字以内で書いてください"
+            introduction:
+              blank: "を入力してください"
+              too_long: "商品紹介は1000文字以内で書いてください"
+            category_id:
+              blank: "を選択してください"
+            item_condition_id:
+              blank: "を選択してください"
+            postage_type_id:
+              blank: "を選択してください"
+            postage_payer_id:
+              blank: "を選択してください"
+            prefecture_code:
+              blank: "を選択してください"
+            preparation_day_id:
+              blank: "を選択してください"
+            price:
+              blank: "を入力してください"
+        sns_credential:
+          attributes:
+            provider:
+              blank: "が取得できませんでした"
+            uid:
+              blank: "が取得できませんでした"
+              taken: "はすでに登録されています"
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: "アカウント確認メール再送"
+    mailer:
+      confirmation_instructions:
+        action: "アカウント確認"
+        greeting: "ようこそ、%{recipient}さん!"
+        instruction: "次のリンクでメールアドレスの確認が完了します:"
+      reset_password_instructions:
+        action: "パスワード変更"
+        greeting: "こんにちは、%{recipient}さん!"
+        instruction: "誰かがパスワードの再設定を希望しました。次のリンクでパスワードの再設定が出来ます。"
+        instruction_2: "あなたが希望したのではないのなら、このメールは無視してください。"
+        instruction_3: "上のリンクにアクセスして新しいパスワードを設定するまで、パスワードは変更されません。"
+      unlock_instructions:
+        action: "アカウントのロック解除"
+        greeting: "こんにちは、%{recipient}さん!"
+        instruction: "アカウントのロックを解除するには下のリンクをクリックしてください。"
+        message: "ログイン失敗が繰り返されたため、アカウントはロックされています。"
+    passwords:
+      edit:
+        change_my_password: "パスワードを変更する"
+        change_your_password: "パスワードを変更"
+        confirm_new_password: "確認用新しいパスワード"
+        new_password: "新しいパスワード"
+      new:
+        forgot_your_password: "パスワードを忘れましたか?"
+        send_me_reset_password_instructions: "パスワードの再設定方法を送信する"
+    registrations:
+      edit:
+        are_you_sure: "本当に良いですか?"
+        cancel_my_account: "アカウント削除"
+        currently_waiting_confirmation_for_email: "%{email} の確認待ち"
+        leave_blank_if_you_don_t_want_to_change_it: "空欄のままなら変更しません"
+        title: "%{resource}編集"
+        unhappy: "気に入りません"
+        update: "更新"
+        we_need_your_current_password_to_confirm_your_changes: "変更を反映するには現在のパスワードを入力してください"
+      new:
+        sign_up: "アカウント登録"
+    sessions:
+      new:
+        sign_in: "ログイン"
+    shared:
+      links:
+        back: "戻る"
+        didn_t_receive_confirmation_instructions: "アカウント確認のメールを受け取っていませんか?"
+        didn_t_receive_unlock_instructions: "アカウントの凍結解除方法のメールを受け取っていませんか?"
+        forgot_your_password: "パスワードを忘れましたか?"
+        sign_in: "ログイン"
+        sign_in_with_provider: "%{provider}でログイン"
+        sign_up: "アカウント登録"
+    unlocks:
+      new:
+        resend_unlock_instructions: "アカウントの凍結解除方法を再送する"

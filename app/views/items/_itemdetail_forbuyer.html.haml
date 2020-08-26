@@ -1,0 +1,166 @@
+%main.itemdetail-background
+  .itemdetail
+    %h1.itemdetail--name
+      = @item.name
+    .itemdetail__content
+      .itemdetail__content__photo
+        .owl-carousel.owl-theme.owl-loaded.owl-drag.item-photo-container
+          - for i in 0..(@item.item_imgs.size - 1)
+            .item-photo
+              = link_to "#{@item.item_imgs[i].url.url}", class: "luminous" do
+                = image_tag @item.item_imgs[i].url.url
+        %ul#slide-control-box
+          - for i in 0..(@item.item_imgs.size - 1)
+            %li.owl-dot
+              = image_tag @item.item_imgs[i].url.url, class: "slide-images"
+      %table.itemdetail__content__table
+        %tbody.itemdetail__content__table__body
+          %tr
+            %th 出品者
+            %td
+              = link_to user_path(@seller.id), method: :get do
+                = @seller.nickname 
+              %div
+                .item-user-ratings
+                  = icon('far', 'smile', class: "icon-good")
+                  %span 8
+                .item-user-ratings
+                  = icon('far', 'frown', class: "icon-bad")
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td
+              = link_to category_path(@category_parent), method: "get" do
+                %div
+                  = @category_parent.category
+              = link_to category_path(@category_child), method: "get" do
+                .item-detail-table-category
+                  = icon('fas','caret-right', class: 'icon-arrow-right')
+                  = @category_child.category
+              = link_to category_path(@category_grandchild), method: "get" do
+                .item-detail-table-category
+                  = icon('fas','caret-right', class: 'icon-arrow-right')
+                  = @category_grandchild.category
+          - if @brand
+            %tr
+              %th ブランド
+              %td
+                = link_to brand_path(@brand), method: "get" do
+                  %div
+                    = @brand.brand
+          -# %tr
+          -#   %th 商品のサイズ
+          -#   %td L
+          %tr
+            %th 商品の状態
+            %td
+              = @item_condition.name
+          %tr
+            %th 配送料の負担
+            %td
+              = @postage_payer.name
+          %tr
+            %th 配送の方法
+            %td
+              = @postage_type.name
+          %tr
+            %th 配送元地域
+            %td
+              = @prefecture.name
+          %tr
+            %th 発送日の目安
+            %td
+              = @preparation_day.name
+    .itemdetail__pricebox
+      .itemdetail__pricebox__price
+        = "#{@item.price.to_s(:delimited, delimiter: ',')}円"
+      .itemdetail__pricebox__tax （税込）
+      .itemdetail__pricebox__shippingfee
+        - if @postage_payer.name == '送料込み(出品者負担)'
+          送料込み
+        - else
+          送料別途
+    -if @item.trading_status == 0
+      = link_to "購入画面に進む", purchase_item_path(@item.id), method: "get", class: "itemdetail__buy-button"
+    - else
+      .itemdetail__sold 売り切れました
+    .itemdetail__description
+      %p.itemdetail__description__inner
+        = @item.introduction
+    .itemdetail__buttons
+      .itemdetail__buttons__left
+        .favorites_btn{id: "favorites_btn_#{@item.id}"}
+          = render 'favorites/favorite', item: @item
+      .itemdetail__buttons__right
+  .itemcomment
+    .itemcomment__box
+      .itemcomment__box__content
+        - if current_user
+          = form_with(model:[@item, @comment], class: "message-form", id: "new_comment") do |form|
+            %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = form.text_area :text, {class: "textbox"}
+            %input{type:"submit", class:"form__submit", value:"コメントする"}
+        - else
+          %strong
+            %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+        .itemcomment__box__content__comment
+          %p < コメント一覧 >
+          - if @comments
+            .itemcomment__box__content__comment__member
+            - @comments.each do |comment|
+              .itemcomment__box__content__comment__member__list
+                = comment.user.nickname
+                %strong :
+                = comment.text
+
+  .items-related
+    .items-related__group
+      %h2.items-related__group__head
+        = link_to "#{@seller.nickname}さんのその他の出品", ""
+      .items-related__group__content
+        - for i in 0..5
+          - if @seller_items[i]
+            .items-related__group__content__box
+              = link_to item_path(@seller_items[i].id) do
+                %figure.items-related__group__content__box__photo
+                  - if @seller_items[i].trading_status == 1
+                    .product-sold
+                      .product-sold__inner
+                        SOLD
+                  = image_tag @seller_items[i].item_imgs[0].url.url, class: 'items-related__group__content__box__photo__img'
+                .items-related__group__content__box__body
+                  %h3.items-related__group__content__box__body__name
+                    = @seller_items[i].name
+                  .items-related__group__content__box__body__num
+                    .items-related__group__content__box__body__num__price
+                      = "#{@seller_items[i].price.to_s(:delimited, delimiter: ',')}円"
+                    .items-related__group__content__box__body__num__like
+                      =icon('far','star', class: "like-icon-border")
+                      %span
+                        = @seller_items[i].favorites.count
+  .items-related
+    .items-related__group
+      %h2.items-related__group__head
+        = link_to "#{@category_child.category} #{@category_grandchild.category} その他の商品", ""
+      .items-related__group__content
+        - for i in 0..5
+          - if @category_items[i]
+            .items-related__group__content__box
+              = link_to item_path(@category_items[i].id) do
+                %figure.items-related__group__content__box__photo
+                  - if @category_items[i].trading_status == 1
+                    .product-sold
+                      .product-sold__inner
+                        SOLD
+                  = image_tag @category_items[i].item_imgs[0].url.url, class: 'items-related__group__content__box__photo__img'
+                .items-related__group__content__box__body
+                  %h3.items-related__group__content__box__body__name
+                    = @category_items[i].name
+                  .items-related__group__content__box__body__num
+                    .items-related__group__content__box__body__num__price
+                      = "#{@category_items[i].price.to_s(:delimited, delimiter: ',')}円"
+                    .items-related__group__content__box__body__num__like
+                      =icon('far','star', class: "like-icon-border")
+                      %span
+                        = @category_items[i].favorites.count

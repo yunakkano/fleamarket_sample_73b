@@ -1,0 +1,18 @@
+.header-categories
+  = link_to 'カテゴリー', categories_path, class: 'catBtn'
+  %ul.header-category-parent.header-category-list
+    - @parents.each do |parent|
+      - cache parent do
+        %li.header-parent-list
+          = link_to "#", class: "header-category-parent--name", id: "header-category-parent--hover" do
+            = parent.category
+          %ul.header-category-child.header-category-list
+            - parent.children.each do |child|
+              %li.header-child-list
+                = link_to "#", class: "header-category-child--name" do
+                  = child.category
+                %ul.header-category-grandchild.header-category-list
+                  - child.children.each do |grandchild|
+                    %li.header-grandchild-list
+                      = link_to "#", class: "header-category-child--name" do
+                        = grandchild.category

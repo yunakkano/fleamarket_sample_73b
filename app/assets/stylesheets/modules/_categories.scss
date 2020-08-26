@@ -1,0 +1,140 @@
+// index.html.haml
+.categories_container {
+  background-color: $lightgray;
+  &__top {
+    width: 700px; 
+    margin: 0 auto;
+    padding: 40px 0 30px 0;
+    &--title {
+      font-size: 18px;
+      font-weight: bold;
+      padding-bottom: 20px;
+    }
+    &--link {
+      font-size: 15px;
+      display: inline-block;
+      padding: 8px 30px;
+      margin: 0 10px 10px 0;
+      background-color: $white;
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+      color: $black;
+      border-radius: 3px;
+      text-decoration: none;
+      &:hover {
+        background-color: $blue;
+        color: $white;
+      }
+    }
+  }
+  &__index{
+    width: 700px;
+    height: 150px;
+    margin: 0 auto;
+    padding: 10px 0 35px 0;
+    &__link{
+      float: left;
+      padding: 5px 0;
+      a{
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #2bccd1;
+        text-decoration: none;
+        touch-action: manipulation;
+      }
+    }
+    &__link::after{
+      content: '|';
+    }
+  }
+  &__box {
+    width: 700px; 
+    margin: 0 auto;
+    padding-bottom: 20px;
+    .categories_parents {
+      &--title {
+        background-color: $blue;
+        border-radius: 4px 4px 0 0;
+        padding: 5px 0 5px 30px;
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+      &--link {
+        color: $white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .childCategory_area {
+        background-color: $white;
+        border-radius: 0 0 10px 10px;
+        margin-bottom: 40px;
+        padding: 30px 0 1px 30px;
+        .parent-all {
+          display: inline-block;
+          margin-bottom: 18px;
+          color: $linkColor;
+          text-decoration: none;
+        }
+        .categories_children {
+          &--title {
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: bold;
+          }
+          .grandchildCategory_area {
+            font-size: 15px;
+            padding-left: 20px;
+            height: 100%;
+            .child-all {
+              color: $linkColor;
+              text-decoration: none;
+              display: inline-block;
+              margin-bottom: 8px;
+              // width: calc(100% / 2);
+              // float: left;
+            }
+            .categories_grandchild {
+              margin-bottom: 20px;
+              display: flex;
+              flex-wrap: wrap;
+              &--title {
+                margin-bottom: 8px;
+                display: inline-block;
+                width: calc(100% / 2);
+                // display: flex;
+                // float: left;
+              }
+              &--link {
+                color: $linkColor;
+                text-decoration: none;
+              }
+            }
+          }
+        }   
+      } 
+    }
+  }
+}
+
+
+
+// show.html.haml
+.products-container {
+  background-color: $lightgray;
+  .products-index {
+    width: 60%;
+    // 画面幅1128pxまではwidth60%を確保、1128px以下cssは別途設定
+    min-width: 1128px;
+    margin: 0px auto;
+    .products_links {
+      padding: 40px 0;
+    }
+    .products-title {
+      padding: 40px 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .products-paginate {
+      padding: 30px 0 100px 0;
+    }
+  }
+}

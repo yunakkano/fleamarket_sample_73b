@@ -1,0 +1,22 @@
+%body
+.register-container
+  %header.register-header
+    %h1
+      %a{href: root_path}
+        %img{alt: "furima", src: asset_path("logo/logo.png")}/
+    %nav.progress-bar.signup-bar
+      %ol.clearfix
+        %li
+          会員情報
+          .progress-status
+        %li
+          会員プロフィール
+          .progress-status
+        %li.active
+          完了
+          .progress-status
+  %main.register-main
+    %h2.l-single-head.registration 登録が完了しました
+    .register-complete
+      = link_to "トップへ戻る", root_path, class: "register-backto-top"
+  = render 'items/purchase_footer'

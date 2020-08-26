@@ -1,0 +1,272 @@
+.all{
+  background-color: #eeeeee;
+  width: 100%;
+  height: 100%;
+}
+
+header{
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+}
+
+.form-main{
+  background-color: white;
+  width: 50%;
+  height: 75%;
+  margin: auto;
+  .goods-photo{
+    padding: 30px;
+    &_about{
+      margin-bottom: 10px;
+    }
+  }
+  .goods-all{
+    padding: 30px;
+    .goods{
+      margin-bottom: 10px;
+      &_about{
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .goods_name_field{
+    width: 95%;
+    height: 50px;
+    padding: 5px;
+  }
+  .goods_introduction_field{
+    width: 95%;
+    height: 150px;
+    padding: 5px;
+  }
+
+  .details{
+    padding: 30px;
+  }
+  .category{
+    margin-bottom: 10px;
+  }
+  .category_select{
+    width: 95%;
+    height: 50px;
+  }
+  .condition_select{
+    width: 95%;
+    height: 50px;
+  }
+  .brand{
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  ul.brands-list{
+    width: 95%;
+    margin-top: 0px;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 2px 4px;
+    max-height: 252px;
+    overflow: auto;
+    list-style: none;
+    li.brand_list-item{
+      display: list-item;
+      cursor: pointer;
+      padding: 16px 8px;
+    }
+    li.active{
+      display: list-item;
+      cursor: pointer;
+      padding: 16px 8px;
+      color: #fff;
+      background: #2bccd1;
+    }
+  }
+
+  .brand_select{
+    width: 95%;
+    height: 50px;
+  }
+  .goods-status{
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  .delivery{
+    padding: 30px;
+    &_how{
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+    &_cost{
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+    &_area{
+      margin-top: 15px;
+      &_option{
+        margin-top: 10px;
+      }
+    }
+    &_day{
+      margin-top: 15px;
+    }
+    &_shipping{
+      margin-top: 10px;
+    }
+  }
+  
+  .delivery_select_option{
+    width: 95%;
+    height: 50px;
+  }
+  
+  .delivery_area_option_select{
+    width: 95%;
+    height: 50px;
+  }
+  
+  .delivery_shipping_select{
+    width: 95%;
+    height: 50px;
+  }
+  
+  .price-all{
+    padding: 30px;
+  }
+  
+  .price_write{
+    display: flex;
+    justify-content: space-between;
+    &_selling{
+      margin-top: 15px;
+    }
+    .price_input{
+      display: flex;
+      .price_logo{
+        margin-top: 15px;
+      }
+      .price_input_field{
+        &_form{
+          width: 300px;
+          height: 50px;
+          margin-left: 10px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+  
+  .submit{
+    padding: 30px;
+    &_form{
+      text-align: center;
+      &_field{
+        margin: auto;
+        width: 350px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+footer{
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+}
+
+.must{
+  background-color: #99ffff;
+}
+
+.select_field{
+  height: 50px;
+  width: 95%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.post__drop__box__container{
+  display: block;
+  margin: 16px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  //プレビュー表示欄のCSS
+  .prev-content {
+    display: flex;
+    .preview-box {
+      height: 162px;
+      width: 112px;
+      margin: 0 15px 10px 0;
+      .upper-box {
+        height: 112px;
+        width: 100%;
+        img{
+          width: 112px;
+          height: 112px;
+        }
+      }
+      .lower-box {
+        display: flex;
+        text-align: center;
+        .update-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
+        }
+        .delete-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  //投稿クリックエリアのCSS
+  .label-content{
+    margin-bottom: 10px;
+    width: 620px;
+    .label-box {
+      display: block;
+      border: 1px dashed #ccc;
+      position: relative;
+      background: #f5f5f5;
+      width: 100%;
+      height: 162px;
+      cursor: pointer;
+      &__text-visible {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        right: 16px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: bold;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        pointer-events: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  //file_fieldのcss
+  .hidden-content {
+    .hidden-field {
+      display: none;
+    }
+    .hidden-checkbox {
+      display: none;
+    }
+  }
+}

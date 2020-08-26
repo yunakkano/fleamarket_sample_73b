@@ -1,0 +1,47 @@
+%script{src: "https://js.pay.jp/", type: "text/javascript"}
+%main.creditcard__container
+  .creditcard__container__content
+    .creditcard__container__chapter
+      %h2.creditcard__container__chapter__head クレジットカード情報入力
+      .creditcard__container__chapter__inner
+      = form_with model: @card, url: user_cards_path, id: "payjp_cardForm", class: "creditcard__container__chapter__inner__addcard__form", method: "POST", local: true do |f|
+        .creditcard__container__chapter__inner__single-content
+          .creditcard__container__chapter__inner__single-content__form-group
+            = f.label :cardNumber, "カード番号"
+            %span.form-require 必須
+            = f.text_field :cardNumber, id: "payjp_cardNum", placeholder: "1234 5678 9012 3456", maxlength: "19", pattern: "([0-9]| )*", class: "input-default"
+            %ul#card-no-error-wrapper.has-error-text
+            %ul.signup-card-list
+              - card_brands.each do |card_brand, size|
+                %li
+                  = image_tag asset_path(card_brand), height: size[:height], width: size[:width]
+          .creditcard__container__chapter__inner__single-content__form-group
+            = f.label :card_expire, "有効期限"
+            %span.form-require 必須
+            %br/
+            .select-wrap-half
+              = f.select :cardExpiresMonth, months_collection, {}, {id:"payjp_cardExpMonth", type: "text", class:"select-default"}
+              %i.icon-arrow-bottom
+              %span 月
+            .select-wrap-half
+              = f.select :cardExpiresYear, options_for_select(years_collection.map{|c|[c[:yy], c[:yyyy]]}), {}, {id:"payjp_cardExpYear", type: "text", class:"select-default"}
+              %i.icon-arrow-bottom
+              %span 年
+            %ul#expire-mm-error-wrapper.has-error-text
+            %ul#expire-yy-error-wrapper.has-error-text
+          .creditcard__container__chapter__inner__single-content__form-group
+            = f.label :cardCvc, "セキュリティコード"
+            %span.form-require 必須
+            = f.text_field :cardCvc, id:"payjp_cardCVC", type:"text", placeholder: "123", maxlength: "4", pattern: "[0-9]*", class: "input-default"
+            %ul#security-code-error-wrapper.has-error-text
+            .signup-seqcode
+              .signup-seqcode__text{"data-js" => "show-tips-toggle"}
+                %span.form-question> ?
+                カード裏面の番号とは？
+              -# 下記は今後の追加開発でjsを使用して表示する予定のため、コメントを残します
+              -# .signup-seqcode-info{"data-js" => "show-tips-content"}
+              -#   カードの裏面をご参照ください。
+              -#   %br/
+              -#   %img{alt: "", src: asset_path("logo/seq-card.png"), width: "240"}/
+          %p#primary-error.has-error-text
+          = f.submit "追加する", id:"addCard", class: "addcard-btn addcard-btn-cian"
