@@ -715,9 +715,9 @@ end
 puts "Loading Items..."
 items = []
 item_img_id=1
-20.times do |i|
+150.times do |i|
   puts "item No=#{i+1}"
-  name = Faker::Company.name
+  name = Faker::Vehicle.model
   introduction = 150.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) }
   price = Faker::Number.between(from: 300, to:100000).to_s
   category_id = Faker::Number.between(from: 3, to:19).to_s

@@ -3,109 +3,109 @@ Dropped database 'fleamarket_sample_73b_test'
 Created database 'fleamarket_sample_73b_development'
 Created database 'fleamarket_sample_73b_test'
 -- create_table("brand_categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0324s
+   -> 0.0311s
 -- create_table("brands", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0118s
+   -> 0.0103s
 -- create_table("cards", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0109s
+   -> 0.0102s
 -- create_table("categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0104s
+   -> 0.0098s
 -- create_table("comments", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0100s
+   -> 0.0102s
 -- create_table("favorites", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0142s
--- create_table("item_imgs", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0118s
--- create_table("items", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0131s
--- create_table("profiles", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0147s
--- create_table("self_introductions", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0115s
--- create_table("sending_destinations", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0111s
--- create_table("sns_credentials", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0115s
--- create_table("users", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0109s
--- add_foreign_key("brand_categories", "brands")
-   -> 0.0159s
--- add_foreign_key("brand_categories", "categories")
-   -> 0.0157s
--- add_foreign_key("favorites", "items")
-   -> 0.0185s
--- add_foreign_key("favorites", "users")
-   -> 0.0122s
--- add_foreign_key("item_imgs", "items")
-   -> 0.0111s
--- add_foreign_key("items", "brands")
-   -> 0.0163s
--- add_foreign_key("items", "categories")
-   -> 0.0198s
--- add_foreign_key("items", "users", {:column=>"buyer_id"})
-   -> 0.0181s
--- add_foreign_key("items", "users", {:column=>"seller_id"})
-   -> 0.0136s
--- add_foreign_key("profiles", "users")
-   -> 0.0147s
--- add_foreign_key("self_introductions", "users")
-   -> 0.0134s
--- add_foreign_key("sending_destinations", "users")
-   -> 0.0122s
--- add_foreign_key("sns_credentials", "users")
-   -> 0.0149s
--- create_table("brand_categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0260s
--- create_table("brands", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0115s
--- create_table("cards", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0107s
--- create_table("categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0111s
--- create_table("comments", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0097s
--- create_table("favorites", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0133s
+   -> 0.0120s
 -- create_table("item_imgs", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
    -> 0.0114s
 -- create_table("items", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0127s
--- create_table("profiles", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0105s
--- create_table("self_introductions", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0100s
--- create_table("sending_destinations", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0102s
--- create_table("sns_credentials", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0105s
--- create_table("users", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
-   -> 0.0104s
--- add_foreign_key("brand_categories", "brands")
-   -> 0.0146s
--- add_foreign_key("brand_categories", "categories")
-   -> 0.0176s
--- add_foreign_key("favorites", "items")
-   -> 0.0161s
--- add_foreign_key("favorites", "users")
-   -> 0.0161s
--- add_foreign_key("item_imgs", "items")
-   -> 0.0149s
--- add_foreign_key("items", "brands")
    -> 0.0165s
--- add_foreign_key("items", "categories")
+-- create_table("profiles", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
    -> 0.0169s
+-- create_table("self_introductions", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0108s
+-- create_table("sending_destinations", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0104s
+-- create_table("sns_credentials", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0093s
+-- create_table("users", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0116s
+-- add_foreign_key("brand_categories", "brands")
+   -> 0.0163s
+-- add_foreign_key("brand_categories", "categories")
+   -> 0.0126s
+-- add_foreign_key("favorites", "items")
+   -> 0.0165s
+-- add_foreign_key("favorites", "users")
+   -> 0.0167s
+-- add_foreign_key("item_imgs", "items")
+   -> 0.0151s
+-- add_foreign_key("items", "brands")
+   -> 0.0214s
+-- add_foreign_key("items", "categories")
+   -> 0.0201s
 -- add_foreign_key("items", "users", {:column=>"buyer_id"})
-   -> 0.0148s
+   -> 0.0168s
 -- add_foreign_key("items", "users", {:column=>"seller_id"})
-   -> 0.0196s
+   -> 0.0172s
 -- add_foreign_key("profiles", "users")
-   -> 0.0190s
+   -> 0.0146s
 -- add_foreign_key("self_introductions", "users")
    -> 0.0142s
 -- add_foreign_key("sending_destinations", "users")
-   -> 0.0123s
+   -> 0.0183s
 -- add_foreign_key("sns_credentials", "users")
-   -> 0.0143s
+   -> 0.0191s
+-- create_table("brand_categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0253s
+-- create_table("brands", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0112s
+-- create_table("cards", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0107s
+-- create_table("categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0119s
+-- create_table("comments", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0117s
+-- create_table("favorites", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0125s
+-- create_table("item_imgs", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0126s
+-- create_table("items", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0135s
+-- create_table("profiles", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0357s
+-- create_table("self_introductions", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0135s
+-- create_table("sending_destinations", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0123s
+-- create_table("sns_credentials", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0113s
+-- create_table("users", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0121s
+-- add_foreign_key("brand_categories", "brands")
+   -> 0.0175s
+-- add_foreign_key("brand_categories", "categories")
+   -> 0.0167s
+-- add_foreign_key("favorites", "items")
+   -> 0.0212s
+-- add_foreign_key("favorites", "users")
+   -> 0.0140s
+-- add_foreign_key("item_imgs", "items")
+   -> 0.0132s
+-- add_foreign_key("items", "brands")
+   -> 0.0167s
+-- add_foreign_key("items", "categories")
+   -> 0.0175s
+-- add_foreign_key("items", "users", {:column=>"buyer_id"})
+   -> 0.0181s
+-- add_foreign_key("items", "users", {:column=>"seller_id"})
+   -> 0.0165s
+-- add_foreign_key("profiles", "users")
+   -> 0.0151s
+-- add_foreign_key("self_introductions", "users")
+   -> 0.0137s
+-- add_foreign_key("sending_destinations", "users")
+   -> 0.0145s
+-- add_foreign_key("sns_credentials", "users")
+   -> 0.0406s
 Loading Categories data...
 Loading Brands data...
 db/brandsdata/brands_cosmetics.txt
@@ -128,94 +128,759 @@ db/brandsdata/brands_motorbikes.txt
 Loading Items...
 item No=1
 Number of images = 3
-item_img_id:1:{:url=>#<ActionDispatch::Http::UploadedFile:0x00007fcdd727ddf8 @tempfile=#<Tempfile:/var/folders/py/z5bxwct97bxb2h5s2x3jf4wh0000gn/T/20200826211703_0.jpg20200826-46814-wetu4h>, @original_filename="20200826211703_0.jpg", @content_type="image/jpeg", @headers=nil>}
-item_img_id:2:{:url=>#<ActionDispatch::Http::UploadedFile:0x00007fcdd727ced0 @tempfile=#<Tempfile:/var/folders/py/z5bxwct97bxb2h5s2x3jf4wh0000gn/T/20200826211703_1.jpg20200826-46814-1c8hpvn>, @original_filename="20200826211703_1.jpg", @content_type="image/jpeg", @headers=nil>}
-item_img_id:3:{:url=>#<ActionDispatch::Http::UploadedFile:0x00007fcdd0d9fa08 @tempfile=#<Tempfile:/var/folders/py/z5bxwct97bxb2h5s2x3jf4wh0000gn/T/20200826211703_2.jpg20200826-46814-1uqbgza>, @original_filename="20200826211703_2.jpg", @content_type="image/jpeg", @headers=nil>}
+item_img_id:1:{:url=>#<ActionDispatch::Http::UploadedFile:0x00007fc01718d628 @tempfile=#<Tempfile:/var/folders/py/z5bxwct97bxb2h5s2x3jf4wh0000gn/T/20200826224751_0.jpg20200826-49949-1f75m2d>, @original_filename="20200826224751_0.jpg", @content_type="image/jpeg", @headers=nil>}
+item_img_id:2:{:url=>#<ActionDispatch::Http::UploadedFile:0x00007fc017187ae8 @tempfile=#<Tempfile:/var/folders/py/z5bxwct97bxb2h5s2x3jf4wh0000gn/T/20200826224751_1.jpg20200826-49949-15tbl56>, @original_filename="20200826224751_1.jpg", @content_type="image/jpeg", @headers=nil>}
+item_img_id:3:{:url=>#<ActionDispatch::Http::UploadedFile:0x00007fc017185dd8 @tempfile=#<Tempfile:/var/folders/py/z5bxwct97bxb2h5s2x3jf4wh0000gn/T/20200826224751_2.jpg20200826-49949-10whaph>, @original_filename="20200826224751_2.jpg", @content_type="image/jpeg", @headers=nil>}
 item No=2
-Number of images = 2
+Number of images = 4
 item_img_id:4:
 item_img_id:5:
-item No=3
-Number of images = 1
 item_img_id:6:
-item No=4
-Number of images = 3
 item_img_id:7:
+item No=3
+Number of images = 4
 item_img_id:8:
 item_img_id:9:
-item No=5
-Number of images = 5
 item_img_id:10:
 item_img_id:11:
+item No=4
+Number of images = 4
 item_img_id:12:
 item_img_id:13:
 item_img_id:14:
-item No=6
-Number of images = 5
 item_img_id:15:
+item No=5
+Number of images = 5
 item_img_id:16:
 item_img_id:17:
 item_img_id:18:
 item_img_id:19:
-item No=7
-Number of images = 1
 item_img_id:20:
-item No=8
-Number of images = 4
+item No=6
+Number of images = 1
 item_img_id:21:
+item No=7
+Number of images = 3
 item_img_id:22:
 item_img_id:23:
 item_img_id:24:
-item No=9
+item No=8
 Number of images = 2
 item_img_id:25:
 item_img_id:26:
-item No=10
+item No=9
 Number of images = 3
 item_img_id:27:
 item_img_id:28:
 item_img_id:29:
-item No=11
-Number of images = 3
+item No=10
+Number of images = 4
 item_img_id:30:
 item_img_id:31:
 item_img_id:32:
-item No=12
-Number of images = 4
 item_img_id:33:
+item No=11
+Number of images = 3
 item_img_id:34:
 item_img_id:35:
 item_img_id:36:
-item No=13
-Number of images = 1
+item No=12
+Number of images = 3
 item_img_id:37:
-item No=14
-Number of images = 2
 item_img_id:38:
 item_img_id:39:
-item No=15
-Number of images = 1
+item No=13
+Number of images = 4
 item_img_id:40:
-item No=16
-Number of images = 3
 item_img_id:41:
 item_img_id:42:
 item_img_id:43:
-item No=17
-Number of images = 1
+item No=14
+Number of images = 4
 item_img_id:44:
-item No=18
-Number of images = 2
 item_img_id:45:
 item_img_id:46:
-item No=19
-Number of images = 4
 item_img_id:47:
+item No=15
+Number of images = 2
 item_img_id:48:
 item_img_id:49:
+item No=16
+Number of images = 5
 item_img_id:50:
-item No=20
-Number of images = 2
 item_img_id:51:
 item_img_id:52:
+item_img_id:53:
+item_img_id:54:
+item No=17
+Number of images = 5
+item_img_id:55:
+item_img_id:56:
+item_img_id:57:
+item_img_id:58:
+item_img_id:59:
+item No=18
+Number of images = 2
+item_img_id:60:
+item_img_id:61:
+item No=19
+Number of images = 3
+item_img_id:62:
+item_img_id:63:
+item_img_id:64:
+item No=20
+Number of images = 1
+item_img_id:65:
+item No=21
+Number of images = 3
+item_img_id:66:
+item_img_id:67:
+item_img_id:68:
+item No=22
+Number of images = 3
+item_img_id:69:
+item_img_id:70:
+item_img_id:71:
+item No=23
+Number of images = 5
+item_img_id:72:
+item_img_id:73:
+item_img_id:74:
+item_img_id:75:
+item_img_id:76:
+item No=24
+Number of images = 1
+item_img_id:77:
+item No=25
+Number of images = 4
+item_img_id:78:
+item_img_id:79:
+item_img_id:80:
+item_img_id:81:
+item No=26
+Number of images = 2
+item_img_id:82:
+item_img_id:83:
+item No=27
+Number of images = 2
+item_img_id:84:
+item_img_id:85:
+item No=28
+Number of images = 3
+item_img_id:86:
+item_img_id:87:
+item_img_id:88:
+item No=29
+Number of images = 5
+item_img_id:89:
+item_img_id:90:
+item_img_id:91:
+item_img_id:92:
+item_img_id:93:
+item No=30
+Number of images = 2
+item_img_id:94:
+item_img_id:95:
+item No=31
+Number of images = 3
+item_img_id:96:
+item_img_id:97:
+item_img_id:98:
+item No=32
+Number of images = 4
+item_img_id:99:
+item_img_id:100:
+item_img_id:101:
+item_img_id:102:
+item No=33
+Number of images = 2
+item_img_id:103:
+item_img_id:104:
+item No=34
+Number of images = 5
+item_img_id:105:
+item_img_id:106:
+item_img_id:107:
+item_img_id:108:
+item_img_id:109:
+item No=35
+Number of images = 1
+item_img_id:110:
+item No=36
+Number of images = 5
+item_img_id:111:
+item_img_id:112:
+item_img_id:113:
+item_img_id:114:
+item_img_id:115:
+item No=37
+Number of images = 5
+item_img_id:116:
+item_img_id:117:
+item_img_id:118:
+item_img_id:119:
+item_img_id:120:
+item No=38
+Number of images = 2
+item_img_id:121:
+item_img_id:122:
+item No=39
+Number of images = 1
+item_img_id:123:
+item No=40
+Number of images = 3
+item_img_id:124:
+item_img_id:125:
+item_img_id:126:
+item No=41
+Number of images = 3
+item_img_id:127:
+item_img_id:128:
+item_img_id:129:
+item No=42
+Number of images = 4
+item_img_id:130:
+item_img_id:131:
+item_img_id:132:
+item_img_id:133:
+item No=43
+Number of images = 1
+item_img_id:134:
+item No=44
+Number of images = 1
+item_img_id:135:
+item No=45
+Number of images = 1
+item_img_id:136:
+item No=46
+Number of images = 2
+item_img_id:137:
+item_img_id:138:
+item No=47
+Number of images = 1
+item_img_id:139:
+item No=48
+Number of images = 4
+item_img_id:140:
+item_img_id:141:
+item_img_id:142:
+item_img_id:143:
+item No=49
+Number of images = 3
+item_img_id:144:
+item_img_id:145:
+item_img_id:146:
+item No=50
+Number of images = 1
+item_img_id:147:
+item No=51
+Number of images = 4
+item_img_id:148:
+item_img_id:149:
+item_img_id:150:
+item_img_id:151:
+item No=52
+Number of images = 3
+item_img_id:152:
+item_img_id:153:
+item_img_id:154:
+item No=53
+Number of images = 1
+item_img_id:155:
+item No=54
+Number of images = 2
+item_img_id:156:
+item_img_id:157:
+item No=55
+Number of images = 1
+item_img_id:158:
+item No=56
+Number of images = 2
+item_img_id:159:
+item_img_id:160:
+item No=57
+Number of images = 1
+item_img_id:161:
+item No=58
+Number of images = 4
+item_img_id:162:
+item_img_id:163:
+item_img_id:164:
+item_img_id:165:
+item No=59
+Number of images = 5
+item_img_id:166:
+item_img_id:167:
+item_img_id:168:
+item_img_id:169:
+item_img_id:170:
+item No=60
+Number of images = 3
+item_img_id:171:
+item_img_id:172:
+item_img_id:173:
+item No=61
+Number of images = 2
+item_img_id:174:
+item_img_id:175:
+item No=62
+Number of images = 1
+item_img_id:176:
+item No=63
+Number of images = 5
+item_img_id:177:
+item_img_id:178:
+item_img_id:179:
+item_img_id:180:
+item_img_id:181:
+item No=64
+Number of images = 5
+item_img_id:182:
+item_img_id:183:
+item_img_id:184:
+item_img_id:185:
+item_img_id:186:
+item No=65
+Number of images = 3
+item_img_id:187:
+item_img_id:188:
+item_img_id:189:
+item No=66
+Number of images = 4
+item_img_id:190:
+item_img_id:191:
+item_img_id:192:
+item_img_id:193:
+item No=67
+Number of images = 2
+item_img_id:194:
+item_img_id:195:
+item No=68
+Number of images = 5
+item_img_id:196:
+item_img_id:197:
+item_img_id:198:
+item_img_id:199:
+item_img_id:200:
+item No=69
+Number of images = 5
+item_img_id:201:
+item_img_id:202:
+item_img_id:203:
+item_img_id:204:
+item_img_id:205:
+item No=70
+Number of images = 2
+item_img_id:206:
+item_img_id:207:
+item No=71
+Number of images = 1
+item_img_id:208:
+item No=72
+Number of images = 5
+item_img_id:209:
+item_img_id:210:
+item_img_id:211:
+item_img_id:212:
+item_img_id:213:
+item No=73
+Number of images = 5
+item_img_id:214:
+item_img_id:215:
+item_img_id:216:
+item_img_id:217:
+item_img_id:218:
+item No=74
+Number of images = 2
+item_img_id:219:
+item_img_id:220:
+item No=75
+Number of images = 4
+item_img_id:221:
+item_img_id:222:
+item_img_id:223:
+item_img_id:224:
+item No=76
+Number of images = 4
+item_img_id:225:
+item_img_id:226:
+item_img_id:227:
+item_img_id:228:
+item No=77
+Number of images = 2
+item_img_id:229:
+item_img_id:230:
+item No=78
+Number of images = 3
+item_img_id:231:
+item_img_id:232:
+item_img_id:233:
+item No=79
+Number of images = 1
+item_img_id:234:
+item No=80
+Number of images = 1
+item_img_id:235:
+item No=81
+Number of images = 2
+item_img_id:236:
+item_img_id:237:
+item No=82
+Number of images = 5
+item_img_id:238:
+item_img_id:239:
+item_img_id:240:
+item_img_id:241:
+item_img_id:242:
+item No=83
+Number of images = 4
+item_img_id:243:
+item_img_id:244:
+item_img_id:245:
+item_img_id:246:
+item No=84
+Number of images = 5
+item_img_id:247:
+item_img_id:248:
+item_img_id:249:
+item_img_id:250:
+item_img_id:251:
+item No=85
+Number of images = 4
+item_img_id:252:
+item_img_id:253:
+item_img_id:254:
+item_img_id:255:
+item No=86
+Number of images = 3
+item_img_id:256:
+item_img_id:257:
+item_img_id:258:
+item No=87
+Number of images = 1
+item_img_id:259:
+item No=88
+Number of images = 4
+item_img_id:260:
+item_img_id:261:
+item_img_id:262:
+item_img_id:263:
+item No=89
+Number of images = 1
+item_img_id:264:
+item No=90
+Number of images = 1
+item_img_id:265:
+item No=91
+Number of images = 1
+item_img_id:266:
+item No=92
+Number of images = 4
+item_img_id:267:
+item_img_id:268:
+item_img_id:269:
+item_img_id:270:
+item No=93
+Number of images = 5
+item_img_id:271:
+item_img_id:272:
+item_img_id:273:
+item_img_id:274:
+item_img_id:275:
+item No=94
+Number of images = 3
+item_img_id:276:
+item_img_id:277:
+item_img_id:278:
+item No=95
+Number of images = 3
+item_img_id:279:
+item_img_id:280:
+item_img_id:281:
+item No=96
+Number of images = 5
+item_img_id:282:
+item_img_id:283:
+item_img_id:284:
+item_img_id:285:
+item_img_id:286:
+item No=97
+Number of images = 3
+item_img_id:287:
+item_img_id:288:
+item_img_id:289:
+item No=98
+Number of images = 4
+item_img_id:290:
+item_img_id:291:
+item_img_id:292:
+item_img_id:293:
+item No=99
+Number of images = 3
+item_img_id:294:
+item_img_id:295:
+item_img_id:296:
+item No=100
+Number of images = 2
+item_img_id:297:
+item_img_id:298:
+item No=101
+Number of images = 5
+item_img_id:299:
+item_img_id:300:
+item_img_id:301:
+item_img_id:302:
+item_img_id:303:
+item No=102
+Number of images = 2
+item_img_id:304:
+item_img_id:305:
+item No=103
+Number of images = 1
+item_img_id:306:
+item No=104
+Number of images = 5
+item_img_id:307:
+item_img_id:308:
+item_img_id:309:
+item_img_id:310:
+item_img_id:311:
+item No=105
+Number of images = 2
+item_img_id:312:
+item_img_id:313:
+item No=106
+Number of images = 1
+item_img_id:314:
+item No=107
+Number of images = 4
+item_img_id:315:
+item_img_id:316:
+item_img_id:317:
+item_img_id:318:
+item No=108
+Number of images = 5
+item_img_id:319:
+item_img_id:320:
+item_img_id:321:
+item_img_id:322:
+item_img_id:323:
+item No=109
+Number of images = 4
+item_img_id:324:
+item_img_id:325:
+item_img_id:326:
+item_img_id:327:
+item No=110
+Number of images = 4
+item_img_id:328:
+item_img_id:329:
+item_img_id:330:
+item_img_id:331:
+item No=111
+Number of images = 3
+item_img_id:332:
+item_img_id:333:
+item_img_id:334:
+item No=112
+Number of images = 4
+item_img_id:335:
+item_img_id:336:
+item_img_id:337:
+item_img_id:338:
+item No=113
+Number of images = 3
+item_img_id:339:
+item_img_id:340:
+item_img_id:341:
+item No=114
+Number of images = 5
+item_img_id:342:
+item_img_id:343:
+item_img_id:344:
+item_img_id:345:
+item_img_id:346:
+item No=115
+Number of images = 1
+item_img_id:347:
+item No=116
+Number of images = 1
+item_img_id:348:
+item No=117
+Number of images = 4
+item_img_id:349:
+item_img_id:350:
+item_img_id:351:
+item_img_id:352:
+item No=118
+Number of images = 4
+item_img_id:353:
+item_img_id:354:
+item_img_id:355:
+item_img_id:356:
+item No=119
+Number of images = 4
+item_img_id:357:
+item_img_id:358:
+item_img_id:359:
+item_img_id:360:
+item No=120
+Number of images = 2
+item_img_id:361:
+item_img_id:362:
+item No=121
+Number of images = 2
+item_img_id:363:
+item_img_id:364:
+item No=122
+Number of images = 5
+item_img_id:365:
+item_img_id:366:
+item_img_id:367:
+item_img_id:368:
+item_img_id:369:
+item No=123
+Number of images = 4
+item_img_id:370:
+item_img_id:371:
+item_img_id:372:
+item_img_id:373:
+item No=124
+Number of images = 5
+item_img_id:374:
+item_img_id:375:
+item_img_id:376:
+item_img_id:377:
+item_img_id:378:
+item No=125
+Number of images = 3
+item_img_id:379:
+item_img_id:380:
+item_img_id:381:
+item No=126
+Number of images = 4
+item_img_id:382:
+item_img_id:383:
+item_img_id:384:
+item_img_id:385:
+item No=127
+Number of images = 2
+item_img_id:386:
+item_img_id:387:
+item No=128
+Number of images = 5
+item_img_id:388:
+item_img_id:389:
+item_img_id:390:
+item_img_id:391:
+item_img_id:392:
+item No=129
+Number of images = 3
+item_img_id:393:
+item_img_id:394:
+item_img_id:395:
+item No=130
+Number of images = 2
+item_img_id:396:
+item_img_id:397:
+item No=131
+Number of images = 2
+item_img_id:398:
+item_img_id:399:
+item No=132
+Number of images = 4
+item_img_id:400:
+item_img_id:401:
+item_img_id:402:
+item_img_id:403:
+item No=133
+Number of images = 1
+item_img_id:404:
+item No=134
+Number of images = 5
+item_img_id:405:
+item_img_id:406:
+item_img_id:407:
+item_img_id:408:
+item_img_id:409:
+item No=135
+Number of images = 3
+item_img_id:410:
+item_img_id:411:
+item_img_id:412:
+item No=136
+Number of images = 5
+item_img_id:413:
+item_img_id:414:
+item_img_id:415:
+item_img_id:416:
+item_img_id:417:
+item No=137
+Number of images = 5
+item_img_id:418:
+item_img_id:419:
+item_img_id:420:
+item_img_id:421:
+item_img_id:422:
+item No=138
+Number of images = 1
+item_img_id:423:
+item No=139
+Number of images = 4
+item_img_id:424:
+item_img_id:425:
+item_img_id:426:
+item_img_id:427:
+item No=140
+Number of images = 1
+item_img_id:428:
+item No=141
+Number of images = 1
+item_img_id:429:
+item No=142
+Number of images = 2
+item_img_id:430:
+item_img_id:431:
+item No=143
+Number of images = 3
+item_img_id:432:
+item_img_id:433:
+item_img_id:434:
+item No=144
+Number of images = 4
+item_img_id:435:
+item_img_id:436:
+item_img_id:437:
+item_img_id:438:
+item No=145
+Number of images = 4
+item_img_id:439:
+item_img_id:440:
+item_img_id:441:
+item_img_id:442:
+item No=146
+Number of images = 4
+item_img_id:443:
+item_img_id:444:
+item_img_id:445:
+item_img_id:446:
+item No=147
+Number of images = 1
+item_img_id:447:
+item No=148
+Number of images = 2
+item_img_id:448:
+item_img_id:449:
+item No=149
+Number of images = 5
+item_img_id:450:
+item_img_id:451:
+item_img_id:452:
+item_img_id:453:
+item_img_id:454:
+item No=150
+Number of images = 3
+item_img_id:455:
+item_img_id:456:
+item_img_id:457:
 done.
