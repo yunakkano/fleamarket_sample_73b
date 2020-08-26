@@ -1,15 +1,5 @@
 = search_form_for @search, class: "form", url: items_searches_path do |f|
   = f.search_field :name_cont, class: "input",  placeholder: "キーワードから探す"
-  -# = f.search_field :name_cont, name: "keyword", placeholder: "キーワードから探す"
   %button{type: 'submit'}
     .icon
       = image_tag 'icon/icon-search 1.png', class: 'icon-image'
-
-
-
-
-  -# %button{type: 'submit'}
-  -#   .icon
-  -#     = image_tag 'icon/icon-search 1.png', class: 'icon-image'
-  -#   -# %input{type: 'hidden'}
-  -#   -# = f.submit 'POST'
