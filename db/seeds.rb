@@ -745,7 +745,7 @@ items = []
         uploaded_file = ActionDispatch::Http::UploadedFile.new(
           filename: filename,
           type: "image/jpeg",
-          headers: "Content-Disposition: form-data; name=\"item[item_imgs_attributes][#{num - 1}][url]\"; filename=\"#{targetfile}\"\r\nContent-Type: image/jpeg\r\n",
+          headers: "Content-Disposition: form-data; name=\"item[item_imgs_attributes][#{num}][url]\"; filename=\"#{targetfile}\"\r\nContent-Type: image/jpeg\r\n",
           tempfile: temp_img_file
         )
         image_urls[num.to_s]= {"url": uploaded_file}
