@@ -1,4 +1,6 @@
-= render 'items/header'
+= render 'items/header_breadcrumbs'
+- breadcrumb :favarites
+= render "layouts/breadcrumbs"
 %main.mypage__container.clearfix
   =render partial: 'users/sidemenu', locals: {active_menu: "いいね！一覧"}
   .mypage__content

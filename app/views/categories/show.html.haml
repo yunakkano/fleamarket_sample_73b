@@ -1,5 +1,11 @@
-= render 'items/header'
-
+= render 'items/header_breadcrumbs'
+- if @category.root?
+  - breadcrumb :parent_category
+- elsif @category.has_children?
+  - breadcrumb :child_category
+- else
+  - breadcrumb :grandchild_category
+= render 'layouts/breadcrumbs'
 .products-container
   .products-index
     .products-title

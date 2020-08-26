@@ -123,3 +123,5 @@ gem 'rails-controller-testing'
 
 # For dummy data generation
 gem 'faker'
+#For breadcrumbs
+gem "gretel"
