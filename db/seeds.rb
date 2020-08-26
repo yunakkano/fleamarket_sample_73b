@@ -726,7 +726,7 @@ item_img_id=1
   preparation_day_id  = Faker::Number.between(from: 1, to:3).to_s
   postage_type_id = Faker::Number.between(from: 1, to:3).to_s
   prefecture_code = Faker::Number.between(from: 1, to:47).to_s
-  trading_status  = Faker::Number.between(from: 1, to:2).to_s
+  trading_status  = Faker::Number.between(from: 0, to:1).to_s
   buyer_id = Faker::Number.between(from: 1, to:100).to_s if trading_status == '1'
   seller_id = Faker::Number.between(from: 1, to:100).to_s
   brand_id = Faker::Number.between(from: 1, to:5000).to_s
