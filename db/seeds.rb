@@ -715,7 +715,7 @@ end
 puts "Loading Items..."
 items = []
 item_img_id=1
-99.times do |i|
+20.times do |i|
   puts "item No=#{i+1}"
   name = Faker::Company.name
   introduction = 150.times.inject("") { |str| str.concat([*"ぁ".."ん"].sample) }
@@ -739,7 +739,7 @@ item_img_id=1
     Dir.glob("db/random_pictures/#{pic_num}.*") {|targetfile|
       open(targetfile, :allow_redirections => :safe) do |file|
         # 一時的にテンポラリーファイルを作る必要があった。
-        filename=DateTime.now.strftime('%Y%m%d%H%M%S') + "_#{num}.jpg"
+        filename = DateTime.now.strftime('%Y%m%d%H%M%S') + "_#{num}.jpg"
         temp_img_file = Tempfile.new(filename)
         temp_img_file.binmode
         temp_img_file << file.read

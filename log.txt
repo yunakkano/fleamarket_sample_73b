@@ -1,0 +1,221 @@
+Dropped database 'fleamarket_sample_73b_development'
+Dropped database 'fleamarket_sample_73b_test'
+Created database 'fleamarket_sample_73b_development'
+Created database 'fleamarket_sample_73b_test'
+-- create_table("brand_categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0324s
+-- create_table("brands", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0118s
+-- create_table("cards", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0109s
+-- create_table("categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0104s
+-- create_table("comments", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0100s
+-- create_table("favorites", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0142s
+-- create_table("item_imgs", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0118s
+-- create_table("items", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0131s
+-- create_table("profiles", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0147s
+-- create_table("self_introductions", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0115s
+-- create_table("sending_destinations", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0111s
+-- create_table("sns_credentials", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0115s
+-- create_table("users", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0109s
+-- add_foreign_key("brand_categories", "brands")
+   -> 0.0159s
+-- add_foreign_key("brand_categories", "categories")
+   -> 0.0157s
+-- add_foreign_key("favorites", "items")
+   -> 0.0185s
+-- add_foreign_key("favorites", "users")
+   -> 0.0122s
+-- add_foreign_key("item_imgs", "items")
+   -> 0.0111s
+-- add_foreign_key("items", "brands")
+   -> 0.0163s
+-- add_foreign_key("items", "categories")
+   -> 0.0198s
+-- add_foreign_key("items", "users", {:column=>"buyer_id"})
+   -> 0.0181s
+-- add_foreign_key("items", "users", {:column=>"seller_id"})
+   -> 0.0136s
+-- add_foreign_key("profiles", "users")
+   -> 0.0147s
+-- add_foreign_key("self_introductions", "users")
+   -> 0.0134s
+-- add_foreign_key("sending_destinations", "users")
+   -> 0.0122s
+-- add_foreign_key("sns_credentials", "users")
+   -> 0.0149s
+-- create_table("brand_categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0260s
+-- create_table("brands", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0115s
+-- create_table("cards", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0107s
+-- create_table("categories", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0111s
+-- create_table("comments", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0097s
+-- create_table("favorites", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0133s
+-- create_table("item_imgs", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0114s
+-- create_table("items", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0127s
+-- create_table("profiles", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0105s
+-- create_table("self_introductions", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0100s
+-- create_table("sending_destinations", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0102s
+-- create_table("sns_credentials", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0105s
+-- create_table("users", {:options=>"ENGINE=InnoDB DEFAULT CHARSET=utf8", :force=>:cascade})
+   -> 0.0104s
+-- add_foreign_key("brand_categories", "brands")
+   -> 0.0146s
+-- add_foreign_key("brand_categories", "categories")
+   -> 0.0176s
+-- add_foreign_key("favorites", "items")
+   -> 0.0161s
+-- add_foreign_key("favorites", "users")
+   -> 0.0161s
+-- add_foreign_key("item_imgs", "items")
+   -> 0.0149s
+-- add_foreign_key("items", "brands")
+   -> 0.0165s
+-- add_foreign_key("items", "categories")
+   -> 0.0169s
+-- add_foreign_key("items", "users", {:column=>"buyer_id"})
+   -> 0.0148s
+-- add_foreign_key("items", "users", {:column=>"seller_id"})
+   -> 0.0196s
+-- add_foreign_key("profiles", "users")
+   -> 0.0190s
+-- add_foreign_key("self_introductions", "users")
+   -> 0.0142s
+-- add_foreign_key("sending_destinations", "users")
+   -> 0.0123s
+-- add_foreign_key("sns_credentials", "users")
+   -> 0.0143s
+Loading Categories data...
+Loading Brands data...
+db/brandsdata/brands_cosmetics.txt
+db/brandsdata/brands_ladies.txt
+db/brandsdata/brands_watch.txt
+db/brandsdata/brands_musicinstr.txt
+db/brandsdata/brands_interiors.txt
+db/brandsdata/brands_phones.txt
+db/brandsdata/brands_motors_dom.txt
+db/brandsdata/brands_foods.txt
+db/brandsdata/brands_motors_overseas.txt
+db/brandsdata/brands_babykids.txt
+db/brandsdata/brands_sports.txt
+db/brandsdata/brands_electronics.txt
+db/brandsdata/brands_videogames.txt
+db/brandsdata/brands_kitchen.txt
+db/brandsdata/brands_mens.txt
+db/brandsdata/brands_autoparts.txt
+db/brandsdata/brands_motorbikes.txt
+Loading Items...
+item No=1
+Number of images = 3
+item_img_id:1:{:url=>#<ActionDispatch::Http::UploadedFile:0x00007fcdd727ddf8 @tempfile=#<Tempfile:/var/folders/py/z5bxwct97bxb2h5s2x3jf4wh0000gn/T/20200826211703_0.jpg20200826-46814-wetu4h>, @original_filename="20200826211703_0.jpg", @content_type="image/jpeg", @headers=nil>}
+item_img_id:2:{:url=>#<ActionDispatch::Http::UploadedFile:0x00007fcdd727ced0 @tempfile=#<Tempfile:/var/folders/py/z5bxwct97bxb2h5s2x3jf4wh0000gn/T/20200826211703_1.jpg20200826-46814-1c8hpvn>, @original_filename="20200826211703_1.jpg", @content_type="image/jpeg", @headers=nil>}
+item_img_id:3:{:url=>#<ActionDispatch::Http::UploadedFile:0x00007fcdd0d9fa08 @tempfile=#<Tempfile:/var/folders/py/z5bxwct97bxb2h5s2x3jf4wh0000gn/T/20200826211703_2.jpg20200826-46814-1uqbgza>, @original_filename="20200826211703_2.jpg", @content_type="image/jpeg", @headers=nil>}
+item No=2
+Number of images = 2
+item_img_id:4:
+item_img_id:5:
+item No=3
+Number of images = 1
+item_img_id:6:
+item No=4
+Number of images = 3
+item_img_id:7:
+item_img_id:8:
+item_img_id:9:
+item No=5
+Number of images = 5
+item_img_id:10:
+item_img_id:11:
+item_img_id:12:
+item_img_id:13:
+item_img_id:14:
+item No=6
+Number of images = 5
+item_img_id:15:
+item_img_id:16:
+item_img_id:17:
+item_img_id:18:
+item_img_id:19:
+item No=7
+Number of images = 1
+item_img_id:20:
+item No=8
+Number of images = 4
+item_img_id:21:
+item_img_id:22:
+item_img_id:23:
+item_img_id:24:
+item No=9
+Number of images = 2
+item_img_id:25:
+item_img_id:26:
+item No=10
+Number of images = 3
+item_img_id:27:
+item_img_id:28:
+item_img_id:29:
+item No=11
+Number of images = 3
+item_img_id:30:
+item_img_id:31:
+item_img_id:32:
+item No=12
+Number of images = 4
+item_img_id:33:
+item_img_id:34:
+item_img_id:35:
+item_img_id:36:
+item No=13
+Number of images = 1
+item_img_id:37:
+item No=14
+Number of images = 2
+item_img_id:38:
+item_img_id:39:
+item No=15
+Number of images = 1
+item_img_id:40:
+item No=16
+Number of images = 3
+item_img_id:41:
+item_img_id:42:
+item_img_id:43:
+item No=17
+Number of images = 1
+item_img_id:44:
+item No=18
+Number of images = 2
+item_img_id:45:
+item_img_id:46:
+item No=19
+Number of images = 4
+item_img_id:47:
+item_img_id:48:
+item_img_id:49:
+item_img_id:50:
+item No=20
+Number of images = 2
+item_img_id:51:
+item_img_id:52:
+done.
