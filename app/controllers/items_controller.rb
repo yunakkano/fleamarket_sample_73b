@@ -38,7 +38,6 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:alert] = @item.errors.full_messages
-      # @item = Item.new(item_update_params)
       @item_imgs=[]
       params["item"]["item_imgs_attributes"].each { |key, elem|
         @item_imgs << ItemImg.find(elem["id"]) if elem["_destroy"]=="0"
