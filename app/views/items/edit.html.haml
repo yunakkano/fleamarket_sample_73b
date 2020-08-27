@@ -27,7 +27,7 @@
                 .label-content
 
                   //プレビューの数に合わせてforオプションを指定
-                  = f.label :"item_imgs_attributes_#{@item_imgs.length}_url", class: "label-box", id: "label-box--#{@item.item_imgs.length}" do
+                  = f.label :"item_imgs_attributes_#{@item_imgs.length}_url", class: "label-box", id: "label-box--#{@item_imgs.length}" do
                     %pre.label-box__text-visible クリックしてファイルをアップロード
                 .hidden-content
                   = f.fields_for :item_imgs do |i|
