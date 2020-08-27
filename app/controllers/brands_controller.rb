@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
     before_action :set_parents, only: [:index, :show]
+    before_action :search_params, only: [:index, :show]
     def index
         @brand_categories = Category.where(id: BrandCategory.select(:category_id).distinct)
         @ladies_hash = Brand.indexed_brands_hash(1)

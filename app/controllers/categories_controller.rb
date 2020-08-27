@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: :show
-  before_action :set_parents, only: [:index, :show]
+  before_action :set_parents, only: :show
+  before_action :search_params, only: :show
 
   def show
     # @items = @category.items の記述では、@categoryが孫の場合しか商品情報を取得出来ないため、モデルメソッド set_itemsにより、カテゴリー内の適切な商品を取得する

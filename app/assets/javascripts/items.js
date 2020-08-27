@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', function(){
     }
 
 
-    if (window.location.href.match(/\/items\/\d+\/edit/)){
+    if (window.location.href.match(/\/items\/\d+(\/edit|)/) && $('.label-content').length > 0){
       //登録済み画像のプレビュー表示欄の要素を取得する
       var prevContent = $('.label-content').prev();
       labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
@@ -48,6 +48,7 @@ $(document).on('turbolinks:load', function(){
     $(document).on('change', '.hidden-field', function() {
       setLabel();
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      console.log($(this).attr('id'))
       $('.label-box').attr({id: `label-box--${id}`,for: `item_item_imgs_attributes_${id}_url`});
       var file = this.files[0];
       var reader = new FileReader();

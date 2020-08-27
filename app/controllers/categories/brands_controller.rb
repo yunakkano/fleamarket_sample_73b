@@ -1,5 +1,6 @@
 class Categories::BrandsController < ApplicationController
-    before_action :set_parents, only: [:index]
+    before_action :set_parents, only: :index
+    before_action :search_params, only: :index
     def index
         @brand_categories = Category.where(id: BrandCategory.select(:category_id).distinct)
         @selected_category = Category.find(params[:category_id])

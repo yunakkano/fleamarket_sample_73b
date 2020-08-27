@@ -1,4 +1,6 @@
-= render 'items/header'
+= render 'items/header_breadcrumbs'
+- breadcrumb :mypage
+= render 'layouts/breadcrumbs'
 - if user_signed_in? && current_user.id == @target_user_id
   %main.mypage__container.clearfix
     =render partial: 'users/sidemenu', locals: {active_menu: "マイページ"}
