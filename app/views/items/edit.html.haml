@@ -6,12 +6,6 @@
           = link_to root_path do
             = image_tag "logo.png", height: "80", width: "300"
       .form-main
-        - if @item.errors.any?
-          .chat-group-form__errors
-            %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
-            %ul
-              - @item.errors.full_messages.each do |message|
-                %li= message
         .goods-photo
           #image-box
             .goods-photo_about
@@ -20,8 +14,8 @@
               %p 最大5枚までアップロードできます
               .post__drop__box__container
                 .prev-content
-                  - @item.item_imgs.each do |item_img|
-                    .preview-box
+                  - @item_imgs.each_with_index do |item_img, i|
+                    .preview-box{id:"preview-box__#{i}"}
                       .upper-box
                         = image_tag item_img.url.url, width: "112", height: "112", alt: "preview"
                       .lower-box
@@ -33,7 +27,7 @@
                 .label-content
 
                   //プレビューの数に合わせてforオプションを指定
-                  = f.label :"item_imgs_attributes_#{@item.item_imgs.length}_url", class: "label-box", id: "label-box--#{@item.item_imgs.length}" do
+                  = f.label :"item_imgs_attributes_#{@item_imgs.length}_url", class: "label-box", id: "label-box--#{@item.item_imgs.length}" do
                     %pre.label-box__text-visible クリックしてファイルをアップロード
                 .hidden-content
                   = f.fields_for :item_imgs do |i|
@@ -43,7 +37,7 @@
                     = i.check_box :_destroy, class: "hidden-checkbox"
 
                     //5つのfile_fieldを準備するに当たって、足りない分を表示
-                  - @item.item_imgs.length.upto(4) do |i|
+                  - @item_imgs.length.upto(4) do |i|
                     %input{name: "item[item_imgs_attributes][#{i}][url]", id: "item_item_imgs_attributes_#{i}_url", class:"hidden-field", type:"file"}
             = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "画像"}  
         %hr.border/
@@ -59,6 +53,7 @@
             %label 商品の説明
             %span.must 必須
           = f.text_area :introduction, class: "goods_introduction_field", placeholder: "商品の説明（必須 1,000文字以内）(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          = render partial: "devise/shared/error_message_fieldname", locals: {model: @item, fieldname: "商品の説明"}
         %hr.border/
         .details
           %p.detail 商品の詳細
@@ -79,7 +74,7 @@
             .brand_type
               = text_field_tag "brand_name", @brand.brand, {class: "select_field", id: "brand_name_field", placeholder: "例）シャネル"}
               %ul{id:"brands_matched", class: "brands-list"}
-              = f.text_field :brand_id, {type: "hidden", id: "brand_select_field"}
+              = f.text_field :brand_id, {type: "hidden", id: "brand_select_field", value: @brand.id,}
           .goods-status-all
             .goods-status
               %label 商品の状態
