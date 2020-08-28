@@ -42,7 +42,13 @@ crumb :brands_detail do |brand|
 end
 
 crumb :mypage do
-  link "マイページ", user_path(current_user.id)
+  if user_signed_in? 
+    link "マイページ", user_path(current_user.id)
+    parent :root
+  else
+    link "マイページ", user_path
+    parent :root
+  end
 end
 
 crumb :notice do
