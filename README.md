@@ -13,6 +13,10 @@
 - has_one :self_introduction, dependent: :destroy
 - has_many :seller_items, foreign_key: "seller_id", class_name: "items"
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
+- has_many :favorites, dependent: :destroy
+- has_many :favorite_items, through: :favorites, source: :item
+- has_many :sns_credentials, dependent: :destroy
+- has_many :comments, dependent: :destroy
 
 ## profileテーブル
 
@@ -109,17 +113,32 @@
 
 ### Association
 - has_many :items
-
+- has_ancestry
+- has_many :brand_categories
+- has_many :brands, through: :brand_categories
 
 ## brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |brand|string|null: false|
+|kana_index|string|null: false|
 
 ### Association
 - has_many :items
+- has_many :brand_categories
+- has_many :categories, through: :brand_categories
 
+## brand_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|brand_id|bigint||
+|category_id|bigint||
+
+### Association
+- belongs_to :brand
+- belongs_to :category
 
 ## item_conditionsテーブル(active_hash)
 
@@ -171,7 +190,7 @@
 ### Association
 - belongs_to :user
 
-## sns_credentialテーブル
+## sns_credentialsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
