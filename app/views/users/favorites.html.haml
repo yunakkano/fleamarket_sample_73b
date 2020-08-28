@@ -16,9 +16,10 @@
                   .mypage__productSold
                     .mypage__productSold__inner
                       SOLD
-                - item.item_imgs.each do |item_img|
-                  = image_tag item_img.url.url
-
+                - item.item_imgs.each_with_index do |item_img, i|
+                  -# 配列の先頭の画像のみ表示
+                  -if i == 0
+                    = image_tag item_img.url.url
               .mypage__favContent__content__body
                 %h3.mypage__favContent__content__body--name
                   = item.name
