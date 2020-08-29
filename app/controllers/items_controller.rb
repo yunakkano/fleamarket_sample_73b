@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
       params["item"]["item_imgs_attributes"].each { |key, elem|
         @item_imgs << ItemImg.find(elem["id"]) if elem["_destroy"]=="0"
       }
-      @brand = Brand.find(@item.brand_id)
+      @brand = Brand.find(@item.brand_id) if @item.brand_id.present?
       render :edit and return
     end
   end
