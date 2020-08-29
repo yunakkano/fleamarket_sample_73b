@@ -47,7 +47,7 @@ module UserHelper
           {title:"支払い方法", path: "user_cards_path(current_user.id)", method: "get", value: ""},
           {title:"メール/パスワード", path: "edit_user_registration_path", method: "get", value: ""},
           {title:"本人情報", path: "edit_user_profile_path(current_user.id, current_user.profile.id)", method: "get", value: ""},
-          {title:"電話番号の確認", path: "user_path(current_user.id)", method: "get", value: ""},
+          #{title:"電話番号の確認", path: "user_path(current_user.id)", method: "get", value: ""},
         ] 
       }
 
