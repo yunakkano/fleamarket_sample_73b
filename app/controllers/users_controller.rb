@@ -22,9 +22,4 @@ class UsersController < ApplicationController
   def favorites
     Favorite.find_by(user_id: current_user.id, item_id: params[:item_id])
   end
-
-  private
-  def redirect_if_direct_access
-    redirect_to root_path and return unless request.referrer
-  end
 end

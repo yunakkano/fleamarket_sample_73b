@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_parents, only: [:index, :new, :create, :edit, :update, :show]
   before_action :set_item, only: [:show, :purchase, :pay, :card_show, :edit, :update, :destroy]
   before_action :set_card, only: [:purchase, :pay, :card_show]
+  before_action :redirect_if_direct_access, only: [:new, :create, :edit, :update, :destroy, :purchase]
 
   def index
     @items = Item.includes(:item_imgs).order('created_at DESC')

@@ -33,6 +33,10 @@ class ApplicationController < ActionController::Base
       @search_result = Item.all
     end
   end
+
+  def redirect_if_direct_access
+    redirect_to root_path and return unless request.referrer
+  end
   
   protected
 
