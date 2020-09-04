@@ -31,6 +31,7 @@ class Item < ApplicationRecord
   validates :postage_type_id,  presence: true
   validates :item_condition_id,           presence: true
   validates :category_id,    presence: true
+  validate  :is_gc_category?
 
   def self.search(keyword)
     if keyword
@@ -39,5 +40,10 @@ class Item < ApplicationRecord
       Item.all
     end
   end
-  
+
+  def is_gc_category?
+    if Category.find(category_id).has_children?
+      errors.add(:category_id, "カテゴリー選択が不正です。")
+    end 
+  end
 end

@@ -30,18 +30,17 @@
           %tr
             %th カテゴリー
             %td
-              - if @category_parent && @category_child && @category_grandchild
-                = link_to category_path(@category_parent), method: "get" do
-                  %div
-                    = @category_parent.category
-                = link_to category_path(@category_child), method: "get" do
-                  .item-detail-table-category
-                    = icon('fas','caret-right', class: 'icon-arrow-right')
-                    = @category_child.category
-                = link_to category_path(@category_grandchild), method: "get" do
-                  .item-detail-table-category
-                    = icon('fas','caret-right', class: 'icon-arrow-right')
-                    = @category_grandchild.category
+              = link_to category_path(@category_parent), method: "get" do
+                %div
+                  = @category_parent.category
+              = link_to category_path(@category_child), method: "get" do
+                .item-detail-table-category
+                  = icon('fas','caret-right', class: 'icon-arrow-right')
+                  = @category_child.category
+              = link_to category_path(@category_grandchild), method: "get" do
+                .item-detail-table-category
+                  = icon('fas','caret-right', class: 'icon-arrow-right')
+                  = @category_grandchild.category
           - if @brand
             %tr
               %th ブランド
