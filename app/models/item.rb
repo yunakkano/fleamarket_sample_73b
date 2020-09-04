@@ -43,7 +43,7 @@ class Item < ApplicationRecord
 
   def is_gc_category?
     if Category.find(category_id).has_children?
-      errors.add(:category_id, "カテゴリー選択が不正です。")
+      errors.add(:category_id, " 選択が不正です。")
     end 
   end
 end
