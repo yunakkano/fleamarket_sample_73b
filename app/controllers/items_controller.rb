@@ -81,8 +81,8 @@ class ItemsController < ApplicationController
     @preparation_day = PreparationDay.find(@item.preparation_day_id)
     @prefecture = JpPrefecture::Prefecture.find(@item.prefecture_code)
     @category_grandchild = Category.find(@item.category_id)
-    @category_child = @category_grandchild.parent
-    @category_parent = @category_child.parent
+    @category_child = @category_grandchild.parent if @category_grandchild.parent.present?
+    @category_parent = @category_child.parent if @category_child.parent.present?
     @category_items = Item.includes(:item_imgs).where(category_id: @item.category_id).where.not(id: @item.id).limit(6)
     @comment = Comment.new
     @comments = @item.comments.order(created_at: :desc)
