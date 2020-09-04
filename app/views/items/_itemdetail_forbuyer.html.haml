@@ -143,7 +143,8 @@
   .items-related
     .items-related__group
       %h2.items-related__group__head
-        = link_to "#{@category_child.category} #{@category_grandchild.category} その他の商品", ""
+        - if @category_child && @category_grandchild
+          = link_to "#{@category_child.category} #{@category_grandchild.category} その他の商品", ""
       .items-related__group__content
         - for i in 0..5
           - if @category_items[i]
